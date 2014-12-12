@@ -1,0 +1,10 @@
+TODOs
+=====
+
+- i18n
+- JS Unit and integration tests
+- detection of code change
+- py.test execution
+- web socket implementation w/ angular
+- deployment
+- ...
