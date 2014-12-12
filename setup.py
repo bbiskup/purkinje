@@ -1,4 +1,9 @@
-from distutils.core import setup
+from setuptools import setup
+
+
+def parse_requirements():
+    with open('requirements.txt') as req:
+        return req.readlines()
 
 setup(name='purkinje',
       version='0.0.1',
@@ -6,4 +11,8 @@ setup(name='purkinje',
       author='Bernhard Biskup',
       author_email='bbiskup@gmx.de',
       url='biskup-software.de',
+      packages=['src/purkinje'],
+      zip_safe=False,
+      include_package_data=True,
+      install_requires=parse_requirements()
       )
