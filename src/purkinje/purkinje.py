@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+import gevent.monkey
+gevent.monkey.patch_all()
 from gevent.wsgi import WSGIServer
 import werkzeug.serving
 from werkzeug.debug import DebuggedApplication
