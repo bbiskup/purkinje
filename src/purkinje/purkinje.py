@@ -12,7 +12,6 @@ DEBUG = True
 def main():
     """Starts web application
     """
-    # TODO: debugger is not active with gevent WSGIServer
     app = get_app()
     app.debug = DEBUG
     http_server = WSGIServer(('', APP_PORT),
