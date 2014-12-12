@@ -1,4 +1,5 @@
 Flask==0.10.1
+Flask-Assets==0.10
 Flask-Sockets==0.1
 Jinja2==2.7.3
 MarkupSafe==0.23
@@ -15,4 +16,5 @@ pytest==2.6.4
 pytest-cache==1.0
 pytest-pep8==1.0.6
 test-pkg==0.0
+webassets==0.10.1
 wsgiref==0.1.2
