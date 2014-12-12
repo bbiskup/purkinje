@@ -2,8 +2,18 @@ from flask.ext.assets import Bundle, Environment
 
 
 bundles = {
-    'home_css': Bundle(
-        'css/default.css'
+    'css': Bundle(
+        'css/default.css',
+
+        filters='cssmin',
+        output='gen/packed.css'
+    ),
+    'js': Bundle(
+        'bower_components/angular/angular.js',
+        'js/app.js',
+
+        filters='jsmin',
+        output='gen/packed.js'
     )
 }
 

@@ -3,4 +3,6 @@ venv
 MANIFEST
 dist
 .cache
-bower_components/
+src/purkinje/static/bower_components/
+src/purkinje/static/.webassets-cache/
+src/purkinje/static/gen/

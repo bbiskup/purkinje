@@ -1,0 +1,1 @@
+angular.module('purkinje', ['ui.bootstrap']);
