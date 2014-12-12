@@ -19,6 +19,11 @@ def test_index(client):
     assert client.get(url_for('index')).status_code == httplib.OK
 
 
+def test_index_post_fails(client):
+    s = client.post(url_for('index')).status_code
+    assert s == httplib.METHOD_NOT_ALLOWED
+
+
 def test_404(client):
     assert client.get(
         '/nonexistant_sdfsdfhipsdfhsdifh').status_code == httplib.OK
