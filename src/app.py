@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sockets import Sockets
 
 app = Flask(__name__)
@@ -7,7 +7,7 @@ sockets = Sockets(app)
 
 @app.route('/')
 def main():
-    return "Purkinje"
+    render_template('index.html')
 
 
 @sockets.route('/subscribe')
