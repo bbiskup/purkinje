@@ -6,14 +6,3 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
     $interpolateProvider.endSymbol(']}');
 }]);
 
-app.controller('DummyController', function($scope) {
-    $scope.xyz = "hello";
-    //$scope.people = ['Jim', 'Jill', 'Jerome'];
-    $scope.people = [{
-        name: 'Jim'
-    }, {
-        name: 'Jeff'
-    }, {
-        name: 'Jill'
-    }, ]
-});

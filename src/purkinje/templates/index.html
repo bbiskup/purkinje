@@ -30,7 +30,7 @@
         <div class="col-sm-9 col-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="pageheader">Test Results</h1>
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" ng-controller="TestResultsTableController">
                     <thead>
                         <tr>
                             <th>Test Case</th>
@@ -39,15 +39,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>compute average</td>
-                            <td>tests/test_calc.py</td>
-                            <td class='danger'>fail</td>
-                        </tr>
-                        <tr>
-                            <td>compute median</td>
-                            <td>tests/test_calc.py</td>
-                            <td class='info'>pass</td>
+                        <tr ng-repeat="result in testResults">
+                            <td>{[result.name]}</td>
+                            <td>{[result.file]}</td>
+                            <td class='{[ verdictDisplayClass(result.verdict) ]}'>
+                                {[result.verdict]}
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -56,6 +53,7 @@
     </div>
 </div>
 
+<!--
 <div id="dummy-div" ng-controller="DummyController">
     Angular value (from controller): {[ xyz ]}<br>
     Angular value (direct): {[ 1 + 2]}<br>
@@ -64,4 +62,5 @@
         <li>{[person.name]}</li>
     </ul>
 </div>
+-->
 {% endblock %}

@@ -18,7 +18,10 @@ bundles = {
         'bower_components/angular/angular.js',
         'bower_components/angular-bootstrap/ui-bootstrap.js',
         'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+
+        'js/defs.js',
         'js/app.js',
+        'js/controllers.js',
 
         # filters='jsmin',
         # output='gen/packed.js'
