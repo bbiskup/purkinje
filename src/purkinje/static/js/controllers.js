@@ -17,14 +17,14 @@ app.controller('TestResultsTableController', function($scope) {
             file: 'file_1.py',
             verdict: defs.Verdict.PASS
         }, {
-            name: 'test_1',
-            file: 'file_1.py',
+            name: 'test_2',
+            file: 'file_2.py',
             verdict: defs.Verdict.FAIL
         },
 
         {
-            name: 'test_1',
-            file: 'file_1.py',
+            name: 'test_3',
+            file: 'file_3.py',
             verdict: defs.Verdict.PASS
         },
 
