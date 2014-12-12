@@ -14,6 +14,7 @@ def main():
     """
     app = get_app()
     app.debug = DEBUG
+    #app.config['ASSETS_DEBUG'] = DEBUG
     http_server = WSGIServer(('', APP_PORT),
                              DebuggedApplication(app, evalex=True))
     http_server.serve_forever()
