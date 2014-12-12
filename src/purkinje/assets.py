@@ -1,8 +1,11 @@
 from flask.ext.assets import Bundle, Environment
 
 
+# paths are relative to the 'static' directory
 bundles = {
     'css': Bundle(
+        'bower_components/bootstrap/dist/css/bootstrap.css',
+        'bower_components/bootstrap/dist/css/bootstrap-theme.css',
         'css/default.css',
 
         filters='cssmin',
