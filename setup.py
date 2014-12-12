@@ -11,8 +11,14 @@ setup(name='purkinje',
       author='Bernhard Biskup',
       author_email='bbiskup@gmx.de',
       url='biskup-software.de',
-      packages=['src/purkinje'],
+      package_dir={'': 'src'},
+      packages=['purkinje'],
       zip_safe=False,
       include_package_data=True,
-      install_requires=parse_requirements()
+      install_requires=parse_requirements(),
+      entry_points={
+          'console_scripts': [
+              'purkinje = purkinje.purkinje:main'
+          ]
+      }
       )
