@@ -3,8 +3,12 @@
 
 <head>
     <!-- See https://exploreflask.com/static.html -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}"> {% assets "home_css" %}
-    <link rel="stylesheet" href="{{ASSET_URL}}" /> {% endassets %}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}"> 
+    {% assets "home_css" %}
+        <link rel="stylesheet" href="{{ASSET_URL}}" /> 
+    {% endassets %}
+
+    
 
     <title>Purkinje Test Runner</title>
 </head>

@@ -3,7 +3,6 @@ from gevent.wsgi import WSGIServer
 import werkzeug.serving
 from werkzeug.debug import DebuggedApplication
 from app import get_app
-from assets import register_assets
 
 APP_PORT = 5000
 DEBUG = True
@@ -15,7 +14,6 @@ def main():
     """
     app = get_app()
     app.debug = DEBUG
-    register_assets(app)
     http_server = WSGIServer(('', APP_PORT),
                              DebuggedApplication(app, evalex=True))
     http_server.serve_forever()
