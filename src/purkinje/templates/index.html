@@ -30,9 +30,9 @@
         <div class="col-sm-9 col-offset-3 col-md-10 col-md-offset-2 main" ng-controller="TestResultsTableController">
             <h1 class="pageheader">Test Results</h1>
             <ul id="result-summary" class="nav nav-pills" role="tablist">
-                <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ testResults.verdictCounts.pass ]}</span></a></li>
-                <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">abc</span></a></li>
-                <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">997</span></a></li>
+                <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
+                <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span></a></li>
+                <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span></a></li>
             </ul>
 
             <div class="table-responsive">
