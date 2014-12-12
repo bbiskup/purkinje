@@ -11,6 +11,10 @@ def app():
     return get_app()
 
 
+def test_app_conf(app):
+    assert not app.debug
+
+
 def test_index(client):
     assert client.get(url_for('index')).status_code == httplib.OK
 
