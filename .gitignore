@@ -3,3 +3,4 @@ venv
 MANIFEST
 dist
 .cache
+bower_components/

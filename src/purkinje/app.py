@@ -32,8 +32,6 @@ def get_app():
 
 @app.route('/', methods=['GET'])
 def index():
-    a=[]
-    a[100]
     return render_template('index.html')
 
 

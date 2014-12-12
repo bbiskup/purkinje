@@ -1,0 +1,28 @@
+{
+  "name": "purkinje",
+  "version": "0.0.1",
+  "authors": [
+    "Bernd Biskup <bbiskup@gmx.de>"
+  ],
+  "description": "Test runner for py.test test framework with web GUI",
+  "main": "www/js/app.js",
+  "keywords": [
+    "['pytest'",
+    "'angularjs'",
+    "'websocket'",
+    "'testrunner']"
+  ],
+  "license": "MIT",
+  "homepage": "http://biskup-software.de",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.6"
+  }
+}
