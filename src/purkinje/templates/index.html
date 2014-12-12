@@ -1,22 +1,51 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %} {% block body %}
 
-<head>
-    <!-- See https://exploreflask.com/static.html -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}"> 
-    {% assets "css" %}
-        <link rel="stylesheet" href="{{ ASSET_URL}}" /> 
-    {% endassets %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+        </div>
+    </div>
+</nav>
 
-    {% assets "js" %}
-        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-
-    <title>Purkinje Test Runner</title>
-</head>
-
-<body>
-    Purkinje ready.
-</body>
-
-</html>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <ul class="nav nav-sidebar">
+                <li><a href="#all"/></li>
+                <li><a href="#fails"/></li>
+                <li><a href="#passes"/></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="pageheader">Purkinje</h1>
+            <h2 class="subheader">Test Results</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Test Case</th>
+                            <th>File</th>
+                            <th>Results</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>compute average</td>
+                            <td>tests/test_calc.py</td>
+                            <td class='danger'>fail</td>
+                        </tr>
+                        <tr>
+                            <td>compute median</td>
+                            <td>tests/test_calc.py</td>
+                            <td class='info'>pass</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

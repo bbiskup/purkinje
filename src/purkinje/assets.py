@@ -6,6 +6,9 @@ bundles = {
     'css': Bundle(
         'bower_components/bootstrap/dist/css/bootstrap.css',
         'bower_components/bootstrap/dist/css/bootstrap-theme.css',
+
+        'css/thirdparty/dashboard.css',
+
         'css/default.css',
 
         filters='cssmin',

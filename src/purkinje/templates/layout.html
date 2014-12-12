@@ -2,16 +2,17 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta description="Purkinje test runner">
+    <meta name="author" content="bbiskup@gmx.de">
     <!-- See https://exploreflask.com/static.html -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}"> 
     {% assets "css" %}
         <link rel="stylesheet" href="{{ ASSET_URL}}" /> 
     {% endassets %}
-
-    {% assets "js" %}
-        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-
+    
     <title>Purkinje Test Runner</title>
 </head>
 
@@ -19,5 +20,8 @@
     {% block body %}
     {% endblock %}
 </body>
+    {% assets "js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 
 </html>
