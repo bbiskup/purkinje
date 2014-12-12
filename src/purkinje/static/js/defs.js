@@ -2,6 +2,7 @@ window.defs = {
     Verdict: {
         PASS: 'pass',
         FAIL: 'fail',
-        ERROR: 'error'
+        ERROR: 'error',
+        SKIPPED: 'skipped'
     }
 };
