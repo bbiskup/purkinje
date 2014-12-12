@@ -9,16 +9,19 @@ bundles = {
 
         'css/thirdparty/dashboard.css',
 
+        'css/purkinje.css',
         'css/default.css',
 
         filters='cssmin',
         output='gen/packed.css'
     ),
     'js': Bundle(
+        'bower_components/underscore/underscore.js',
         'bower_components/angular/angular.js',
         'bower_components/angular-bootstrap/ui-bootstrap.js',
         'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
 
+        'js/util.js',
         'js/defs.js',
         'js/app.js',
         'js/controllers.js',

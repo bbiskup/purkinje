@@ -1,0 +1,8 @@
+
+/**
+* For colored badges
+* See http://stackoverflow.com/a/26495054
+*/
+.label-as-badge {
+    border-radius: 10em;
+}
