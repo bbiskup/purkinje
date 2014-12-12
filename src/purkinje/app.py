@@ -34,6 +34,10 @@ def get_app():
 def index():
     return render_template('index.html')
 
+@app.route('/trigger_error', methods=['GET'])
+def trigger_error():
+    raise Exception('Intentional error')
+
 
 @app.errorhandler(httplib.NOT_FOUND)
 def page_not_found(error):
