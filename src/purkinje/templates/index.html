@@ -55,4 +55,13 @@
         </div>
     </div>
 </div>
+
+<div id="dummy-div" ng-controller="DummyController">
+    Angular value (from controller): {[ xyz [}<br>
+    Angular value (direct): {[ 1 + 2]}<br>
+
+    <ul ng-repeat="person in people">
+        <li>{[person.name]}</li>
+    </ul>
+</div>
 {% endblock %}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="purkinje">
 
 <head>
     <meta charset="utf-8">
@@ -13,6 +13,9 @@
         <link rel="stylesheet" href="{{ ASSET_URL}}" /> 
     {% endassets %}
     
+     {% assets "js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
     <title>Purkinje Test Runner</title>
 </head>
 
@@ -20,8 +23,4 @@
     {% block body %}
     {% endblock %}
 </body>
-    {% assets "js" %}
-        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-
 </html>

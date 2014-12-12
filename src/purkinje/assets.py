@@ -16,10 +16,12 @@ bundles = {
     ),
     'js': Bundle(
         'bower_components/angular/angular.js',
+        'bower_components/angular-bootstrap/ui-bootstrap.js',
+        'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
         'js/app.js',
 
-        filters='jsmin',
-        output='gen/packed.js'
+        # filters='jsmin',
+        # output='gen/packed.js'
     )
 }
 
