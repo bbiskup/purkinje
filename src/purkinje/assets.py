@@ -22,6 +22,7 @@ bundles = {
         'js/defs.js',
         'js/app.js',
         'js/controllers.js',
+        'js/filters.js',
 
         # filters='jsmin',
         # output='gen/packed.js'

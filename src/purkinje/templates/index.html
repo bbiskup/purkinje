@@ -42,7 +42,7 @@
                         <tr ng-repeat="result in testResults">
                             <td>{[result.name]}</td>
                             <td>{[result.file]}</td>
-                            <td class='{[ verdictDisplayClass(result.verdict) ]}'>
+                            <td class='{[ result.verdict|verdictClassFilter ]}'>
                                 {[result.verdict]}
                             </td>
                         </tr>
