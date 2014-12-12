@@ -8,3 +8,4 @@ src/purkinje/static/.webassets-cache/
 src/purkinje/static/gen/
 __pycache__
 .coverage
+*.egg-info
