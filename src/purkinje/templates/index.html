@@ -31,28 +31,32 @@
             <h1 class="pageheader">Test Results</h1>
 
             <div class="row">
-                <!-- Verdict counts -->
-                <ul id="result-summary" class="nav nav-pills" role="tablist">
-                    <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
-                    <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span></a></li>
-                    <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span></a></li>
-                    <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
-                </ul>
+                <div class="col-sm-6">
+                    <!-- Verdict counts -->
+                    <ul id="result-summary" class="nav nav-pills" role="tablist">
+                        <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
+                        <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span></a></li>
+                        <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span></a></li>
+                        <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
+                    </ul>
+                </div>
 
-                <!-- Filter for test result display -->
-                <div class="btn-group" dropdown>
-                    <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
-                        Filter test results
-                        <span class="caret"/>
-                    </button>
+                <div class="col-sm-3 col-sm-offset-3">
+                    <!-- Filter for test result display -->
+                    <div class="btn-group" dropdown>
+                        <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
+                            Filter test results
+                            <span class="caret" />
+                        </button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">passed</a></li>
                             <li><a href="#">failed</a></li>
                             <li><a href="#">failed &amp; error</a></li>
-                            <li class="divider"/>
+                            <li class="divider" />
                             <li><a href="#">all</a></li>
                         </ul>
-                    
+
+                    </div>
                 </div>
             </div>
 
