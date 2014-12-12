@@ -1,2 +1,3 @@
 recursive-include src/purkinje/templates *
-recursive-include src/purkinje/static *
+recursive-include src/purkinje/static * 
+include  requirements.txt
