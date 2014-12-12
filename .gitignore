@@ -7,3 +7,4 @@ src/purkinje/static/bower_components/
 src/purkinje/static/.webassets-cache/
 src/purkinje/static/gen/
 __pycache__
+.coverage
