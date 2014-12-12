@@ -18,3 +18,8 @@ def test_index(client):
 def test_404(client):
     assert client.get(
         '/nonexistant_sdfsdfhipsdfhsdifh').status_code == httplib.OK
+
+
+def test_trigger_error(client):
+    assert client.get(
+        '/trigger_error').status_code == httplib.INTERNAL_SERVER_ERROR
