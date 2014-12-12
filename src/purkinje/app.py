@@ -6,7 +6,7 @@ from flask_sockets import Sockets
 
 
 app = Flask(__name__)
-# sockets = Sockets(app)
+sockets = Sockets(app)
 
 
 def configure_app(app_):
@@ -32,8 +32,8 @@ def get_app():
 
 @app.route('/', methods=['GET'])
 def index():
-    #a=[]
-    #a[100]
+    a=[]
+    a[100]
     return render_template('index.html')
 
 
@@ -42,8 +42,8 @@ def page_not_found(error):
     render_template('404.html', error)
 
 
-# @sockets.route('/subscribe')
-# def subscribe(ws):
-#     while True:
-#         message = ws.receive()
-#         ws.send('Response to "%s"', message)
+@sockets.route('/subscribe')
+def subscribe(ws):
+    while True:
+        message = ws.receive()
+        ws.send('Response to "%s"', message)
