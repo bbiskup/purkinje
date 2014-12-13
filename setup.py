@@ -20,5 +20,15 @@ setup(name='purkinje',
           'console_scripts': [
               'purkinje = purkinje.purkinje:main'
           ]
-      }
+      },
+      classifiers={
+          'Development Status :: 2 - Pre-Alpha',
+          'Environment :: Console',
+          'Environment :: Web Environment',
+          'Intended Audience :: Developers',
+          'License :: OSI Approved :: MIT License',
+          'Programming Language :: Python :: 2.7',
+      },
+      license='The MIT License (MIT)',
+      keywords='pytest testrunner websockets'
       )
