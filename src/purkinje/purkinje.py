@@ -1,10 +1,12 @@
 #!/usr/bin/env python
+import gevent
 import gevent.monkey
 gevent.monkey.patch_all()
-from gevent.wsgi import WSGIServer
+from gevent.pywsgi import WSGIServer
+from geventwebsocket.handler import WebSocketHandler
 import werkzeug.serving
 from werkzeug.debug import DebuggedApplication
-from app import get_app
+from app import get_app, send_dummy_notifications
 
 APP_PORT = 5000
 DEBUG = True
@@ -17,8 +19,17 @@ def main():
     app = get_app()
     app.debug = DEBUG
     # app.config['ASSETS_DEBUG'] = DEBUG
+
+    # Breaks web socket communication
+    # (WebSocketConnectionClosedException in client)
+    # app = DebuggedApplication(app, evalex=True)
+
     http_server = WSGIServer(('', APP_PORT),
-                             DebuggedApplication(app, evalex=True))
+                             app,
+                             handler_class=WebSocketHandler)
+
+    gevent.spawn(send_dummy_notifications)
+
     http_server.serve_forever()
     # app.run()
 
