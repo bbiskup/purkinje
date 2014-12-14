@@ -4,15 +4,39 @@ import gevent
 import logging
 import sys
 import httplib
-from flask import Flask, render_template
-from flask_sockets import Sockets
+from flask import Flask, render_template, request
 from assets import register_assets
 
 app = Flask(__name__)
-sockets = Sockets(app)
 
 # Connected WebSocket clients
 clients = []
+
+
+def send_dummy_notifications():
+    """Periodically sends dummy requests
+    """
+    app.logger.info('send_dummy_notifications starting')
+    msg_id = 0
+    while True:
+        for client in clients:
+            app.logger.debug('Sending dummy notification(s)')
+            client.send('Dummy message {}'.format(msg_id))
+            msg_id += 1
+        gevent.sleep(5)
+
+
+@app.route('/api')
+def api():
+    print('api')
+    if request.environ.get('wsgi.websocket'):
+        ws = request.environ['wsgi.websocket']
+        while True:
+            print('Waiting...')
+            message = ws.receive()
+            print('Received "{}"'.format(message))
+            ws.send(message)
+    return
 
 
 def configure_app(app_):
@@ -52,31 +76,49 @@ def page_not_found(error):
     return render_template('404.html', error=error)
 
 
-@sockets.route('/subscribe')
-def subscribe(ws):
-    """To be called by web client to subscribe to
-       events (test case completion, etc)
-    """
-    if ws not in clients:
-        app.logger.info('Registering client %s', ws)
+@app.route('/subscribe2')
+def subscribe2():
+    app.logger.debug('subscribe2')
+    ws = request.environ.get('wsgi.websocket')
+    if ws:
+        if ws not in clients:
+            app.logger.info('Registering client %s', ws)
+            client_conf = ws.receive()
+            app.logger.debug('Client conf: {}'.format(client_conf))
+            clients.append(ws)
+            ws.send('Welcome')
+
+            while True:
+                gevent.sleep(1)
+        else:
+            app.logger.debug('already registered')
+        return ''  # TODO appropriate response
+    else:
+        raise Exception('No WebSocket request')
 
 
-def send_to_ws():
-    """Send data to WebSockets (for testing)"""
-    msg_count = 0
-    while True:
-        # message = ws.receive()
-        for ws in clients:
-            ws.send('Response to "%s"', 'message_%d', msg_count)
-            msg_count += 1
-            gevent.sleep(5)
+# def send_to_ws():
+#     """Send data to WebSockets (for testing)"""
+#     msg_count = 0
+#     while True:
+# message = ws.receive()
+#         for ws in clients:
+#             ws.send('Response to "%s"', 'message_%d', msg_count)
+#             msg_count += 1
+#             gevent.sleep(5)
 
 
-@sockets.route('/unsubscribe')
-def unsubscribe(ws):
-    """To be called by a client which no longer wants to
-       receive events
-    """
-    if ws in clients:
-        app.logger.info('Removing client %s', ws)
-        clients.remove(ws)
+# @sockets.route('/unsubscribe')
+# def unsubscribe(ws):
+# """To be called by a client which no longer wants to
+# receive events
+# """
+# if ws in clients:
+# app.logger.info('Removing client %s', ws)
+# clients.remove(ws)
+
+
+@app.route('/test/websocket_client')
+def websocket_client():
+    app.logger.debug('websocket_client')
+    return render_template('websocket_client.html')
