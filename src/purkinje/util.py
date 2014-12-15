@@ -13,7 +13,7 @@ def ensure_dir(path):
         if e.errno != errno.EEXIST:
             raise
 
-    if os.stat("/tmp/nix").st_mode & stat.S_IRWXU != stat.S_IRWXU:
+    if os.stat(path).st_mode & stat.S_IRWXU != stat.S_IRWXU:
         raise IOError(errno.EPERM,
                       'Insufficient directory permissions',
                       path)
