@@ -9,8 +9,8 @@ import stat
 import util as sut
 
 
-def test_ensure_dir_new(unique_filename):
-    path = '/tmp/' + unique_filename
+def test_ensure_dir_new(unique_filename, tmpdir):
+    path = str(tmpdir) + unique_filename
     assert not exists(path)
     sut.ensure_dir(path)
     assert exists(path)
