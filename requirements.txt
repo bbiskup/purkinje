@@ -9,14 +9,10 @@ gevent==1.0.1
 gevent-websocket==0.9.3
 greenlet==0.4.5
 itsdangerous==0.24
-pep8==1.5.7
 py==1.4.26
 pytest==2.6.4
-pytest-cache==1.0
-pytest-pep8==1.0.6
 webassets==0.10.1
 wsgiref==0.1.2
 websocket-client==0.23.0
 six==1.8.0
 gevent-inotifyx==0.1.1
-flake8==2.2.5
