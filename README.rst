@@ -15,4 +15,4 @@ System Requirements
 Development
 ===========
 
-- uses `semantic versioning <http://semver.org/>`
+- uses `semantic versioning <http://semver.org/>`_
