@@ -58,8 +58,6 @@ def _test_filewatcher():
     while True:
         event = queue.get()
         print('Got inotify event: {}'.format(event))
-        import pdb
-        pdb.set_trace()
 
 
 # Test
