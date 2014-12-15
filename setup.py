@@ -6,7 +6,7 @@ def parse_requirements():
         return req.readlines()
 
 setup(name='purkinje',
-      version='0.0.1',
+      version='0.1.0',
       description='Test runner for py.test with web GUI',
       author='Bernhard Biskup',
       author_email='bbiskup@gmx.de',
