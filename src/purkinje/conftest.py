@@ -5,6 +5,8 @@
 import uuid
 import pytest
 
+TESTDATA_DIR = 'testdata'
+
 
 @pytest.fixture
 def unique_filename():
