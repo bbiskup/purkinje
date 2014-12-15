@@ -23,7 +23,7 @@ def test_ensure_dir_new(unique_filename, tmpdir):
                           stat.S_IRUSR,
                           stat.S_IWUSR,
                           stat.S_IXUSR])
-def test_ensure_dir_new(mode, unique_filename, tmpdir):
+def test_ensure_dir_missing_perm(mode, unique_filename, tmpdir):
     path = str(tmpdir) + unique_filename
     assert not exists(path)
     os.mkdir(path)
@@ -35,4 +35,13 @@ def test_ensure_dir_new(mode, unique_filename, tmpdir):
         assert e.errno == errno.EPERM
     else:
         assert False, 'Should have raised IOError'
+    assert exists(path)
+
+
+def test_ensure_dir_existing(unique_filename, tmpdir):
+    path = str(tmpdir) + unique_filename
+    assert not exists(path)
+    os.mkdir(path)
+    assert exists(path)
+    sut.ensure_dir(path)
     assert exists(path)
