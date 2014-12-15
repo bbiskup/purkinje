@@ -16,7 +16,17 @@ class TestResultMonitorPlugin(object):
     """
 
     def pytest_sessionfinish(self):
-        logger.debug('*** py.test session finished ***')
+        self._log('*** py.test session finished ***')
+
+    def pytest_collectstart(self, collector):
+        self._log('pytest_collectstart: %s', collector)
+
+    def pytest_collectreport(self, report):
+        self._log('pytest_collectreport: %s', report)
+
+    def _log(self, fmt, *args):
+        fmt = '** testmon: %s **' % fmt
+        print(fmt % args)
 
 
 class PyTestRunner(object):
