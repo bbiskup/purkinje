@@ -18,3 +18,4 @@ webassets==0.10.1
 wsgiref==0.1.2
 websocket-client==0.23.0
 six==1.8.0
+gevent-inotifyx==0.1.1
