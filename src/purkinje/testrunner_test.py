@@ -37,6 +37,15 @@ def test_empty_single_pass(tmpdir, testrunner):
         os.chdir(test_proj_path)
         test_result = testrunner.run([test_proj_path])
         assert test_result == 0
-        assert len(testrunner.monitor_plugin.reports) == 2
+
+        reps = testrunner.monitor_plugin.reports
+        assert len(reps) == 2
+        rep0 = reps[0]
+        assert rep0.fspath == '.'
+        assert rep0.outcome == 'passed'
+
+        rep1 = reps[1]
+        assert rep1.fspath == 'simple_test.py'
+        assert rep1.outcome == 'passed'
     finally:
         os.chdir(orig_path)

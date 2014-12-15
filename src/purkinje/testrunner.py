@@ -37,15 +37,12 @@ class PyTestRunner(object):
 
     """py.test runner"""
 
-    def __init__(self):
-        self.monitor_plugin = TestResultMonitorPlugin()
-
     def run(self, args):
         """Run py.test
            :args: files/directories to test
            :return: Test result (0: success)
         """
-
+        self.monitor_plugin = TestResultMonitorPlugin()
         result = pytest.main(args=args,
                              plugins=[self.monitor_plugin])
         return result
