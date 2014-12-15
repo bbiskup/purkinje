@@ -5,7 +5,7 @@ gevent.monkey.patch_all()
 from gevent.pywsgi import WSGIServer
 from geventwebsocket.handler import WebSocketHandler
 import werkzeug.serving
-from werkzeug.debug import DebuggedApplication
+# from werkzeug.debug import DebuggedApplication
 from app import get_app, send_dummy_notifications
 
 APP_PORT = 5000
