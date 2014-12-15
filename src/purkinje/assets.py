@@ -1,8 +1,13 @@
+# -*- coding: utf8 -*-
+
+"""Static web assets (JS, CSS, etc.)
+"""
+
 from flask.ext.assets import Bundle, Environment
 
 
 # paths are relative to the 'static' directory
-bundles = {
+BUNDLES = {
     'css': Bundle(
         'bower_components/bootstrap/dist/css/bootstrap.css',
         'bower_components/bootstrap/dist/css/bootstrap-theme.css',
@@ -34,5 +39,6 @@ bundles = {
 
 
 def register_assets(app):
+    """Make assets known to flask assets extension"""
     assets = Environment(app)
-    assets.register(bundles)
+    assets.register(BUNDLES)
