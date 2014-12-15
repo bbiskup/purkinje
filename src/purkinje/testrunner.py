@@ -14,6 +14,7 @@ class TestResultMonitorPlugin(object):
     """py.test plugin for monitoring test progress and
        capturing results
     """
+
     def __init__(self):
         self.reports = []
 
@@ -41,9 +42,10 @@ class PyTestRunner(object):
 
     def run(self, args):
         """Run py.test
+           :args: files/directories to test
            :return: Test result (0: success)
         """
-        
+
         result = pytest.main(args=args,
                              plugins=[self.monitor_plugin])
         return result
