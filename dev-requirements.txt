@@ -1,0 +1,4 @@
+flake8==2.2.5
+pep8==1.5.7
+pytest-cache==1.0
+pytest-pep8==1.0.6
