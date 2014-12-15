@@ -26,5 +26,15 @@ app.controller('TestResultsTableController', function($scope) {
         verdict: defs.Verdict.PASS
     }, ];
 
+    $scope.resultFilterSelections = [{
+        name: 'pass'
+    }, {
+        name: 'fail & error'
+    }, {
+        name: 'skipped'
+    }, {
+        name: 'all'
+    }];
+
     $scope.verdictCounts = util.countVerdicts($scope.testResults);
 });

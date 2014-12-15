@@ -49,13 +49,8 @@
                             <span class="caret" />
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">passed</a></li>
-                            <li><a href="#">failed</a></li>
-                            <li><a href="#">failed &amp; error</a></li>
-                            <li class="divider" />
-                            <li><a href="#">all</a></li>
+                            <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a></li>
                         </ul>
-
                     </div>
                 </div>
             </div>
