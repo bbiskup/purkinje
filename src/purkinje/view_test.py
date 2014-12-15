@@ -1,9 +1,9 @@
 import gevent.monkey
 gevent.monkey.patch_all()
-import urllib2
-from urlparse import urlparse
+# import urllib2
+# from urlparse import urlparse
 import pytest
-import websocket
+# import websocket
 import httplib
 from flask import url_for
 from app import get_app
