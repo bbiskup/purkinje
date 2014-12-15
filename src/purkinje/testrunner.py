@@ -14,6 +14,8 @@ class TestResultMonitorPlugin(object):
     """py.test plugin for monitoring test progress and
        capturing results
     """
+    def __init__(self):
+        self.reports = []
 
     def pytest_sessionfinish(self):
         self._log('*** py.test session finished ***')
@@ -23,6 +25,7 @@ class TestResultMonitorPlugin(object):
 
     def pytest_collectreport(self, report):
         self._log('pytest_collectreport: %s', report)
+        self.reports.append(report)
 
     def _log(self, fmt, *args):
         fmt = '** testmon: %s **' % fmt
@@ -34,10 +37,13 @@ class PyTestRunner(object):
     """py.test runner"""
 
     def __init__(self):
-        pass
+        self.monitor_plugin = TestResultMonitorPlugin()
 
-    def run(self):
+    def run(self, args):
         """Run py.test
+           :return: Test result (0: success)
         """
-        mon = TestResultMonitorPlugin()
-        result = pytest.main(plugins=[mon])
+        
+        result = pytest.main(args=args,
+                             plugins=[self.monitor_plugin])
+        return result
