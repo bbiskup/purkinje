@@ -40,7 +40,7 @@ def send_dummy_notifications():
             msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
             msg['id'] = msg_id
             msg['timestamp'] = datetime.isoformat(datetime.now())
-            
+
             try:
                 client.send(json.dumps(msg))
             except WebSocketError as e:
