@@ -76,10 +76,18 @@
                 </table>
             </div>
             <div id="dummy-websocket-area">
-            <h3>WebSocket messages</h3>
-                <ul>
-                    <li ng-repeat="item in webSocketEvents">{[item.id]}: {[ item.text ]}</li>
-                </ul>
+                <h3>WebSocket messages</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <th>ID</th>
+                        <th>Text</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in webSocketEvents">
+                            <td>{[item.id]}</td>
+                            <td>{[ item.text ]}</td>
+                        </tr>
+                    </tbody>
             </div>
         </div>
     </div>

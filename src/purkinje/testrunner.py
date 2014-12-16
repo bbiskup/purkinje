@@ -3,6 +3,7 @@
 """Runner for py.test
 """
 
+from __future__ import print_function
 import logging
 import pytest
 

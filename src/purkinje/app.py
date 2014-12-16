@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import gevent.monkey
 gevent.monkey.patch_all()
 import gevent

@@ -3,6 +3,7 @@
 """Watches files for changes
 """
 
+from __future__ import print_function
 import gevent
 import gevent_inotifyx as inotify
 from gevent.queue import Queue
