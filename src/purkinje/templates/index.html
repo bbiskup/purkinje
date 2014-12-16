@@ -74,12 +74,12 @@
                         </tr>
                     </tbody>
                 </table>
-
-                <div id="dummy-websocket-area">
-                    <ul>
-                    <li ng-repeat="item in dummyPayload">{[ item ]}</li>
-                    </ul>
-                </div>
+            </div>
+            <div id="dummy-websocket-area">
+            <h3>WebSocket messages</h3>
+                <ul>
+                    <li ng-repeat="item in webSocketEvents">{[ item.text ]}</li>
+                </ul>
             </div>
         </div>
     </div>
