@@ -55,7 +55,7 @@ app.factory('WebSocketService', ['$q', '$rootScope', function($q, $rootScope) {
         // resolve if the ID is known
         var msgID = messageObj.callback_id;
         if (callbacks.hasOwnProperty(msgID)) {
-            console.debug('Received data from WebSocket (' + msgID + '): ' +  messageObj);
+            console.debug('Received data from WebSocket (' + msgID + '): ' + messageObj);
             var theCallback = callbacks[msgID];
             console.debug(theCallback);
             $rootScope.apply(theCallback.cb.resolve(messageObj.data));
@@ -63,8 +63,9 @@ app.factory('WebSocketService', ['$q', '$rootScope', function($q, $rootScope) {
         } else {
             // TODO pass event to app
             console.debug('Unsolicited event:', messageObj);
-        }
 
+            $rootScope.$broadcast('webSocketMsg', messageObj);
+        }
     }
 
     function getCallbackId() {

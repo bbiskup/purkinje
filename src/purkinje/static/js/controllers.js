@@ -15,9 +15,11 @@ app.controller('DummyController', function($scope) {
 app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
     function($scope, WebSocketService) {
 
-        console.debug('Before');
         $scope.dummyPayload = WebSocketService.getDummyPayload();
-        console.debug('After');
+
+        $scope.$on('webSocketMsg', function(event, data){
+            console.debug('$scope: webSocketMsg', data);
+        });
 
         $scope.testResults = [{
             name: 'test_1',
