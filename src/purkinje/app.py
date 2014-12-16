@@ -1,6 +1,7 @@
 import gevent.monkey
 gevent.monkey.patch_all()
 import gevent
+from geventwebsocket import WebSocketError
 import json
 import logging
 import sys
@@ -37,7 +38,12 @@ def send_dummy_notifications():
             msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
             msg['id'] = msg_id
             msg['timestamp'] = datetime.isoformat(datetime.now())
-            client.send(json.dumps(msg))
+            
+            try:
+                client.send(json.dumps(msg))
+            except WebSocketError as e:
+                logging.debug('WebSocketError; removing client %s' % client)
+                clients.remove(client)
             msg_id += 1
         gevent.sleep(5)
 
