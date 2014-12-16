@@ -31,6 +31,7 @@ BUNDLES = {
         'js/app.js',
         'js/controllers.js',
         'js/filters.js',
+        'js/services.js',
 
         # filters='jsmin',
         # output='gen/packed.js'

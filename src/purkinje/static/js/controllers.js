@@ -1,3 +1,4 @@
+'use strict';
 app.controller('DummyController', function($scope) {
     $scope.xyz = "hello";
     //$scope.people = ['Jim', 'Jill', 'Jerome'];
@@ -11,30 +12,37 @@ app.controller('DummyController', function($scope) {
 });
 
 
-app.controller('TestResultsTableController', function($scope) {
-    $scope.testResults = [{
-        name: 'test_1',
-        file: 'file_1.py',
-        verdict: defs.Verdict.PASS
-    }, {
-        name: 'test_2',
-        file: 'file_2.py',
-        verdict: defs.Verdict.FAIL
-    }, {
-        name: 'test_3',
-        file: 'file_3.py',
-        verdict: defs.Verdict.PASS
-    }, ];
+app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
+    function($scope, WebSocketService) {
 
-    $scope.resultFilterSelections = [{
-        name: 'pass'
-    }, {
-        name: 'fail & error'
-    }, {
-        name: 'skipped'
-    }, {
-        name: 'all'
-    }];
+        console.debug('Before');
+        $scope.dummyPayload = WebSocketService.getDummyPayload();
+        console.debug('After');
 
-    $scope.verdictCounts = util.countVerdicts($scope.testResults);
-});
+        $scope.testResults = [{
+            name: 'test_1',
+            file: 'file_1.py',
+            verdict: defs.Verdict.PASS
+        }, {
+            name: 'test_2',
+            file: 'file_2.py',
+            verdict: defs.Verdict.FAIL
+        }, {
+            name: 'test_3',
+            file: 'file_3.py',
+            verdict: defs.Verdict.PASS
+        }, ];
+
+        $scope.resultFilterSelections = [{
+            name: 'pass'
+        }, {
+            name: 'fail & error'
+        }, {
+            name: 'skipped'
+        }, {
+            name: 'all'
+        }];
+
+        $scope.verdictCounts = util.countVerdicts($scope.testResults);
+    }
+]);

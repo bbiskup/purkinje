@@ -1,9 +1,12 @@
 import gevent.monkey
 gevent.monkey.patch_all()
 import gevent
+import json
 import logging
 import sys
 import httplib
+from datetime import datetime
+import copy
 from flask import Flask, render_template, request
 from assets import register_assets
 
@@ -11,6 +14,16 @@ app = Flask(__name__)
 
 # Connected WebSocket clients
 clients = []
+
+DUMMY_WELCOME_MSG = json.dumps({
+    'type': 'info',
+    'text': 'Welcome'
+})
+
+DUMMY_PERIODIC_MSG = {
+    'type': 'info',
+    'text': 'Dummy periodic message',
+}
 
 
 def send_dummy_notifications():
@@ -21,7 +34,10 @@ def send_dummy_notifications():
     while True:
         for client in clients:
             app.logger.debug('Sending dummy notification(s)')
-            client.send('Dummy message {}'.format(msg_id))
+            msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
+            msg['id'] = msg_id
+            msg['timestamp'] = datetime.isoformat(datetime.now())
+            client.send(json.dumps(msg))
             msg_id += 1
         gevent.sleep(5)
 
@@ -86,7 +102,7 @@ def subscribe2():
             client_conf = ws.receive()
             app.logger.debug('Client conf: {}'.format(client_conf))
             clients.append(ws)
-            ws.send('Welcome')
+            ws.send(DUMMY_WELCOME_MSG)
 
             while True:
                 gevent.sleep(1)
