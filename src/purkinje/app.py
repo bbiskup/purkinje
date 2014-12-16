@@ -16,6 +16,8 @@ app = Flask(__name__)
 # Connected WebSocket clients
 clients = []
 
+DUMMY_PERIODIC_MSG_DELAY = .05
+
 DUMMY_WELCOME_MSG = json.dumps({
     'type': 'info',
     'text': 'Welcome'
@@ -42,10 +44,11 @@ def send_dummy_notifications():
             try:
                 client.send(json.dumps(msg))
             except WebSocketError as e:
-                logging.debug('WebSocketError; removing client %s' % client)
+                logging.debug(
+                    'WebSocketError: {}; removing client {}'.format(e, client))
                 clients.remove(client)
             msg_id += 1
-        gevent.sleep(5)
+        gevent.sleep(DUMMY_PERIODIC_MSG_DELAY)
 
 
 @app.route('/api')

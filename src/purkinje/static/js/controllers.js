@@ -14,13 +14,17 @@ app.controller('DummyController', function($scope) {
 
 app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
     function($scope, WebSocketService) {
+
         $scope.webSocketEvents = [];
         $scope.dummyPayload = WebSocketService.getDummyPayload();
 
-        $scope.$on('webSocketMsg', function(event, data){
+        $scope.$on('webSocketMsg', function(event, data) {
+            var start = new Date();
             console.debug('$scope: webSocketMsg', data);
             $scope.webSocketEvents.push(data);
             $scope.$apply();
+            var duration = new Date() - start;
+            console.debug('msg-handler duration: ' + duration + ' ms');
         });
 
         $scope.testResults = [{
