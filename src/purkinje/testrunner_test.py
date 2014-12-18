@@ -2,10 +2,11 @@
 """
 
 import os
-import shutil
 import pytest
+import shutil
 from conftest import TESTDATA_DIR
 from testrunner import PyTestRunner
+import util
 
 
 @pytest.fixture
@@ -30,7 +31,7 @@ def test_empty_single_pass(tmpdir, testrunner):
     #   /tmp/pytest-84/test_empty_single_pass0/singlepass/simple_test.py
     # HINT: remove __pycache__ / .pyc files and/or use a unique basename
     #  for your test file modules
-    shutil.rmtree(test_proj_path + '/__pycache__')
+    util.ensure_deleted(test_proj_path + '/__pycache__')
 
     orig_path = os.getcwd()
     try:
