@@ -36,9 +36,14 @@ before_script:
   - bower install -F
 
 script:
-  - # Python tests
+  - #### Python tests
   - py.test
 
+  - JS unit tests
+  - ./node_modules/karma/bin/karma start &
+  - ./node_modules/karma/bin/karma start --single-run
+
+  # E2E Tests
   # Setup up JS E2E
   - # google-chrome --no-sandbox &
   - ./run &

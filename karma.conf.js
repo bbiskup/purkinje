@@ -10,12 +10,25 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['ng-scenario', 'jasmine'],
+        frameworks: ['mocha'],
 
 
         // list of files / patterns to load in the browser
         files: [
-            'src/purkinje/static/js/tests/**/*.spec.js'
+            // Libs
+            'bower_components/angular/angular.js',
+            'bower_components/angular-route/angular-route.js',
+            'bower_components/angularjs-scope.safeapply/src/Scope.SafeApply.js',
+
+            'src/purkinje/static/bower_components/should/should.js',
+
+            'app/scripts/lib/router.js',
+
+            // Setup
+            'mocha.conf.js',
+
+            // Test files
+            'src/purkinje/static/js/tests/unit/*.spec.js',
         ],
 
 
