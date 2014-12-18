@@ -29,7 +29,7 @@ install:
   - ./node_modules/protractor/bin/webdriver-manager update
 
 before_script:
-  - flake8 src/
+  - flake8 --max-complexity=10 src/
   - bower install -F
 
 script:
