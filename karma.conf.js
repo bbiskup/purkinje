@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/purkinje/static/js/**/*Spec.js'
+      'src/purkinje/static/js/**/*.spec.js'
     ],
 
 
