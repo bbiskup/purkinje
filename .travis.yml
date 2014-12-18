@@ -4,6 +4,7 @@ python:
 cache:
   directories:
     - $HOME/.pip-cache/
+    - /usr/lib/node_modules/
     - /home/travis/virtualenv/python2.7
 install:
   # Python
@@ -12,6 +13,10 @@ install:
   - pip install -r dev-requirements.txt --download-cache $HOME/.pip-cache
 
   # JS
+  - sudo add-apt-repository -y ppa:chris-lea/node.js
+  - sudo apt-get -y update
+  - sudo apt-get -y install nodejs
+  - sudo npm install -g grunt-cli
   - npm install -g bower
 before_script:
   - flake8 .
