@@ -13,6 +13,7 @@ TESTDATA_DIR = 'testdata'
 # Timeout to apply when waiting for actions that should
 # happen 'immediately', i.e. should take only a few
 # milliseconds
+# TODO might cause flaky test
 QUASI_IMMEDIATE_TIMEOUT = .2
 
 # Tests must be executed from project directory

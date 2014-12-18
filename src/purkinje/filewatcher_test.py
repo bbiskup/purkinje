@@ -8,6 +8,7 @@ gevent.monkey.patch_all()
 import gevent_inotifyx as inotify
 import os.path as op
 import pytest
+import conftest
 import filewatcher as sut
 
 
@@ -36,7 +37,8 @@ def test_1(filewatcher):
     with open(new_file_1, 'w') as f:
         f.write('text')
 
-    # TODO timeout might cause flaky test
-    gevent.joinall([g, filewatcher.greenlet], timeout=.2)
+    gevent.joinall([g,
+                    filewatcher.greenlet],
+                   timeout=conftest.QUASI_IMMEDIATE_TIMEOUT)
     assert len(events) == 1
     assert events[0].name == new_file_1_name
