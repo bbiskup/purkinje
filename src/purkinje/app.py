@@ -53,17 +53,17 @@ def send_dummy_notifications():
         gevent.sleep(DUMMY_PERIODIC_MSG_DELAY)
 
 
-@app.route('/api')
-def api():
-    print('api')
-    if request.environ.get('wsgi.websocket'):
-        ws = request.environ['wsgi.websocket']
-        while True:
-            print('Waiting...')
-            message = ws.receive()
-            print('Received "{}"'.format(message))
-            ws.send(message)
-    return
+# @app.route('/api')
+# def api():
+#     print('api')
+#     if request.environ.get('wsgi.websocket'):
+#         ws = request.environ['wsgi.websocket']
+#         while True:
+#             print('Waiting...')
+#             message = ws.receive()
+#             print('Received "{}"'.format(message))
+#             ws.send(message)
+#     return
 
 
 def configure_app(app_):
