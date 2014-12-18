@@ -20,3 +20,8 @@ Development
 ===========
 
 - uses `semantic versioning <http://semver.org/>`_
+  
+Conventions
+-----------
+
+- The software under test is imported as `sut`
