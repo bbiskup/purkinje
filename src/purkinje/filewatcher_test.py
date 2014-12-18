@@ -5,7 +5,6 @@
 import gevent.monkey
 gevent.monkey.patch_all()
 
-import gevent_inotifyx as inotify
 import os.path as op
 import pytest
 import conftest
