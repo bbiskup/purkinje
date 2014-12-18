@@ -1,15 +1,26 @@
 TODOs
 =====
 
-- i18n
-- JS Unit and integration tests
-- detection of code change
-- py.test execution
-- use Python package 'future' w/ futurize 
-- web socket implementation w/ angular
-- deployment
-- register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_) and/or `py.test plugs <http://pytest-plugs.herokuapp.com/>`_
-- WebSocket reconnect
+#) Features
+   - detection of code change
+   - WebSocket reconnect
+
+#) Misc
+   - i18n
+
+#) Testing
+   - JS Unit and integration tests
+   - test cases for WebSocket endpoint(s)
+
+#) Code
+   - use Python package 'future' w/ futurize 
+
+#) Deployment
+   - Docker container?
+
+#) Publishing
+   - register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_) and/or `py.test plugs <http://pytest-plugs.herokuapp.com/>`_
+
   
 
 Issues
@@ -20,3 +31,5 @@ Issues
   WebSocket messages to browser:
   - only seems to go away when closing tab
   - see Chrome dev tools (timeline and profiles/heap snapshot)
+- Coverage reports for greenlets are incorrect (see https://bitbucket.org/ned/coveragepy/issue/149/coverage-gevent-looks-broken)
+  - Option "concurrency = gevent" to coverage does no longer seem to exist
