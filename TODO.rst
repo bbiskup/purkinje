@@ -10,6 +10,7 @@ TODOs
 
 #) Testing
    - JS Unit and integration tests
+     - karma, selenium
    - test cases for WebSocket endpoint(s)
 
 #) Code
