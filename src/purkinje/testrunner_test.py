@@ -3,7 +3,6 @@
 
 import os
 import shutil
-import tempfile
 import pytest
 from conftest import TESTDATA_DIR
 from testrunner import PyTestRunner
@@ -25,7 +24,8 @@ def test_empty_single_pass(tmpdir, testrunner):
     #
     # import file mismatch:
     # imported module 'simple_test' has this __file__ attribute:
-    #   /home/bb/devel/python/purkinje/testdata/testproj/singlepass/simple_test.py
+    #   /home/bb/devel/python/purkinje/testdata/
+    #     testproj/singlepass/simple_test.py
     # which is not the same as the test file we want to collect:
     #   /tmp/pytest-84/test_empty_single_pass0/singlepass/simple_test.py
     # HINT: remove __pycache__ / .pyc files and/or use a unique basename
