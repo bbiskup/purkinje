@@ -29,7 +29,7 @@ install:
   - sudo npm install
 
   - # Set up Chrome webdriver for Protractor
-  - ./node_modules/protractor/bin/webdriver-manager update
+  - #./node_modules/protractor/bin/webdriver-manager update
 
 before_script:
   - flake8 --max-complexity=10 src/
