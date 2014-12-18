@@ -29,6 +29,7 @@
     "karma": "^0.12.28",
     "karma-chrome-launcher": "^0.1.7",
     "karma-firefox-launcher": "^0.1.3",
-    "karma-jasmine": "^0.3.2"
+    "karma-jasmine": "^0.3.2",
+    "karma-ng-scenario": "^0.1.0"
   }
 }
