@@ -11,10 +11,11 @@ TODOs
 #) Testing
    - JS Unit and integration tests
 
-     - karma, selenium
-
+     - remove ng-scenario (superceded by protractor)
+   
    - test cases for WebSocket endpoint(s)
    - test YAML syntax of .travis.yml and others
+   - pre-commit hook?
 
 #) Code
    - use Python package 'future' w/ futurize 
