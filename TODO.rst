@@ -16,6 +16,7 @@ TODOs
    - test cases for WebSocket endpoint(s)
    - test YAML syntax of .travis.yml and others
    - pre-commit hook?
+   - Move test config files to subdirectory
 
 #) Code
    - use Python package 'future' w/ futurize 
