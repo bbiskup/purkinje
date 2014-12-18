@@ -10,8 +10,11 @@ TODOs
 
 #) Testing
    - JS Unit and integration tests
+
      - karma, selenium
+
    - test cases for WebSocket endpoint(s)
+   - test YAML syntax of .travis.yml and others
 
 #) Code
    - use Python package 'future' w/ futurize 
@@ -22,7 +25,9 @@ TODOs
 #) Publishing
    - register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_) and/or `py.test plugs <http://pytest-plugs.herokuapp.com/>`_
 
-  
+#) Packaging
+   - split py.test plugin and web server
+   - split out docformat testing (plugin)
 
 Issues
 ======
