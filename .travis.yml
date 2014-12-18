@@ -41,7 +41,7 @@ script:
 
   # Setup up JS E2E
   - # google-chrome --no-sandbox &
-  - firefox &
+  - ./run &
   - #sleep 30
   - #./node_modules/protractor/bin/webdriver-manager start &
   - #sleep 30
