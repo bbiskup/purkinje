@@ -38,7 +38,7 @@ def test_1(filewatcher):
         f.write('text')
 
     gevent.joinall([g,
-                    filewatcher.greenlet],
+                    filewatcher],
                    timeout=conftest.QUASI_IMMEDIATE_TIMEOUT)
     assert len(events) == 1
     assert events[0].name == new_file_1_name

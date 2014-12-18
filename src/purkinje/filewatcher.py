@@ -16,7 +16,7 @@ logger = logging.getLogger(__file__)
 WATCH_MASK = inotify.IN_CLOSE_WRITE | inotify.IN_DELETE
 
 
-class FileWatcher(object):
+class FileWatcher(gevent.Greenlet):
 
     """ Watches specified directory for changes relavant to test execution:
         Newly created, modified and deleted files.
@@ -26,22 +26,22 @@ class FileWatcher(object):
     """
 
     def __init__(self, dir):
+        gevent.Greenlet.__init__(self)
         self.dir = dir
         self.queue = Queue()
+        self._fd = inotify.init()
+        self._wd = inotify.add_watch(self._fd,
+                                     self.dir,
+                                     WATCH_MASK)
 
-    def start(self):
-        fd = inotify.init()
-        self.wd = inotify.add_watch(fd, self.dir, WATCH_MASK)
-        self.greenlet = gevent.spawn(self.watch, fd, self.queue)
-
-    def watch(self, fd, queue):
+    def _run(self):
         """Run endlessly and monitor dir for changes
         """
         logger.debug('{}.{}: starting to watch {}'.format(self.__class__,
                                                           __name__,
                                                           self.dir))
         while True:
-            events = inotify.get_events(fd)
+            events = inotify.get_events(self._fd)
             for event in self._filter(events):
                 logger.debug('Event: {}'.format(event))
                 self.queue.put(event)
@@ -54,7 +54,7 @@ class FileWatcher(object):
                 yield event
 
 
-# # Test
+# Test
 # if __name__ == '__main__':
 #     g = gevent.spawn(_test_filewatcher)
 #     gevent.joinall([g])
