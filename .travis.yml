@@ -39,7 +39,7 @@ script:
   - py.test
 
   # Setup up JS E2E
-  - google-chrome &
+  - google-chrome --no-sandbox &
   - sleep 2
   - ./node_modules/protractor/bin/webdriver-manager start &
   - sleep 2
