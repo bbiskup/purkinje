@@ -54,7 +54,7 @@ class FileWatcher(object):
                 yield event
 
 
-# Test
-if __name__ == '__main__':
-    g = gevent.spawn(_test_filewatcher)
-    gevent.joinall([g])
+# # Test
+# if __name__ == '__main__':
+#     g = gevent.spawn(_test_filewatcher)
+#     gevent.joinall([g])
