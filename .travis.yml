@@ -39,6 +39,8 @@ script:
   - py.test
 
   # Setup up JS E2E
+  - google-chrome &
+  - sleep 2
   - ./node_modules/protractor/bin/webdriver-manager start &
   - sleep 2
   - npm test
