@@ -19,6 +19,9 @@ TODOs
 #) Code
    - use Python package 'future' w/ futurize 
 
+#) Documentation
+   - Sphinx, Read The Docs
+
 #) Deployment
    - Docker container?
 
