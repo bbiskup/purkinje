@@ -4,6 +4,8 @@
 """
 
 from __future__ import print_function
+import gevent.monkey
+gevent.monkey.patch_all()
 import gevent
 import gevent_inotifyx as inotify
 from gevent.queue import Queue
@@ -25,13 +27,12 @@ class FileWatcher(object):
 
     def __init__(self, dir):
         self.dir = dir
+        self.queue = Queue()
 
     def start(self):
         fd = inotify.init()
-        queue = Queue()
         self.wd = inotify.add_watch(fd, self.dir, WATCH_MASK)
-        self.greenlet = gevent.spawn(self.watch, fd, queue)
-        return queue
+        self.greenlet = gevent.spawn(self.watch, fd, self.queue)
 
     def watch(self, fd, queue):
         """Run endlessly and monitor dir for changes
@@ -42,23 +43,15 @@ class FileWatcher(object):
         while True:
             events = inotify.get_events(fd)
             for event in self._filter(events):
-                queue.put(event)
+                logger.debug('Event: {}'.format(event))
+                self.queue.put(event)
 
     def _filter(self, events):
         """Select files that are relevant to test execution"""
         for event in events:
             n = event.name
-            if n.endswith('py.test') or n.endswith('.py'):
+            if n.endswith('.py'):
                 yield event
-
-
-def _test_filewatcher():
-    fw = FileWatcher('/tmp/xyz')
-    queue = fw.start()
-
-    while True:
-        event = queue.get()
-        print('Got inotify event: {}'.format(event))
 
 
 # Test
