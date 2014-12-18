@@ -13,3 +13,5 @@ __pycache__
 src/.coverage*
 /.coverage*
 /htmlcov
+/node_modules
+/npm-debug.log
