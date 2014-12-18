@@ -6,10 +6,16 @@ cache:
     - $HOME/.pip-cache/
     - /home/travis/virtualenv/python2.7
 install:
+  # Python
   - pip install flake8 --download-cache $HOME/.pip-cache
-  - pip install -r dev-requirements.txt --download-cache $HOME/.pip-cache
   - pip install -r requirements.txt --download-cache $HOME/.pip-cache
+  - pip install -r dev-requirements.txt --download-cache $HOME/.pip-cache
+
+  # JS
+  - npm install -g bower
 before_script:
   - flake8 .
+  - bower install -F
+
 script:
   - py.test
