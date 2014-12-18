@@ -4,7 +4,7 @@
   "description": "Test runner for py.test test framework with web GUI",
   "main": "karma.conf.js",
   "scripts": {
-    "test": "karma"
+    "test": "./node_modules/protractor/bin/protractor conf.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "karma-chrome-launcher": "^0.1.7",
     "karma-firefox-launcher": "^0.1.3",
     "karma-jasmine": "^0.3.2",
-    "karma-ng-scenario": "^0.1.0"
+    "karma-ng-scenario": "^0.1.0",
+    "protractor": "^1.5.0"
   }
 }
