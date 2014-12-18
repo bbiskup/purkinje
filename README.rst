@@ -4,7 +4,7 @@ purkinje
 
 Test runner for py.test test framework with web GUI
 
-(Alpha stage)
+(Pre-Alpha stage)
 
 
 System Requirements
