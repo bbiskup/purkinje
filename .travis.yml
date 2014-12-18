@@ -17,7 +17,7 @@ install:
   - sudo apt-get -y update
   - sudo apt-get -y install nodejs
   - sudo npm install -g grunt-cli
-  - npm install -g bower
+  - sudo npm install -g bower
 before_script:
   - flake8 .
   - bower install -F
