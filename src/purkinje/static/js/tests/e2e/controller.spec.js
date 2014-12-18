@@ -12,9 +12,13 @@ describe('E2E: test 1', function() {
         expect('1').toBe('1');
     });*/
 
+it("Dummy test without DOM", function() {
+    expect(3).toEqual(3);
+});
+
     it("Dummy DOM test", function() {
         //expect(element(by.css('#test-results-header'))).getText().toBe('Test Results');
-        expect(3).toEqual(3);
+        expect(browser.getTitle()).toEqual('Purkinje Test Runner');
     });
 
     /*
