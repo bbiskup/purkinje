@@ -55,7 +55,7 @@ def send_dummy_notifications():
                 client.send(json.dumps(msg))
             except WebSocketError as e:
                 logging.debug(
-                    'WebSocketError: {}; removing client {}'.format(e, client))
+                    'WebSocketError: %s; removing client %s', e, client)
                 clients.remove(client)
             msg_id += 1
         gevent.sleep(DUMMY_PERIODIC_MSG_DELAY)
@@ -98,28 +98,34 @@ def get_app():
 
 @app.route('/', methods=['GET'])
 def index():
+    """Application main page"""
     return render_template('index.html')
 
 
 @app.route('/trigger_error', methods=['GET'])
 def trigger_error():
+    """Triggers an exception (for testing)
+       TODO: show this view only in debug mode
+    """
     raise Exception('Intentional error')
 
 
 @app.errorhandler(httplib.NOT_FOUND)
 def page_not_found(error):
+    """404 handler"""
     return render_template('404.html', error=error)
 
 
 @app.route('/subscribe2')
 def subscribe2():
+    """WebSocket event channel subscription (experimental)"""
     app.logger.debug('subscribe2')
     ws = request.environ.get('wsgi.websocket')
     if ws:
         if ws not in clients:
             app.logger.info('Registering client %s', ws)
             client_conf = ws.receive()
-            app.logger.debug('Client conf: {}'.format(client_conf))
+            app.logger.debug('Client conf: %s', client_conf)
             clients.append(ws)
             ws.send(DUMMY_WELCOME_MSG)
 
@@ -155,5 +161,8 @@ def subscribe2():
 
 @app.route('/test/websocket_client')
 def websocket_client():
+    """Page with JS to connect via WebSocket (for testing)
+       TODO: show this view only in debug mode
+    """
     app.logger.debug('websocket_client')
     return render_template('websocket_client.html')
