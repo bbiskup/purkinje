@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+"""Miscellaneous utilities"""
+
 import os
 import os.path as op
 import stat
