@@ -37,13 +37,14 @@ class FileWatcher(gevent.Greenlet):
     def _run(self):
         """Run endlessly and monitor dir for changes
         """
-        logger.debug('{}.{}: starting to watch {}'.format(self.__class__,
-                                                          __name__,
-                                                          self.dir))
+        logger.debug('%s.%s: starting to watch %s',
+                     self.__class__,
+                     __name__,
+                     self.dir)
         while True:
             events = inotify.get_events(self._fd)
             for event in self._filter(events):
-                logger.debug('Event: {}'.format(event))
+                logger.debug('Event: %s', event)
                 self.queue.put(event)
 
     def _filter(self, events):
