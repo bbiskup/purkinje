@@ -7,6 +7,7 @@ TODOs
 
 #) Misc
    - i18n
+   - analytics (opt-in)
 
 #) Testing
    - JS Unit and integration tests
@@ -17,15 +18,20 @@ TODOs
    - test YAML syntax of .travis.yml and others
    - pre-commit hook?
    - Move test config files to subdirectory
+   - use mock lib (Python)
 
 #) Code
    - use Python package 'future' w/ futurize 
+   - verify Python 3 compliance as part of testing?
+   - use esvalidate to check JS files
+   - verify each JS file uses strict mode
 
 #) Documentation
    - Sphinx, Read The Docs
 
 #) Deployment
-   - Docker container?
+   - Docker container? (+ fig?)
+   - Vagrant file?
 
 #) Publishing
    - register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_) and/or `py.test plugs <http://pytest-plugs.herokuapp.com/>`_
