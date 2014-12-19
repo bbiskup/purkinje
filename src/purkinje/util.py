@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """Miscellaneous utilities"""
+from __future__ import print_function
 
 import os
 import os.path as op
@@ -54,6 +55,6 @@ def ensure_deleted(path):
 
 def a():
     x = 3
-    print x
-    print x * 2
-    print x * 3
+    print(x)
+    print(x * 2)
+    print(x * 3)

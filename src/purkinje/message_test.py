@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
 """Test cases for messages"""
+from __future__ import absolute_import
+from builtins import str
 
 import pytest
-import message as sut
+from . import message as sut
 from datetime import datetime
 import mock
 
@@ -17,7 +19,7 @@ def tc_start_event():
 
 
 def test_unicode(tc_start_event):
-    assert unicode(
+    assert str(
         tc_start_event) == 'tc_started: [2014-02-01 08:09:10] mytext'
 
 

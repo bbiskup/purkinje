@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 
 """Test cases for FileWatcher"""
+from __future__ import print_function
+from __future__ import absolute_import
+from builtins import str
 
 import gevent.monkey
 gevent.monkey.patch_all()
 
 import os.path as op
 import pytest
-import conftest
-import filewatcher as sut
+from . import conftest
+from . import filewatcher as sut
 
 
 @pytest.fixture()

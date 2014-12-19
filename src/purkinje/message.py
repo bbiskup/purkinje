@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
 """Message/event type for communication with browser and test runner"""
+from builtins import object
 
 from datetime import datetime
 import json
 import abc
+from future.utils import with_metaclass
 
 
 class MsgType(object):
@@ -22,9 +24,7 @@ class MsgType(object):
     ERROR = 'error'
 
 
-class Event(object):
-    __metaclass__ = abc.ABCMeta
-
+class Event(with_metaclass(abc.ABCMeta, object)):
     """An event for the browser
     """
 

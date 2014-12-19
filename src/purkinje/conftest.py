@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """Common fixtures and test functions"""
+from builtins import str
 
 import gevent.monkey
 gevent.monkey.patch_all()

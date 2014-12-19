@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
 """Test cases for utility functions"""
+from __future__ import absolute_import
+from builtins import str
 
 import pytest
 import os
 import errno
 import os.path as op
 import stat
-import util as sut
+from . import util as sut
 
 
 @pytest.fixture()

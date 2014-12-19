@@ -2,12 +2,13 @@
 
 """Test document formats for correctness
 """
+from __future__ import absolute_import
 
 import os
 import yaml
 import pytest
 import restructuredtext_lint as rstlint
-from conftest import PROJ_DIR
+from .conftest import PROJ_DIR
 
 
 def proj_files(suffix):
