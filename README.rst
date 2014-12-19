@@ -7,11 +7,12 @@ Test runner for py.test test framework with web GUI
 Build Status
 ============
 
-====== ======
+====== ===============
 Branch Status
-====== ======
+====== ===============
 dev    |travis-dev|
 master |travis-master|
+====== ===============
 
 
 System Requirements
@@ -27,8 +28,9 @@ Development
 ===========
 
 - uses `semantic versioning <http://semver.org/>`_
-- Download archive (branch *dev*): __ https://github.com/bbiskup/purkinje/archive/dev.zip
+- Download archive: `branch *dev*`__ 
 
+__ https://github.com/bbiskup/purkinje/archive/dev.zip
 
 .. |travis-dev| image:: https://travis-ci.org/bbiskup/purkinje.svg?branch=dev
         :target: https://travis-ci.org/bbiskup/purkinje
