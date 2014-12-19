@@ -27,6 +27,7 @@ def ensure_dir(path):
 
 
 def _ensure_file_deleted(path):
+    """Try to delete a file; don't raise an exception if it does not exist"""
     try:
         os.remove(path)
     except OSError as e:
@@ -35,6 +36,9 @@ def _ensure_file_deleted(path):
 
 
 def _ensure_dir_deleted(path):
+    """Try to delete a directory;
+       don't raise an exception if it does not exist
+       """
     try:
         shutil.rmtree(path)
     except OSError as e:
@@ -43,6 +47,9 @@ def _ensure_dir_deleted(path):
 
 
 def ensure_deleted(path):
+    """Ensure the given file or directory is deleted;
+       don't raise an exception if it does not exist.
+       """
     if not op.exists(path):
         return
     if op.isfile(path):
@@ -51,10 +58,3 @@ def ensure_deleted(path):
         _ensure_dir_deleted(path)
     else:
         raise ValueError('Invalid file type: {}'.format(path))
-
-
-def a():
-    x = 3
-    print(x)
-    print(x * 2)
-    print(x * 3)
