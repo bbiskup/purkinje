@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+
+"""Web views"""
+
 from __future__ import print_function
 from __future__ import absolute_import
 
@@ -16,7 +19,7 @@ import httplib
 from datetime import datetime
 import copy
 from flask import Flask, render_template, request
-from .assets import register_assets
+from assets import register_assets
 
 app = Flask(__name__)
 

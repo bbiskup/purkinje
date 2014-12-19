@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+
+"""Main module"""
+
 from __future__ import print_function
 from __future__ import absolute_import
 import gevent
@@ -8,6 +11,8 @@ from gevent.pywsgi import WSGIServer
 from geventwebsocket.handler import WebSocketHandler
 import werkzeug.serving
 # from werkzeug.debug import DebuggedApplication
+
+# TODO .app gives error about relative import
 from app import get_app, send_dummy_notifications
 
 APP_PORT = 5000
