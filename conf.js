@@ -4,7 +4,7 @@
 
 exports.config = {
   //seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['src/purkinje/static/js/tests/**/*.spec.js'],
+  specs: ['src/purkinje/static/js/tests/e2e/*.spec.js'],
 
   capabilities: {
     browserName: 'firefox'
