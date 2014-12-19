@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+from __future__ import absolute_import
+
+from future import standard_library
+standard_library.install_aliases()
 import gevent.monkey
 gevent.monkey.patch_all()
 import gevent
@@ -8,10 +12,11 @@ import json
 import logging
 import sys
 import httplib
+
 from datetime import datetime
 import copy
 from flask import Flask, render_template, request
-from assets import register_assets
+from .assets import register_assets
 
 app = Flask(__name__)
 
