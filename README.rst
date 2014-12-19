@@ -4,7 +4,14 @@ purkinje
 
 Test runner for py.test test framework with web GUI
 
-(Pre-Alpha stage)
+Build Status
+============
+
+====== ======
+Branch Status
+====== ======
+dev    |travis-dev|
+master |travis-master|
 
 
 System Requirements
@@ -20,8 +27,10 @@ Development
 ===========
 
 - uses `semantic versioning <http://semver.org/>`_
-  
-Conventions
------------
+- Download archive (branch *dev*): __ https://github.com/bbiskup/purkinje/archive/dev.zip
 
-- The software under test is imported as `sut`
+
+.. |travis-dev| image:: https://travis-ci.org/bbiskup/purkinje.svg?branch=dev
+        :target: https://travis-ci.org/bbiskup/purkinje
+.. |travis-master| image:: https://travis-ci.org/bbiskup/purkinje.svg?branch=master
+        :target: https://travis-ci.org/bbiskup/purkinje
