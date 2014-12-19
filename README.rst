@@ -23,6 +23,14 @@ System Requirements
 - tested on Ubuntu 14.04
 - needs a modern browser that supports WebSockets
 
+Supported Python versions
+=========================
+
+- Currently, only 2.7.x is supported. Python 3 support is blocked by the following packages: 
+
+  cssmin
+  gevent (which is blocking gevent-websocket)
+  inotifyx (which is blocking gevent_inotifyx)
 
 Development
 ===========
