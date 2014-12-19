@@ -40,8 +40,8 @@ script:
   - py.test
 
   - JS unit tests
-  - ./node_modules/karma/bin/karma start &
-  - ./node_modules/karma/bin/karma start --single-run
+  - # only run in Firefox because Chrome does not work in OpenVZ
+  - ./node_modules/karma/bin/karma start --single-run --browsers=Firefox
 
   # E2E Tests
   # Setup up JS E2E
