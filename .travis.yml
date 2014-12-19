@@ -39,8 +39,8 @@ script:
   - #### Python tests
   - py.test
 
-  - JS unit tests
-  - # only run in Firefox because Chrome does not work in OpenVZ
+  - # JS unit tests
+  - # only run in Firefox because Chrome does not work in OpenVZ2oap
   - ./node_modules/karma/bin/karma start --single-run --browsers=Firefox
 
   # E2E Tests
