@@ -9,7 +9,7 @@ import os
 import errno
 import os.path as op
 import stat
-from . import util as sut
+import purkinje.util as sut
 
 
 @pytest.fixture()

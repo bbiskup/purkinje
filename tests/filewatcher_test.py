@@ -11,7 +11,7 @@ gevent.monkey.patch_all()
 import os.path as op
 import pytest
 from . import conftest
-from . import filewatcher as sut
+import purkinje.filewatcher as sut
 
 
 @pytest.fixture()

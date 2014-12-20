@@ -7,8 +7,8 @@ import os
 import pytest
 import shutil
 from .conftest import TESTDATA_DIR
-from .testrunner import PyTestRunner
-from . import util
+from purkinje.testrunner import PyTestRunner
+import purkinje.util as pu
 
 
 @pytest.fixture
@@ -33,7 +33,7 @@ def test_empty_single_pass(tmpdir, testrunner):
     #   /tmp/pytest-84/test_empty_single_pass0/singlepass/simple_test.py
     # HINT: remove __pycache__ / .pyc files and/or use a unique basename
     #  for your test file modules
-    util.ensure_deleted(test_proj_path + '/__pycache__')
+    pu.ensure_deleted(test_proj_path + '/__pycache__')
 
     orig_path = os.getcwd()
     try:

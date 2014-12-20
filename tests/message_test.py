@@ -5,7 +5,7 @@ from __future__ import absolute_import
 from builtins import str
 
 import pytest
-from . import message as sut
+import purkinje.message as sut
 from datetime import datetime
 import mock
 

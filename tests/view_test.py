@@ -9,7 +9,7 @@ import pytest
 # import websocket
 import httplib
 from flask import url_for
-from app import get_app
+from purkinje.app import get_app
 
 
 @pytest.fixture
