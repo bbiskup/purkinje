@@ -14,6 +14,10 @@ dev    |travis-dev|
 master |travis-master| (TODO: set up .travis.yml for master, or disable build of master in Travis)
 ====== ===============
 
+Coverage:
+
+.. image:: https://coveralls.io/repos/bbiskup/purkinje/badge.png :target: https://coveralls.io/r/bbiskup/purkinje
+
 
 System Requirements
 ===================
@@ -26,7 +30,7 @@ System Requirements
 Supported Python versions
 =========================
 
-- Currently, only 2.7.x is supported. Python 3 support is blocked by the following packages: 
+- Currently, only 2.7.x is supported. Python 3 support is blocked by the following packages:
 
   cssmin
   gevent (which is blocking gevent-websocket)
@@ -37,7 +41,7 @@ Development
 
 - uses `semantic versioning <http://semver.org/>`_
 - uses `git-flow git workflow <http://nvie.com/posts/a-successful-git-branching-model/>`_
-- Download archive: `branch *dev*`__ 
+- Download archive: `branch *dev*`__
 
 __ https://github.com/bbiskup/purkinje/archive/dev.zip
 
