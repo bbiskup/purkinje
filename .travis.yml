@@ -42,6 +42,7 @@ script:
 
   - # Start server for E2E tests
   - ./run.py &
+  - sleep 5
 
   - # only run in Firefox because Chrome does not work in OpenVZ2oap
   - make test-js-karma-only-firefox
