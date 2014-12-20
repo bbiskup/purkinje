@@ -40,16 +40,16 @@ script:
   # Setup up JS E2E
   - # google-chrome --no-sandbox &
 
-  - # JS unit tests
-  - # only run in Firefox because Chrome does not work in OpenVZ2oap
-  - ./node_modules/karma/bin/karma start --single-run --browsers=Firefox
-
   - # Start server for E2E tests
   - ./run.py &
 
+  - # only run in Firefox because Chrome does not work in OpenVZ2oap
   - make test-js-karma-only-firefox
   - make test-js-protractor
 
 
   - # Documentation
   - make doc
+
+after_succes:
+  coveralls

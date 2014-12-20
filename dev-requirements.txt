@@ -14,3 +14,4 @@ pylint==1.4.0
 tox==1.8.1
 sphinx-autobuild==0.3.0
 sphinx-bootstrap-theme==0.4.5
+coveralls==0.5
