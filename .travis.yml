@@ -51,5 +51,5 @@ script:
   - make test-js-protractor
 
 
-  - Documentation
+  - # Documentation
   - make doc
