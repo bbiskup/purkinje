@@ -1,3 +1,14 @@
 recursive-include src/purkinje/templates *
 recursive-include src/purkinje/static * 
+
 include  requirements.txt
+include  dev-requirements.txt
+include AUTHORS.rst
+include CONTRIBUTING.rst
+include HISTORY.rst
+include LICENSE
+include README.rst
+recursive-include tests *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-include docs *.rst conf.py
