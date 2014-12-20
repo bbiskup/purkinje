@@ -16,8 +16,7 @@ before_install:
 install:
   - echo 'Running installation in directory $PWD'
   - # Python
-  - pip install flake8 --download-cache $HOME/.pip-cache
-  - pip install -r dev-requirements.txt --download-cache $HOME/.pip-cache
+  - pip install -r dev-requirements.txt --download-cache $HOME/.pip-cache --use-mirrors
 
   - # JS
   - #wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
