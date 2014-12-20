@@ -1,5 +1,5 @@
-recursive-include src/purkinje/templates *
-recursive-include src/purkinje/static * 
+recursive-include purkinje/templates *
+recursive-include purkinje/static * 
 
 include  requirements.txt
 include  dev-requirements.txt

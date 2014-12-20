@@ -1,5 +1,8 @@
 from setuptools import setup
 
+readme = open('README.rst').read()
+history = open('HISTORY.rst').read()
+
 
 def parse_requirements():
     with open('requirements.txt') as req:
@@ -8,10 +11,11 @@ def parse_requirements():
 setup(name='purkinje',
       version='0.1.0',
       description='Test runner for py.test with web GUI',
+      long_description=readme + '\n\n' + history,
       author='Bernhard Biskup',
       author_email='bbiskup@gmx.de',
       url='biskup-software.de',
-      package_dir={'': 'src'},
+      package_dir={'purkinje': 'purkinje'},
       packages=['purkinje'],
       zip_safe=False,
       include_package_data=True,
@@ -30,5 +34,5 @@ setup(name='purkinje',
           'Programming Language :: Python :: 2.7',
       },
       license='The MIT License (MIT)',
-      keywords='pytest testrunner websockets'
+      keywords='purkinje pytest testrunner websockets'
       )

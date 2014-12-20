@@ -13,7 +13,7 @@ import werkzeug.serving
 # from werkzeug.debug import DebuggedApplication
 
 # TODO .app gives error about relative import
-from app import get_app, send_dummy_notifications
+from .app import get_app, send_dummy_notifications
 
 APP_PORT = 5000
 DEBUG = True

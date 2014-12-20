@@ -46,7 +46,7 @@ script:
   # E2E Tests
   # Setup up JS E2E
   - # google-chrome --no-sandbox &
-  - ./run &
+  - ./run.py &
   - #sleep 30
   - #./node_modules/protractor/bin/webdriver-manager start &
   - #sleep 30

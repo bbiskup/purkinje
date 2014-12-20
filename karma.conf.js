@@ -5,7 +5,7 @@ module.exports = function(config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
+        basePath: 'purkinje/static',
 
 
         // frameworks to use
@@ -20,15 +20,16 @@ module.exports = function(config) {
             'bower_components/angular-route/angular-route.js',
             'bower_components/angularjs-scope.safeapply/src/Scope.SafeApply.js',
 
-            'src/purkinje/static/bower_components/should/should.js',
+            'bower_components/should/should.js',
 
+            // TODO correct path
             'app/scripts/lib/router.js',
 
             // Setup
             'mocha.conf.js',
 
             // Test files
-            'src/purkinje/static/js/tests/unit/*.spec.js',
+            'js/tests/unit/*.spec.js',
         ],
 
 
