@@ -19,28 +19,31 @@ APP_PORT = 5000
 DEBUG = True
 
 
-@werkzeug.serving.run_with_reloader
+#
 def main():
     """Starts web application
     """
-    app = get_app()
-    app.debug = DEBUG
-    # app.config['ASSETS_DEBUG'] = DEBUG
 
-    # Breaks web socket communication
-    # (WebSocketConnectionClosedException in client)
-    # app = DebuggedApplication(app, evalex=True)
+    @werkzeug.serving.run_with_reloader
+    def go():
+        app = get_app()
+        app.debug = DEBUG
+        # app.config['ASSETS_DEBUG'] = DEBUG
 
-    http_server = WSGIServer(('', APP_PORT),
-                             app,
-                             handler_class=WebSocketHandler)
+        # Breaks web socket communication
+        # (WebSocketConnectionClosedException in client)
+        # app = DebuggedApplication(app, evalex=True)
 
-    gevent.spawn(send_dummy_notifications)
+        http_server = WSGIServer(('', APP_PORT),
+                                 app,
+                                 handler_class=WebSocketHandler)
 
-    http_server.serve_forever()
-    # app.run()
+        gevent.spawn(send_dummy_notifications)
 
+        http_server.serve_forever()
+        # app.run()
 
 if __name__ == '__main__':
+    main = werkzeug.serving.run_with_reloader(main)
     print('purkinje ready')
     main()

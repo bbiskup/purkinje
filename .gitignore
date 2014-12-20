@@ -17,3 +17,4 @@ __pycache__
 /npm-debug.log
 /.tox
 *.bak
+/docs/_build

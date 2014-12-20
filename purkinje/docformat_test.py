@@ -5,16 +5,21 @@
 from __future__ import absolute_import
 
 import os
+import os.path as op
 import yaml
 import pytest
 import restructuredtext_lint as rstlint
 from .conftest import PROJ_DIR
 
+DIRS = [PROJ_DIR]
+
 
 def proj_files(suffix):
-    for f in os.listdir(PROJ_DIR):
-        if f.endswith(suffix):
-            yield f
+    for dir in DIRS:
+        for f in os.listdir(dir):
+            path = op.join(dir, f)
+            if path.endswith(suffix):
+                yield path
 
 
 def _format_rst_lint_errors(errors):

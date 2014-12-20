@@ -52,3 +52,6 @@ script:
   - #./node_modules/protractor/bin/webdriver-manager start &
   - #sleep 30
   - npm test
+
+  - Documentation
+  - make doc

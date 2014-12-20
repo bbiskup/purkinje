@@ -8,6 +8,7 @@ gevent.monkey.patch_all()
 import uuid
 import pytest
 import os
+import os.path as op
 
 TESTDATA_DIR = 'testdata'
 
@@ -19,6 +20,7 @@ QUASI_IMMEDIATE_TIMEOUT = .2
 
 # Tests must be executed from project directory
 PROJ_DIR = os.getcwd()
+DOC_DIR = op.join(PROJ_DIR, 'docs')
 
 
 @pytest.fixture
