@@ -34,22 +34,22 @@ before_script:
   - bower install -F
 
 script:
-  - #### Python tests
-  - py.test
-  - tox
+  - make test-py
+
+  # E2E Tests
+  # Setup up JS E2E
+  - # google-chrome --no-sandbox &
 
   - # JS unit tests
   - # only run in Firefox because Chrome does not work in OpenVZ2oap
   - ./node_modules/karma/bin/karma start --single-run --browsers=Firefox
 
-  # E2E Tests
-  # Setup up JS E2E
-  - # google-chrome --no-sandbox &
+  - # Start server for E2E tests
   - ./run.py &
-  - #sleep 30
-  - #./node_modules/protractor/bin/webdriver-manager start &
-  - #sleep 30
-  - npm test
+
+  - make test-js-karma-only-firefox
+  - make test-js-protractor
+
 
   - Documentation
   - make doc

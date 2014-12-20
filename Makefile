@@ -1,12 +1,21 @@
 doc:
 	(cd docs/ && make html)
 
-test-py:
+test-tox:
 	tox
 
-test-js:
-	npm test
+test-py: test-tox
+
+test-js-karma:
 	./node_modules/karma/bin/karma start --single-run
+
+test-js-karma-only-firefox:
+	./node_modules/karma/bin/karma start --single-run --browsers=Firefox
+
+test-js-protractor:
+	npm test
+
+test-js: test-karma test-protractor
 
 test: test-py test-js
 
