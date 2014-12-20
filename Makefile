@@ -15,7 +15,7 @@ test-js-karma-only-firefox:
 test-js-protractor:
 	npm test
 
-test-js: test-karma test-protractor
+test-js: test-js-karma test-js-protractor
 
 test: test-py test-js
 
