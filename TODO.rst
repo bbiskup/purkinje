@@ -13,7 +13,7 @@ TODOs
    - JS Unit and integration tests
 
      - remove ng-scenario (superceded by protractor)
-   
+
    - test cases for WebSocket endpoint(s)
    - test YAML syntax of .travis.yml and others
    - pre-commit hook?
@@ -21,10 +21,11 @@ TODOs
    - use mock lib (Python)
 
 #) Code
-   - use Python package 'future' w/ futurize 
+   - use Python package 'future' w/ futurize
    - verify Python 3 compliance as part of testing?
    - use esvalidate to check JS files
    - verify each JS file uses strict mode
+   - set purkinje.__version__ and use it in setup.py (but see)
 
 #) Documentation
    - Sphinx, Read The Docs
@@ -45,7 +46,7 @@ Issues
 ======
 
 - Exception KeyError: KeyError(139899605760272,) in <module 'threading' from '/usr/lib/python2.7/threading.pyc'> ignored (after py.test execution; not causing a problem, but irritating; see http://stackoverflow.com/questions/8774958/keyerror-in-module-threading-after-a-successful-py-test-run)
-- Memory leak in Chrome: becomes obvious when sending many 
+- Memory leak in Chrome: becomes obvious when sending many
   WebSocket messages to browser:
   - only seems to go away when closing tab
   - see Chrome dev tools (timeline and profiles/heap snapshot)
