@@ -28,6 +28,7 @@ TODOs
 
 #) Documentation
    - Sphinx, Read The Docs
+   - sphinxcontrib.autohttp.flask
 
 #) Deployment
    - Docker container? (+ fig?)

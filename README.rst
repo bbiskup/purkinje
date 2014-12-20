@@ -36,6 +36,7 @@ Development
 ===========
 
 - uses `semantic versioning <http://semver.org/>`_
+- uses `git-flow git workflow <http://nvie.com/posts/a-successful-git-branching-model/>`_
 - Download archive: `branch *dev*`__ 
 
 __ https://github.com/bbiskup/purkinje/archive/dev.zip
