@@ -1,12 +1,14 @@
 """ Tests for py.test test runner
 """
+from __future__ import absolute_import
+from builtins import str
 
 import os
 import pytest
 import shutil
-from conftest import TESTDATA_DIR
-from testrunner import PyTestRunner
-import util
+from .conftest import TESTDATA_DIR
+from .testrunner import PyTestRunner
+from . import util
 
 
 @pytest.fixture

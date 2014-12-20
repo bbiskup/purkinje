@@ -19,6 +19,7 @@ TODOs
    - pre-commit hook?
    - Move test config files to subdirectory
    - use mock lib (Python)
+   - show badge with test coverage (of purkinje project) on github?
 
 #) Code
    - use Python package 'future' w/ futurize

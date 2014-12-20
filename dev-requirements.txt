@@ -1,3 +1,4 @@
+-r requirements.txt
 flake8==2.2.5
 pep8==1.5.7
 pytest-cache==1.0
@@ -9,5 +10,5 @@ pytest-cov==1.8.1
 pytest-flask==0.6.0
 pyaml==14.12.10
 mock==1.0.1
-future==0.14.3
 pylint==1.4.0
+tox==1.8.1

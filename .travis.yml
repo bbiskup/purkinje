@@ -6,6 +6,7 @@ cache:
   # TODO local node modules path correct?
   directories:
     - $HOME/.pip-cache/
+    - $HOME/.tox
     - /usr/lib/node_modules/
     - $HOME/node_modules/
     - /home/travis/virtualenv/python2.7
@@ -16,7 +17,6 @@ install:
   - echo 'Running installation in directory $PWD'
   - # Python
   - pip install flake8 --download-cache $HOME/.pip-cache
-  - pip install -r requirements.txt --download-cache $HOME/.pip-cache
   - pip install -r dev-requirements.txt --download-cache $HOME/.pip-cache
 
   - # JS
@@ -38,6 +38,7 @@ before_script:
 script:
   - #### Python tests
   - py.test
+  - tox
 
   - # JS unit tests
   - # only run in Firefox because Chrome does not work in OpenVZ2oap
