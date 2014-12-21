@@ -21,3 +21,7 @@ test: test-py test-js
 
 doc-clean:
 	(cd docs/ && make clean)
+
+dist:
+	python setup.py sdist
+	python setup.py bdist_wheel
