@@ -14,9 +14,8 @@ dev    |travis-dev|
 master |travis-master| (TODO: set up .travis.yml for master, or disable build of master in Travis)
 ====== ===============
 
-Coverage:
+Coverage: |coveralls|
 
-.. image:: https://coveralls.io/repos/bbiskup/purkinje/badge.png :target: https://coveralls.io/r/bbiskup/purkinje
 
 
 System Requirements
@@ -49,3 +48,5 @@ __ https://github.com/bbiskup/purkinje/archive/dev.zip
         :target: https://travis-ci.org/bbiskup/purkinje
 .. |travis-master| image:: https://travis-ci.org/bbiskup/purkinje.svg?branch=master
         :target: https://travis-ci.org/bbiskup/purkinje
+.. |coveralls| image:: https://coveralls.io/repos/bbiskup/purkinje/badge.png
+        :target: https://coveralls.io/r/bbiskup/purkinje
