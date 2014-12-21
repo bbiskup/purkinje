@@ -16,3 +16,4 @@ sphinx-autobuild==0.3.0
 sphinx-bootstrap-theme==0.4.5
 coveralls==0.5
 wheel==0.24.0
+cssmin==0.2.0
