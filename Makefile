@@ -25,3 +25,6 @@ doc-clean:
 dist:
 	python setup.py sdist
 	python setup.py bdist_wheel
+
+build-docker:
+	sudo docker build .

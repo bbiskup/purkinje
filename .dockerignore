@@ -1,0 +1,5 @@
+.git
+.tox
+build
+venv
+node_modules
