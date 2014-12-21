@@ -35,3 +35,15 @@ RUN pip freeze
 # JS
 #wget -q -O https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 #sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+
+RUN apt-get install make
+ADD Makefile /build/Makefile
+ADD tox.ini /build/tox.ini
+ADD pytest.ini /build/pytest.ini
+ADD setup.py /build/setup.py
+ADD README.rst /build/README.rst
+ADD HISTORY.rst /build/HISTORY.rst
+ADD purkinje /build/purkinje
+#ENTRYPOINT ["/bin/bash", "-c", "cd", "/build", ";", "make"]
+#ENTRYPOINT "date"
+ENTRYPOINT cd /build ; make test
