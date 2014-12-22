@@ -6,11 +6,16 @@
 from flask.ext.assets import Bundle, Environment
 
 
+BC = 'bower_components'
+
 # paths are relative to the 'static' directory
 BUNDLES = {
     'css': Bundle(
-        'bower_components/bootstrap/dist/css/bootstrap.css',
-        'bower_components/bootstrap/dist/css/bootstrap-theme.css',
+        BC + '/bootstrap/dist/css/bootstrap.css',
+        BC + '/bootstrap/dist/css/bootstrap-theme.css',
+        BC + '/sass-bootstrap-glyphicons/css/bootstrap-glyphicons.css',
+
+        BC + '/fontawesome/css/font-awesome.css',
 
         'css/thirdparty/dashboard.css',
 
@@ -21,10 +26,10 @@ BUNDLES = {
         output='gen/packed.css'
     ),
     'js': Bundle(
-        'bower_components/underscore/underscore.js',
-        'bower_components/angular/angular.js',
-        'bower_components/angular-bootstrap/ui-bootstrap.js',
-        'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+        BC + '/underscore/underscore.js',
+        BC + '/angular/angular.js',
+        BC + '/angular-bootstrap/ui-bootstrap.js',
+        BC + '/angular-bootstrap/ui-bootstrap-tpls.js',
 
         'js/underscore.angular.js',
         'js/util.js',

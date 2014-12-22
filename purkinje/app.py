@@ -16,10 +16,11 @@ import logging
 import sys
 import httplib
 import pprint
+import os.path as op
 
 from datetime import datetime
 import copy
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from assets import register_assets
 
 from .message import MsgType
@@ -169,8 +170,8 @@ def event():
             else:
                 raise Exception('No WebSocket request')
     except Exception as e:
-                app.logger.warning('Client connection aborted (%s)', e)
-                return ''
+        app.logger.warning('Client connection aborted (%s)', e)
+        return ''
 
 # def send_to_ws():
 #     """Send data to WebSockets (for testing)"""
@@ -200,3 +201,21 @@ def websocket_client():
     """
     app.logger.debug('websocket_client')
     return render_template('websocket_client.html')
+
+
+@app.route('/static/fonts/fontawesome-webfont.woff')
+def webfont_workaround():
+    """TODO remove workaround for fontawesome webfont
+
+       Work-around needed because Font-Awesome does not reference the actual
+       directory where the font files are located.
+       Font-Aweseome tries to load fonts with woff, ttf and finally svg
+       and will pick the first one it can find.
+       The Chrome Developer Tools' network tab incorrectly reports font files
+       that actually result in a 404 as having status code 200
+       (Chrome http://192.168.3.102:5000/#)
+    """
+    fontawesome_dir = '/static/bower_components/fontawesome'
+
+    # TODO pass on Query string (v=4.2.0)?
+    return redirect(op.join(fontawesome_dir, 'fonts/fontawesome-webfont.woff'))

@@ -41,10 +41,12 @@
                             </ul>
                         </div>
                         <div class="col-sm-4 col-sm-offset-3">
-                        
+                            
                             <!-- Filter for test result display -->
                             <div class="btn-group" test-case-controls>
-                                <button type="button" class="btn btn-primary" ng-click="clearEvents()">Clear events</button>
+                                <a class="btn btn-danger" ng-click="clearEvents()" href="#">
+                                    <i class="fa fa-trash-o fa-lg"></i> Clear events
+                                </a>
                                 <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
                                 Filter test results
                                 <span class="caret" />
@@ -82,6 +84,7 @@
                     </div></div>
                     <div id="dummy-websocket-area">
                         <h3>WebSocket messages</h3>
+                        <span>{[webSocketEvents.length]}</span>
                         <table class="table table-striped">
                             <thead>
                                 <th>ID</th>
@@ -106,4 +109,5 @@
                 </ul>
             </div>
             -->
+
         {% endblock %}
