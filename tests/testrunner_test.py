@@ -7,7 +7,10 @@ from builtins import str
 import os
 import pytest
 import shutil
+import json
+from mock import patch, Mock
 from .conftest import TESTDATA_DIR
+from purkinje import testmonitorplugin
 from purkinje.testrunner import PyTestRunner
 import purkinje.util as pu
 
@@ -39,7 +42,21 @@ def test_empty_single_pass(tmpdir, testrunner):
     orig_path = os.getcwd()
     try:
         os.chdir(test_proj_path)
-        test_result = testrunner.run([test_proj_path])
+        mock_ws = Mock()
+        with patch.object(testmonitorplugin, 'websocket') as ws:
+            ws.WebSocket = Mock(return_value=mock_ws)
+            test_result = testrunner.run("ws://dummy_websocket_url",
+                                         [test_proj_path])
+            assert testrunner.monitor_plugin.is_websocket_connected()
+
+            ws.WebSocket.assert_called_once_with(
+                'ws://dummy_websocket_url')
+
+            send_args = mock_ws.send.call_args_list
+            assert len(send_args) == 2
+
+            [json.dumps(x[0]) for x in send_args]
+
         assert test_result == 0
 
         reps = testrunner.monitor_plugin.reports
@@ -51,5 +68,6 @@ def test_empty_single_pass(tmpdir, testrunner):
         rep1 = reps[1]
         assert rep1.fspath == 'simple_test.py'
         assert rep1.outcome == 'passed'
+
     finally:
         os.chdir(orig_path)
