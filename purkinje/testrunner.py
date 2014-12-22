@@ -11,7 +11,7 @@ import pytest
 logger = logging.getLogger(__file__)
 
 
-class TestResultMonitorPlugin(object):
+class TestMonitorPlugin(object):
 
     """py.test plugin for monitoring test progress and
        capturing results
@@ -44,7 +44,7 @@ class PyTestRunner(object):
            :args: files/directories to test
            :return: Test result (0: success)
         """
-        self.monitor_plugin = TestResultMonitorPlugin()
+        self.monitor_plugin = TestMonitorPlugin()
         result = pytest.main(args=args,
                              plugins=[self.monitor_plugin])
         return result
