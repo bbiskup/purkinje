@@ -26,6 +26,7 @@ BUNDLES = {
         'bower_components/angular-bootstrap/ui-bootstrap.js',
         'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
 
+        'js/underscore.angular.js',
         'js/util.js',
         'js/defs.js',
         'js/app.js',
