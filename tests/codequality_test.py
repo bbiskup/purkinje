@@ -8,6 +8,7 @@ MAX_MCCABE_COMPLEXITY = 10
 
 
 def test_mccabe():
+    # TODO Test remove test case? (Now performed with tox tests)
     cmd = 'flake8 --max-complexity=%d purkinje' % MAX_MCCABE_COMPLEXITY
     result = subprocess.call(cmd.split())
     assert result == 0, 'McCabe check seems to have failed'

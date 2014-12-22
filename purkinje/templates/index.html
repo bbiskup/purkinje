@@ -1,106 +1,107 @@
 {% extends "layout.html" %} {% block body %}
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
-            </button>
-            <a class="navbar-brand">Purkinje</a>
+                </button>
+                <a class="navbar-brand">Purkinje</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3">
-            <ul class="nav nav-sidebar">
-                <li><a href="#all">All Test Cases</a></li>
-                <li><a href="#fails">Failed Test Cases</a></li>
-                <li><a href="#passes">Passed Test Cases</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-offset-3 col-md-10 col-md-offset-2 main" ng-controller="TestResultsTableController">
-            <h1 id="test-results-header" class="pageheader">Test Results</h1>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <!-- Verdict counts -->
-                    <ul id="result-summary" class="nav nav-pills" role="tablist">
-                        <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
-                        <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span></a></li>
-                        <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span></a></li>
-                        <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-3 col-sm-offset-3">
-                    <!-- Filter for test result display -->
-                    <div class="btn-group" dropdown>
-                        <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
-                            Filter test results
-                            <span class="caret" />
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a></li>
-                        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <ul class="nav nav-sidebar">
+                    <li><a href="#all">All Test Cases</a></li>
+                    <li><a href="#fails">Failed Test Cases</a></li>
+                    <li><a href="#passes">Passed Test Cases</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-offset-3 col-md-10 col-md-offset-2 main" ng-controller="TestResultsTableController">
+                
+                
+                <div class="row">
+                    <h1 id="test-results-header" class="pageheader">Test Results</h1>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- Verdict counts -->
+                            <ul id="result-summary" class="nav nav-pills" role="tablist">
+                                <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
+                                <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span></a></li>
+                                <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span></a></li>
+                                <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3 col-sm-offset-3">
+                            <!-- Filter for test result display -->
+                            <div class="btn-group" dropdown>
+                                <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
+                                Filter test results
+                                <span class="caret" />
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive col-sm-6">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Test Case</th>
+                                    <th>File</th>
+                                    <th>Results</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="result in testResults">
+                                    <td>{[result.name]}</td>
+                                    <td>{[result.file]}</td>
+                                    <td class='{[ result.verdict|verdictClassFilter ]}'>
+                                        {[result.verdict]}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="col-sm-3 col-sm-offset-3">
+                        <h3>Test case details</h3>
+                        ...Details about test case...
+                    </div></div>
+                    <div id="dummy-websocket-area">
+                        <h3>WebSocket messages</h3>
+                        <table class="table table-striped">
+                            <thead>
+                                <th>ID</th>
+                                <th>Text</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in webSocketEvents">
+                                    <td>{[item.id]}</td>
+                                    <td>{[ item.text ]}</td>
+                                </tr>
+                            </tbody>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Test Case</th>
-                            <th>File</th>
-                            <th>Results</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="result in testResults">
-                            <td>{[result.name]}</td>
-                            <td>{[result.file]}</td>
-                            <td class='{[ result.verdict|verdictClassFilter ]}'>
-                                {[result.verdict]}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!--
+            <div id="dummy-div" ng-controller="DummyController">
+                Angular value (from controller): {[ xyz ]}<br>
+                Angular value (direct): {[ 1 + 2]}<br>
+                <ul ng-repeat="person in people">
+                    <li>{[person.name]}</li>
+                </ul>
             </div>
-            <div id="dummy-websocket-area">
-                <h3>WebSocket messages</h3>
-                <table class="table table-striped">
-                    <thead>
-                        <th>ID</th>
-                        <th>Text</th>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="item in webSocketEvents">
-                            <td>{[item.id]}</td>
-                            <td>{[ item.text ]}</td>
-                        </tr>
-                    </tbody>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--
-<div id="dummy-div" ng-controller="DummyController">
-    Angular value (from controller): {[ xyz ]}<br>
-    Angular value (direct): {[ 1 + 2]}<br>
-
-    <ul ng-repeat="person in people">
-        <li>{[person.name]}</li>
-    </ul>
-</div>
--->
-{% endblock %}
+            -->
+        {% endblock %}

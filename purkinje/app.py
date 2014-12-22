@@ -26,7 +26,7 @@ app = Flask(__name__)
 # Connected WebSocket clients
 clients = []
 
-DUMMY_PERIODIC_MSG_DELAY = .05
+DUMMY_PERIODIC_MSG_DELAY = 5
 
 DUMMY_WELCOME_MSG = json.dumps({
     'type': 'info',
