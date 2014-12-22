@@ -28,7 +28,7 @@ def tc_start_event(mock_date):
 
 @pytest.fixture
 def connection_termination_event(mock_date):
-    return sut.ConnectionTerminationEvent('mytext')
+    return sut.ConnectionTerminationEvent()
 
 
 def test_tc_start_event_unicode(tc_start_event):
@@ -38,7 +38,7 @@ def test_tc_start_event_unicode(tc_start_event):
 
 def test_connection_termination_unicode(connection_termination_event):
     expected = ('terminate_connection: '
-                '[2014-02-01 08:09:10] mytext')
+                '[2014-02-01 08:09:10] ')
     assert str(connection_termination_event) == expected
 
 
@@ -58,7 +58,7 @@ def test_tc_start_event_serialize(tc_start_event):
 
 def test_connection_termination_serialize(connection_termination_event):
     serialized = connection_termination_event.serialize()
-    expected = json.dumps({'text': 'mytext',
+    expected = json.dumps({'text': '',
                            'type': 'terminate_connection',
                            'timestamp': '2014-02-01T08:09:10'
                            })

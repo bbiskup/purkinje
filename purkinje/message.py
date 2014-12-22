@@ -68,10 +68,9 @@ class TestCaseStartEvent(Event):
 
 class ConnectionTerminationEvent(Event):
 
-    def __init__(self, text):
+    def __init__(self):
         super(ConnectionTerminationEvent, self).__init__(
-            MsgType.TERMINATE_CONNECTION,
-            text)
+            MsgType.TERMINATE_CONNECTION, '')
 
     def _serialize(self, body):
         pass
