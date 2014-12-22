@@ -12,6 +12,8 @@ from future.utils import with_metaclass
 class MsgType(object):
 
     """Constants for messages"""
+    TERMINATE_CONNECTION = 'terminate_connection'
+
     # Meta information about project under test
     PROJ_INFO = 'proj_info'
 
@@ -62,3 +64,14 @@ class TestCaseStartEvent(Event):
 
     def _serialize(self, body):
         pass  # no extra data
+
+
+class ConnectionTerminationEvent(Event):
+
+    def __init__(self, text):
+        super(TestCaseStartEvent, self).__init__(
+            MsgType.TERMINATE_CONNECTION,
+            text)
+
+    def _serialize(self, body):
+        pass

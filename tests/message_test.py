@@ -8,15 +8,22 @@ import json
 import pytest
 import purkinje.message as sut
 from datetime import datetime
-import mock
+from mock import Mock
 
 
 @pytest.fixture
-def tc_start_event():
-    with mock.patch.object(sut, 'datetime') as dt:
-        dt.now.return_value = datetime(2014, 2, 1, 8, 9, 10)
+def mock_date(monkeypatch):
+    m = Mock()
+    m.now.return_value = datetime(2014, 2, 1, 8, 9, 10)
+    monkeypatch.setattr(sut,
+                        'datetime',
+                        m)
+    m.isoformat = datetime.isoformat
 
-        return sut.TestCaseStartEvent('mytext')
+
+@pytest.fixture
+def tc_start_event(mock_date):
+    return sut.TestCaseStartEvent('mytext')
 
 
 def test_unicode(tc_start_event):
@@ -30,6 +37,7 @@ def test_unicode(tc_start_event):
 
 
 def test_serialize(tc_start_event):
+    print "###", sut.datetime.now(), tc_start_event.timestamp
     serialized = tc_start_event.serialize()
     expected = json.dumps({'text': 'mytext',
                            'type': 'tc_started',
