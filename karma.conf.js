@@ -17,16 +17,16 @@ module.exports = function(config) {
         files: [
             // Libs
             'bower_components/angular/angular.js',
-            'bower_components/angular-route/angular-route.js',
-            'bower_components/angularjs-scope.safeapply/src/Scope.SafeApply.js',
+            //'bower_components/angular-route/angular-route.js',
+            //'bower_components/angularjs-scope.safeapply/src/Scope.SafeApply.js',
 
             'bower_components/should/should.js',
 
             // TODO correct path
-            'app/scripts/lib/router.js',
+            //'app/scripts/lib/router.js',
 
             // Setup
-            'mocha.conf.js',
+            '../../mocha.conf.js',
 
             // Test files
             'js/tests/unit/*.spec.js',
