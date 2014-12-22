@@ -15,7 +15,7 @@ app.controller('DummyController', function($scope) {
 app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
     function($scope, WebSocketService) {
         $scope.webSocketEvents = [];
-        $scope.dummyPayload = WebSocketService.getDummyPayload();
+        $scope.dummyPayload = WebSocketService.registerClient();
 
         $scope.$on('webSocketMsg', function(event, data) {
             var start = new Date();

@@ -76,9 +76,9 @@ app.factory('WebSocketService', ['$q', '$rootScope', function($q, $rootScope) {
         return currentCallbackId;
     }
 
-    Service.getDummyPayload = function() {
+    Service.registerClient = function() {
         var request = {
-            type: 'get_dummy_payload'
+            type: 'register_client'
         };
 
         var promise = sendRequest(request);
