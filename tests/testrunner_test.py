@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ Tests for py.test test runner
 """
 from __future__ import absolute_import
