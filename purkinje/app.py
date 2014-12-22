@@ -15,6 +15,7 @@ import json
 import logging
 import sys
 import httplib
+import pprint
 
 from datetime import datetime
 import copy
@@ -156,6 +157,7 @@ def event():
         while True:
             msg_str = ws.receive()
             msg = json.loads(msg_str)
+            app.logger.debug('Received event: {}'.format(pprint.pformat(msg)))
             if msg['type'] == MsgType.TERMINATE_CONNECTION:
                 app.logger.debug('Connection terminated by client')
 
