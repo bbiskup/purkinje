@@ -53,6 +53,10 @@ app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
             name: 'all'
         }];
 
+        $scope.clearEvents = function(){
+            $scope.webSocketEvents = [];
+        }
+
         $scope.verdictCounts = util.countVerdicts($scope.testResults);
     }
 ]);

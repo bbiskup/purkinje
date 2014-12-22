@@ -40,9 +40,11 @@
                                 <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
                             </ul>
                         </div>
-                        <div class="col-sm-3 col-sm-offset-3">
+                        <div class="col-sm-4 col-sm-offset-3">
+                        
                             <!-- Filter for test result display -->
-                            <div class="btn-group" dropdown>
+                            <div class="btn-group" test-case-controls>
+                                <button type="button" class="btn btn-primary" ng-click="clearEvents()">Clear events</button>
                                 <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
                                 Filter test results
                                 <span class="caret" />
