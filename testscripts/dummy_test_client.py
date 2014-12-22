@@ -34,7 +34,7 @@ if __name__ == '__main__':
     # about project / test suite
 
     for i in range(10):
-        event = message.TestCaseStartEvent('xyz')
+        event = message.TestCaseStartEvent('dummy_client msg #{}'.format(i))
         ws.send(event.serialize())
         time.sleep(MSG_INTERVAL)
 
