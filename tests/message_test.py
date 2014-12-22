@@ -3,6 +3,7 @@
 """Test cases for messages"""
 from __future__ import absolute_import
 from builtins import str
+import json
 
 import pytest
 import purkinje.message as sut
@@ -30,5 +31,8 @@ def test_unicode(tc_start_event):
 
 def test_serialize(tc_start_event):
     serialized = tc_start_event.serialize()
-    # TODO check contents
-    assert serialized
+    expected = json.dumps({'text': 'mytext',
+                           'type': 'tc_started',
+                           'timestamp': '2014-02-01T08:09:10'
+                           })
+    assert serialized == expected

@@ -10,6 +10,7 @@ from future.utils import with_metaclass
 
 
 class MsgType(object):
+
     """Constants for messages"""
     # Meta information about project under test
     PROJ_INFO = 'proj_info'
@@ -26,6 +27,7 @@ class MsgType(object):
 
 
 class Event(with_metaclass(abc.ABCMeta, object)):
+
     """An event for the browser"""
 
     def __init__(self, type_, text):
@@ -35,7 +37,10 @@ class Event(with_metaclass(abc.ABCMeta, object)):
 
     def serialize(self):
         """Creates JSON representation of Event object"""
-        body = {}
+        body = {'type': self.type_,
+                'text': self.text,
+                'timestamp': datetime.isoformat(self.timestamp)
+                }
         self._serialize(body)
         return json.dumps(body)
 
