@@ -21,6 +21,8 @@ import copy
 from flask import Flask, render_template, request
 from assets import register_assets
 
+from .message import MsgType
+
 app = Flask(__name__)
 
 # Connected WebSocket clients
@@ -43,7 +45,7 @@ def send_to_ws(websocket, msg):
     try:
         websocket.send(json.dumps(msg))
     except WebSocketError as e:
-        logging.debug(
+        app.logger.debug(
             'WebSocketError: %s; removing client %s', e, websocket)
         clients.remove(websocket)
 
@@ -153,6 +155,11 @@ def event():
     while True:
         msg_str = ws.receive()
         msg = json.loads(msg_str)
+        if msg['type'] == MsgType.TERMINATE_CONNECTION:
+            app.logger.debug('Connection terminated by client')
+
+            # Must return valid response to avoid ValueError
+            return ''
         if ws:
             for client in clients:
                 send_to_ws(client, msg)
