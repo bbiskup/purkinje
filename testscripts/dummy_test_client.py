@@ -30,6 +30,8 @@ if __name__ == '__main__':
 
     ws = websocket.create_connection(websocket_url)
 
+    # TODO: flesh out; use actual sequence including information
+    # about project / test suite
     for i in range(10):
         event = message.TestCaseStartEvent('xyz')
         ws.send(event.serialize())
