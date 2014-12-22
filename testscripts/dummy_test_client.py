@@ -32,7 +32,10 @@ if __name__ == '__main__':
 
     # TODO: flesh out; use actual sequence including information
     # about project / test suite
+
     for i in range(10):
         event = message.TestCaseStartEvent('xyz')
         ws.send(event.serialize())
         time.sleep(MSG_INTERVAL)
+
+    ws.send(message.ConnectionTerminationEvent().serialize())
