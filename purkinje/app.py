@@ -152,19 +152,23 @@ def event():
     app.logger.debug('event')
     ws = request.environ.get('wsgi.websocket')
 
-    while True:
-        msg_str = ws.receive()
-        msg = json.loads(msg_str)
-        if msg['type'] == MsgType.TERMINATE_CONNECTION:
-            app.logger.debug('Connection terminated by client')
+    try:
+        while True:
+            msg_str = ws.receive()
+            msg = json.loads(msg_str)
+            if msg['type'] == MsgType.TERMINATE_CONNECTION:
+                app.logger.debug('Connection terminated by client')
 
-            # Must return valid response to avoid ValueError
-            return ''
-        if ws:
-            for client in clients:
-                send_to_ws(client, msg)
-        else:
-            raise Exception('No WebSocket request')
+                # Must return valid response to avoid ValueError
+                return ''
+            if ws:
+                for client in clients:
+                    send_to_ws(client, msg)
+            else:
+                raise Exception('No WebSocket request')
+    except Exception as e:
+                app.logger.warning('Client connection aborted (%s)', e)
+                return ''
 
 # def send_to_ws():
 #     """Send data to WebSockets (for testing)"""
