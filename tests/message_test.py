@@ -26,9 +26,20 @@ def tc_start_event(mock_date):
     return sut.TestCaseStartEvent('mytext')
 
 
-def test_unicode(tc_start_event):
+@pytest.fixture
+def connection_termination_event(mock_date):
+    return sut.ConnectionTerminationEvent('mytext')
+
+
+def test_tc_start_event_unicode(tc_start_event):
     assert str(
         tc_start_event) == 'tc_started: [2014-02-01 08:09:10] mytext'
+
+
+def test_connection_termination_unicode(connection_termination_event):
+    expected = ('terminate_connection: '
+                '[2014-02-01 08:09:10] mytext')
+    assert str(connection_termination_event) == expected
 
 
 # @pytest.skip('needs mock')
@@ -36,11 +47,19 @@ def test_unicode(tc_start_event):
 #     assert isinstance(tc_start_event.timestamp, datetime)
 
 
-def test_serialize(tc_start_event):
-    print "###", sut.datetime.now(), tc_start_event.timestamp
+def test_tc_start_event_serialize(tc_start_event):
     serialized = tc_start_event.serialize()
     expected = json.dumps({'text': 'mytext',
                            'type': 'tc_started',
+                           'timestamp': '2014-02-01T08:09:10'
+                           })
+    assert serialized == expected
+
+
+def test_connection_termination_serialize(connection_termination_event):
+    serialized = connection_termination_event.serialize()
+    expected = json.dumps({'text': 'mytext',
+                           'type': 'terminate_connection',
                            'timestamp': '2014-02-01T08:09:10'
                            })
     assert serialized == expected

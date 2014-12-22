@@ -69,7 +69,7 @@ class TestCaseStartEvent(Event):
 class ConnectionTerminationEvent(Event):
 
     def __init__(self, text):
-        super(TestCaseStartEvent, self).__init__(
+        super(ConnectionTerminationEvent, self).__init__(
             MsgType.TERMINATE_CONNECTION,
             text)
 
