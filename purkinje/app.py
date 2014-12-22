@@ -124,7 +124,8 @@ def subscribe2():
     if ws:
         if ws not in clients:
             app.logger.info('Registering client %s', ws)
-            client_conf = ws.receive()
+            client_conf_ = ws.receive()
+            client_conf = json.loads(client_conf_)
             app.logger.debug('Client conf: %s', client_conf)
             clients.append(ws)
             ws.send(DUMMY_WELCOME_MSG)
