@@ -13,7 +13,8 @@ import sys
 
 
 # Interval between messages (in seconds)
-MSG_INTERVAL = 1
+MSG_COUNT = 10
+MSG_INTERVAL = .5
 
 
 def setup_logging():
@@ -33,7 +34,7 @@ if __name__ == '__main__':
     # TODO: flesh out; use actual sequence including information
     # about project / test suite
 
-    for i in range(10):
+    for i in range(MSG_COUNT):
         event = message.TestCaseStartEvent('dummy_client msg #{}'.format(i))
         ws.send(event.serialize())
         time.sleep(MSG_INTERVAL)
