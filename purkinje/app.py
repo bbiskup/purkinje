@@ -39,6 +39,15 @@ DUMMY_PERIODIC_MSG = {
 }
 
 
+def send_to_ws(websocket, msg):
+    try:
+        websocket.send(json.dumps(msg))
+    except WebSocketError as e:
+        logging.debug(
+            'WebSocketError: %s; removing client %s', e, websocket)
+        clients.remove(websocket)
+
+
 def send_dummy_notifications():
     """Periodically sends dummy requests
     """
@@ -50,13 +59,7 @@ def send_dummy_notifications():
             msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
             msg['id'] = msg_id
             msg['timestamp'] = datetime.isoformat(datetime.now())
-
-            try:
-                client.send(json.dumps(msg))
-            except WebSocketError as e:
-                logging.debug(
-                    'WebSocketError: %s; removing client %s', e, client)
-                clients.remove(client)
+            send_to_ws(client, msg)
             msg_id += 1
         gevent.sleep(DUMMY_PERIODIC_MSG_DELAY)
 
@@ -138,6 +141,23 @@ def subscribe2():
     else:
         raise Exception('No WebSocket request')
 
+
+@app.route('/event')
+def event():
+    """WebSocket endpoint for incoming events. These
+       events will be broadcasted to all subscribers
+    """
+    app.logger.debug('event')
+    ws = request.environ.get('wsgi.websocket')
+
+    while True:
+        msg_str = ws.receive()
+        msg = json.loads(msg_str)
+        if ws:
+            for client in clients:
+                send_to_ws(client, msg)
+        else:
+            raise Exception('No WebSocket request')
 
 # def send_to_ws():
 #     """Send data to WebSockets (for testing)"""
