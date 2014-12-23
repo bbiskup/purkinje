@@ -13,6 +13,7 @@ app.controller('DummyController', function($scope) {
 
 
 app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
+
     function($scope, WebSocketService) {
         $scope.webSocketEvents = [];
         $scope.dummyPayload = WebSocketService.registerClient();
@@ -21,7 +22,7 @@ app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
             var start = new Date();
             console.debug('$scope: webSocketMsg', data);
             $scope.webSocketEvents.push(data);
-            if ($scope.webSocketEvents.length > defs.maxDummyMsgScopeLength){
+            if ($scope.webSocketEvents.length > defs.maxDummyMsgScopeLength) {
                 $scope.webSocketEvents = $scope.webSocketEvents.splice(1);
             }
             $scope.$apply();
@@ -53,10 +54,35 @@ app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
             name: 'all'
         }];
 
-        $scope.clearEvents = function(){
+        $scope.clearEvents = function() {
             $scope.webSocketEvents = [];
         }
 
-        $scope.verdictCounts = util.countVerdicts($scope.testResults);
+        var vc = util.countVerdicts($scope.testResults);
+        $scope.verdictCounts = vc;
+
+        // TODO Chart experiment
+        $scope.pieData = [{
+            label: 'Pass',
+            value: vc.pass || 0,
+            color: 'green'
+        }, {
+            label: 'Fail',
+            value: vc.fail || 0,
+            color: 'red'
+        }, {
+            label: 'Error',
+            value: vc.error || 0,
+            color: '#D4CCC5'
+        }];
+
+        $scope.pieOptions = {
+            animateRotate: false,
+            legend: true,
+            legendTemplate : ['<ul class=\"<%=name.toLowerCase()%>-legend\">',
+            '<% for (var i=0; i<segments.length; i++){%>',
+            '<li><span style=\"background-color:<%=segments[i].fillColor%>\"></span>',
+            '<%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'].join('')
+        };
     }
 ]);

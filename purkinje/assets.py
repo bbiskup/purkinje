@@ -31,6 +31,9 @@ BUNDLES = {
         BC + '/angular-bootstrap/ui-bootstrap.js',
         BC + '/angular-bootstrap/ui-bootstrap-tpls.js',
 
+        BC + '/Chart.js/Chart.js',
+        BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
+
         'js/underscore.angular.js',
         'js/util.js',
         'js/defs.js',

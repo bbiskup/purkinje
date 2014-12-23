@@ -30,6 +30,10 @@
                 
                 <div class="row">
                     <h1 id="test-results-header" class="pageheader">Test Results</h1>
+                    <div id="test-results-charts" class="row">
+                        <canvas tc-chartjs-pie chart-data="pieData" chart-options="pieOptions" width="125" height="125"></canvas>
+                        <canvas tc-chartjs-legend chart-type="pie" chart-data="pieData"  chart-options="pieOptions">
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <!-- Verdict counts -->
@@ -92,8 +96,8 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in webSocketEvents">
-                                    <td>{[item.id]}</td>
-                                    <td>{[ item.text ]}</td>
+                                    <td>{[::item.id]}</td>
+                                    <td>{[ ::item.text ]}</td>
                                 </tr>
                             </tbody>
                         </div>
