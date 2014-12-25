@@ -6,5 +6,5 @@ window.defs = {
         SKIPPED: 'skipped'
     },
 
-    maxDummyMsgScopeLength: 1000
+    maxDummyMsgScopeLength: 10000
 };

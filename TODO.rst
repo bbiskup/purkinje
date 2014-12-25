@@ -28,6 +28,9 @@ TODOs
     - verify each JS file uses strict mode
     - set purkinje.__version__ and use it in setup.py(but see)
 
+#) User Interface
+   - Sorting of test results table by different columns
+
 #) Performance
     - Bundling and rate limiting of events sent to browser
      

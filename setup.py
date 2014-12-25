@@ -35,7 +35,7 @@ setup(name='purkinje',
       packages=['purkinje'],
       zip_safe=False,
       include_package_data=True,
-      install_requires=parse_requirements(),
+      # install_requires=parse_requirements(),
       entry_points={
           'console_scripts': [
               'purkinje = purkinje.purkinje:main'

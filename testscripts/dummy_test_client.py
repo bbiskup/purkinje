@@ -13,8 +13,8 @@ import sys
 
 
 # Interval between messages (in seconds)
-MSG_COUNT = 10
-MSG_INTERVAL = .5
+MSG_COUNT = 500
+MSG_INTERVAL = 0
 
 
 def setup_logging():
@@ -26,7 +26,10 @@ if __name__ == '__main__':
     setup_logging()
 
     if len(sys.argv) != 2:
-        raise Exception('Usage: {} <websocket URL>'.format(__file__))
+        raise Exception(
+            'Usage: {} <websocket URL>\nExample URL: {}'.format(
+                __file__,
+                'ws://localhost:5000/event'))
     websocket_url = sys.argv[1]
 
     ws = websocket.create_connection(websocket_url)

@@ -10,7 +10,7 @@ import shutil
 import json
 from mock import patch, Mock
 from .conftest import TESTDATA_DIR
-from purkinje import testmonitorplugin
+from purkinje_pytest import testmonitorplugin
 from purkinje.testrunner import PyTestRunner
 import purkinje.util as pu
 

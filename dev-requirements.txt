@@ -18,3 +18,4 @@ coveralls==0.5
 wheel==0.24.0
 cssmin==0.2.0
 Sphinx==1.2.3
+pytest-capturelog==0.7

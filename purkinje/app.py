@@ -23,7 +23,7 @@ import copy
 from flask import Flask, render_template, request, redirect
 from assets import register_assets
 
-from .message import MsgType
+from purkinje_messages.message import MsgType
 
 app = Flask(__name__)
 

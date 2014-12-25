@@ -7,7 +7,7 @@ from __future__ import print_function
 from builtins import object
 
 import pytest
-from .testmonitorplugin import TestMonitorPlugin
+from purkinje_pytest.testmonitorplugin import TestMonitorPlugin
 
 
 class PyTestRunner(object):
