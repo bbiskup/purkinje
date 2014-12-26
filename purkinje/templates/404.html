@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Page not found</title>
-</head>
-<body>
-Error: {{ error }}
-</body>
-</html>
+{% extends "layout.html" %} {% block body %}
+<h1>Error</h1>
+{{ error }}
+{% endblock %}
