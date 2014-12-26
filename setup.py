@@ -48,6 +48,7 @@ setup(name='purkinje',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
           'Programming Language :: Python :: 2.7',
+          'Topic :: Software Development :: Testing'
       },
       license='The MIT License (MIT)',
       keywords='purkinje pytest testrunner websockets',
