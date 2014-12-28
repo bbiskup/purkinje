@@ -159,15 +159,17 @@ def event():
             msg = Event.parse(msg_str)
             # msg = json.loads(msg_str)
             app.logger.debug('Received event: {}'.format(msg_str))
+            if ws:
+                for client in clients:
+                    send_to_ws(client, msg.serialize())
+
             if msg['type'] == MsgType.TERMINATE_CONNECTION:
                 app.logger.debug('Connection terminated by client')
 
                 # Must return valid response to avoid ValueError
                 return ''
-            if ws:
-                for client in clients:
-                    send_to_ws(client, msg.serialize())
-            else:
+
+            if not ws:
                 raise Exception('No WebSocket request')
     except Exception as e:
         app.logger.warning('Client connection aborted (%s)', e)
