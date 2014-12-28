@@ -43,8 +43,10 @@ DUMMY_PERIODIC_MSG = {
 
 
 def send_to_ws(websocket, msg):
+    """ :param msg: JSON message
+    """
     try:
-        websocket.send(json.dumps(msg))
+        websocket.send(msg)
     except WebSocketError as e:
         app.logger.debug(
             'WebSocketError: %s; removing client %s', e, websocket)
@@ -62,7 +64,7 @@ def send_dummy_notifications():
             msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
             msg['id'] = msg_id
             msg['timestamp'] = datetime.isoformat(datetime.now())
-            send_to_ws(client, msg)
+            send_to_ws(client, json.dumps(msg))
             msg_id += 1
         gevent.sleep(DUMMY_PERIODIC_MSG_DELAY)
 
