@@ -30,6 +30,9 @@ app.controller('DummyController', function($scope) {
         }, ];
     };
 
+    /**
+     * Choices for result filter combo box
+     */
     function setResultFilterSelections($scope) {
         $scope.resultFilterSelections = [{
             name: 'pass'
@@ -40,6 +43,18 @@ app.controller('DummyController', function($scope) {
         }, {
             name: 'all'
         }];
+    }
+
+    function setPieOptions($scope){
+        $scope.pieOptions = {
+            animateRotate: false,
+            legend: true,
+            legendTemplate: ['<ul class=\"<%=name.toLowerCase()%>-legend\">',
+                '<% for (var i=0; i<segments.length; i++){%>',
+                '<li><span style=\"background-color:<%=segments[i].fillColor%>\"></span>',
+                '<%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+            ].join('')
+        };
     }
 
     function setPieData($scope) {
@@ -60,16 +75,6 @@ app.controller('DummyController', function($scope) {
             value: vc.error || 0,
             color: '#D4CCC5'
         }];
-
-        $scope.pieOptions = {
-            animateRotate: false,
-            legend: true,
-            legendTemplate: ['<ul class=\"<%=name.toLowerCase()%>-legend\">',
-                '<% for (var i=0; i<segments.length; i++){%>',
-                '<li><span style=\"background-color:<%=segments[i].fillColor%>\"></span>',
-                '<%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
-            ].join('')
-        };
     }
 
     app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
@@ -98,6 +103,7 @@ app.controller('DummyController', function($scope) {
 
             setDummyTestResults($scope);
             setResultFilterSelections($scope);
+            setPieOptions($scope);
             setPieData($scope);
         }
     ]);
