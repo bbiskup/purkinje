@@ -45,6 +45,9 @@ app.controller('DummyController', function($scope) {
         }];
     }
 
+    /**
+     * Configuration of verdict pie diagram
+     */
     function setPieOptions($scope){
         $scope.pieOptions = {
             animateRotate: false,
@@ -57,6 +60,9 @@ app.controller('DummyController', function($scope) {
         };
     }
 
+    /*
+     * Set verdict pie diagram categories
+     */
     function setPieData($scope) {
         var vc = util.countVerdicts($scope.testResults)
         $scope.verdictCounts = vc
