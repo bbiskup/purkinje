@@ -48,7 +48,7 @@ app.controller('DummyController', function($scope) {
     /**
      * Configuration of verdict pie diagram
      */
-    function setPieOptions($scope){
+    function setPieOptions($scope) {
         $scope.pieOptions = {
             animateRotate: false,
             legend: true,
@@ -83,6 +83,22 @@ app.controller('DummyController', function($scope) {
         }];
     }
 
+    /**
+     * Handle events from purkinje server
+     */
+    function handleWebSocketEvent($scope, event, data) {
+        var start = new Date()
+        console.debug('$scope: webSocketMsg', data);
+        $scope.webSocketEvents.push(data);
+        if ($scope.webSocketEvents.length > defs.maxDummyMsgScopeLength) {
+            $scope.webSocketEvents = $scope.webSocketEvents.splice(1);
+        }
+        $scope.$apply()
+        var duration = new Date() - start;
+        console.debug(
+            'msg-handler duration: ' + duration + ' ms');
+    }
+
     app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
 
         function($scope, WebSocketService) {
@@ -90,16 +106,7 @@ app.controller('DummyController', function($scope) {
             $scope.dummyPayload = WebSocketService.registerClient();
 
             $scope.$on('webSocketMsg', function(event, data) {
-                var start = new Date()
-                console.debug('$scope: webSocketMsg', data);
-                $scope.webSocketEvents.push(data);
-                if ($scope.webSocketEvents.length > defs.maxDummyMsgScopeLength) {
-                    $scope.webSocketEvents = $scope.webSocketEvents.splice(1);
-                }
-                $scope.$apply()
-                var duration = new Date() - start;
-                console.debug(
-                    'msg-handler duration: ' + duration + ' ms');
+                handleWebSocketEvent($scope, event, data);
             });
 
 
