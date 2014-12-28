@@ -5,6 +5,7 @@ TODOs
     - support of ssh distribution with pytest-xdist (run purkinje server
       on external network interface?)
     - WebSocket reconnect
+    - Dektop notifications (optional)
 
 #) Misc
     - i18n
