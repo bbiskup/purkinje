@@ -14,7 +14,7 @@ app.controller('DummyController', function($scope) {
 
 ;
 (function() {
-    function setDummyTestResults($scope) {
+    /*function setDummyTestResults($scope) {
         $scope.testResults = [{
             name: 'test_1',
             file: 'file_1.py',
@@ -28,7 +28,7 @@ app.controller('DummyController', function($scope) {
             file: 'file_3.py',
             verdict: defs.Verdict.PASS
         }, ];
-    };
+    };*/
 
     /**
      * Choices for result filter combo box
@@ -83,17 +83,41 @@ app.controller('DummyController', function($scope) {
         }];
     }
 
+    function handlews_sessionStarted($scope, data) {
+        $scope.testResults = [];
+    }
+
+    function handlews_tcFinished($scope, data) {
+        $scope.testResults.push(data);
+    }
+
+    function handlews_info($scope, data) {
+        $scope.info = data.id + ': ' + data.text;
+    }
+
     /**
      * Handle events from purkinje server
      */
     function handleWebSocketEvent($scope, event, data) {
         var start = new Date()
         console.debug('$scope: webSocketMsg', data);
-        $scope.webSocketEvents.push(data);
-        if ($scope.webSocketEvents.length > defs.maxDummyMsgScopeLength) {
-            $scope.webSocketEvents = $scope.webSocketEvents.splice(1);
-        }
-        $scope.$apply()
+        var eventType = data.type;
+        switch (eventType) {
+            case 'session_started':
+                handlews_sessionStarted($scope, data);
+                break;
+            case 'tc_finished':
+                handlews_tcFinished($scope, data);
+                break;
+            case 'info':
+                handlews_info($scope, data);
+                break;
+            default:
+                console.debug('Unsupported event type:', eventType);
+        };
+
+        $scope.$apply();
+
         var duration = new Date() - start;
         console.debug(
             'msg-handler duration: ' + duration + ' ms');
@@ -102,6 +126,7 @@ app.controller('DummyController', function($scope) {
     app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
 
         function($scope, WebSocketService) {
+            $scope.testResults = [];
             $scope.webSocketEvents = [];
             $scope.dummyPayload = WebSocketService.registerClient();
 
@@ -114,7 +139,7 @@ app.controller('DummyController', function($scope) {
                 $scope.webSocketEvents = [];
             };
 
-            setDummyTestResults($scope);
+            //setDummyTestResults($scope);
             setResultFilterSelections($scope);
             setPieOptions($scope);
             setPieData($scope);
