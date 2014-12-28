@@ -2,7 +2,8 @@ TODOs
 == == =
 
 #) Features
-    - detection of code change
+    - support of ssh distribution with pytest-xdist (run purkinje server
+      on external network interface?)
     - WebSocket reconnect
 
 #) Misc
@@ -33,7 +34,7 @@ TODOs
 
 #) Performance
     - Bundling and rate limiting of events sent to browser
-     
+
       - sending 1000 events
         immediately will lock up Chrome for long(1 min).
         **NOTE:**
@@ -42,9 +43,9 @@ TODOs
         The checkbox "enabled" bust be deselected
         otherwise, the slowdown happens, regardless
         of whether the extension has been activated or not.
-        
+
         - Events arriving within 1 second(or more?) could be sent as a package
-        - but not too many events should be sent in one package, to avoid long blocking 
+        - but not too many events should be sent in one package, to avoid long blocking
           of JS event
         - The server could  enforce a minimum time between sending two messages
             to the connected browsers

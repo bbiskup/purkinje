@@ -15,7 +15,6 @@ import json
 import logging
 import sys
 import httplib
-import pprint
 import os.path as op
 
 from datetime import datetime
@@ -23,7 +22,7 @@ import copy
 from flask import Flask, render_template, request, redirect
 from assets import register_assets
 
-from purkinje_messages.message import MsgType
+from purkinje_messages.message import MsgType, Event
 
 app = Flask(__name__)
 
@@ -157,8 +156,9 @@ def event():
     try:
         while True:
             msg_str = ws.receive()
-            msg = json.loads(msg_str)
-            app.logger.debug('Received event: {}'.format(pprint.pformat(msg)))
+            msg = Event.parse(msg_str)
+            # msg = json.loads(msg_str)
+            app.logger.debug('Received event: {}'.format(msg_str))
             if msg['type'] == MsgType.TERMINATE_CONNECTION:
                 app.logger.debug('Connection terminated by client')
 
@@ -166,7 +166,7 @@ def event():
                 return ''
             if ws:
                 for client in clients:
-                    send_to_ws(client, msg)
+                    send_to_ws(client, msg.serialize())
             else:
                 raise Exception('No WebSocket request')
     except Exception as e:
