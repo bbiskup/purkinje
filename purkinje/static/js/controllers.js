@@ -88,7 +88,8 @@ app.controller('DummyController', function($scope) {
     }
 
     function handlews_tcFinished($scope, data) {
-        $scope.testResults.push(data);
+        // $scope.testResults.push(data);
+        $scope.testResults.unshift(data);
     }
 
     function handlews_info($scope, data) {
