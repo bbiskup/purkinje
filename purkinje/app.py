@@ -21,11 +21,14 @@ import os.path as op
 from datetime import datetime
 import copy
 from flask import Flask, render_template, request, redirect
+from flask.ext.compress import Compress
 from assets import register_assets
 
 from purkinje_messages.message import MsgType, Event
 
 app = Flask(__name__)
+
+Compress(app)
 
 # Connected WebSocket clients
 clients = []

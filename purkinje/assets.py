@@ -43,7 +43,7 @@ BUNDLES = {
         'js/filters.js',
         'js/services.js',
 
-        # filters='jsmin',
+        filters='jsmin',
         output='gen/packed.js'
     )
 }

@@ -28,6 +28,7 @@ def main():
     def go():
         app = get_app()
         app.debug = DEBUG
+        app.config['COMPRESS_DEBUG'] = True
         # app.config['ASSETS_DEBUG'] = DEBUG
 
         # Breaks web socket communication

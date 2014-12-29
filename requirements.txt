@@ -18,3 +18,4 @@ voluptuous==0.8.7
 -e git+https://github.com/bbiskup/purkinje-messages.git@dev#egg=purkinje-messages-dev
 -e git+https://github.com/bbiskup/purkinje-pytest.git@dev#egg=purkinje-pytest-dev
 Flask-Script==2.0.5
+jsmin==2.1.0
