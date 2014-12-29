@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 # manage.py
 
 from gevent.monkey import patch_all
