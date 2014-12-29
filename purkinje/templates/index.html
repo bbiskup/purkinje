@@ -18,13 +18,13 @@
 </nav>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3">
+        <!--div class="col-sm-3">
             <ul class="nav nav-sidebar">
                 <li><a href="#all">All Test Cases</a></li>
                 <li><a href="#fails">Failed Test Cases</a></li>
                 <li><a href="#passes">Passed Test Cases</a></li>
             </ul>
-        </div>
+        </div-->
         <div class="col-sm-9 col-offset-3 col-md-10 col-md-offset-2 main" ng-controller="TestResultsTableController">
 
 
@@ -44,7 +44,7 @@
                             <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4 col-sm-offset-3">
+                    <div class="col-sm-4 col-sm-offset-4">
 
                         <!-- Filter for test result display -->
                         <div class="btn-group" test-case-controls>
