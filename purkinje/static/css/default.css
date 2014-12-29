@@ -22,8 +22,8 @@ thead {
 }
 td, th {
     cursor: pointer;
-    min-width: 177px;
-    max-width: 177px;
+    min-width: 195px;
+    max-width: 195px;
     overflow: hidden;
     font-size: 70%;
     text-overflow: ellipsis;
