@@ -59,6 +59,9 @@ TODOs
     - Sphinx, Read The Docs
     - sphinxcontrib.autohttp.flask
 
+#) Build
+    - "manage.py assets check" raises Exception AttributeError: "'Environment' object has no attribute 'environment'"
+
 #) Deployment
     - Docker container? (+ fig?)
     - Vagrant file?

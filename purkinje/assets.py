@@ -44,7 +44,7 @@ BUNDLES = {
         'js/services.js',
 
         # filters='jsmin',
-        # output='gen/packed.js'
+        output='gen/packed.js'
     )
 }
 
@@ -53,3 +53,4 @@ def register_assets(app):
     """Make assets known to flask assets extension"""
     assets = Environment(app)
     assets.register(BUNDLES)
+    return assets
