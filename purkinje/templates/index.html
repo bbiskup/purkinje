@@ -59,20 +59,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive col-sm-7">
+                <div class="table-responsive col-sm-9">
                     <table class="table table-striped test-result-table">
                         <thead>
                             <tr>
-                                <th>File</th>
-                                <th>Test Case</th>
-                                <th>Verdict</th>
+                                <th class="test-result-col-file">File</th>
+                                <th class="test-result-col-testcase">Test Case</th>
+                                <th class="test-result-col-verdict">Verdict</th>
                             </tr>
                         </thead>
                         <tbody vs-repeat class='test-result-tbody'>
                             <tr ng-repeat="result in testResults">
-                                <td title="{[result.file]}">{[result.file]}</td>
-                                <td title="{[result.name]}">{[result.name]}</td>
-                                <td class='{[ result.verdict|verdictClassFilter ]}'>
+                                <td title="{[result.file]}" class="test-result-col-file">{[result.file]}</td>
+                                <td title="{[result.name]}" class="test-result-col-testcase">{[result.name]}</td>
+                                <td class='{[ result.verdict|verdictClassFilter ]} test-result-col-verdict'>
                                     {[result.verdict]}
                                 </td>
                             </tr>

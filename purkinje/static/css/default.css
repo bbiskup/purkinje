@@ -22,13 +22,27 @@ thead {
 }
 td, th {
     cursor: pointer;
-    min-width: 195px;
-    max-width: 195px;
+    /*min-width: 195px;
+    max-width: 195px;*/
     overflow: hidden;
     font-size: 70%;
     text-overflow: ellipsis;
 }
 
+.test-result-col-file{
+    min-width: 270px;
+    max-width: 270px;
+}
+
+.test-result-col-testcase{
+    min-width: 440px;
+    max-width: 440px;
+}
+
+.test-result-col-verdict{
+    min-width: 70px;
+    max-width: 70px;
+}
 
 div#results-charts{
     height: 100px;
