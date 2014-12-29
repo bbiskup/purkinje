@@ -76,7 +76,7 @@ def send_bulk():
             for client in clients:
                 send_to_ws(client, json.dumps(bulk))
         else:
-            app.logger.debug('No bulk data available')
+            # app.logger.debug('No bulk data available')
             gevent.sleep(BULK_POLL_DELAY)
 
 
