@@ -131,6 +131,7 @@ def configure_app(app_):
         fmt=u"%(asctime)s level=%(levelname)s %(message)s",
         datefmt="%Y-%m-%dT%H:%M:%SZ",
     )
+    app_.logger.handlers = []  # Replace existing verbose handler
     app_.logger.addHandler(handler)
 
 
