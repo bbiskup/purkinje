@@ -22,8 +22,13 @@ thead {
 }
 td, th {
     cursor: pointer;
-    width: 177px;
+    min-width: 177px;
+    max-width: 177px;
+    overflow: hidden;
+    font-size: 70%;
+    text-overflow: ellipsis;
 }
+
 
 div#results-charts{
     height: 100px;
