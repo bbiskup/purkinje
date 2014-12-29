@@ -25,14 +25,14 @@
                 <li><a href="#passes">Passed Test Cases</a></li>
             </ul>
         </div-->
-        <div class="col-sm-9 col-offset-3 col-md-10 col-md-offset-2 main" ng-controller="TestResultsTableController">
+        <div class="col-sm-9 col-offset-0 col-md-10 col-md-offset-0 main" ng-controller="TestResultsTableController">
 
 
             <div class="row">
-                <h1 id="test-results-header" class="pageheader">Test Results</h1>
+                <!--h1 id="test-results-header" class="pageheader">Test Results</h1 -->
                 <div id="test-results-charts" class="row">
                     <canvas tc-chartjs-pie chart-data="pieData" chart-options="pieOptions" width="80" height="80"></canvas>
-                    <canvas tc-chartjs-legend chart-type="pie" chart-data="pieData" chart-options="pieOptions">
+                    <canvas tc-chartjs-legend chart-type="pie" chart-data="pieData" chart-options="pieOptions" width="80" height="80">
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
@@ -44,7 +44,7 @@
                             <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4 col-sm-offset-4">
+                    <div class="col-sm-6 col-sm-offset-4">
 
                         <!-- Filter for test result display -->
                         <div class="btn-group" test-case-controls>
@@ -61,16 +61,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive col-sm-6">
-                    <table class="table table-striped">
+                <div class="table-responsive col-sm-7">
+                    <table class="table table-striped test-result-table">
                         <thead>
                             <tr>
                                 <th>Test Case</th>
                                 <th>File</th>
-                                <th>Results</th>
+                                <th>Verdict</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody vs-repeat class='test-result-tbody'>
                             <tr ng-repeat="result in testResults">
                                 <td>{[result.file]}</td>
                                 <td>{[result.name]}</td>
@@ -82,7 +82,7 @@
                     </table>
                 </div>
 
-                <div class="col-sm-3 col-sm-offset-3">
+                <div class="col-sm-3 col-sm-offset-0">
                     <h3>Test case details</h3> ...Details about test case...
                 </div>
             </div>
@@ -90,14 +90,5 @@
         </div>
     </div>
 </div>
-<!--
-            <div id="dummy-div" ng-controller="DummyController">
-                Angular value (from controller): {[ xyz ]}<br>
-                Angular value (direct): {[ 1 + 2]}<br>
-                <ul ng-repeat="person in people">
-                    <li>{[person.name]}</li>
-                </ul>
-            </div>
-            -->
 
 {% endblock %}

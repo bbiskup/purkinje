@@ -1,4 +1,30 @@
+/* Needed by ui-bootstrap
+See http://angular-ui.github.io/bootstrap/ */
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
 
-// Needed by ui-bootstrap
-// See http://angular-ui.github.io/bootstrap/
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+test-result-table{
+    width: 100%;
+    height: 100%;
+}
+
+/* For angular-vs-repeat */
+.test-result-tbody {
+    height: 350px;
+    width: 100%;
+    overflow: auto;
+    display: block;
+}
+
+thead {
+    display: block;
+}
+td, th {
+    cursor: pointer;
+    width: 177px;
+}
+
+div#results-charts{
+    height: 100px;
+}

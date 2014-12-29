@@ -33,6 +33,7 @@ BUNDLES = {
 
         BC + '/Chart.js/Chart.js',
         BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
+        BC + '/angular-vs-repeat/src/angular-vs-repeat.js',
 
         'js/underscore.angular.js',
         'js/util.js',
