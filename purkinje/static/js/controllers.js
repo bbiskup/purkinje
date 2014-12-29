@@ -139,7 +139,7 @@ app.controller('DummyController', function($scope) {
 
 
             $scope.clearEvents = function() {
-                $scope.webSocketEvents = [];
+                $scope.testResults = [];
             };
 
             //setDummyTestResults($scope);
