@@ -123,9 +123,12 @@ app.controller('DummyController', function($scope) {
             'msg-handler duration: ' + duration + ' ms');
     }
 
-    app.controller('TestResultsTableController', ['$scope', 'WebSocketService',
+    app.controller('TestResultsTableController', ['$scope', 'WebSocketService', 'AvvisoService',
 
-        function($scope, WebSocketService) {
+        function($scope, WebSocketService, AvvisoService) {
+            //AvvisoService.notify('mytitle', 'mybody');
+
+
             $scope.testResults = [];
             $scope.webSocketEvents = [];
             $scope.dummyPayload = WebSocketService.registerClient();
