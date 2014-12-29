@@ -64,8 +64,8 @@ app.controller('DummyController', function($scope) {
      * Set verdict pie diagram categories
      */
     function setPieData($scope) {
-        var vc = util.countVerdicts($scope.testResults)
-        $scope.verdictCounts = vc
+        var vc = util.countVerdicts($scope.testResults);
+        $scope.verdictCounts = vc;
 
         // TODO Chart experiment
         $scope.pieData = [{
@@ -116,6 +116,7 @@ app.controller('DummyController', function($scope) {
                 console.debug('Unsupported event type:', eventType);
         };
 
+        setPieData($scope);
         $scope.$apply();
 
         var duration = new Date() - start;
@@ -140,12 +141,12 @@ app.controller('DummyController', function($scope) {
 
             $scope.clearEvents = function() {
                 $scope.testResults = [];
+                setPieData($scope);
             };
 
             //setDummyTestResults($scope);
             setResultFilterSelections($scope);
             setPieOptions($scope);
-            setPieData($scope);
         }
     ]);
 })();
