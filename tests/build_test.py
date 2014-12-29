@@ -1,11 +1,17 @@
 # -*- coding: utf8 -*-
 
-
+import pytest
 import os
+from purkinje.assets import BUNDLES
 
 
-def test_build_static_assets():
+@pytest.mark.slow
+@pytest.mark.parametrize('bundle', BUNDLES.keys())
+def test_build_static_assets(bundle, tmpdir):
     """Verify that static resources can be built
        (e.g. referenced files exist)
     """
-    os.system('python manage.py assets build')
+    os.system('python manage.py assets build --output {} {}/{}'.format(
+        bundle,
+        str(tmpdir),
+        bundle))
