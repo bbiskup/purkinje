@@ -72,8 +72,8 @@
                         </thead>
                         <tbody vs-repeat class='test-result-tbody'>
                             <tr ng-repeat="result in testResults">
-                                <td>{[result.file]}</td>
-                                <td>{[result.name]}</td>
+                                <td title="{[result.file]}">{[result.file]}</td>
+                                <td title="{[result.name]}">{[result.name]}</td>
                                 <td class='{[ result.verdict|verdictClassFilter ]}'>
                                     {[result.verdict]}
                                 </td>
