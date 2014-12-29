@@ -99,22 +99,27 @@ app.controller('DummyController', function($scope) {
      * Handle events from purkinje server
      */
     function handleWebSocketEvent($scope, event, data) {
-        var start = new Date()
-        console.debug('$scope: webSocketMsg', data);
-        var eventType = data.type;
-        switch (eventType) {
-            case 'session_started':
-                handlews_sessionStarted($scope, data);
-                break;
-            case 'tc_finished':
-                handlews_tcFinished($scope, data);
-                break;
-            case 'info':
-                handlews_info($scope, data);
-                break;
-            default:
-                console.debug('Unsupported event type:', eventType);
-        };
+        var start = new Date();
+
+        data.forEach(function(msg) {
+            msg = JSON.parse(msg);
+            console.debug('$scope: webSocketMsg', msg);
+            var eventType = msg.type;
+            switch (eventType) {
+                case 'session_started':
+                    handlews_sessionStarted($scope, msg);
+                    break;
+                case 'tc_finished':
+                    handlews_tcFinished($scope, msg);
+                    break;
+                case 'info':
+                    handlews_info($scope, msg);
+                    break;
+                default:
+                    console.debug('Unsupported event type:', eventType);
+            };
+        });
+
 
         setPieData($scope);
         $scope.$apply();

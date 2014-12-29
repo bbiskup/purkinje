@@ -10,6 +10,7 @@ standard_library.install_aliases()
 import gevent.monkey
 gevent.monkey.patch_all()
 import gevent
+import gevent.queue as gq
 from geventwebsocket import WebSocketError
 import json
 import logging
@@ -31,15 +32,52 @@ clients = []
 
 DUMMY_PERIODIC_MSG_DELAY = 5
 
-DUMMY_WELCOME_MSG = json.dumps({
-    'type': 'info',
-    'text': 'Welcome'
-})
+DUMMY_WELCOME_MSG = json.dumps([
+    json.dumps({
+        'type': 'info',
+        'text': 'Welcome'
+    })
+])
 
 DUMMY_PERIODIC_MSG = {
     'type': 'info',
     'text': 'Dummy periodic message',
 }
+
+
+MAX_BULK_SIZE = 25
+
+BULK_POLL_DELAY = 2
+
+BACKLOG = gq.Queue()
+
+
+def enqueue_msg(message):
+    BACKLOG.put(message)
+
+
+def send_bulk():
+    app.logger.info('Starting bulk sending')
+    while True:
+        bulk = []
+
+        try:
+            # Read max. MAX_BULK_SIZE messages to send at once
+            for i in range(MAX_BULK_SIZE):
+                msg = BACKLOG.get_nowait()
+                bulk.append(msg)
+        except gq.Empty:
+            pass
+
+        bulk_len = len(bulk)
+        if bulk_len:
+            app.logger.debug('Sending {} messages'.format(bulk_len))
+
+            for client in clients:
+                send_to_ws(client, json.dumps(bulk))
+        else:
+            app.logger.debug('No bulk data available')
+            gevent.sleep(BULK_POLL_DELAY)
 
 
 def send_to_ws(websocket, msg):
@@ -59,13 +97,12 @@ def send_dummy_notifications():
     app.logger.info('send_dummy_notifications starting')
     msg_id = 0
     while True:
-        for client in clients:
-            app.logger.debug('Sending dummy notification(s)')
-            msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
-            msg['id'] = msg_id
-            msg['timestamp'] = datetime.isoformat(datetime.now())
-            send_to_ws(client, json.dumps(msg))
-            msg_id += 1
+        app.logger.debug('Sending dummy notification(s)')
+        msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
+        msg['id'] = msg_id
+        msg['timestamp'] = datetime.isoformat(datetime.now())
+        enqueue_msg(json.dumps(msg))
+        msg_id += 1
         gevent.sleep(DUMMY_PERIODIC_MSG_DELAY)
 
 
@@ -162,8 +199,7 @@ def event():
             # msg = json.loads(msg_str)
             app.logger.debug('Received event: {}'.format(msg_str))
             if ws:
-                for client in clients:
-                    send_to_ws(client, msg.serialize())
+                enqueue_msg(msg.serialize())
 
             if msg['type'] == MsgType.TERMINATE_CONNECTION:
                 app.logger.debug('Connection terminated by client')

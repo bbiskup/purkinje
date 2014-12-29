@@ -13,7 +13,7 @@ import werkzeug.serving
 # from werkzeug.debug import DebuggedApplication
 
 # TODO .app gives error about relative import
-from .app import get_app, send_dummy_notifications
+from .app import get_app, send_dummy_notifications, send_bulk
 
 APP_PORT = 5000
 DEBUG = True
@@ -39,6 +39,7 @@ def main():
                                  handler_class=WebSocketHandler)
 
         gevent.spawn(send_dummy_notifications)
+        gevent.spawn(send_bulk)
 
         http_server.serve_forever()
         # app.run()
