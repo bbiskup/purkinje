@@ -32,6 +32,8 @@ TODOs
 
 #) User Interface
    - Sorting of test results table by different columns
+   - Behave correctly when zooming (content width and width of scroll
+     area around test results table does not match when zoom != 100%)
 
 #) Performance
     - Bundling and rate limiting of events sent to browser
