@@ -9,28 +9,29 @@
      * be logged to the browser console
      */
     angular.module('purkinje').factory('AvvisoService', ['$window',
-
-        function($window) {
-            var hasNotifications = $window.Notification != undefined;
-
-            if (hasNotifications) {
-                Notification.requestPermission();
-            }
-
-            var Service = {
-                notify: function(title, body) {
-                    if (hasNotifications) {
-                        var notif = new Notification(title, {
-                            body: body,
-                            // icon: // TODO: add purkinje icon (only displayed in Firefox; not Chrome)
-                        });
-                    } else {
-                        console.debug(title + ': ' + body);
-                    }
-                }
-            };
-
-            return Service;
-        }
+        AvvisoService
     ]);
+
+    function AvvisoService($window) {
+        var hasNotifications = $window.Notification != undefined;
+
+        if (hasNotifications) {
+            Notification.requestPermission();
+        }
+
+        var Service = {
+            notify: function(title, body) {
+                if (hasNotifications) {
+                    var notif = new Notification(title, {
+                        body: body,
+                        // icon: // TODO: add purkinje icon (only displayed in Firefox; not Chrome)
+                    });
+                } else {
+                    console.debug(title + ': ' + body);
+                }
+            }
+        };
+
+        return Service;
+    }
 })();
