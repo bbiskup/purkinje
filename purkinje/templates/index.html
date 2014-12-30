@@ -70,9 +70,9 @@
                         </thead>
                         <tbody vs-repeat class='test-result-tbody'>
                             <tr ng-repeat="result in testResults">
-                                <td title="{[result.file]}" class="test-result-col-file">{[result.file]}</td>
-                                <td title="{[result.name]}" class="test-result-col-testcase">{[result.name]}</td>
-                                <td class='{[ result.verdict|verdictClassFilter ]} test-result-col-verdict'>
+                                <td title="{[::result.file]}" class="test-result-col-file">{[::result.file]}</td>
+                                <td title="{[::result.name]}" class="test-result-col-testcase">{[::result.name]}</td>
+                                <td class='{[::result.verdict|verdictClassFilter ]} test-result-col-verdict'>
                                     {[result.verdict]}
                                 </td>
                             </tr>
@@ -84,6 +84,7 @@
                     <h3>Test case details</h3> ...Details about test case...
                 </div>
             </div>
+            <div>Total number of test cases: {[verdictCounts.all]}</div>
             <div>Dummy server info: {[info]}</div>
         </div>
     </div>
