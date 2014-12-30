@@ -28,8 +28,10 @@ def main():
     def go():
         app = get_app()
         app.debug = DEBUG
-        app.config['COMPRESS_DEBUG'] = True
-        # app.config['ASSETS_DEBUG'] = DEBUG
+
+        #  TODO: asset debug settings will cause bad YSLOW rating
+        app.config['COMPRESS_DEBUG'] = False
+        app.config['ASSETS_DEBUG'] = DEBUG
 
         # Breaks web socket communication
         # (WebSocketConnectionClosedException in client)

@@ -44,7 +44,10 @@ TODOs
 
     - verify each JS file uses strict mode
 
-    - set purkinje.__version__ and use it in setup.py(but see)
+    - set purkinje.__version__ and use it in setup.py
+
+    - Make debug mode configurable (to affect debug logging,
+      asset concatenation and compression)
 
 #) User Interface
 
