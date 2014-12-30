@@ -7,10 +7,10 @@
  * If the browser does not support notifications, the message will
  * be logged to the browser console
  */
-app.factory('AvvisoService', [
+app.factory('AvvisoService', ['$window',
 
-    function() {
-        var hasNotifications = window.Notification != undefined;
+    function($window) {
+        var hasNotifications = $window.Notification != undefined;
 
         if (hasNotifications) {
             Notification.requestPermission();
