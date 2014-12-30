@@ -3,10 +3,12 @@
 """Miscellaneous tests about code quality"""
 
 import subprocess
+import pytest
 
 MAX_MCCABE_COMPLEXITY = 10
 
 
+@pytest.mark.slow
 def test_mccabe():
     # TODO Test remove test case? (Now performed with tox tests)
     cmd = 'flake8 --max-complexity=%d purkinje' % MAX_MCCABE_COMPLEXITY
