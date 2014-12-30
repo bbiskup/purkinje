@@ -50,6 +50,8 @@ TODOs
       asset concatenation and compression)
 
     - JS defs.js as Angular service
+      
+    - Use controllerAs syntax in Angular templates (?)
 
 #) User Interface
 
