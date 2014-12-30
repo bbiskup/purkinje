@@ -42,6 +42,8 @@ BUNDLES = {
         JS + '/util.js',
         JS + '/defs.js',
         JS + '/app.js',
+        JS + '/config.js',
+        JS + '/runblocks.js',
         JS + '/controllers.js',
         JS + '/filters.js',
         # JS + '/services.js',
