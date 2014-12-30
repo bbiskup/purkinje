@@ -88,26 +88,3 @@ app.factory('WebSocketService', ['$q', '$rootScope',
         return Service;
     }
 ]);
-
-
-/**
- * Desktop notifications
- * see http://caniuse.com/#search=notifications
- */
-app.factory('AvvisoService', [
-
-    function() {
-        Notification.requestPermission();
-
-        var Service = {
-            notify: function(title, body) {
-                var notif = new Notification(title, {
-                    body: body,
-                    // icon: // TODO: add purkinje icon (only displayed in Firefox; not Chrome)
-                });
-            }
-        };
-
-        return Service;
-    }
-]);

@@ -7,6 +7,9 @@ from flask.ext.assets import Bundle, Environment
 
 
 BC = 'bower_components'
+JS = 'js'
+DIRECTIVES = JS + '/directives'
+SERVICES = JS + '/services'
 
 # paths are relative to the 'static' directory
 BUNDLES = {
@@ -35,13 +38,15 @@ BUNDLES = {
         BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
         BC + '/angular-vs-repeat/src/angular-vs-repeat.js',
 
-        'js/underscore.angular.js',
-        'js/util.js',
-        'js/defs.js',
-        'js/app.js',
-        'js/controllers.js',
-        'js/filters.js',
-        'js/services.js',
+        JS + '/underscore.angular.js',
+        JS + '/util.js',
+        JS + '/defs.js',
+        JS + '/app.js',
+        JS + '/controllers.js',
+        JS + '/filters.js',
+        # JS + '/services.js',
+        SERVICES + '/websocket_service.js',
+        SERVICES + '/avviso_service.js',
 
         filters='jsmin',
         output='gen/packed.js'
