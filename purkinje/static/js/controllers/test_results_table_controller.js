@@ -9,6 +9,12 @@
         ]);
 
     function TestResultsTableController($scope, WebSocketService, AvvisoService) {
+
+        $scope.clearEvents = function() {
+            $scope.testResults = [];
+            setPieData();
+        };
+
         //AvvisoService.notify('mytitle', 'mybody');
 
         /**
@@ -120,13 +126,6 @@
             handleWebSocketEvent(event, data);
         });
 
-
-        $scope.clearEvents = function() {
-            $scope.testResults = [];
-            setPieData();
-        };
-
-        //setDummyTestResults($scope);
         setResultFilterSelections();
         setPieOptions();
     }
