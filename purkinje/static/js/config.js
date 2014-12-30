@@ -3,9 +3,11 @@
     'use strict';
 
     angular.module('purkinje').config(['$interpolateProvider',
-        function($interpolateProvider) {
-            $interpolateProvider.startSymbol('{[');
-            $interpolateProvider.endSymbol(']}');
-        }
+        configInterpolateProvider
     ]);
+
+    function configInterpolateProvider($interpolateProvider) {
+        $interpolateProvider.startSymbol('{[');
+        $interpolateProvider.endSymbol(']}');
+    }
 })();
