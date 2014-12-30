@@ -38,7 +38,6 @@ BUNDLES = {
         BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
         BC + '/angular-vs-repeat/src/angular-vs-repeat.js',
 
-        JS + '/underscore.angular.js',
         JS + '/util.js',
         JS + '/defs.js',
         JS + '/app.js',
@@ -46,7 +45,8 @@ BUNDLES = {
         JS + '/runblocks.js',
         JS + '/controllers.js',
         JS + '/filters.js',
-        # JS + '/services.js',
+
+        SERVICES + '/underscore.angular.js',
         SERVICES + '/websocket_service.js',
         SERVICES + '/avviso_service.js',
 
