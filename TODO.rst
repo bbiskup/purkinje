@@ -77,6 +77,17 @@ TODOs
     - Investigate why deleting 500 Events using the Clear - Events button
       may take several seconds
 
+    - Real-time notification optional or selective (only summaries, no per-testcase
+      notifications (not feasible for on mobile for large test suites)
+
+      - 5000 test cases cause Chrome on Yoga 2 to freeze
+      - 100 test cases no problem for Yoga 2, but Chrome will crash on
+        Huawei Ascend lower-end phone
+      - 1000 test cases take about 1 min on Yoga 2;
+      - scroll performance is bad at 200 test cases on Yoga 2
+
+        - 50: ok; 100: hardly acceptable
+
 #) Documentation
 
     - Sphinx, Read The Docs
@@ -102,6 +113,13 @@ TODOs
     - split py.test plugin and web server
 
     - split out docformat testing(plugin)
+
+#) Demo
+
+    - set up publically accessible purkinje server and test runner that
+      executes test suites of well-known Python projects with purkinje plugin
+
+      - ansible or Docker?
 
 Issues
 ======
