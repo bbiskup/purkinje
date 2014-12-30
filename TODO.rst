@@ -49,6 +49,8 @@ TODOs
     - Make debug mode configurable (to affect debug logging,
       asset concatenation and compression)
 
+    - JS defs.js as Angular service
+
 #) User Interface
 
    - Sorting of test results table by different columns
