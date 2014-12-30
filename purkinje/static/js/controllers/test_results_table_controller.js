@@ -103,7 +103,7 @@
             });
 
 
-            setPieData($scope);
+            setPieData();
             $scope.$apply();
 
             var duration = new Date() - start;
