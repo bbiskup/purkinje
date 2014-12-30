@@ -1,34 +1,6 @@
-'use strict'
-app.controller('DummyController', function($scope) {
-    $scope.xyz = "hello"
-    //$scope.people=['Jim', 'Jill', 'Jerome']
-    $scope.people = [{
-        name: 'Jim'
-    }, {
-        name: 'Jeff'
-    }, {
-        name: 'Jill'
-    }, ]
-});
-
-
 ;
 (function() {
-    /*function setDummyTestResults($scope) {
-        $scope.testResults = [{
-            name: 'test_1',
-            file: 'file_1.py',
-            verdict: defs.Verdict.PASS
-        }, {
-            name: 'test_2',
-            file: 'file_2.py',
-            verdict: defs.Verdict.FAIL
-        }, {
-            name: 'test_3',
-            file: 'file_3.py',
-            verdict: defs.Verdict.PASS
-        }, ];
-    };*/
+    'use strict'
 
     /**
      * Choices for result filter combo box
@@ -130,7 +102,7 @@ app.controller('DummyController', function($scope) {
             'msg-handler duration: ' + duration + ' ms');
     }
 
-    app.controller('TestResultsTableController', ['$scope', 'WebSocketService', 'AvvisoService',
+    angular.module('purkinje').controller('TestResultsTableController', ['$scope', 'WebSocketService', 'AvvisoService',
 
         function($scope, WebSocketService, AvvisoService) {
             //AvvisoService.notify('mytitle', 'mybody');

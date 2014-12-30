@@ -1,8 +1,11 @@
-'use strict';
+;
+(function() {
+    'use strict';
 
-angular.module('purkinje').config(['$interpolateProvider',
-    function($interpolateProvider) {
-        $interpolateProvider.startSymbol('{[');
-        $interpolateProvider.endSymbol(']}');
-    }
-]);
+    angular.module('purkinje').config(['$interpolateProvider',
+        function($interpolateProvider) {
+            $interpolateProvider.startSymbol('{[');
+            $interpolateProvider.endSymbol(']}');
+        }
+    ]);
+})();

@@ -1,90 +1,93 @@
-'use strict';
-/**
- * Service for WebSocket connections.
- * Based on http://clintberry.com/2013/angular-js-websocket-service/
- */
-app.factory('WebSocketService', ['$q', '$rootScope',
-    function($q, $rootScope) {
-        var Service = {},
-            callbacks = {},
-            currentCallbackId = 0,
-            ws = null,
-            wsURLTemplate = _.template('ws://<%= hostname %>:<%= port %>/subscribe2'),
-            wsURL = wsURLTemplate(window.location);
+;
+(function() {
+    'use strict';
+    /**
+     * Service for WebSocket connections.
+     * Based on http://clintberry.com/2013/angular-js-websocket-service/
+     */
+    angular.module('purkinje').factory('WebSocketService', ['$q', '$rootScope',
+        function($q, $rootScope) {
+            var Service = {},
+                callbacks = {},
+                currentCallbackId = 0,
+                ws = null,
+                wsURLTemplate = _.template('ws://<%= hostname %>:<%= port %>/subscribe2'),
+                wsURL = wsURLTemplate(window.location);
 
-        console.debug('WS URL:', wsURL);
+            console.debug('WS URL:', wsURL);
 
-        var wsPromise = $q(function(resolve, reject) {
-            ws = new WebSocket(wsURL);
+            var wsPromise = $q(function(resolve, reject) {
+                ws = new WebSocket(wsURL);
 
-            ws.onopen = function() {
-                console.debug('WebSocket opened');
-                resolve(ws);
-            }
-
-            ws.onerror = function(err) {
-                console.error('WebSocket error:', err);
-                reject(ws);
-            }
-
-            ws.onmessage = function(message) {
-                console.debug('Incoming WS message:', message.data);
-                listener(JSON.parse(message.data));
-            }
-        });
-
-        function sendRequest(request) {
-            return wsPromise.then(function() {
-                var defer = $q.defer(),
-                    callbackId = getCallbackId();
-
-                callbacks[callbackId] = {
-                    time: new Date(),
-                    cb: defer
+                ws.onopen = function() {
+                    console.debug('WebSocket opened');
+                    resolve(ws);
                 }
 
-                request.callback_id = callbackId;
-                console.debug('Sending WS request', request);
-                ws.send(JSON.stringify(request));
-                return defer.promise;
+                ws.onerror = function(err) {
+                    console.error('WebSocket error:', err);
+                    reject(ws);
+                }
+
+                ws.onmessage = function(message) {
+                    console.debug('Incoming WS message:', message.data);
+                    listener(JSON.parse(message.data));
+                }
             });
-        }
 
-        function listener(data) {
-            var messageObj = data;
+            function sendRequest(request) {
+                return wsPromise.then(function() {
+                    var defer = $q.defer(),
+                        callbackId = getCallbackId();
 
-            // resolve if the ID is known
-            var msgID = messageObj.callback_id;
-            if (callbacks.hasOwnProperty(msgID)) {
-                console.debug('Received data from WebSocket (' + msgID + '): ' + messageObj);
-                var theCallback = callbacks[msgID];
-                console.debug(theCallback);
-                $rootScope.apply(theCallback.cb.resolve(messageObj.data));
-                delete callbacks[msgID];
-            } else {
-                // TODO pass event to app
-                console.debug('Unsolicited event:', messageObj);
+                    callbacks[callbackId] = {
+                        time: new Date(),
+                        cb: defer
+                    }
 
-                $rootScope.$broadcast('webSocketMsg', messageObj);
+                    request.callback_id = callbackId;
+                    console.debug('Sending WS request', request);
+                    ws.send(JSON.stringify(request));
+                    return defer.promise;
+                });
             }
-        }
 
-        function getCallbackId() {
-            ++currentCallbackId;
-            if (currentCallbackId > 10000) {
-                currentCallbackId = 0;
+            function listener(data) {
+                var messageObj = data;
+
+                // resolve if the ID is known
+                var msgID = messageObj.callback_id;
+                if (callbacks.hasOwnProperty(msgID)) {
+                    console.debug('Received data from WebSocket (' + msgID + '): ' + messageObj);
+                    var theCallback = callbacks[msgID];
+                    console.debug(theCallback);
+                    $rootScope.apply(theCallback.cb.resolve(messageObj.data));
+                    delete callbacks[msgID];
+                } else {
+                    // TODO pass event to app
+                    console.debug('Unsolicited event:', messageObj);
+
+                    $rootScope.$broadcast('webSocketMsg', messageObj);
+                }
             }
-            return currentCallbackId;
-        }
 
-        Service.registerClient = function() {
-            var request = {
-                type: 'register_client'
-            };
+            function getCallbackId() {
+                ++currentCallbackId;
+                if (currentCallbackId > 10000) {
+                    currentCallbackId = 0;
+                }
+                return currentCallbackId;
+            }
 
-            var promise = sendRequest(request);
-            return promise;
+            Service.registerClient = function() {
+                var request = {
+                    type: 'register_client'
+                };
+
+                var promise = sendRequest(request);
+                return promise;
+            }
+            return Service;
         }
-        return Service;
-    }
-]);
+    ]);
+})();

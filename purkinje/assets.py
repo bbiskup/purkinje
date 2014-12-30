@@ -8,6 +8,7 @@ from flask.ext.assets import Bundle, Environment
 
 BC = 'bower_components'
 JS = 'js'
+CONTROLLERS = JS + '/controllers'
 DIRECTIVES = JS + '/directives'
 SERVICES = JS + '/services'
 
@@ -43,7 +44,9 @@ BUNDLES = {
         JS + '/app.js',
         JS + '/config.js',
         JS + '/runblocks.js',
-        JS + '/controllers.js',
+
+        CONTROLLERS + '/test_results_table_controller.js',
+
         JS + '/filters.js',
 
         SERVICES + '/underscore.angular.js',

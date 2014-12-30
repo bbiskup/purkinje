@@ -1,3 +1,6 @@
-'use strict';
+;
+(function() {
+    'use strict';
 
-var app = angular.module('purkinje', ['ui.bootstrap', 'tc.chartjs']);
+    var app = angular.module('purkinje', ['ui.bootstrap', 'tc.chartjs']);
+})();

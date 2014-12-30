@@ -1,10 +1,15 @@
-window.defs = {
-    Verdict: {
-        PASS: 'pass',
-        FAIL: 'fail',
-        ERROR: 'error',
-        SKIPPED: 'skipped'
-    },
+;
+(function() {
+    'use strict';
+    
+    window.defs = {
+        Verdict: {
+            PASS: 'pass',
+            FAIL: 'fail',
+            ERROR: 'error',
+            SKIPPED: 'skipped'
+        },
 
-    maxDummyMsgScopeLength: 10000
-};
+        maxDummyMsgScopeLength: 10000
+    };
+})();
