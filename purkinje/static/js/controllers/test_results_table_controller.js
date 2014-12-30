@@ -16,6 +16,17 @@
         };
 
         //AvvisoService.notify('mytitle', 'mybody');
+        $scope.testResults = [];
+        $scope.webSocketEvents = [];
+        $scope.dummyPayload = WebSocketService.registerClient();
+
+        $scope.$on('webSocketMsg', function(event, data) {
+            handleWebSocketEvent(event, data);
+        });
+
+        setResultFilterSelections();
+        setPieOptions();
+
 
         /**
          * Choices for result filter combo box
@@ -94,7 +105,7 @@
                 console.debug('$scope: webSocketMsg', msg);
                 var eventType = msg.type;
                 switch (eventType) {
-                    case 'session_started':
+                    case  'session_started':
                         handlews_sessionStarted(msg);
                         break;
                     case 'tc_finished':
@@ -116,17 +127,5 @@
             console.debug(
                 'msg-handler duration: ' + duration + ' ms');
         }
-
-
-        $scope.testResults = [];
-        $scope.webSocketEvents = [];
-        $scope.dummyPayload = WebSocketService.registerClient();
-
-        $scope.$on('webSocketMsg', function(event, data) {
-            handleWebSocketEvent(event, data);
-        });
-
-        setResultFilterSelections();
-        setPieOptions();
     }
 })();
