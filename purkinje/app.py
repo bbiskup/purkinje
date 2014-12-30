@@ -174,6 +174,10 @@ def subscribe2():
         if ws not in clients:
             app.logger.info('Registering client %s', ws)
             client_conf_ = ws.receive()
+
+            if not client_conf_:
+                raise Exception('Invalid client conf: {}'.format(client_conf_))
+
             client_conf = json.loads(client_conf_)
             app.logger.debug('Client conf: %s', client_conf)
             clients.append(ws)
