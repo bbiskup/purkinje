@@ -28,3 +28,7 @@ dist:
 
 build-docker:
 	sudo docker build .
+
+# Build Flask assets
+assets:
+	python manage.py assets build
