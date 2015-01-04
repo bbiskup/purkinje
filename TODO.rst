@@ -95,8 +95,9 @@ TODOs
 
         - 50: ok; 100: hardly acceptable
 
-     - Config option to show only latest n test results in table (ok on 
-       Yoga 2 with 10000 test results)
+     - Config option to show only n latest test results in table (ok on 
+       Yoga 2 with 10000 test results); full statistics nevertheless.
+       - Maybe virtual scrolling with a subset from a bigger array in mem?
 
 #) Documentation
 
