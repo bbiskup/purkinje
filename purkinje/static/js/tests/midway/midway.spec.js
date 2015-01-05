@@ -38,23 +38,15 @@ describe('purkinje module', function() {
 
 describe('Dashboard routes', function() {
     var tester;
-    //, _$state_;
+    //, _$state_, _$urlRouterProvider_;
 
     beforeEach(function() {
-        tester = ngMidwayTester('purkinje'
-            // template to host view is set implicitly
-            /*{
-            template: '<div>' +
-                '  <h1>hello</h1>' +
-                '  <div id="view-container">' +
-                '    <div ng-view></div>' +
-                '  </div>' +
-                '</div>'
-        }*/
-        );
+        module('purkinje');
+        tester = ngMidwayTester('purkinje');
 
-        /*inject(function($state){
-            _$state_ = $state;
+        /*inject(function($state, $urlRouterProvider) {
+            _$state_ = $state,
+            _$urlRouterProvider_ = $urlRouterProvider;
         });*/
     });
 
@@ -64,18 +56,27 @@ describe('Dashboard routes', function() {
     });
 
 
-    it('should have working dashboard route', function(){
+    it('should have working dashboard route', function() {
 
     });
 
-    it('should be displayed correctly', function() {
-        tester.visit('/dashboard', function(done) {
+    it('should be displayed correctly', function(done) {
+        tester.visit('/', function() {
+            alert("HIER");
             console.log('hier in visit handler');
-            expect(tester.path()).to.equal('/');
+            tester.path().should.eq('/');
+            
             expect(tester.viewElement().html()).to.contain('Purkinje');
 
             var scope = tester.viewScope();
             expect(scope.title).to.equal('xyz');
+
+            var current = tester.inject('$route').current;
+            var controller = current.controller;
+            var params = current.params;
+            var scope = current.scope;
+            expect(controller).to.equal('TestResultController');
+
             done();
         });
     });
