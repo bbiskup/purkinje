@@ -11,12 +11,30 @@
     function TestResultsTableController($scope, WebSocketService, AvvisoService) {
 
         $scope.clearEvents = function() {
-            $scope.testResults = [];
+            $scope.gridOptions.data = [];
             setPieData();
         };
 
+        $scope.createDummyData = function() {
+            var data = [];
+            for (var i = 0; i < 200; ++i) {
+                data.push({
+                    type: 'tc_finished',
+                    verdict: 'pass',
+                    name: i + '_dummy_name',
+                    file: 'dummy_file',
+                    timestamp: 'dummy_timestamp'
+                });
+            }
+            $scope.gridOptions.data = data;
+        };
+
         //AvvisoService.notify('mytitle', 'mybody');
-        $scope.testResults = [];
+        $scope.gridOptions = {
+            infiniteScroll: 20
+        };
+
+        $scope.gridOptions.data = [];
         $scope.webSocketEvents = [];
         $scope.dummyPayload = WebSocketService.registerClient();
 
@@ -62,7 +80,7 @@
          * Set verdict pie diagram categories
          */
         function setPieData() {
-            var vc = util.countVerdicts($scope.testResults);
+            var vc = util.countVerdicts($scope.gridOptions.data);
             $scope.verdictCounts = vc;
 
             // TODO Chart experiment
@@ -82,12 +100,12 @@
         }
 
         function handlews_sessionStarted(data) {
-            $scope.testResults = [];
+            $scope.gridOptions.data = [];
         }
 
         function handlews_tcFinished(data) {
-            // $scope.testResults.push(data);
-            $scope.testResults.unshift(data);
+            // $scope.gridOptions.data.push(data);
+            $scope.gridOptions.data.unshift(data);
         }
 
         function handlews_info(data) {
@@ -105,7 +123,7 @@
                 console.debug('$scope: webSocketMsg', msg);
                 var eventType = msg.type;
                 switch (eventType) {
-                    case  'session_started':
+                    case 'session_started':
                         handlews_sessionStarted(msg);
                         break;
                     case 'tc_finished':
@@ -119,10 +137,6 @@
                 };
             });
 
-
-            // ui grid config
-            $scope.gridOptions = {};
-            $scope.gridOptions.infiniteScroll = 20;
 
             setPieData();
             $scope.$apply();
