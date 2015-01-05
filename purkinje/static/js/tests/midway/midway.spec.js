@@ -1,8 +1,44 @@
 'use strict';
 
+describe('purkinje module', function() {
+    var module;
+    beforeEach(function() {
+        module = angular.module('purkinje');
+    });
 
-describe('Dashboard', function() {
+    it('should be registered', function() {
+        //expect(module).should.not.equal(null);
+        chai.expect(module).not.to.equal(null);
+    });
+
+    describe('Dependencies', function() {
+        var deps;
+
+        var hasModule = function(m) {
+            return deps.indexOf(m) >= 0;
+        };
+
+        var checkDep = function(m) {
+            it('should have ' + m + ' as a dependency', function() {
+                chai.expect(hasModule(m));
+            });
+        }
+
+        beforeEach(function() {
+            deps = module.value('purkinje').requires;
+        });
+
+        checkDep('ui.bootstrap');
+        checkDep('ui.router');
+        checkDep('ui.grid');
+        checkDep('tc.chartjxs');
+    });
+});
+
+
+describe('Dashboard routes', function() {
     var tester;
+    //, _$state_;
 
     beforeEach(function() {
         tester = ngMidwayTester('purkinje'
@@ -16,6 +52,10 @@ describe('Dashboard', function() {
                 '</div>'
         }*/
         );
+
+        /*inject(function($state){
+            _$state_ = $state;
+        });*/
     });
 
     afterEach(function() {
@@ -23,10 +63,13 @@ describe('Dashboard', function() {
         tester = null;
     });
 
+
+    it('should have working dashboard route', function(){
+
+    });
+
     it('should be displayed correctly', function() {
-        alert("hi1");
         tester.visit('/dashboard', function(done) {
-            alert("hi2");
             console.log('hier in visit handler');
             expect(tester.path()).to.equal('/');
             expect(tester.viewElement().html()).to.contain('Purkinje');
