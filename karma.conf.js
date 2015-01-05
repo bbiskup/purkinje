@@ -15,6 +15,9 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+
+            // mocha must be imported (so window.mocha is defined), otherwise
+            // angular-mocks will not define inject
             '../../mocha.conf.js',
             'bower_components/ngMidwayTester/src/ngMidwayTester.js',
 
@@ -28,6 +31,7 @@ module.exports = function(config) {
             //'bower_components/angular-route/angular-route.js',
             //'bower_components/angularjs-scope.safeapply/src/Scope.SafeApply.js',
 
+            'bower_components/angular-mocks/angular-mocks.js',
             'bower_components/should/should.js',
 
             'bower_components/ngMidwayTester/src/ngMidwayTester.js',
@@ -36,6 +40,7 @@ module.exports = function(config) {
             // TODO correct path
             //'app/scripts/lib/router.js',
             'js/*.js',
+            'js/filters.js',
             'js/controllers/test_results_table_controller.js',  // for midway testing
 
             
