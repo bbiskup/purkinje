@@ -4,11 +4,11 @@
 
     angular
         .module('purkinje')
-        .controller('TestResultsTableController', ['$scope', 'WebSocketService', 'AvvisoService',
+        .controller('TestResultsTableController', ['$scope', 'WebSocketService', 'AvvisoService', 'uiGridConstants',
             TestResultsTableController
         ]);
 
-    function TestResultsTableController($scope, WebSocketService, AvvisoService) {
+    function TestResultsTableController($scope, WebSocketService, AvvisoService, uiGridConstants) {
 
         $scope.clearEvents = function() {
             $scope.gridOptions.data = [];
@@ -16,14 +16,15 @@
         };
 
         $scope.createDummyData = function() {
-            var data = [];
+            var data = [],
+                initialTimestamp = (new Date()).getTime();
             for (var i = 0; i < 200; ++i) {
                 data.push({
                     type: 'tc_finished',
                     verdict: 'pass',
                     name: i + '_dummy_name',
                     file: 'dummy_file',
-                    timestamp: 'dummy_timestamp'
+                    timestamp: new Date(initialTimestamp + i * 1000)
                 });
             }
             $scope.gridOptions.data = data;
@@ -31,10 +32,27 @@
 
         //AvvisoService.notify('mytitle', 'mybody');
         $scope.gridOptions = {
-            infiniteScroll: 20
+            infiniteScroll: 20,
+            data: [],
+            columnDefs: [{
+                field: 'type'
+            }, {
+                field: 'name'
+            }, {
+                field: 'file'
+            },{
+                field: 'verdict'
+            }, {
+                field: 'timestamp',
+                // visible: false,
+                sort: {
+                    direction: uiGridConstants.DESC,
+                    priority: 1
+                    
+                }
+            }]
         };
 
-        $scope.gridOptions.data = [];
         $scope.webSocketEvents = [];
         $scope.dummyPayload = WebSocketService.registerClient();
 
