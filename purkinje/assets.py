@@ -8,6 +8,7 @@ from flask.ext.assets import Bundle, Environment
 
 BC = 'bower_components'
 JS = 'js'
+THIRDPARTY = JS + '/thirdparty'
 CONTROLLERS = JS + '/controllers'
 DIRECTIVES = JS + '/directives'
 SERVICES = JS + '/services'
@@ -35,17 +36,22 @@ BUNDLES = {
         BC + '/angular/angular.js',
         BC + '/angular-bootstrap/ui-bootstrap.js',
         BC + '/angular-bootstrap/ui-bootstrap-tpls.js',
+        BC + '/ui-router/release/angular-ui-router.js',
         BC + '/angular-ui-grid/ui-grid.js',
 
         BC + '/Chart.js/Chart.js',
         BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
 
+        THIRDPARTY + '/histogramjs/histogram.js',
+
         JS + '/util.js',
         JS + '/defs.js',
         JS + '/app.js',
         JS + '/config.js',
+        JS + '/routes.js',
         JS + '/runblocks.js',
 
+        CONTROLLERS + '/navbar_controller.js',
         CONTROLLERS + '/test_results_table_controller.js',
 
         JS + '/filters.js',
