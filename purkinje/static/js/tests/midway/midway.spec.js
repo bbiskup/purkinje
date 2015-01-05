@@ -56,6 +56,7 @@ describe('Dashboard routes', function() {
     });
 
 
+    /*
     it('should have working dashboard route', function() {
 
     });
@@ -79,5 +80,5 @@ describe('Dashboard routes', function() {
 
             done();
         });
-    });
+    }); */
 });
