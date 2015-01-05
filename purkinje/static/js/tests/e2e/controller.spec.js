@@ -8,9 +8,9 @@ describe('E2E: test 1', function() {
     });
 
 
-    /*it("Dummy test 1", function() {
+    it("Dummy test 1", function() {
         expect('1').toBe('1');
-    });*/
+    });
 
 it("Dummy test without DOM", function() {
     expect(3).toEqual(3);
@@ -21,10 +21,10 @@ it("Dummy test without DOM", function() {
         expect(browser.getTitle()).toEqual('Purkinje Test Runner');
     });
 
-    /*
+    
     var selector = '#result-summary';
     it("should have the title set", function() {
-        expect(browser().getTitle()).toEqual('Purkinje Test Runner');
-    });*/
+        expect(browser.getTitle()).toEqual('Purkinje Test Runner');
+    });
 
 });
