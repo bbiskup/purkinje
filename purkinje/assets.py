@@ -18,6 +18,7 @@ BUNDLES = {
         BC + '/bootstrap/dist/css/bootstrap.css',
         BC + '/bootstrap/dist/css/bootstrap-theme.css',
         BC + '/sass-bootstrap-glyphicons/css/bootstrap-glyphicons.css',
+        BC + '/angular-ui-grid/ui-grid.css',
 
         BC + '/fontawesome/css/font-awesome.css',
 
@@ -34,10 +35,10 @@ BUNDLES = {
         BC + '/angular/angular.js',
         BC + '/angular-bootstrap/ui-bootstrap.js',
         BC + '/angular-bootstrap/ui-bootstrap-tpls.js',
+        BC + '/angular-ui-grid/ui-grid.js',
 
         BC + '/Chart.js/Chart.js',
         BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
-        BC + '/angular-vs-repeat/src/angular-vs-repeat.js',
 
         JS + '/util.js',
         JS + '/defs.js',

@@ -120,6 +120,10 @@
             });
 
 
+            // ui grid config
+            $scope.gridOptions = {};
+            $scope.gridOptions.infiniteScroll = 20;
+
             setPieData();
             $scope.$apply();
 

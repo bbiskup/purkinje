@@ -34,7 +34,7 @@
     "sass-bootstrap-glyphicons": "git://github.com/greaterweb/sass-bootstrap-glyphicons.git#~1.0.0",
     "fontawesome": "~4.2.0",
     "tc-angular-chartjs": "~1.0.9",
-    "angular-vs-repeat": "~1.0.0-rc5"
+    "angular-ui-grid": "~3.0.0-rc.16"
   },
   "resolutions": {
     "angular": ">= 1.0.8"

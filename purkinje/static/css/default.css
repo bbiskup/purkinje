@@ -4,9 +4,16 @@ See http://angular-ui.github.io/bootstrap/ */
     cursor: pointer;
 }
 
-test-result-table{
+/*test-result-table{
     width: 100%;
     height: 100%;
+}*/
+
+/* for Angular ui-grid */
+.test-result-table{
+    /* TODO appropriate dimensions */
+    width: 100%;
+    height: 600px;
 }
 
 /* For angular-vs-repeat */
@@ -47,3 +54,4 @@ td, th {
 div#results-charts{
     height: 100px;
 }
+
