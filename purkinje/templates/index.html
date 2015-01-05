@@ -25,7 +25,7 @@
                 <li><a href="#passes">Passed Test Cases</a></li>
             </ul>
         </div-->
-        <div class="col-sm-9 col-offset-0 col-md-10 col-md-offset-0 main" ng-controller="TestResultsTableController">
+        <div class="main" ng-controller="TestResultsTableController">
 
 
             <div class="row">
@@ -35,7 +35,6 @@
                     <!--canvas tc-chartjs-legend chart-type="pie" chart-data="pieData" chart-options="pieOptions" width="80" height="80"-->
                 </div>
                 <div class="row">
-                    <div class="col-sm-8" >
                         <!-- Verdict counts -->
                         <ul id="result-summary" class="nav nav-pills pull-left" role="tablist">
                             <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
@@ -60,7 +59,6 @@
                                 <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a></li>
                             </ul>
                         </div>
-                    </div>
                 </div>
                 <p>
                 <div class="row">
