@@ -1,0 +1,36 @@
+{
+  "name": "histogramjs",
+  "version": "0.0.1",
+  "description": "Simple histogram sorting",
+  "main": "histogram.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/eoinmurray/histogram"
+  },
+  "keywords": [
+    "histogram",
+    "bin-sort",
+    "sorting",
+    "data",
+    "d3"
+  ],
+  "author": {
+    "name": "Eoin Murray"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eoinmurray/histogram/issues"
+  },
+  "readme": "### Histogram.js\r\n\r\nFrequency sort an array of data. \r\nRipped from d3.js. this histogram function is fully self contained and can be dropped easily into project.\r\n\r\nIt was created originally for use with webworkers.\r\n\r\n\r\n\thistogram({\r\n\t\tdata : Array,\r\n\t\tbins : Array\r\n\t})\r\n\r\n\r\n#### Example.\r\n\r\n\r\n\tvar histogram = require('./histogram')\r\n\r\n\tvar linspace = function linspace(a,b,n) {\r\n\t    if(typeof n === \"undefined\") n = Math.max(Math.round(b-a)+1,1);\r\n\t    if(n<2) { return n===1?[a]:[]; }\r\n\t    var i,ret = Array(n);\r\n\t    n--;\r\n\t    for(i=n;i>=0;i--) { ret[i] = (i*b+(n-i)*a)/n; }\r\n\t    return ret;\r\n\t}\r\n\r\n\tvar \r\n\t\tx = linspace(0, 12, 100),\r\n\t\ty = [],\r\n\t\tnum;\r\n\r\n\tfor(var i = 0; i < 2000; i ++){\r\n\t\tnum = - Math.log(Math.random())\r\n\t\ty.push(num)\r\n\t}\r\n\r\n\tvar data = histogram({\r\n\t\tdata : y,\r\n\t\tbins : x\r\n\t})\r\n\r\n\tfor(var i = 0; i < data.length; i ++){\r\n\t\tconsole.log('[' + data[i].x + ',' +  data[i].y + '],')\r\n\t}\r\n\r\n\r\n\r\nRun in node, it produces this distribution.\r\n\r\n\r\n![](http://i.imgur.com/ZOAToPx.png)",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/eoinmurray/histogram",
+  "_id": "histogramjs@0.0.1",
+  "dist": {
+    "shasum": "a365814333483087596574399fdd922f59b0fdce"
+  },
+  "_from": "histogramjs@",
+  "_resolved": "https://registry.npmjs.org/histogramjs/-/histogramjs-0.0.1.tgz"
+}
