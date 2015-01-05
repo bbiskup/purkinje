@@ -44,6 +44,7 @@
                     field: 'file'
                 }, {
                     field: 'verdict',
+                    width: 80,
                     cellTemplate: '<div class="ngCellText verdict verdict-{[row.entity[col.field]]}  colt{[$index]}">{[row.entity[col.field || \'&nbsp;\']]}</div>'
                 }, {
                     field: 'timestamp',
