@@ -6,20 +6,18 @@
         var filt;
 
         beforeEach(function() {
+            // crucial
             module('purkinje');
 
-            /*module(function($provide) {
-                $provide.filter('verdictClassFilter', 'verdictClassFilter');
-            });*/
-
-            /*inject(function($filter) {
+            inject(function($filter) {
                 filt = $filter('verdictClassFilter');
-            });*/
+            });
 
-            inject(function($injector) {
+            // also ok
+            /*inject(function($injector) {
                 var $f = $injector.get('$filter');
                 filt = $f('verdictClassFilter');
-            });
+            });*/
         });
 
 
@@ -32,6 +30,10 @@
 
         it('returns "success" for verdict PASS', function() {
             (filt(defs.Verdict.PASS)).should.equal('success');
+        });
+
+        it('returns "error" for verdict FAIL', function() {
+            (filt(defs.Verdict.FAIL)).should.equal('danger');
         });
     });
 })();
