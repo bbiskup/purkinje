@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="main" ng-controller="TestResultsTableController">
+        <div class="row">
+            <!--h1 id="test-results-header" class="pageheader">Test Results</h1 -->
+            <div id="test-results-charts" class="row">
+                <canvas tc-chartjs-pie chart-data="pieData" chart-options="pieOptions" width="80" height="80"></canvas>
+                <!--canvas tc-chartjs-legend chart-type="pie" chart-data="pieData" chart-options="pieOptions" width="80" height="80"-->
+            </div>
+            <div class="row">
+                <!-- Verdict counts -->
+                <ul id="result-summary" class="nav nav-pills pull-left" role="tablist">
+                    <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
+                    <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span></a></li>
+                    <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span></a></li>
+                    <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
+                </ul>
+                <!-- Filter for test result display -->
+                <div class="btn-group" test-case-controls>
+                    <a class="btn btn-danger" ng-click="clearEvents()" href="#">
+                        <i class="fa fa-trash-o fa-lg"></i> Clear events
+                    </a>
+                    <a class="btn btn-default" ng-click="createDummyData()" href="#">
+                        <i class="fa fa-paper-plane fa-lg"></i> Create dummy data
+                    </a>
+                    <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
+                    Filter test results
+                    <span class="caret" />
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p>
+            <div class="row">
+                <!--table class="table table-striped test-result-table">
+                <thead>
+                    <tr>
+                        <th class="test-result-col-file">File</th>
+                        <th class="test-result-col-testcase">Test Case</th>
+                        <th class="test-result-col-verdict">Verdict</th>
+                    </tr>
+                </thead>
+                <tbody  class='test-result-tbody'>
+                    <tr ng-repeat="result in testResults">
+                        <td title="{[::result.file]}" class="test-result-col-file">{[::result.file]}</td>
+                        <td title="{[::result.name]}" class="test-result-col-testcase">{[::result.name]}</td>
+                        <td class='{[::result.verdict|verdictClassFilter ]} test-result-col-verdict'>
+                            {[result.verdict]}
+                        </td>
+                    </tr>
+                </tbody>
+            </table -->
+            <div ui-grid="gridOptions" external-scopes="extGrid" class='test-result-table'>
+                
+            </div>
+        </div>
+        <!--div class="col-sm-3 col-sm-offset-0">
+        <h3>Test case details</h3> ...Details about test case...
+    </div-->
+</div>
+<div>Total number of test cases: {[verdictCounts.all]}
+</div>
+<div>Dummy server info: {[info]}
+</div>
