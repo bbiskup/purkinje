@@ -34,12 +34,14 @@
     "sass-bootstrap-glyphicons": "git://github.com/greaterweb/sass-bootstrap-glyphicons.git#~1.0.0",
     "fontawesome": "~4.2.0",
     "tc-angular-chartjs": "~1.0.9",
-    "angular-ui-grid": "~3.0.0-rc.16"
+    "angular-ui-grid": "~3.0.0-rc.16",
+    "ngMidwayTester": "*"
   },
   "resolutions": {
     "angular": ">= 1.0.8"
   },
   "devDependencies": {
-    "should": "~4.4.1"
+    "should": "~4.4.1",
+    "chai": "~1.10.0"
   }
 }
