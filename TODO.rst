@@ -95,9 +95,8 @@ TODOs
 
         - 50: ok; 100: hardly acceptable
 
-     - Config option to show only n latest test results in table (ok on 
-       Yoga 2 with 10000 test results); full statistics nevertheless.
-       - Maybe virtual scrolling with a subset from a bigger array in mem?
+      - Very performant virtual scrolling: http://demo.stackfull.com/virtual-scroll/
+        (fast with at least 16 K lines, on Yoga 2)
 
 #) Documentation
 
