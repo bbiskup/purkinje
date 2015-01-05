@@ -49,6 +49,9 @@
                             <a class="btn btn-danger" ng-click="clearEvents()" href="#">
                                 <i class="fa fa-trash-o fa-lg"></i> Clear events
                             </a>
+                            <a class="btn btn-default" ng-click="createDummyData()" href="#">
+                                <i class="fa fa-paper-plane fa-lg"></i> Create dummy data
+                            </a>
                             <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
                                 Filter test results
                                 <span class="caret" />
@@ -59,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <!--table class="table table-striped test-result-table">
                         <thead>
                             <tr>
@@ -78,14 +81,14 @@
                             </tr>
                         </tbody>
                     </table -->
-                    <div ui-grid="{ data: testResults }" class='test-result-table'>
+                    <div ui-grid="gridOptions" class='test-result-table'>
                         
                     </div>
                 </div>
 
-                <div class="col-sm-3 col-sm-offset-0">
+                <!--div class="col-sm-3 col-sm-offset-0">
                     <h3>Test case details</h3> ...Details about test case...
-                </div>
+                </div-->
             </div>
             <div>Total number of test cases: {[verdictCounts.all]}</div>
             <div>Dummy server info: {[info]}</div>
