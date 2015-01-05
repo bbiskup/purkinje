@@ -4,11 +4,11 @@
 
     angular
         .module('purkinje')
-        .controller('TestResultsTableController', ['$scope', 'WebSocketService', 'AvvisoService', 'uiGridConstants',
+        .controller('TestResultsTableController', ['$scope', 'WebSocketService', 'AvvisoService', 'uiGridConstants', '$filter',
             TestResultsTableController
         ]);
 
-    function TestResultsTableController($scope, WebSocketService, AvvisoService, uiGridConstants) {
+    function TestResultsTableController($scope, WebSocketService, AvvisoService, uiGridConstants, $filter) {
 
         $scope.clearEvents = function() {
             $scope.gridOptions.data = [];
@@ -42,7 +42,7 @@
                 field: 'file'
             },{
                 field: 'verdict',
-                cellTemplate: '<div class="ngCellText xyz colt{[$index]}">{[row.entity[col.field]]}</div>'
+                cellTemplate: '<div class="ngCellText text-{[getExternalScopes().verdictClassFilter(row.entity[col.field])]} colt{[$index]}">{[row.entity[col.field]]}</div>'
             }, {
                 field: 'timestamp',
                 // visible: false,
@@ -52,6 +52,10 @@
                     
                 }
             }]
+        };
+
+        $scope.extGrid = {
+            verdictClassFilter: $filter("verdictClassFilter")
         };
 
         $scope.webSocketEvents = [];
