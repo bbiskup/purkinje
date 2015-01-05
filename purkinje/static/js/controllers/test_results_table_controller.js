@@ -18,13 +18,13 @@
         $scope.createDummyData = function() {
             var data = [],
                 initialTimestamp = (new Date()).getTime();
-            for (var i = 0; i < 20; ++i) {
+            for (var i = 0; i < 2000; ++i) {
                 data.push({
                     type: 'tc_finished',
                     verdict: 'pass',
                     name: i + '_dummy_name',
                     file: 'dummy_file',
-                    timestamp: new Date(initialTimestamp + i * 1000)
+                    timestamp: (new Date(initialTimestamp + i * 1000)).toISOString()
                 });
             }
             $scope.gridOptions.data = data;
@@ -32,26 +32,39 @@
 
         //AvvisoService.notify('mytitle', 'mybody');
         $scope.gridOptions = {
+            enableFiltering: true,
             infiniteScroll: 20,
             data: [],
             columnDefs: [{
-                field: 'type'
-            }, {
-                field: 'name'
-            }, {
-                field: 'file'
-            },{
-                field: 'verdict',
-                cellTemplate: '<div class="ngCellText text-{[getExternalScopes().verdictClassFilter(row.entity[col.field])]} colt{[$index]}">{[row.entity[col.field]]}</div>'
-            }, {
-                field: 'timestamp',
-                // visible: false,
-                sort: {
-                    direction: uiGridConstants.DESC,
-                    priority: 1
-                    
+                    field: 'type',
+                    visible: false
+                }, {
+                    field: 'name'
+                }, {
+                    field: 'file'
+                }, {
+                    field: 'verdict',
+                    cellTemplate: '<div class="ngCellText text-{[getExternalScopes().verdictClassFilter(row.entity[col.field])]} colt{[$index]}">{[row.entity[col.field]]}</div>'
+                }, {
+                    field: 'timestamp',
+                    // visible: false,
+                    sort: {
+                        direction: uiGridConstants.DESC,
+                        priority: 1
+
+                    },
                 }
-            }]
+                /*{
+                field: 'duration',
+                filters: [{
+                    condition: uiGridConstants.filter.GREATER_THAN,
+                    placeholder: 'greater than'
+                }, {
+                    condition: uiGridConstants.filter.LESS_THAN,
+                    placeholder: 'less than'
+                }]
+            } */
+            ]
         };
 
         $scope.extGrid = {
