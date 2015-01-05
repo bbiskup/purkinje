@@ -10,26 +10,39 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha'],
+        frameworks: ['mocha', 'jasmine'],
 
 
         // list of files / patterns to load in the browser
         files: [
+            '../../mocha.conf.js',
+            'bower_components/ngMidwayTester/src/ngMidwayTester.js',
+
             // Libs
             'bower_components/angular/angular.js',
+            'bower_components/angular-bootstrap/ui-bootstrap.js',
+            'bower_components/ui-router/release/angular-ui-router.js',
+            'bower_components/angular-ui-grid/*.js',
+            'bower_components/Chart.js/Chart.js',
+            'bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.js',  
             //'bower_components/angular-route/angular-route.js',
             //'bower_components/angularjs-scope.safeapply/src/Scope.SafeApply.js',
 
             'bower_components/should/should.js',
 
+            'bower_components/ngMidwayTester/src/ngMidwayTester.js',
+            'bower_components/chai/chai.js',
+
             // TODO correct path
             //'app/scripts/lib/router.js',
+            'js/*.js',
+            'js/controllers/test_results_table_controller.js',  // for midway testing
 
-            // Setup
-            '../../mocha.conf.js',
+            
 
             // Test files
             'js/tests/unit/*.spec.js',
+            'js/tests/midway/*.spec.js',
         ],
 
 
@@ -77,6 +90,11 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false
+        singleRun: false,
+
+        // for ngMidwayTester
+        proxies: {
+            '/': 'http://localhost:8844/'
+        }
     });
 };
