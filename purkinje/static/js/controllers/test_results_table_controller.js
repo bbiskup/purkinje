@@ -44,14 +44,13 @@
                     field: 'file'
                 }, {
                     field: 'verdict',
-                    cellTemplate: '<div class="ngCellText text-{[getExternalScopes().verdictClassFilter(row.entity[col.field])]} colt{[$index]}">{[row.entity[col.field]]}</div>'
+                    cellTemplate: '<div class="ngCellText verdict verdict-{[row.entity[col.field]]}  colt{[$index]}">{[row.entity[col.field]]}</div>'
                 }, {
                     field: 'timestamp',
                     // visible: false,
                     sort: {
                         direction: uiGridConstants.DESC,
                         priority: 1
-
                     },
                 }
                 /*{
@@ -123,11 +122,11 @@
             $scope.pieData = [{
                 label: 'Pass',
                 value: vc.pass || 0,
-                color: 'green'
+                color: '#5cb85c'
             }, {
                 label: 'Fail',
                 value: vc.fail || 0,
-                color: 'red'
+                color: '#c12e2a'
             }, {
                 label: 'Error',
                 value: vc.error || 0,

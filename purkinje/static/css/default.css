@@ -58,3 +58,16 @@ div#results-charts{
 .colt3{
     font-weight: bold;
 }
+
+.verdict{
+    height: 100%;
+    color: white;
+}
+
+.verdict-pass{
+    background-color: #5cb85c; /* TODO DRY  (bootstrap green) */
+}
+
+.verdict-fail{
+    background-color: #c12e2a; /* TODO DRY (bootstrap red) */
+}
