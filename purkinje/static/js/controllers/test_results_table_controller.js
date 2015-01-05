@@ -18,7 +18,7 @@
         $scope.createDummyData = function() {
             var data = [],
                 initialTimestamp = (new Date()).getTime();
-            for (var i = 0; i < 200; ++i) {
+            for (var i = 0; i < 20; ++i) {
                 data.push({
                     type: 'tc_finished',
                     verdict: 'pass',
@@ -41,7 +41,8 @@
             }, {
                 field: 'file'
             },{
-                field: 'verdict'
+                field: 'verdict',
+                cellTemplate: '<div class="ngCellText xyz colt{[$index]}">{[row.entity[col.field]]}</div>'
             }, {
                 field: 'timestamp',
                 // visible: false,
