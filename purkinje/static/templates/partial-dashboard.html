@@ -1,5 +1,7 @@
 <div class="row">
     <div class="main" ng-controller="TestResultsTableController">
+        <h2 ng-if="testSuiteName.length">{[testSuiteName]}</h2>
+        <h2 class="testsuite-header-inactive" ng-if="!testSuiteName.length">No test suite</h2>
         <div class="row">
             <!--h1 id="test-results-header" class="pageheader">Test Results</h1 -->
             <div id="test-results-charts" class="row">

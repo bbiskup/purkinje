@@ -12,6 +12,7 @@
 
         $scope.clearEvents = function() {
             $scope.gridOptions.data = [];
+            $scope.testSuiteName = null;
             setPieData();
         };
 
@@ -28,6 +29,7 @@
                     duration: i
                 });
             }
+            $scope.testSuiteName = 'Dummy Test Suite';
             $scope.gridOptions.data = data;
         };
 
@@ -142,6 +144,7 @@
 
         function handlews_sessionStarted(data) {
             $scope.gridOptions.data = [];
+            $scope.testSuiteName = data.suite_name;
         }
 
         function handlews_tcFinished(data) {
