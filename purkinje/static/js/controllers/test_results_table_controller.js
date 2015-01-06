@@ -48,7 +48,6 @@
                     width: 90,
                     cellTemplate: '<div class="ngCellText verdict verdict-{[row.entity[col.field]]}  colt{[$index]}">{[row.entity[col.field || \'&nbsp;\']]}</div>'
                 }, {
-                    data: 'duration',
                     field: 'duration',
                     width: 80,
                     filters: [{
