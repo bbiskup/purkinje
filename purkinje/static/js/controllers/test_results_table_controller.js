@@ -24,7 +24,8 @@
                     verdict: 'pass',
                     name: i + '_dummy_name',
                     file: 'dummy_file',
-                    timestamp: (new Date(initialTimestamp + i * 1000)).toISOString()
+                    timestamp: (new Date(initialTimestamp + i * 1000)).toISOString(),
+                    duration: i
                 });
             }
             $scope.gridOptions.data = data;
@@ -44,8 +45,19 @@
                     field: 'file'
                 }, {
                     field: 'verdict',
-                    width: 80,
+                    width: 90,
                     cellTemplate: '<div class="ngCellText verdict verdict-{[row.entity[col.field]]}  colt{[$index]}">{[row.entity[col.field || \'&nbsp;\']]}</div>'
+                }, {
+                    data: 'duration',
+                    field: 'duration',
+                    width: 80,
+                    filters: [{
+                        condition: uiGridConstants.filter.GREATER_THAN,
+                        placeholder: 'greater than'
+                    }, {
+                        condition: uiGridConstants.filter.LESS_THAN,
+                        placeholder: 'less than'
+                    }]
                 }, {
                     field: 'timestamp',
                     // visible: false,
@@ -54,16 +66,7 @@
                         priority: 1
                     },
                 }
-                /*{
-                field: 'duration',
-                filters: [{
-                    condition: uiGridConstants.filter.GREATER_THAN,
-                    placeholder: 'greater than'
-                }, {
-                    condition: uiGridConstants.filter.LESS_THAN,
-                    placeholder: 'less than'
-                }]
-            } */
+
             ]
         };
 
