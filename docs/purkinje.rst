@@ -12,34 +12,20 @@ purkinje.app module
     :undoc-members:
     :show-inheritance:
 
+
+purkinje.config module
+----------------------
+
+.. automodule:: purkinje.config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
 purkinje.assets module
 ----------------------
 
 .. automodule:: purkinje.assets
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-tests.codequality_test module
---------------------------------
-
-.. automodule:: tests.codequality_test
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-tests.conftest module
-------------------------
-
-.. automodule:: tests.conftest
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-tests.docformat_test module
-------------------------------
-
-.. automodule:: tests.docformat_test
     :members:
     :undoc-members:
     :show-inheritance:
@@ -53,16 +39,6 @@ purkinje.purkinje module
     :undoc-members:
     :show-inheritance:
 
-purkinje.testrunner module
---------------------------
-
-test.app_test module
--------------------------
-
-.. automodule:: tests.app_test
-    :members:
-    :undoc-members:
-    :show-inheritance:
 
 
 Module contents
