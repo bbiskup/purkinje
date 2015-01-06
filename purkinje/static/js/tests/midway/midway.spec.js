@@ -60,9 +60,10 @@ describe('Dashboard routes', function() {
     it('should have working dashboard route', function() {
 
     });
+*/
 
     it('should be displayed correctly', function(done) {
-        tester.visit('/', function() {
+        tester.visit('/dashboard', function() {
             alert("HIER");
             console.log('hier in visit handler');
             tester.path().should.eq('/');
@@ -80,5 +81,5 @@ describe('Dashboard routes', function() {
 
             done();
         });
-    }); */
+    }); 
 });

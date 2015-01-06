@@ -99,7 +99,7 @@ module.exports = function(config) {
 
         // for ngMidwayTester
         proxies: {
-            '/': 'http://localhost:8844/'
+            '/': 'http://localhost:5000/'
         }
     });
 };
