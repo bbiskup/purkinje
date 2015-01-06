@@ -62,6 +62,7 @@
                     field: 'timestamp',
                     // visible: false,
                     enableFiltering: null,
+                    cellTemplate: '<div class="ngCellText colt{[$index]}">{[ row.entity[col.field] | date : "medium" ]}</div>',
                     sort: {
                         direction: uiGridConstants.DESC,
                         priority: 1
