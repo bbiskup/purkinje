@@ -62,6 +62,7 @@ describe('Dashboard routes', function() {
     });
 */
 
+    /*
     it('should be displayed correctly', function(done) {
         tester.visit('/dashboard', function() {
             alert("HIER");
@@ -81,5 +82,5 @@ describe('Dashboard routes', function() {
 
             done();
         });
-    }); 
+    }); */
 });
