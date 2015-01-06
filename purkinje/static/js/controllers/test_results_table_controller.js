@@ -46,10 +46,11 @@
                 }, {
                     field: 'verdict',
                     width: 90,
-                    cellTemplate: '<div class="ngCellText verdict verdict-{[row.entity[col.field]]}  colt{[$index]}">{[row.entity[col.field || \'&nbsp;\']]}</div>'
+                    cellTemplate: '<div class="ngCellText verdict verdict-{[row.entity[col.field]]}  colt{[$index]}">{[ row.entity[col.field ] || \'&nbsp;\' ]}</div>'
                 }, {
                     field: 'duration',
                     width: 80,
+                    cellTemplate: '<div class="ngCellText grid-cell-numeric colt{[$index]}">{[ row.entity[col.field] ]}</div>',
                     filters: [{
                         condition: uiGridConstants.filter.GREATER_THAN,
                         placeholder: 'greater than'

@@ -55,13 +55,10 @@ div#results-charts{
     height: 100px;
 }
 
-.colt3{
-    font-weight: bold;
-}
-
 .verdict{
     height: 100%;
     color: white;
+    font-weight: bold;
 }
 
 .verdict-pass{
@@ -76,4 +73,9 @@ div#results-charts{
     font-size: 120%;
     /* font-weight: bold; */
     text-decoration: underline;
+}
+
+.grid-cell-numeric{
+    text-align: right;
+    padding-right: 3px;
 }
