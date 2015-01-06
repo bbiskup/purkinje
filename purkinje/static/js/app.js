@@ -2,5 +2,5 @@
 (function() {
     'use strict';
 
-    var app = angular.module('purkinje', ['ui.bootstrap', 'ui.router', 'ui.grid', 'tc.chartjs']);
+    var app = angular.module('purkinje', ['ui.bootstrap', 'ui.bootstrap.progressbar', 'ui.router', 'ui.grid', 'tc.chartjs']);
 })();

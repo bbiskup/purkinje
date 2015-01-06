@@ -9,6 +9,8 @@ TODOs
     - WebSocket reconnect
 
     - Dektop notifications (optional)
+      
+    - filter by pytest.mark information
 
 #) Misc
 
@@ -52,7 +54,7 @@ TODOs
     - JS defs.js as Angular service
       
     - Use controllerAs syntax in Angular templates (?)
-
+    
 #) User Interface
 
    - Sorting of test results table by different columns

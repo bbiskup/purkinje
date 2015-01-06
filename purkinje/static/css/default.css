@@ -69,6 +69,10 @@ div#results-charts{
     background-color: #c12e2a; /* TODO DRY (bootstrap red) */
 }
 
+.verdict-skipped{
+    background-color: #e0e0e0; /* TODO DRY (bootstrap default gray) */
+}
+
 .nav-active{
     font-size: 120%;
     /* font-weight: bold; */
@@ -82,4 +86,8 @@ div#results-charts{
 
 .testsuite-header-inactive{
     color: gray;
+}
+
+.testsuite-progress{
+    width: 30%;
 }

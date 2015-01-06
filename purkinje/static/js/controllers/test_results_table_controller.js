@@ -13,13 +13,16 @@
         $scope.clearEvents = function() {
             $scope.gridOptions.data = [];
             $scope.testSuiteName = null;
+            $scope.tcCount = 0;
+            $scope.suiteProgress = 0;
             setPieData();
         };
 
         $scope.createDummyData = function() {
             var data = [],
-                initialTimestamp = (new Date()).getTime();
-            for (var i = 0; i < 2000; ++i) {
+                initialTimestamp = (new Date()).getTime(),
+                tcCount = 2000;
+            for (var i = 0; i < tcCount; ++i) {
                 data.push({
                     type: 'tc_finished',
                     verdict: 'pass',
@@ -29,6 +32,8 @@
                     duration: i
                 });
             }
+            $scope.tcCount = tcCount;
+            $scope.suiteProgress = 100; // adding all results at once
             $scope.testSuiteName = 'Dummy Test Suite';
             $scope.gridOptions.data = data;
         };
@@ -146,11 +151,18 @@
         function handlews_sessionStarted(data) {
             $scope.gridOptions.data = [];
             $scope.testSuiteName = data.suite_name;
+            $scope.suiteProgress = 0;
+            $scope.tcCount = data.tc_count;
         }
 
         function handlews_tcFinished(data) {
             // $scope.gridOptions.data.push(data);
             $scope.gridOptions.data.unshift(data);
+            $scope.suiteProgress = Math.round($scope.gridOptions.data.length / $scope.tcCount * 100);
+            console.debug('Progress: ', 
+                          $scope.suiteProgress, ' :: ', 
+                          $scope.gridOptions.data.length,
+                          $scope.tcCount)
         }
 
         function handlews_info(data) {
