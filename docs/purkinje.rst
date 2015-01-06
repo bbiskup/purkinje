@@ -20,61 +20,30 @@ purkinje.assets module
     :undoc-members:
     :show-inheritance:
 
-purkinje.codequality_test module
+tests.codequality_test module
 --------------------------------
 
-.. automodule:: purkinje.codequality_test
+.. automodule:: tests.codequality_test
     :members:
     :undoc-members:
     :show-inheritance:
 
-purkinje.conftest module
+tests.conftest module
 ------------------------
 
-.. automodule:: purkinje.conftest
+.. automodule:: tests.conftest
     :members:
     :undoc-members:
     :show-inheritance:
 
-purkinje.docformat_test module
+tests.docformat_test module
 ------------------------------
 
-.. automodule:: purkinje.docformat_test
+.. automodule:: tests.docformat_test
     :members:
     :undoc-members:
     :show-inheritance:
 
-purkinje.filewatcher module
----------------------------
-
-.. automodule:: purkinje.filewatcher
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-purkinje.filewatcher_test module
---------------------------------
-
-.. automodule:: purkinje.filewatcher_test
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-purkinje.message module
------------------------
-
-.. automodule:: purkinje.message
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-purkinje.message_test module
-----------------------------
-
-.. automodule:: purkinje.message_test
-    :members:
-    :undoc-members:
-    :show-inheritance:
 
 purkinje.purkinje module
 ------------------------
@@ -87,39 +56,10 @@ purkinje.purkinje module
 purkinje.testrunner module
 --------------------------
 
-.. automodule:: purkinje.testrunner
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-purkinje.testrunner_test module
--------------------------------
-
-.. automodule:: purkinje.testrunner_test
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-purkinje.util module
---------------------
-
-.. automodule:: purkinje.util
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-purkinje.util_test module
+test.app_test module
 -------------------------
 
-.. automodule:: purkinje.util_test
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-purkinje.view_test module
--------------------------
-
-.. automodule:: purkinje.view_test
+.. automodule:: tests.app_test
     :members:
     :undoc-members:
     :show-inheritance:
