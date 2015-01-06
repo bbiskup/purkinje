@@ -61,6 +61,7 @@
                 }, {
                     field: 'timestamp',
                     // visible: false,
+                    enableFiltering: null,
                     sort: {
                         direction: uiGridConstants.DESC,
                         priority: 1
