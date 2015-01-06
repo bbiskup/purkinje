@@ -46,7 +46,7 @@ help:
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 
-clean:
+clean: apidoc-clean
 	rm -rf $(BUILDDIR)/*
 
 html: apidoc
@@ -180,3 +180,7 @@ pseudoxml:
 # bb
 apidoc:
 	sphinx-apidoc ../purkinje -o .
+
+# bb
+apidoc-clean:
+	rm modules.rst purkinje.rst
