@@ -18,6 +18,9 @@ install:
   - # Python
   - pip install -r dev-requirements.txt --download-cache $HOME/.pip-cache --use-mirrors
 
+    # needed for Sphinx
+  - pip install -e .
+
   - echo "Installed Python packages:"
   - pip freeze
 
