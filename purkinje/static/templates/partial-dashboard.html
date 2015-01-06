@@ -7,8 +7,15 @@
             <div id="test-results-charts" class="row">
                 <canvas tc-chartjs-pie chart-data="pieData" chart-options="pieOptions" width="80" height="80"></canvas>
                 <!--canvas tc-chartjs-legend chart-type="pie" chart-data="pieData" chart-options="pieOptions" width="80" height="80"-->
-                TEMP progress {[suiteProgress]} (total: {[tcCount]}, executed: {[gridOptions.data.length]})
-                <progressbar class="testsuite-progress" min="0" max="100" value="suiteProgress" type="default">{[suiteProgress]} %</progressbar>
+                
+                <progressbar 
+                class="testsuite-progress"
+                min="0"
+                max="100" 
+                value="suiteProgress" 
+                type="default"
+                title="# of test cases: {[tcCount]}, executed: {[gridOptions.data.length]}"
+                >{[suiteProgress]} %</progressbar>
             </div>
             <div class="row">
                 <!-- Verdict counts -->

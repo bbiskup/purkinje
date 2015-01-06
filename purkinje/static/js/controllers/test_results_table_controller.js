@@ -47,9 +47,11 @@
                     field: 'type',
                     visible: false
                 }, {
-                    field: 'name'
+                    field: 'name',
+                    cellTemplate: '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">{[ row.entity[col.field ] ]}</div>'
                 }, {
-                    field: 'file'
+                    field: 'file',
+                    cellTemplate: '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">{[ row.entity[col.field ] ]}</div>'
                 }, {
                     field: 'verdict',
                     width: 90,
