@@ -65,6 +65,9 @@ TODOs
    - Activity indicator (blinking light?) while suite is executing?
      
    - Better looking replacement for vanilla HTML title tooltips
+  
+   - Chartjs tooltips are cut off at the border of the canvas;
+     see https://github.com/nnnick/Chart.js/issues/622
 
 #) Performance
 
