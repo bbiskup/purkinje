@@ -56,6 +56,9 @@ TODOs
     - Use controllerAs syntax in Angular templates (?)
       
     - Remove obsolete CSS classes
+      
+    - Send first WebSocket message as quickly as possible, to change state to running?
+      (before test case collection; to reduce perceived lag)
     
 #) User Interface
 
