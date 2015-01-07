@@ -153,3 +153,12 @@ div#results-charts{
 .navbar-brand.app-label:hover{
     background-color: LightGreen;
 }
+
+.ngCellText{
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* height: 30px; */
+}
