@@ -63,6 +63,8 @@ TODOs
      buttons when number of digits changes
 
    - Activity indicator (blinking light?) while suite is executing?
+     
+   - Better looking replacement for vanilla HTML title tooltips
 
 #) Performance
 
