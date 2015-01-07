@@ -74,6 +74,12 @@ TODOs
    - column filters: select or typeahead?
      
    - show tag counts?
+     
+   - Overlay or title for charts
+     
+   - Appropriate width for charts area and progress bar
+     
+   - Filter by execution speed category
 
 #) Performance
 
