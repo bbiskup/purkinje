@@ -10,12 +10,14 @@
 
     function TestResultsTableController($scope, WebSocketService, AvvisoService, uiGridConstants, $filter) {
         $scope.tcCount = 0;
+        $scope.running = false;
 
         $scope.clearEvents = function() {
             $scope.gridOptions.data = [];
             $scope.testSuiteName = null;
             $scope.tcCount = 0;
             $scope.suiteProgress = 0;
+            $scope.running = false;
         };
 
         $scope.createDummyData = function() {
@@ -194,6 +196,12 @@
             $scope.testSuiteName = data.suite_name;
             $scope.suiteProgress = 0;
             $scope.tcCount = data.tc_count;
+            $scope.running = true;
+        }
+
+        function handlews_sessionTerminated(data){
+            $scope.suiteProgress = 100;
+            $scope.running = false;
         }
 
         function handlews_tcFinished(data) {
@@ -226,6 +234,9 @@
                         break;
                     case 'tc_finished':
                         handlews_tcFinished(msg);
+                        break;
+                    case 'session_terminated':
+                        handlews_sessionTerminated(msg);
                         break;
                     case 'info':
                         handlews_info(msg);

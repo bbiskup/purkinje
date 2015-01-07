@@ -80,7 +80,7 @@
             </div>
             
             <div class="col-sm-1">
-                <test-progress-indicator></test-progress-indicator>
+                <test-progress-indicator state="running"></test-progress-indicator>
             </div>
         </div>
     </div>
@@ -89,15 +89,15 @@
             <!-- Filter for test result display -->
             <div class="btn-group" test-case-controls>
                 <a class="btn btn-danger" ng-click="clearEvents()" href="#">
-                    <i class="fa fa-trash-o fa-lg"></i> Clear events
+                    <i class="fa fa-trash-o fa-lg"></i> Clear
                 </a>
                 <a class="btn btn-default" ng-click="createDummyData()" href="#">
-                    <i class="fa fa-paper-plane fa-lg"></i> Create dummy data
+                    <i class="fa fa-paper-plane fa-lg"></i>Dummy data
                 </a>
-                <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
+                <!--button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
                 Filter test results
                 <span class="caret" />
-                </button>
+                </button-->
                 <ul class="dropdown-menu" role="menu">
                     <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a></li>
                 </ul>

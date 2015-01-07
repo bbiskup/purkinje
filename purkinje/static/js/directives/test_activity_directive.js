@@ -12,7 +12,10 @@
     function testProgressIndicator(){
         var directive = {
             restrict: 'E',
-            template: '--TODO testProgressIndicator directive --'
+            templateUrl: '/static/templates/testProgressIndicator.html',
+            scope: {
+                state: '=state'
+            }
         };
         return directive;
     }
