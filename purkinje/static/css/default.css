@@ -138,3 +138,9 @@ div#results-charts{
     /* Reduce space between label and badge */
     margin-right: 50px;
 }
+
+.navbar-brand.app-label{
+    display: block;
+    color: black !important;
+    background-color: #5cb85c;
+}
