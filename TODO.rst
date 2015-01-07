@@ -69,6 +69,8 @@ TODOs
    - Chartjs tooltips are cut off at the border of the canvas;
      see https://github.com/nnnick/Chart.js/issues/622
 
+   - Color duration cell according to duration (heat palette)
+
 #) Performance
 
     - Bundling and rate limiting of events sent to browser
