@@ -109,6 +109,10 @@ div#results-charts{
     width: 70px;
 }
 
+.duration{
+    height: 100%;
+}
+
 /* TODO dry (see controller) */
 .duration-fast{
     background-color: AquaMarine;

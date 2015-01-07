@@ -59,7 +59,7 @@
                 }, {
                     field: 'duration',
                     width: 120,
-                    cellTemplate: '<div class="ngCellText grid-cell-numeric colt{[$index]}">{[ row.entity[col.field] ]}</div>',
+                    cellTemplate: '<div class="ngCellText grid-cell-numeric duration duration-{[row.entity.durationClass]}  colt{[$index]}">{[ row.entity[col.field] ]}</div>',
                     filters: [{
                         condition: uiGridConstants.filter.GREATER_THAN,
                         placeholder: 'greater than'
