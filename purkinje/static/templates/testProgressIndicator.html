@@ -1,1 +1,10 @@
-<img ng-if="state" src="/static/images/ajax-loader.gif" alt="spinner" style="width:32px;height:32px;"></img>
+<!--img ng-if="state" src="/static/images/ajax-loader.gif" alt="spinner" style="width:32px;height:32px;"></img-->
+<div class="activity-indicator">
+<div style="height: 30px;">State:
+    <img ng-if="state" src="/static/images/ajax-loader.gif" alt="spinner" style="width:32px;height:32px;"></img>
+</div>
+<span ng-if="state" class="activity-indicator-running text-danger">
+    <blink>Running...</blink>
+    </span>
+<span ng-if="!state" "activity-indicator-idle text-default">Idle</span>
+</div>

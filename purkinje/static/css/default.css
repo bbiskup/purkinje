@@ -162,3 +162,12 @@ div#results-charts{
     text-overflow: ellipsis;
     /* height: 30px; */
 }
+
+.activity-indicator{
+    width: 120px;
+    padding: 5px;
+    background-color: lightgray;
+}
+
+.activity-indicator-running{
+}
