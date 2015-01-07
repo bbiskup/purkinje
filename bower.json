@@ -35,7 +35,8 @@
     "fontawesome": "~4.2.0",
     "tc-angular-chartjs": "~1.0.9",
     "angular-ui-grid": "~3.0.0-rc.16",
-    "ngMidwayTester": "https://github.com/MarcinCebula/uiMidwayTester.git"
+    "ngMidwayTester": "https://github.com/MarcinCebula/uiMidwayTester.git",
+    "simple-statistics": "~0.9.0"
   },
   "resolutions": {
     "angular": ">= 1.0.8"

@@ -38,6 +38,7 @@ BUNDLES = {
         BC + '/angular-bootstrap/ui-bootstrap-tpls.js',
         BC + '/ui-router/release/angular-ui-router.js',
         BC + '/angular-ui-grid/ui-grid.js',
+        BC + '/simple-statistics/src/simple_statistics.js',
 
         BC + '/Chart.js/Chart.js',
         BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
