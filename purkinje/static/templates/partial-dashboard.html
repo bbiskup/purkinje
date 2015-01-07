@@ -4,10 +4,10 @@
         <h2 class="testsuite-header-inactive" ng-if="!testSuiteName.length">No test suite</h2>
         <div class="row">
             <!--h1 id="test-results-header" class="pageheader">Test Results</h1 -->
-            <div id="test-results-charts" class="row">
+            <div id="test-results-charts" class="row" >
                 <canvas title="Verdicts" tc-chartjs-pie chart-data="pieData" chart-options="pieOptions" width="80" height="80"></canvas>
                 <!--canvas tc-chartjs-legend chart-type="pie" chart-data="pieData" chart-options="pieOptions" width="80" height="80"-->
-                <canvas title="Distribution of execution durations" tc-chartjs-bar chart-data="histogramData" chart-options="histogramOptions" width="80" height="80"></canvas>
+                <canvas title="Distribution of execution durations"  class="dashboard-chart-n" tc-chartjs-bar chart-data="histogramData" chart-options="histogramOptions" width="80" height="80"></canvas>
                 <progressbar
                 class="testsuite-progress"
                 min="0"
@@ -18,28 +18,32 @@
                 >{[suiteProgress]} %</progressbar>
             </div>
             <div class="row">
-                <!-- Verdict counts -->
-                <ul id="result-summary" class="nav nav-pills pull-left" role="tablist">
-                    <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
-                    <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span></a></li>
-                    <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span></a></li>
-                    <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
-                </ul>
-                <!-- Filter for test result display -->
-                <div class="btn-group" test-case-controls>
-                    <a class="btn btn-danger" ng-click="clearEvents()" href="#">
-                        <i class="fa fa-trash-o fa-lg"></i> Clear events
-                    </a>
-                    <a class="btn btn-default" ng-click="createDummyData()" href="#">
-                        <i class="fa fa-paper-plane fa-lg"></i> Create dummy data
-                    </a>
-                    <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
-                    Filter test results
-                    <span class="caret" />
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a></li>
+                <div class="col-sm-6">
+                    <!-- Verdict counts -->
+                    <ul id="result-summary" class="nav nav-pills pull-left" role="tablist">
+                        <li role="presentation"><a href="#">Pass <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span></a></li>
+                        <li role="presentation"><a href="#">Failed <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span></a></li>
+                        <li role="presentation"><a href="#">Errors  <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span></a></li>
+                        <li role="presentation"><a href="#">Skipped  <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span></a></li>
                     </ul>
+                </div>
+                <div class="col-sm-6">
+                    <!-- Filter for test result display -->
+                    <div class="btn-group" test-case-controls>
+                        <a class="btn btn-danger" ng-click="clearEvents()" href="#">
+                            <i class="fa fa-trash-o fa-lg"></i> Clear events
+                        </a>
+                        <a class="btn btn-default" ng-click="createDummyData()" href="#">
+                            <i class="fa fa-paper-plane fa-lg"></i> Create dummy data
+                        </a>
+                        <button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
+                        Filter test results
+                        <span class="caret" />
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <p>
