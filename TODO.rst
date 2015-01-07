@@ -72,6 +72,8 @@ TODOs
    - Color duration cell according to duration (heat palette)
     
    - column filters: select or typeahead?
+     
+   - show tag counts?
 
 #) Performance
 
