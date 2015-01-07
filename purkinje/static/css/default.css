@@ -110,24 +110,20 @@ div#results-charts{
 }
 
 /* TODO dry (see controller) */
-.duration-label-fast{
+.duration-fast{
     background-color: AquaMarine;
-    color: #fff;
 }
 
-.duration-label-normal{
+.duration-normal{
     background-color: MediumAquaMarine;
-    color: #fff;
 }
 
-.duration-label-slow{
+.duration-slow{
     background-color: Bisque;
-    color: #fff;
 }
 
-.duration-label-very-slow{
+.duration-slowest{
     background-color: DarkSalmon;
-    color: #fff;
 }
 
 .label-as-badge{
