@@ -131,7 +131,10 @@ div#results-charts{
 }
 
 .label-as-badge{
+    /* fixed-width badge */
     float: right;
     min-width: 35px;
+
+    /* Reduce space between label and badge */
     margin-right: 50px;
 }
