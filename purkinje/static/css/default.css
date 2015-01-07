@@ -89,17 +89,43 @@ div#results-charts{
 }
 
 .testsuite-progress{
-    width: 30%;
+    width: 50%;
 }
 
 .chart-spacer{
     width: 100px;
 }
 
-.dashboard-chart-n{
+/*.dashboard-chart-n{
     margin-left: 30px;
-}
+}*/
 
 #test-results-charts{
     height: 125px;
+}
+
+.summary-count-label{
+    display: inline-block;
+    width: 70px;
+}
+
+/* TODO dry (see controller) */
+.duration-label-fast{
+    background-color: AquaMarine;
+    color: #fff;
+}
+
+.duration-label-normal{
+    background-color: MediumAquaMarine;
+    color: #fff;
+}
+
+.duration-label-slow{
+    background-color: Bisque;
+    color: #fff;
+}
+
+.duration-label-very-slow{
+    background-color: DarkSalmon;
+    color: #fff;
 }

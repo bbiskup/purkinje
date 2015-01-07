@@ -166,7 +166,9 @@
             var durationCounts = util.classifyDurations($scope.gridOptions.data),
                 DC = defs.DurationClass;
 
-            // TODO Chart experiment
+            $scope.durationCounts = durationCounts;
+
+            /* TODO dry (see default.css .duration-label-xxx) */
             $scope.durationChartData = [{
                 label: 'Fast',
                 value: durationCounts[DC.FAST] || 0,
@@ -178,7 +180,7 @@
             }, {
                 label: 'Slow',
                 value: durationCounts[DC.SLOW] || 0,
-                color: 'LightGoldenRodYellow'
+                color: 'Bisque'
             }, {
                 // TODO: make sure labels don't get clipped
                 label: 'SLOW',

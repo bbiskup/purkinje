@@ -17,10 +17,10 @@
         * Qualitative classification of test execution durations
         */ 
         DurationClass: {
-            FAST: 1,
-            NORMAL: 2,
-            SLOW: 2,
-            VERY_SLOW: 4
+            FAST: 'fast',
+            NORMAL: 'normal',
+            SLOW: 'slow',
+            VERY_SLOW: 'verySlow'
         },
 
         maxDummyMsgScopeLength: 10000
