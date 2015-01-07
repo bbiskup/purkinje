@@ -94,8 +94,8 @@
         });
 
         setResultFilterSelections();
-        setPieOptions();
-        setHistogramOptions();
+        setVerdictPieOptions();
+        setDurationPieOptions();
 
         /**
          * Choices for result filter combo box
@@ -115,41 +115,31 @@
         /**
          * Configuration of verdict pie diagram
          */
-        function setPieOptions() {
-            $scope.pieOptions = {
-                animateRotate: false,
-                legend: true,
-                legendTemplate: ['<ul class=\"<%=name.toLowerCase()%>-legend\">',
-                    '<% for (var i=0; i<segments.length; i++){%>',
-                    '<li><span style=\"background-color:<%=segments[i].fillColor%>\"></span>',
-                    '<%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
-                ].join('')
+        function setVerdictPieOptions() {
+            $scope.verdictPieOptions = {
+                animateRotate: false,               
             };
         }
-
 
         /**
-         * Must be called whenever histogram data changes
+         * Configuration of duration pie diagram
          */
-        function setHistogramOptions() {
-            $scope.histogramOptions = {
-                scaleShowGridLines: false,
-                barShowStroke: false,
-                showScale: false,
-                barValueSpacing: 1,
-                barDatasetSpacing: 10
+        function setDurationPieOptions() {
+            $scope.durationPieOptions = {
+                animateRotate: false
             };
         }
+    
 
         /*
          * Set verdict pie diagram categories
          */
-        function setPieData() {
+        function setVerdictPieData() {
             var vc = util.countVerdicts($scope.gridOptions.data);
             $scope.verdictCounts = vc;
 
             // TODO Chart experiment
-            $scope.pieData = [{
+            $scope.verdictPieData = [{
                 label: 'Pass',
                 value: vc.pass || 0,
                 color: '#5cb85c'
@@ -168,57 +158,29 @@
             }];
         }
 
-        /**
-         * Creates histogram data
+         /*
+         * Set verdict pie diagram categories
          */
-        function createHistogram() {
-            var testResults = $scope.gridOptions.data;
-            if (testResults.length == 0) {
-                return null;
-            }
-
-            var numBins = 5,
-                durations = _.pluck(testResults, 'duration'),
-                minVal = _.min(durations),
-                maxVal = _.max(durations),
-                binWidth = (maxVal - minVal) / numBins,
-                bins = _.range(minVal, maxVal, binWidth);
-
-            var hist_ = histogram({
-                data: durations,
-                bins: bins
-            });
-
-            var hist = _.map(hist_, function(x) {
-                return x.length;
-            });
-
-            console.debug('Histogram:', minVal, maxVal, bins, hist);
-            return [bins, hist];
-        }
-
-        window.xyz = createHistogram;
-
-        function setHistogramData() {
-            if ($scope.tcCount == 0) {
-                return;
-            }
-            var histData = createHistogram(),
-                bins = histData[0],
-                counts = histData[1];
-
-            var roundedBins = _.map(bins, function(x){
-                return Math.round(x, 1);
-            });
-
-
-            $scope.histogramData = {
-                labels: roundedBins,
-                datasets: [{
-                    fillColor: "#e0e0e0",
-                    data: counts
-                }]
-            };
+        function setDurationPieData() {
+            // TODO Chart experiment
+            $scope.durationPieData = [{
+                label: 'Fast',
+                value: 60,
+                color: 'AquaMarine'
+            }, {
+                label: 'Medium',
+                value: 30,
+                color: 'MediumAquaMarine'
+            }, {
+                label: 'Slow',
+                value: 5,
+                color: 'LightGoldenRodYellow'
+            }, {
+                // TODO: make sure labels don't get clipped
+                label: 'SLOW',
+                value: 5,
+                color: 'DarkSalmon'
+            }];
         }
 
         function handlews_sessionStarted(data) {
@@ -269,8 +231,8 @@
 
 
             $scope.$watch('gridOptions.data', function() {
-                setPieData();
-                setHistogramData();
+                setVerdictPieData();
+                setDurationPieData();
             });
 
             $scope.$apply();
