@@ -94,8 +94,8 @@
         });
 
         setResultFilterSelections();
-        setVerdictPieOptions();
-        setDurationPieOptions();
+        setVerdictChartOptions();
+        setDurationChartOptions();
 
         /**
          * Choices for result filter combo box
@@ -113,33 +113,33 @@
         }
 
         /**
-         * Configuration of verdict pie diagram
+         * Configuration of verdict chart
          */
-        function setVerdictPieOptions() {
-            $scope.verdictPieOptions = {
+        function setVerdictChartOptions() {
+            $scope.verdictChartOptions = {
                 animateRotate: false,
             };
         }
 
         /**
-         * Configuration of duration pie diagram
+         * Configuration of duration chart
          */
-        function setDurationPieOptions() {
-            $scope.durationPieOptions = {
+        function setDurationChartOptions() {
+            $scope.durationChartOptions = {
                 animateRotate: false
             };
         }
 
 
         /*
-         * Set verdict pie diagram categories
+         * Set verdict chart categories
          */
-        function setVerdictPieData() {
+        function setVerdictChartData() {
             var vc = util.countVerdicts($scope.gridOptions.data);
             $scope.verdictCounts = vc;
 
             // TODO Chart experiment
-            $scope.verdictPieData = [{
+            $scope.verdictChartData = [{
                 label: 'Pass',
                 value: vc.pass || 0,
                 color: '#5cb85c'
@@ -160,14 +160,14 @@
 
 
         /*
-         * Set verdict pie diagram categories
+         * Set verdict chart categories
          */
-        function setDurationPieData() {
+        function setDurationChartData() {
             var durationCounts = util.classifyDurations($scope.gridOptions.data),
                 DC = defs.DurationClass;
 
             // TODO Chart experiment
-            $scope.durationPieData = [{
+            $scope.durationChartData = [{
                 label: 'Fast',
                 value: durationCounts[DC.FAST] || 0,
                 color: 'AquaMarine'
@@ -235,8 +235,8 @@
 
 
             $scope.$watch('gridOptions.data', function() {
-                setVerdictPieData();
-                setDurationPieData();
+                setVerdictChartData();
+                setDurationChartData();
             });
 
             $scope.$apply();
