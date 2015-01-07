@@ -9,6 +9,7 @@
         ]);
 
     function TestResultsTableController($scope, WebSocketService, AvvisoService, uiGridConstants, $filter) {
+        $scope.tcCount = 0;
 
         $scope.clearEvents = function() {
             $scope.gridOptions.data = [];
@@ -96,7 +97,6 @@
         setPieOptions();
         setHistogramOptions();
 
-
         /**
          * Choices for result filter combo box
          */
@@ -127,6 +127,10 @@
             };
         }
 
+
+        /**
+         * Must be called whenever histogram data changes
+         */
         function setHistogramOptions() {
             $scope.histogramOptions = {
                 scaleShowGridLines: false,
@@ -169,32 +173,50 @@
          */
         function createHistogram() {
             var testResults = $scope.gridOptions.data;
-            if (testResults.length == 0){
+            if (testResults.length == 0) {
                 return null;
             }
 
-            var durations = _.pluck(testResults, 'duration'),
+            var numBins = 5,
+                durations = _.pluck(testResults, 'duration'),
                 minVal = _.min(durations),
-                maxVal = _.max(durations);
+                maxVal = _.max(durations),
+                binWidth = (maxVal - minVal) / numBins,
+                bins = _.range(minVal, maxVal, binWidth);
 
-            console.debug('Histogram min/max:', minVal, maxVal);
+            var hist_ = histogram({
+                data: durations,
+                bins: bins
+            });
+
+            var hist = _.map(hist_, function(x) {
+                return x.length;
+            });
+
+            console.debug('Histogram:', minVal, maxVal, bins, hist);
+            return [bins, hist];
         }
 
         window.xyz = createHistogram;
 
         function setHistogramData() {
+            if ($scope.tcCount == 0) {
+                return;
+            }
+            var histData = createHistogram(),
+                bins = histData[0],
+                counts = histData[1];
+
+            var roundedBins = _.map(bins, function(x){
+                return Math.round(x, 1);
+            });
+
+
             $scope.histogramData = {
-                labels: ['< 50 ms: xx test cases', '', '', '', '', ''],
+                labels: roundedBins,
                 datasets: [{
                     fillColor: "#e0e0e0",
-                    data: [
-                        10,
-                        20,
-                        50,
-                        40,
-                        30,
-                        0
-                    ]
+                    data: counts
                 }]
             };
         }
