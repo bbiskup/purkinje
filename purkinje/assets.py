@@ -52,6 +52,8 @@ BUNDLES = {
         JS + '/routes.js',
         JS + '/runblocks.js',
 
+        DIRECTIVES + '/test_activity_directive.js',
+
         CONTROLLERS + '/navbar_controller.js',
         CONTROLLERS + '/test_results_table_controller.js',
 
