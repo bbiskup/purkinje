@@ -15,7 +15,6 @@
             $scope.testSuiteName = null;
             $scope.tcCount = 0;
             $scope.suiteProgress = 0;
-            setPieData();
         };
 
         $scope.createDummyData = function() {
@@ -95,6 +94,7 @@
 
         setResultFilterSelections();
         setPieOptions();
+        setHistogramOptions();
 
 
         /**
@@ -127,6 +127,12 @@
             };
         }
 
+        function setHistogramOptions() {
+            $scope.histogramOptions = {
+                scaleShowGridLines: false,
+            };
+        }
+
         /*
          * Set verdict pie diagram categories
          */
@@ -147,7 +153,27 @@
                 label: 'Error',
                 value: vc.error || 0,
                 color: '#D4CCC5'
+            }, {
+                label: 'Skipped',
+                value: vc.skipped || 0,
+                color: '#e0e0e0'
             }];
+        }
+
+        function setHistogramData() {
+            $scope.histogramData = {
+                labels: [1, 2, 3, 4, 5, 6],
+                datasets: [{
+                    data: [
+                        10,
+                        20,
+                        50,
+                        40,
+                        30,
+                        0
+                    ]
+                }]
+            };
         }
 
         function handlews_sessionStarted(data) {
@@ -161,10 +187,10 @@
             // $scope.gridOptions.data.push(data);
             $scope.gridOptions.data.unshift(data);
             $scope.suiteProgress = Math.round($scope.gridOptions.data.length / $scope.tcCount * 100);
-            console.debug('Progress: ', 
-                          $scope.suiteProgress, ' :: ', 
-                          $scope.gridOptions.data.length,
-                          $scope.tcCount)
+            console.debug('Progress: ',
+                $scope.suiteProgress, ' :: ',
+                $scope.gridOptions.data.length,
+                $scope.tcCount)
         }
 
         function handlews_info(data) {
@@ -197,7 +223,11 @@
             });
 
 
-            setPieData();
+            $scope.$watch('gridOptions.data', function() {
+                setPieData();
+                setHistogramData();
+            });
+
             $scope.$apply();
 
             var duration = new Date() - start;
