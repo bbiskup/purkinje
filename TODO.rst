@@ -54,6 +54,8 @@ TODOs
     - JS defs.js as Angular service
       
     - Use controllerAs syntax in Angular templates (?)
+      
+    - Remove obsolete CSS classes
     
 #) User Interface
 
