@@ -57,10 +57,12 @@ TODOs
     
 #) User Interface
 
-   - Sorting of test results table by different columns
+   - height of results table should take available vertical space
+   
+   - area with verdict count pills should have fixed size to avoid jumping of 
+     buttons when number of digits changes
 
-   - Behave correctly when zooming (content width and width of scroll
-     area around test results table does not match when zoom != 100%)
+   - Activity indicator (blinking light?) while suite is executing?
 
 #) Performance
 
