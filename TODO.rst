@@ -70,6 +70,8 @@ TODOs
      see https://github.com/nnnick/Chart.js/issues/622
 
    - Color duration cell according to duration (heat palette)
+    
+   - column filters: select or typeahead?
 
 #) Performance
 
