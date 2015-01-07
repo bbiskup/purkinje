@@ -128,8 +128,12 @@
         }
 
         function setHistogramOptions() {
-            $scope.histogramOptions = {
+            $scope.histogramOptions = {                                
                 scaleShowGridLines: false,
+                barShowStroke: false,
+                showScale: false,
+                barValueSpacing: 1,
+                barDatasetSpacing: 10
             };
         }
 
@@ -162,8 +166,9 @@
 
         function setHistogramData() {
             $scope.histogramData = {
-                labels: [1, 2, 3, 4, 5, 6],
+                labels: ['< 50 ms: xx test cases', '', '', '', '', ''],
                 datasets: [{
+                    fillColor: "#e0e0e0",
                     data: [
                         10,
                         20,
