@@ -128,7 +128,7 @@
         }
 
         function setHistogramOptions() {
-            $scope.histogramOptions = {                                
+            $scope.histogramOptions = {
                 scaleShowGridLines: false,
                 barShowStroke: false,
                 showScale: false,
@@ -163,6 +163,24 @@
                 color: '#e0e0e0'
             }];
         }
+
+        /**
+         * Creates histogram data
+         */
+        function createHistogram() {
+            var testResults = $scope.gridOptions.data;
+            if (testResults.length == 0){
+                return null;
+            }
+
+            var durations = _.pluck(testResults, 'duration'),
+                minVal = _.min(durations),
+                maxVal = _.max(durations);
+
+            console.debug('Histogram min/max:', minVal, maxVal);
+        }
+
+        window.xyz = createHistogram;
 
         function setHistogramData() {
             $scope.histogramData = {
