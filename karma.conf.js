@@ -28,6 +28,9 @@ module.exports = function(config) {
             'bower_components/angular-ui-grid/*.js',
             'bower_components/Chart.js/Chart.js',
             'bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.js',  
+            'bower_components/simple-statistics/src/simple_statistics.js',
+            'bower_components/ng-blink/ng-blink.js',
+            
             //'bower_components/angular-route/angular-route.js',
             //'bower_components/angularjs-scope.safeapply/src/Scope.SafeApply.js',
 
