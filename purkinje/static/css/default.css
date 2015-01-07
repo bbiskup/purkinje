@@ -99,3 +99,7 @@ div#results-charts{
 .dashboard-chart-n{
     margin-left: 30px;
 }
+
+#test-results-charts{
+    height: 125px;
+}
