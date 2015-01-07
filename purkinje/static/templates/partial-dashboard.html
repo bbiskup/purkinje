@@ -5,14 +5,14 @@
         <div class="row">
             <!--h1 id="test-results-header" class="pageheader">Test Results</h1 -->
             <div id="test-results-charts" class="row">
-                <canvas tc-chartjs-pie chart-data="pieData" chart-options="pieOptions" width="80" height="80"></canvas>
+                <canvas title="Verdicts" tc-chartjs-pie chart-data="pieData" chart-options="pieOptions" width="80" height="80"></canvas>
                 <!--canvas tc-chartjs-legend chart-type="pie" chart-data="pieData" chart-options="pieOptions" width="80" height="80"-->
-                <canvas tc-chartjs-bar chart-data="histogramData" chart-options="histogramOptions" width="160" height="80"></canvas>
-                <progressbar 
+                <canvas title="Distribution of execution durations" tc-chartjs-bar chart-data="histogramData" chart-options="histogramOptions" width="80" height="80"></canvas>
+                <progressbar
                 class="testsuite-progress"
                 min="0"
-                max="100" 
-                value="suiteProgress" 
+                max="100"
+                value="suiteProgress"
                 type="default"
                 title="# of test cases: {[tcCount]}, executed: {[gridOptions.data.length]}"
                 >{[suiteProgress]} %</progressbar>
