@@ -28,7 +28,7 @@
 
             var normal_lowerThresh = meanDuration - durationSD;
             var slow_lowerThresh = meanDuration + 2 * durationSD;
-            var verySlow_slowThresh = meanDuration + 3 * durationSD;
+            var slowest_slowThresh = meanDuration + 3 * durationSD;
 
             _.each(testResults, function(item) {
                 var durationClass,
@@ -38,10 +38,10 @@
                     durationClass = DC.FAST;
                 } else if (duration < slow_lowerThresh) {
                     durationClass = DC.NORMAL;
-                } else if (duration < verySlow_slowThresh) {
+                } else if (duration < slowest_slowThresh) {
                     durationClass = DC.SLOW;
                 } else {
-                    durationClass = DC.VERY_SLOW;
+                    durationClass = DC.SLOWEST;
                 }
                 item.durationClass = durationClass;
             });
@@ -52,7 +52,7 @@
             console.debug('Duration classification:', meanDuration, durationSD, result);
             console.debug('\tnormal lower threshold:', normal_lowerThresh);
             console.debug('\tslow lower threshold:', slow_lowerThresh);
-            console.debug('\tvery slow lower threshold:', verySlow_slowThresh);
+            console.debug('\tslowest lower threshold:', slowest_slowThresh);
             return result;
         }
     };

@@ -183,8 +183,8 @@
                 color: 'Bisque'
             }, {
                 // TODO: make sure labels don't get clipped
-                label: 'SLOW',
-                value: durationCounts[DC.VERY_SLOW] || 0,
+                label: 'Slowest',
+                value: durationCounts[DC.SLOWEST] || 0,
                 color: 'DarkSalmon'
             }];
         }

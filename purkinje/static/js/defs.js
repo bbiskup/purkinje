@@ -20,7 +20,7 @@
             FAST: 'fast',
             NORMAL: 'normal',
             SLOW: 'slow',
-            VERY_SLOW: 'verySlow'
+            SLOWEST: 'slowest'
         },
 
         maxDummyMsgScopeLength: 10000
