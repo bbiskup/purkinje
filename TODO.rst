@@ -124,6 +124,8 @@ TODOs
     - Sphinx, Read The Docs
 
     - sphinxcontrib.autohttp.flask
+      
+    - JS APi documentation
 
 #) Build
 
