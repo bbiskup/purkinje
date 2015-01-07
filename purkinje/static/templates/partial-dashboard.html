@@ -4,9 +4,11 @@
         <h2 class="testsuite-header-inactive" ng-if="!testSuiteName.length">No test suite</h2>
         <div class="row">
             <!--h1 id="test-results-header" class="pageheader">Test Results</h1 -->
-            <div id="test-results-charts" class="row" >
-                <canvas ng-if="tcCount > 0" title="Verdicts" tc-chartjs-doughnut chart-data="verdictChartData" chart-options="verdictChartOptions" width="80" height="80"></canvas>
-                <canvas ng-if="tcCount > 0" class="dashboard-chart-n" title="Distribution of execution durations" tc-chartjs-doughnut chart-data="durationChartData" chart-options="durationChartOptions" width="80" height="80"></canvas>
+            <div id="stats-area">
+                <div id="test-results-charts" class="row" >
+                    <canvas ng-if="tcCount > 0" title="Verdicts" tc-chartjs-doughnut chart-data="verdictChartData" chart-options="verdictChartOptions" width="80" height="80"></canvas>
+                    <canvas ng-if="tcCount > 0" class="dashboard-chart-n" title="Distribution of execution durations" tc-chartjs-doughnut chart-data="durationChartData" chart-options="durationChartOptions" width="80" height="80"></canvas>
+                </div>
                 <progressbar
                 class="testsuite-progress"
                 min="0"
