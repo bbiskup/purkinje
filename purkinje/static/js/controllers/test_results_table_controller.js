@@ -117,7 +117,7 @@
          */
         function setVerdictPieOptions() {
             $scope.verdictPieOptions = {
-                animateRotate: false,               
+                animateRotate: false,
             };
         }
 
@@ -129,7 +129,7 @@
                 animateRotate: false
             };
         }
-    
+
 
         /*
          * Set verdict pie diagram categories
@@ -158,27 +158,31 @@
             }];
         }
 
-         /*
+
+        /*
          * Set verdict pie diagram categories
          */
         function setDurationPieData() {
+            var durationCounts = util.classifyDurations($scope.gridOptions.data),
+                DC = defs.DurationClass;
+
             // TODO Chart experiment
             $scope.durationPieData = [{
                 label: 'Fast',
-                value: 60,
+                value: durationCounts[DC.FAST] || 0,
                 color: 'AquaMarine'
             }, {
-                label: 'Medium',
-                value: 30,
+                label: 'Normal',
+                value: durationCounts[DC.NORMAL] || 0,
                 color: 'MediumAquaMarine'
             }, {
                 label: 'Slow',
-                value: 5,
+                value: durationCounts[DC.SLOW] || 0,
                 color: 'LightGoldenRodYellow'
             }, {
                 // TODO: make sure labels don't get clipped
                 label: 'SLOW',
-                value: 5,
+                value: durationCounts[DC.VERY_SLOW] || 0,
                 color: 'DarkSalmon'
             }];
         }
