@@ -41,7 +41,7 @@ def main():
                                  app,
                                  handler_class=WebSocketHandler)
 
-        gevent.spawn(send_dummy_notifications)
+        # gevent.spawn(send_dummy_notifications)
         gevent.spawn(send_bulk)
 
         http_server.serve_forever()
