@@ -129,3 +129,9 @@ div#results-charts{
     background-color: DarkSalmon;
     color: #fff;
 }
+
+.label-as-badge{
+    float: right;
+    min-width: 35px;
+    margin-right: 50px;
+}
