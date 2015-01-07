@@ -29,6 +29,9 @@ def main():
         app = get_app()
         app.debug = DEBUG
 
+        if app.debug:
+            app.config.update(SEND_FILE_MAX_AGE_DEFAULT=0)
+
         #  TODO: asset debug settings will cause bad YSLOW rating
         app.config['COMPRESS_DEBUG'] = False
         app.config['ASSETS_DEBUG'] = DEBUG
