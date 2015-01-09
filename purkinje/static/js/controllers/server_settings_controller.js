@@ -4,12 +4,13 @@
 
     angular
         .module('purkinje')
-        .controller('ServerSettingsController', ['$scope', ServerSettingsController]);
+        .controller('ServerSettingsController', ['$scope', '$http', ServerSettingsController]);
 
-    function ServerSettingsController($scope) {
-        $scope.server = {
-            host: 'myhost',
-            port: 'myport'
-        };
-    };
+    function ServerSettingsController($scope, $http) {
+
+        $http.get('/api/server_info')
+            .success(function(data) {
+                $scope.server = data;
+            });
+    }
 })();

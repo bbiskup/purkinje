@@ -16,11 +16,13 @@ import json
 import logging
 import sys
 import httplib
+import os
+import socket
 import os.path as op
 
 from datetime import datetime
 import copy
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 from flask.ext.compress import Compress
 from assets import register_assets
 
@@ -149,6 +151,13 @@ def get_app():
 def index():
     """Application main page"""
     return render_template('index.html')
+
+
+@app.route('/api/server_info', methods=['GET'])
+def server_info():
+    return jsonify(host=socket.gethostname(),
+                   directory=os.getcwd(),
+                   user=os.getlogin())
 
 
 @app.route('/trigger_error', methods=['GET'])
