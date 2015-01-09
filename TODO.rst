@@ -62,6 +62,7 @@ TODOs
     - py.test & py.test does not work correctly xdist (-n 2):
       - test results get recorded (all?)
       - no doughnut charts (because no suite-finished event? Investigate)
+      - session start and session terminated messages arrive twice
 
 
 #) User Interface
