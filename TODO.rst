@@ -9,7 +9,7 @@ TODOs
     - WebSocket reconnect
 
     - Dektop notifications (optional)
-      
+
     - filter by pytest.mark information
 
 #) Misc
@@ -52,39 +52,41 @@ TODOs
       asset concatenation and compression)
 
     - JS defs.js as Angular service
-      
+
     - Use controllerAs syntax in Angular templates (?)
-      
+
     - Remove obsolete CSS classes
-      
+
     - Send first WebSocket message as quickly as possible, to change state to running?
       (before test case collection; to reduce perceived lag)
-    
+
 #) User Interface
 
    - height of results table should take available vertical space
-   
-   - area with verdict count pills should have fixed size to avoid jumping of 
+
+   - area with verdict count pills should have fixed size to avoid jumping of
      buttons when number of digits changes
 
    - Activity indicator (blinking light?) while suite is executing?
-     
+
    - Better looking replacement for vanilla HTML title tooltips
-  
+
    - Chartjs tooltips are cut off at the border of the canvas;
      see https://github.com/nnnick/Chart.js/issues/622
 
    - Color duration cell according to duration (heat palette)
-    
+
    - column filters: select or typeahead?
-     
+
    - show tag counts?
-     
+
    - Overlay or title for charts
-     
+
    - Appropriate width for charts area and progress bar
-     
+
    - Filter by execution speed category
+
+   - show nav menu when view is too narrow
 
 #) Performance
 
@@ -129,7 +131,7 @@ TODOs
     - Sphinx, Read The Docs
 
     - sphinxcontrib.autohttp.flask
-      
+
     - JS APi documentation
 
 #) Build
