@@ -12,8 +12,8 @@ Solution:
   npm cache clean
   npm install
 
- Error "$q is not defined"
- .........................
+Error "$q is not defined"
+.........................
 
 Reason: incorrect angular version due to ambiguous dependencies of bower
 components. Exlicitly installing the package 'angular' and choosing the most
