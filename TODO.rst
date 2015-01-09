@@ -2,9 +2,8 @@ TODOs
 == == =
 
 #) Features
-
-    - support of ssh distribution with pytest-xdist (run purkinje server
-      on external network interface?)
+    - support of ssh distribution with pytest-xdist
+      - run purkinje server on external network interface?
 
     - WebSocket reconnect
 
@@ -59,6 +58,11 @@ TODOs
 
     - Send first WebSocket message as quickly as possible, to change state to running?
       (before test case collection; to reduce perceived lag)
+
+    - py.test & py.test does not work correctly xdist (-n 2):
+      - test results get recorded (all?)
+      - no doughnut charts (because no suite-finished event? Investigate)
+
 
 #) User Interface
 
