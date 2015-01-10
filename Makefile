@@ -32,3 +32,9 @@ build-docker:
 # Build Flask assets
 assets:
 	python manage.py assets build
+
+update:
+	pip install -r dev-requirements.txt
+	bower install
+	npm install
+	pip install -e .
