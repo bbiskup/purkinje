@@ -11,6 +11,8 @@ TODOs
 
     - filter by pytest.mark information
 
+    - Acoustic signal when suite fails (configurable)
+
 #) Misc
 
     - i18n
