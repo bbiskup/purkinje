@@ -13,11 +13,11 @@ TODOs
 
     - Acoustic signal when suite fails (configurable)
 
+    - drivers for other test frameworks (nose? golang? karma? ...)
+
 #) Misc
 
     - i18n
-
-    - analytics(opt - in)
 
 #) Testing
 
