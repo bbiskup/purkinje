@@ -64,6 +64,8 @@ TODOs
       - no doughnut charts (because no suite-finished event? Investigate)
       - session start and session terminated messages arrive twice
 
+    - Doughnut charts as directives
+
 
 #) User Interface
 
