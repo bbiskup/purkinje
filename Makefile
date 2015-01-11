@@ -33,7 +33,10 @@ build-docker:
 assets:
 	python manage.py assets build
 
-update:
+install_selenium:
+	./node_modules/protractor/bin/webdriver-manager update
+
+update: install_selenium
 	pip install -r dev-requirements.txt
 	bower install
 	npm install
