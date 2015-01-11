@@ -180,6 +180,7 @@ TODOs
 
     - Domain name?
     - nginx @ port 80; Demo under /purkinje_demo?
+    - YSlow / PageSpeed checks
 
 Issues
 ======
