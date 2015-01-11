@@ -23,25 +23,17 @@ TODOs
 
     - JS Unit and integration tests
 
-        - remove ng - scenario(superceded by protractor)
-
     - test cases for WebSocket endpoint(s)
-
-    - test YAML syntax of .travis.yml and others
 
     - pre - commit hook?
 
     - Move test config files to subdirectory
-
-    - use mock lib(Python)
 
     - show badge with test coverage(of purkinje project) on github?
 
 #) Code
 
     - use Python package 'future' w / futurize
-
-    - verify Python 3 compliance as part of testing?
 
     - use esvalidate to check JS files
 
@@ -73,67 +65,18 @@ TODOs
 
    - height of results table should take available vertical space
 
-   - area with verdict count pills should have fixed size to avoid jumping of
-     buttons when number of digits changes
-
-   - Activity indicator (blinking light?) while suite is executing?
-
    - Better looking replacement for vanilla HTML title tooltips
 
    - Chartjs tooltips are cut off at the border of the canvas;
      see https://github.com/nnnick/Chart.js/issues/622
 
-   - Color duration cell according to duration (heat palette)
-
    - column filters: select or typeahead?
 
    - show tag counts?
 
-   - Overlay or title for charts
-
-   - Appropriate width for charts area and progress bar
-
-   - Filter by execution speed category
-
    - show nav menu when view is too narrow
 
 #) Performance
-
-    - Bundling and rate limiting of events sent to browser
-
-      - sending 1000 events
-        immediately will lock up Chrome for long(1 min).
-        **NOTE:**
-        The slowdown appears to be due to debug logging in the Chrome Developer tools,
-        and the Batarang(AngularJS) Chrome extension.
-        The checkbox "enabled" bust be deselected
-        otherwise, the slowdown happens, regardless
-        of whether the extension has been activated or not.
-
-        - Events arriving within 1 second(or more?) could be sent as a package
-
-        - but not too many events should be sent in one package, to avoid long blocking
-          of JS event
-
-        - The server could  enforce a minimum time between sending two messages
-            to the connected browsers
-
-    - Investigate why deleting 500 Events using the Clear - Events button
-      may take several seconds
-
-    - Real-time notification optional or selective (only summaries, no per-testcase
-      notifications (not feasible for on mobile for large test suites)
-
-      - 5000 test cases cause Chrome on Yoga 2 to freeze
-      - 100 test cases no problem for Yoga 2, but Chrome will crash on
-        Huawei Ascend lower-end phone
-      - 1000 test cases take about 1 min on Yoga 2;
-      - scroll performance is bad at 200 test cases on Yoga 2
-
-        - 50: ok; 100: hardly acceptable
-
-      - Very performant virtual scrolling: http://demo.stackfull.com/virtual-scroll/
-        (fast with at least 16 K lines, on Yoga 2)
 
 #) Documentation
 
@@ -141,7 +84,7 @@ TODOs
 
     - sphinxcontrib.autohttp.flask
 
-    - JS APi documentation
+    - JS API documentation
 
 #) Build
 
@@ -158,10 +101,7 @@ TODOs
     - register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_) and / or `  py.test plugs <http://pytest-plugs.herokuapp.com/>`_
 
 #) Packaging
-
-    - split py.test plugin and web server
-
-    - split out docformat testing(plugin)
+    - split out docformat testing(plugin)?
 
 #) Demo Prerequisites
     - WebSocket reconnect
