@@ -123,8 +123,12 @@ TODOs
         control minification
 
     - Domain name?
+
     - nginx @ port 80; Demo under /purkinje_demo?
+
     - YSlow / PageSpeed checks
+
+    - monitoring of demo service (pingdom?)
 
 Issues
 ======
