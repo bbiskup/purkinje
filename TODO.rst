@@ -15,6 +15,8 @@ TODOs
 
     - drivers for other test frameworks (nose? golang? karma? ...)
 
+    - Configurable UI update frequency to avoid high load
+
 #) Misc
 
     - i18n
@@ -75,6 +77,9 @@ TODOs
    - show tag counts?
 
    - show nav menu when view is too narrow
+
+   - Total number of test cases in prominent position ("x of y" as part of
+     progress bar text)
 
 #) Performance
 
