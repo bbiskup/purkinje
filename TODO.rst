@@ -159,12 +159,25 @@ TODOs
 
     - split out docformat testing(plugin)
 
-#) Demo
+#) Demo Prerequisites
+    - WebSocket reconnect
 
-    - set up publically accessible purkinje server and test runner that
-      executes test suites of well-known Python projects with purkinje plugin
+    - Authentication (API key)
+      to restrict access for running tests
+      (optional?)
 
-      - ansible or Docker?
+    - Authentication for web interface
+      (optional)
+
+    - start/stop script (like sentry)?
+
+    - Minify & concatenate assets
+
+      - application config file: debug parameter to
+        control minification
+
+    - Domain name?
+    - nginx @ port 80; Demo under /purkinje_demo?
 
 Issues
 ======
