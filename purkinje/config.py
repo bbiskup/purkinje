@@ -40,7 +40,8 @@ class Config(object):
             'global': {
                 v.Required('project-path'): basestring,
                 'server-port': port_spec,
-                v.Optional('log-level'): basestring
+                v.Optional('log-level'): basestring,
+                v.Required('debug-mode'): bool
             }
         })
 

@@ -18,6 +18,7 @@ def test_valid(conf1_name):
     conf = sut.Config(conf1_name)
     conf_data = conf.settings()
     assert conf_data['global']['log-level'] == 'debug'
+    assert conf_data['global']['debug-mode']
 
 
 def test_get_fails_if_uninitialized():
