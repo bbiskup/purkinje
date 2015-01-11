@@ -6,7 +6,7 @@ from .conftest import TESTDATA_DIR
 
 @pytest.fixture
 def conf1_name():
-    return op.join(TESTDATA_DIR, 'config', 'conf1.yaml')
+    return op.join(TESTDATA_DIR, 'config', 'conf1.yml')
 
 
 def test_config_exception():
