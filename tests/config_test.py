@@ -9,6 +9,11 @@ def conf1_name():
     return op.join(TESTDATA_DIR, 'config', 'conf1.yml')
 
 
+@pytest.fixture
+def conf2_name():
+    return op.join(TESTDATA_DIR, 'config', 'conf2.yml')
+
+
 def test_config_exception():
     exception = sut.ConfigException('testmessage')
     assert str(exception) == 'testmessage'
@@ -19,6 +24,12 @@ def test_valid(conf1_name):
     conf_data = conf.settings()
     assert conf_data['global']['log-level'] == 'debug'
     assert conf_data['global']['debug-mode']
+
+
+def test_valid_default(conf2_name):
+    conf = sut.Config(conf2_name)
+    conf_data = conf.settings()
+    assert conf_data['global']['debug-mode'] is False
 
 
 def test_get_fails_if_uninitialized():

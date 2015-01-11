@@ -41,19 +41,21 @@ class Config(object):
                 v.Required('project-path'): basestring,
                 'server-port': port_spec,
                 v.Optional('log-level'): basestring,
-                v.Required('debug-mode'): bool
+                v.Required('debug-mode', default=False): bool
             }
         })
 
         with open(config_file_name, 'r') as conf_file:
             self._conf = yaml.load(conf_file)
-        self._validate(self._conf)
+
+        # validate and populate default values
+        self._conf = self._validate(self._conf)
 
     def _validate(self, conf):
         """ Structural and semantic validation of configuration file contents
         """
         try:
-            self._validation_schema(conf)
+            return self._validation_schema(conf)
         except v.Error as error:
             error_message = ('Error in configuration file format: %s',
                              str(error))
