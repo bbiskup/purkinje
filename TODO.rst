@@ -78,9 +78,6 @@ TODOs
 
    - show nav menu when view is too narrow
 
-   - Total number of test cases in prominent position ("x of y" as part of
-     progress bar text)
-
 #) Performance
 
 #) Documentation

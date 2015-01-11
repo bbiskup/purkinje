@@ -76,9 +76,9 @@
                 value="suiteProgress"
                 type="default"
                 title="# of test cases: {[tcCount]}, executed: {[gridOptions.data.length]}"
-                >{[suiteProgress]} %</progressbar>
+                >{[suiteProgress]} % ({[gridOptions.data.length]} of {[tcCount]})</progressbar>
             </div>
-            
+
             <div class="col-sm-1">
                 <test-progress-indicator state="running"></test-progress-indicator>
             </div>
