@@ -1,12 +1,15 @@
-'use strict';
+(function() {
 
-// protractor configuration
+    'use strict';
 
-exports.config = {
-  //seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['purkinje/static/js/tests/e2e/*.spec.js'],
+    // protractor configuration
 
-  capabilities: {
-    browserName: 'firefox'
-  }
-};
+    exports.config = {
+        //seleniumAddress: 'http://localhost:4444/wd/hub',
+        specs: ['purkinje/static/js/tests/e2e/*.spec.js'],
+
+        capabilities: {
+            browserName: 'firefox'
+        }
+    };
+})();

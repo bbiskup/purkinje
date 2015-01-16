@@ -1,4 +1,7 @@
-'use strict';
-window.mocha.setup({
-    timeout: 5000
-});
+(function() {
+
+    'use strict';
+    window.mocha.setup({
+        timeout: 5000
+    });
+})();

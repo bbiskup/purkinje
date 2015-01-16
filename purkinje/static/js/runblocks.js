@@ -1,4 +1,3 @@
-;
 (function() {
     'use strict';
 
@@ -15,10 +14,10 @@
     function wrapTimerWithDigest($rootScope) {
         var $oldDigest = $rootScope.$digest;
         var $newDigest = function() {
-            console.time("$digest");
+            console.time('$digest');
             $oldDigest.apply($rootScope);
-            console.timeEnd("$digest");
-        }
+            console.timeEnd('$digest');
+        };
         $rootScope.$digest = $newDigest;
     }
 })();

@@ -1,4 +1,3 @@
-;
 (function() {
     'use strict';
     /**
@@ -29,17 +28,17 @@
                 resolve(ws);
 
                 Service.registerClient();
-            }
+            };
 
             ws.onerror = function(err) {
                 console.error('WebSocket error:', err);
                 reject(ws);
-            }
+            };
 
             ws.onmessage = function(message) {
                 console.debug('Incoming WS message:', message.data);
                 listener(JSON.parse(message.data));
-            }
+            };
         });
 
         function sendRequest(request) {
@@ -50,7 +49,7 @@
                 callbacks[callbackId] = {
                     time: new Date(),
                     cb: defer
-                }
+                };
 
                 request.callback_id = callbackId;
                 console.debug('Sending WS request', request);
@@ -93,7 +92,7 @@
 
             var promise = sendRequest(request);
             return promise;
-        }
+        };
         return Service;
     }
 })();

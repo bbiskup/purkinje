@@ -1,4 +1,3 @@
-;
 (function() {
     'use strict';
     /**
@@ -13,7 +12,7 @@
     ]);
 
     function AvvisoService($window) {
-        var hasNotifications = $window.Notification != undefined;
+        var hasNotifications = $window.Notification !== undefined;
 
         if (hasNotifications) {
             Notification.requestPermission();

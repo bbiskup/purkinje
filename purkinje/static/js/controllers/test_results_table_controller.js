@@ -1,6 +1,5 @@
-;
 (function() {
-    'use strict'
+    'use strict';
 
     angular
         .module('purkinje')
@@ -85,7 +84,7 @@
         };
 
         $scope.extGrid = {
-            verdictClassFilter: $filter("verdictClassFilter")
+            verdictClassFilter: $filter('verdictClassFilter')
         };
 
         $scope.webSocketEvents = [];
@@ -198,7 +197,7 @@
             $scope.running = true;
         }
 
-        function handlews_sessionTerminated(data){
+        function handlews_sessionTerminated(data) {
             $scope.suiteProgress = 100;
             $scope.running = false;
         }
@@ -210,7 +209,7 @@
             console.debug('Progress: ',
                 $scope.suiteProgress, ' :: ',
                 $scope.gridOptions.data.length,
-                $scope.tcCount)
+                $scope.tcCount);
         }
 
         function handlews_info(data) {
@@ -242,7 +241,7 @@
                         break;
                     default:
                         console.debug('Unsupported event type:', eventType);
-                };
+                }
             });
 
 

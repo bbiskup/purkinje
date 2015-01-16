@@ -1,4 +1,3 @@
-;
 (function() {
     'use strict';
 
@@ -8,15 +7,15 @@
 
 
     /**
-    * This controller handles the state of the navigation bar.
-    * 
-    * It gives access to the current ui-router routing state to
-    * highlight the corresponding navigation menu item
-    */
+     * This controller handles the state of the navigation bar.
+     *
+     * It gives access to the current ui-router routing state to
+     * highlight the corresponding navigation menu item
+     */
     function NavBarController($scope, $state) {
 
-        $scope.isActive = function(stateName){
+        $scope.isActive = function(stateName) {
             return $state.current.name === stateName;
-        }
+        };
     }
 })();

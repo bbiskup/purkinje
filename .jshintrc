@@ -1,0 +1,18 @@
+{
+    "indent": 4,
+    "undef": false,
+    "unused": false,
+    "globals": {
+        "require": true,
+        "angular": false,
+        "describe": false,
+        "module": false,
+        "afterEach": false,
+        "beforeEach": false,
+        "browser": false,
+        "it": false,
+        "expect": false,
+        "chai": false,
+        "ngMidwayTester": false
+    }
+}

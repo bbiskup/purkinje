@@ -1,11 +1,10 @@
-;
 (function() {
     'use strict';
 
     window.defs = {
         /**
-        * Verdict of test execution
-        */
+         * Verdict of test execution
+         */
         Verdict: {
             PASS: 'pass',
             FAIL: 'fail',
@@ -14,8 +13,8 @@
         },
 
         /**
-        * Qualitative classification of test execution durations
-        */ 
+         * Qualitative classification of test execution durations
+         */
         DurationClass: {
             FAST: 'fast',
             NORMAL: 'normal',

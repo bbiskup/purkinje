@@ -1,4 +1,3 @@
-;
 (function() {
     'use strict';
     angular.module('purkinje').config(['$stateProvider', '$urlRouterProvider',
@@ -24,5 +23,4 @@
                 templateUrl: tmplPrefix + '/partial-about.html'
             });
     }
-
 })();

@@ -18,7 +18,10 @@ test-js-protractor:
 test-js-esvalidate:
 	find purkinje/static/js/ -iname "*.js" |xargs esvalidate
 
-test-js: test-js-karma test-js-protractor test-js-esvalidate
+test-js-jshint:
+	jshint *.js purkinje/static/js
+
+test-js: test-js-karma test-js-protractor test-js-esvalidate test-js-jshint
 
 test: test-py test-js
 

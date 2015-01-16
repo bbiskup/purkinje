@@ -1,4 +1,3 @@
-;
 (function() {
     'use strict';
 
@@ -21,6 +20,6 @@
                 return 'warning';
             default:
                 return 'default';
-        };
-    };
+        }
+    }
 })();

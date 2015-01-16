@@ -1,30 +1,31 @@
-'use strict';
+(function() {
+    'use strict';
 
-describe('E2E: test 1', function() {
-    beforeEach(function() {
-        // TODO actual E2E test URL
-        browser.get('http://localhost:5000/');
-        //browser().reload();
+    describe('E2E: test 1', function() {
+        beforeEach(function() {
+            // TODO actual E2E test URL
+            browser.get('http://localhost:5000/');
+            //browser().reload();
+        });
+
+
+        it('Dummy test 1', function() {
+            expect('1').toBe('1');
+        });
+
+        it('Dummy test without DOM', function() {
+            expect(3).toEqual(3);
+        });
+
+        it('Dummy DOM test', function() {
+            //expect(element(by.css('#test-results-header'))).getText().toBe('Test Results');
+            expect(browser.getTitle()).toEqual('Purkinje Test Runner');
+        });
+
+
+        var selector = '#result-summary';
+        it('should have the title set', function() {
+            expect(browser.getTitle()).toEqual('Purkinje Test Runner');
+        });
     });
-
-
-    it("Dummy test 1", function() {
-        expect('1').toBe('1');
-    });
-
-    it("Dummy test without DOM", function() {
-        expect(3).toEqual(3);
-    });
-
-    it("Dummy DOM test", function() {
-        //expect(element(by.css('#test-results-header'))).getText().toBe('Test Results');
-        expect(browser.getTitle()).toEqual('Purkinje Test Runner');
-    });
-
-
-    var selector = '#result-summary';
-    it("should have the title set", function() {
-        expect(browser.getTitle()).toEqual('Purkinje Test Runner');
-    });
-
-});
+})();

@@ -1,4 +1,3 @@
-;
 (function() {
     'use strict';
 
@@ -7,9 +6,9 @@
         .directive('testProgressIndicator', testProgressIndicator);
 
     /**
-    * Visual feedback about test execution
-    */
-    function testProgressIndicator(){
+     * Visual feedback about test execution
+     */
+    function testProgressIndicator() {
         var directive = {
             restrict: 'E',
             templateUrl: '/static/templates/testProgressIndicator.html',
