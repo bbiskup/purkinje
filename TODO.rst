@@ -129,6 +129,8 @@ TODOs
 
     - Remove amount of JS logging (and potentially Python logging)
 
+    - Animated gif for README?
+
 Issues
 ======
 
