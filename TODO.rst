@@ -31,8 +31,6 @@ TODOs
 
 #) Code
 
-    - use jshint to check JS files as part of test
-
     - verify each JS file uses strict mode
 
     - set purkinje.__version__ and use it in setup.py
