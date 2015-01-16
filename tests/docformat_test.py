@@ -6,6 +6,7 @@ from __future__ import absolute_import
 
 import os
 import os.path as op
+import json
 import yaml
 import pytest
 import restructuredtext_lint as rstlint
@@ -42,3 +43,13 @@ def test_yaml_syntax(filename):
     with open(filename) as f:
         # coerce to force evaluation of generator
         list(yaml.parse(f))
+
+
+@pytest.mark.parametrize('filename',
+                         list(proj_files('.json')) + ['.jshintrc',
+                                                      'bower.json',
+                                                      'package.json'])
+def test_json_syntax(filename):
+    with open(filename) as f:
+        # coerce to force evaluation of generator
+        list(json.loads(f.read()))
