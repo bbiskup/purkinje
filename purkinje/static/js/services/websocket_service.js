@@ -6,17 +6,17 @@
      */
     angular
         .module('purkinje')
-        .factory('WebSocketService', ['$q', '$rootScope', 'WebSocket',
+        .factory('WebSocketService', ['$window', '$q', '$rootScope', 'WebSocket',
             WebSocketService
         ]);
 
-    function WebSocketService($q, $rootScope, WebSocket) {
+    function WebSocketService($window, $q, $rootScope, WebSocket) {
         var Service = {},
             callbacks = {},
             currentCallbackId = 0,
             ws = null,
             wsURLTemplate = _.template('ws://<%= hostname %>:<%= port %>/subscribe2'),
-            wsURL = wsURLTemplate(window.location);
+            wsURL = wsURLTemplate($window.location);
 
         console.debug('WS URL:', wsURL);
 
