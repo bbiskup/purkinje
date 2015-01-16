@@ -11,6 +11,10 @@ TODOs
 
     - Acoustic signal when suite fails (configurable)
 
+      - check out https://github.com/danielstern/ngAudio
+
+      - speech synthesis, e.g.: github.com/angular-adaptive/adaptive-speech
+
     - drivers for other test frameworks (nose? golang? karma? ...)
 
     - Configurable UI update frequency to avoid high load
