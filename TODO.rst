@@ -33,9 +33,7 @@ TODOs
 
 #) Code
 
-    - use Python package 'future' w / futurize
-
-    - use esvalidate to check JS files
+    - use jshint to check JS files as part of test
 
     - verify each JS file uses strict mode
 
@@ -125,7 +123,9 @@ TODOs
 
     - YSlow / PageSpeed checks
 
-    - monitoring of demo service (pingdom?)
+    - Minimal documentation on how to configure py.test with purkinje
+
+    - Solve UI Problem: Flickering charts in Firefox
 
 Issues
 ======
