@@ -3,7 +3,9 @@
 
     angular
         .module('purkinje')
-        .controller('TestResultsTableController', ['$scope', 'defs', 'util', 'WebSocketService', 'AvvisoService', 'uiGridConstants', '$filter',
+        .controller('TestResultsTableController', [
+            '$scope', 'defs', 'util', 'WebSocketService',
+            'AvvisoService', 'uiGridConstants', '$filter',
             TestResultsTableController
         ]);
 
