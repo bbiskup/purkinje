@@ -21,8 +21,6 @@ TODOs
 
 #) Testing
 
-    - JS Unit and integration tests
-
     - test cases for WebSocket endpoint(s)
 
     - pre - commit hook?
