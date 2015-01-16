@@ -1,5 +1,5 @@
 TODOs
-== == =
+=====
 
 #) Features
     - support of ssh distribution with pytest-xdist
@@ -53,6 +53,10 @@ TODOs
       - session start and session terminated messages arrive twice
 
     - Doughnut charts as directives
+
+    - generally: skinny controllers
+
+    - heed John Papas style guide
 
 
 #) User Interface
