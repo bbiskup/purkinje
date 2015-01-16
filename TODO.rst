@@ -5,8 +5,6 @@ TODOs
     - support of ssh distribution with pytest-xdist
       - run purkinje server on external network interface?
 
-    - WebSocket reconnect
-
     - Dektop notifications (optional)
 
     - filter by pytest.mark information
@@ -106,7 +104,6 @@ TODOs
     - split out docformat testing(plugin)?
 
 #) Demo Prerequisites
-    - WebSocket reconnect
 
     - Authentication (API key)
       to restrict access for running tests
