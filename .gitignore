@@ -18,3 +18,5 @@ __pycache__
 /.tox
 *.bak
 /docs/_build
+/docs/modules.rst
+/docs/purkinje.rst
