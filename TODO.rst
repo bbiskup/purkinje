@@ -127,6 +127,8 @@ TODOs
 
     - Solve UI Problem: Flickering charts in Firefox
 
+    - Remove amount of JS logging (and potentially Python logging)
+
 Issues
 ======
 
