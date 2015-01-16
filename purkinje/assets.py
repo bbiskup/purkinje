@@ -48,8 +48,6 @@ BUNDLES = {
 
         THIRDPARTY + '/histogramjs/histogram.js',
 
-        JS + '/util.js',
-        JS + '/defs.js',
         JS + '/app.js',
         JS + '/config.js',
         JS + '/routes.js',
@@ -66,6 +64,8 @@ BUNDLES = {
         SERVICES + '/underscore.angular.js',
         SERVICES + '/websocket_service.js',
         SERVICES + '/avviso_service.js',
+        SERVICES + '/util.js',
+        SERVICES + '/defs.js',
 
         filters='jsmin',
         output='gen/packed.js'

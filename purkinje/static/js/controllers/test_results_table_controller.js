@@ -3,11 +3,11 @@
 
     angular
         .module('purkinje')
-        .controller('TestResultsTableController', ['$scope', 'WebSocketService', 'AvvisoService', 'uiGridConstants', '$filter',
+        .controller('TestResultsTableController', ['$scope', 'defs', 'util', 'WebSocketService', 'AvvisoService', 'uiGridConstants', '$filter',
             TestResultsTableController
         ]);
 
-    function TestResultsTableController($scope, WebSocketService, AvvisoService, uiGridConstants, $filter) {
+    function TestResultsTableController($scope, defs, util, WebSocketService, AvvisoService, uiGridConstants, $filter) {
         $scope.tcCount = 0;
         $scope.running = false;
 
