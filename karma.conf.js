@@ -44,6 +44,8 @@ module.exports = function(config) {
             // TODO correct path
             //'app/scripts/lib/router.js',
             'js/*.js',
+            'js/directives/*.js',
+            'js/services/*.js',
             'js/filters.js',
             'js/controllers/test_results_table_controller.js',  // for midway testing
 

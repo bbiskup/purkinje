@@ -2,14 +2,15 @@
     'use strict';
 
     describe('verdictClassFilter', function() {
-        var filt;
+        var filt, defs_;
 
         beforeEach(function() {
             // crucial
             module('purkinje');
 
-            inject(function($filter) {
+            inject(function($filter, defs) {
                 filt = $filter('verdictClassFilter');
+                defs_ = defs;
             });
 
             // also ok
@@ -28,11 +29,10 @@
 
 
         it('returns "success" for verdict PASS', function() {
-            (filt(defs.Verdict.PASS)).should.equal('success');
+            (filt(defs_.Verdict.PASS)).should.equal('success');
         });
 
         it('returns "error" for verdict FAIL', function() {
-            (filt(defs.Verdict.FAIL)).should.equal('danger');
         });
     });
 })();
