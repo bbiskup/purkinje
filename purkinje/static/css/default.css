@@ -9,10 +9,6 @@ body{
     font-family: "Droid Sans";
 }
 
-/*test-result-table{
-    width: 100%;
-    height: 100%;
-}*/
 
 /* for Angular ui-grid */
 .test-result-table{
@@ -21,44 +17,6 @@ body{
     height: 600px;
 }
 
-/* For angular-vs-repeat */
-.test-result-tbody {
-    height: 350px;
-    width: 100%;
-    overflow: auto;
-    display: block;
-}
-
-thead {
-    display: block;
-}
-td, th {
-    cursor: pointer;
-    /*min-width: 195px;
-    max-width: 195px;*/
-    overflow: hidden;
-    font-size: 70%;
-    text-overflow: ellipsis;
-}
-
-.test-result-col-file{
-    min-width: 270px;
-    max-width: 270px;
-}
-
-.test-result-col-testcase{
-    min-width: 440px;
-    max-width: 440px;
-}
-
-.test-result-col-verdict{
-    min-width: 70px;
-    max-width: 70px;
-}
-
-div#results-charts{
-    height: 100px;
-}
 
 .verdict{
     height: 100%;
@@ -97,13 +55,6 @@ div#results-charts{
     width: 60%;
 }
 
-.chart-spacer{
-    width: 100px;
-}
-
-/*.dashboard-chart-n{
-    margin-left: 30px;
-}*/
 
 #test-results-charts{
     height: 125px;
@@ -157,7 +108,7 @@ div#results-charts{
 .ngCellText{
     padding-left: 10px;
     padding-right: 10px;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     /* height: 30px; */
