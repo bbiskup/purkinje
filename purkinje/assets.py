@@ -8,7 +8,7 @@ from flask.ext.assets import Bundle, Environment
 
 BC = 'bower_components'
 JS = 'js'
-THIRDPARTY = JS + '/thirdparty'
+THIRDPARTY = 'thirdparty-js'
 CONTROLLERS = JS + '/controllers'
 DIRECTIVES = JS + '/directives'
 SERVICES = JS + '/services'
