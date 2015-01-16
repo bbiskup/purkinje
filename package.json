@@ -33,6 +33,7 @@
     "karma-mocha": "^0.1.10"
   },
   "dependencies": {
-    "esvalidate": "^0.1.3"
+    "esvalidate": "^0.1.3",
+    "jshint": "^2.5.11"
   }
 }
