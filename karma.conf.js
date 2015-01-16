@@ -27,10 +27,11 @@ module.exports = function(config) {
             'bower_components/ui-router/release/angular-ui-router.js',
             'bower_components/angular-ui-grid/*.js',
             'bower_components/Chart.js/Chart.js',
-            'bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.js',  
+            'bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.js',
             'bower_components/simple-statistics/src/simple_statistics.js',
             'bower_components/ng-blink/ng-blink.js',
-            
+            'bower_components/angular-reconnecting-websocket/angular-reconnecting-websocket.js',
+
             //'bower_components/angular-route/angular-route.js',
             //'bower_components/angularjs-scope.safeapply/src/Scope.SafeApply.js',
 
@@ -46,7 +47,7 @@ module.exports = function(config) {
             'js/filters.js',
             'js/controllers/test_results_table_controller.js',  // for midway testing
 
-            
+
 
             // Test files
             'js/tests/unit/*.spec.js',

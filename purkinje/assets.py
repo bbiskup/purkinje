@@ -43,6 +43,8 @@ BUNDLES = {
 
         BC + '/Chart.js/Chart.js',
         BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
+        BC + ('/angular-reconnecting-websocket'
+              '/angular-reconnecting-websocket.js'),
 
         THIRDPARTY + '/histogramjs/histogram.js',
 

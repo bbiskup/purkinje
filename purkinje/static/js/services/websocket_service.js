@@ -7,11 +7,11 @@
      */
     angular
         .module('purkinje')
-        .factory('WebSocketService', ['$q', '$rootScope',
+        .factory('WebSocketService', ['$q', '$rootScope', 'WebSocket',
             WebSocketService
         ]);
 
-    function WebSocketService($q, $rootScope) {
+    function WebSocketService($q, $rootScope, WebSocket) {
         var Service = {},
             callbacks = {},
             currentCallbackId = 0,
@@ -27,6 +27,8 @@
             ws.onopen = function() {
                 console.debug('WebSocket opened');
                 resolve(ws);
+
+                Service.registerClient();
             }
 
             ws.onerror = function(err) {

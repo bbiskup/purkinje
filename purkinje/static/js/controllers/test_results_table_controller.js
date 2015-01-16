@@ -89,7 +89,6 @@
         };
 
         $scope.webSocketEvents = [];
-        $scope.dummyPayload = WebSocketService.registerClient();
 
         $scope.$on('webSocketMsg', function(event, data) {
             handleWebSocketEvent(event, data);
