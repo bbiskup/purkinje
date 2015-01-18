@@ -36,7 +36,7 @@
             };
 
             ws.onmessage = function(message) {
-                console.debug('Incoming WS message:', message.data);
+                // console.debug('Incoming WS message:', message.data);
                 listener(JSON.parse(message.data));
             };
         });
@@ -70,7 +70,7 @@
                 $rootScope.apply(theCallback.cb.resolve(messageObj.data));
                 delete callbacks[msgID];
             } else {
-                //console.debug('Unsolicited event:', messageObj);
+                console.debug('WS event:', messageObj);
                 $rootScope.$broadcast('webSocketMsg', messageObj);
             }
         }
