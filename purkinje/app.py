@@ -184,16 +184,12 @@ def _register_client(ws):
     client_conf_ = ws.receive()
 
     if not client_conf_:
-        raise Exception('Invalid client conf: {}'.format(client_conf_))
+        raise ValueError('Invalid client conf: {}'.format(client_conf_))
 
     client_conf = json.loads(client_conf_)
     app.logger.debug('Client conf: %s', client_conf)
     clients.append(ws)
     ws.send(WELCOME_MSG)
-
-    # Maintain client connection
-    while True:
-        gevent.sleep(1)
 
 
 @app.route('/subscribe')
@@ -204,6 +200,10 @@ def subscribe():
     if ws:
         if ws not in clients:
             _register_client(ws)
+
+            # Maintain client connection
+            while True:
+                gevent.sleep(1)
         else:
             app.logger.debug('already registered')
         return ''  # TODO appropriate response

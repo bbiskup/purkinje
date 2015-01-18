@@ -10,7 +10,7 @@ import pytest
 import httplib
 from flask import url_for
 import purkinje.app as sut
-import mock
+from mock import Mock
 import logging
 import json
 
@@ -44,7 +44,7 @@ def app():
 
 @pytest.fixture
 def app_mocked_backlog(app, monkeypatch):
-    monkeypatch.setattr(sut, 'send_to_ws', mock.Mock())
+    monkeypatch.setattr(sut, 'send_to_ws', Mock())
     monkeypatch.setattr(sut, 'clients', ['dummy_client'])
 
 
@@ -89,10 +89,10 @@ def test_send_bulk_cycle_limits_burst_size(
 
 
 def test_send_dummy_notification(app_mocked_backlog, monkeypatch):
-    sleep_mock = mock.Mock()
+    sleep_mock = Mock()
     monkeypatch.setattr(sut.gevent, 'sleep', sleep_mock)
 
-    monkeypatch.setattr(sut, 'enqueue_msg', mock.Mock())
+    monkeypatch.setattr(sut, 'enqueue_msg', Mock())
     sut._send_dummy_notification(10)
     assert sleep_mock.called
 
@@ -125,6 +125,39 @@ def test_404(client):
 def test_trigger_error(client):
     assert client.get(
         '/trigger_error').status_code == httplib.INTERNAL_SERVER_ERROR
+
+
+def test_register_client_with_valid_config_gets_added(monkeypatch):
+    monkeypatch.setattr(sut, 'clients', [])
+    mock_ws = Mock()
+    mock_ws.receive.return_value = json.dumps({})
+    sut._register_client(mock_ws)
+    assert len(sut.clients) == 1
+    assert mock_ws in sut.clients
+    assert mock_ws.send.called
+    assert mock_ws.send.call_args[0][0] == sut.WELCOME_MSG
+
+
+def test_register_empty_client_not_added(monkeypatch):
+    monkeypatch.setattr(sut, 'clients', [])
+
+    with pytest.raises(Exception):
+        sut._register_client(None)
+    assert len(sut.clients) == 0
+
+
+@pytest.mark.parametrize('client_conf', [
+                         None,
+                         'INVALID JSON'
+                         ])
+def test_register_client_with_invalid_config_not_added(client_conf,
+                                                       monkeypatch):
+    monkeypatch.setattr(sut, 'clients', [])
+    mock_ws = Mock()
+    mock_ws.receive.return_value = client_conf
+    with pytest.raises(ValueError):
+        sut._register_client(mock_ws)
+    assert len(sut.clients) == 0
 
 
 # TODO: not possible with live server (needs WSGIServer with WebSocketHandler?)
