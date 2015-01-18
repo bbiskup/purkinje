@@ -15,7 +15,7 @@
             callbacks = {},
             currentCallbackId = 0,
             ws = null,
-            wsURLTemplate = _.template('ws://<%= hostname %>:<%= port %>/subscribe2'),
+            wsURLTemplate = _.template('ws://<%= hostname %>:<%= port %>/subscribe'),
             wsURL = wsURLTemplate($window.location);
 
         console.debug('WS URL:', wsURL);

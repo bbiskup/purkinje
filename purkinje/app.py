@@ -196,10 +196,10 @@ def _register_client(ws):
         gevent.sleep(1)
 
 
-@app.route('/subscribe2')
-def subscribe2():
+@app.route('/subscribe')
+def subscribe():
     """WebSocket event channel subscription (experimental)"""
-    app.logger.debug('subscribe2')
+    app.logger.debug('subscribe')
     ws = request.environ.get('wsgi.websocket')
     if ws:
         if ws not in clients:

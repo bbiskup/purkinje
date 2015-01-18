@@ -130,13 +130,13 @@ def test_trigger_error(client):
 # TODO: not possible with live server (needs WSGIServer with WebSocketHandler?)
 # @pytest.mark.usefixtures('live_server')
 # def test_subscribe(live_server):
-# s = urllib2.urlopen(url_for('/subscribe2')).status_code
+# s = urllib2.urlopen(url_for('/subscribe')).status_code
 # assert s == httplib.OK
 
 #     ws_url_base = live_server.url().replace('http', 'ws')
 
 # ws = websocket.create_connection('ws://127.0.0.1:5000/subscribe')
-#     view_url = url_for('subscribe2')
+#     view_url = url_for('subscribe')
 #     full_url = '{}{}'.format(ws_url_base, view_url)
 #     ws = websocket.create_connection(full_url)
 
