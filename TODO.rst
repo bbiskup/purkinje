@@ -11,9 +11,8 @@ TODOs
 
     - Acoustic signal when suite fails (configurable)
 
-      - check out https://github.com/danielstern/ngAudio
-
-      - speech synthesis, e.g.: github.com/angular-adaptive/adaptive-speech
+      - speech synthesis (Chrome only):
+        - http://html5-examples.craic.com/google_chrome_text_to_speech.html
 
     - drivers for other test frameworks (nose? golang? karma? ...)
 
