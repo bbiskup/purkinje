@@ -37,7 +37,7 @@ clients = []
 
 DUMMY_PERIODIC_MSG_DELAY = 5
 
-DUMMY_WELCOME_MSG = json.dumps([
+WELCOME_MSG = json.dumps([
     json.dumps({
         'type': 'info',
         'text': 'Welcome'
@@ -189,8 +189,9 @@ def _register_client(ws):
     client_conf = json.loads(client_conf_)
     app.logger.debug('Client conf: %s', client_conf)
     clients.append(ws)
-    ws.send(DUMMY_WELCOME_MSG)
+    ws.send(WELCOME_MSG)
 
+    # Maintain client connection
     while True:
         gevent.sleep(1)
 
