@@ -51,6 +51,8 @@ BUNDLES = {
         JS + '/app.js',
         JS + '/config.js',
         JS + '/routes.js',
+
+        # Uncomment next line activate timing of $digest
         # JS + '/runblocks.js',
 
         DIRECTIVES + '/test_activity_directive.js',
