@@ -86,6 +86,8 @@ TODOs
     - sphinxcontrib.autohttp.flask
 
     - JS API documentation
+      
+    - Animated gif for README (mini screencast)?
 
 #) Build
 
@@ -99,12 +101,13 @@ TODOs
 
 #) Publishing
 
-    - register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_) and / or `  py.test plugs <http://pytest-plugs.herokuapp.com/>`_
+    - register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_) 
+      and / or `  py.test plugs <http://pytest-plugs.herokuapp.com/>`_
 
 #) Packaging
     - split out docformat testing(plugin)?
 
-#) Demo Prerequisites
+#) First release prerequisites
 
     - Authentication (API key)
       to restrict access for running tests
@@ -126,10 +129,11 @@ TODOs
 
     - YSlow / PageSpeed checks
 
-    - Minimal documentation on how to configure py.test with purkinje
+    - Minimal but sufficient documentation on how to configure py.test with purkinje
+    
+    - delete and rereate master branch
 
-    - Animated gif for README?
-      
+
 Issues
 ======
 
