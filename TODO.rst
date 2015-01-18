@@ -128,8 +128,6 @@ TODOs
 
     - Minimal documentation on how to configure py.test with purkinje
 
-    - Solve UI Problem: Flickering charts in Firefox
-
     - Remove amount of JS logging (and potentially Python logging)
 
     - Animated gif for README?
