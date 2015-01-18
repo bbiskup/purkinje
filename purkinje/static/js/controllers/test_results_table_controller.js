@@ -4,12 +4,12 @@
     angular
         .module('purkinje')
         .controller('TestResultsTableController', [
-            '$scope', 'defs', 'util', 'WebSocketService',
+            '$scope', 'defs', 'WebSocketService',
             'AvvisoService', 'uiGridConstants', '$filter',
             TestResultsTableController
         ]);
 
-    function TestResultsTableController($scope, defs, util, WebSocketService, AvvisoService, uiGridConstants, $filter) {
+    function TestResultsTableController($scope, defs, WebSocketService, AvvisoService, uiGridConstants, $filter) {
         $scope.tcCount = 0;
         $scope.running = false;
 
@@ -21,73 +21,7 @@
             $scope.running = false;
         };
 
-        $scope.createDummyData = function() {
-            var data = [],
-                initialTimestamp = (new Date()).getTime(),
-                tcCount = 2000;
-            for (var i = 0; i < tcCount; ++i) {
-                data.push({
-                    type: 'tc_finished',
-                    verdict: 'pass',
-                    name: i + '_dummy_name',
-                    file: 'dummy_file',
-                    timestamp: (new Date(initialTimestamp + i * 1000)).toISOString(),
-                    duration: i
-                });
-            }
-            $scope.tcCount = tcCount;
-            $scope.suiteProgress = 100; // adding all results at once
-            $scope.testSuiteName = 'Dummy Test Suite';
-            $scope.gridOptions.data = data;
-        };
-
         //AvvisoService.notify('mytitle', 'mybody');
-        $scope.gridOptions = {
-            enableFiltering: true,
-            infiniteScroll: 20,
-            data: [],
-            columnDefs: [{
-                    field: 'type',
-                    visible: false
-                }, {
-                    field: 'name',
-                    cellTemplate: '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">{[ row.entity[col.field ] ]}</div>'
-                }, {
-                    field: 'file',
-                    cellTemplate: '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">{[ row.entity[col.field ] ]}</div>'
-                }, {
-                    field: 'verdict',
-                    width: 90,
-                    cellTemplate: '<div class="ngCellText verdict verdict-{[row.entity[col.field]]}  colt{[$index]}">{[ row.entity[col.field ] || \'&nbsp;\' ]}</div>'
-                }, {
-                    field: 'duration',
-                    width: 120,
-                    cellTemplate: '<div class="ngCellText grid-cell-numeric duration duration-{[row.entity.durationClass]}  colt{[$index]}">{[ row.entity[col.field] ]}</div>',
-                    filters: [{
-                        condition: uiGridConstants.filter.GREATER_THAN,
-                        placeholder: 'greater than'
-                    }, {
-                        condition: uiGridConstants.filter.LESS_THAN,
-                        placeholder: 'less than'
-                    }]
-                }, {
-                    field: 'timestamp',
-                    width: 200,
-                    // visible: false,
-                    enableFiltering: null,
-                    cellTemplate: '<div class="ngCellText colt{[$index]}">{[ row.entity[col.field] | date : "medium" ]}</div>',
-                    sort: {
-                        direction: uiGridConstants.DESC,
-                        priority: 1
-                    },
-                }
-
-            ]
-        };
-
-        $scope.extGrid = {
-            verdictClassFilter: $filter('verdictClassFilter')
-        };
 
         $scope.webSocketEvents = [];
 
@@ -137,9 +71,6 @@
          * Set verdict chart categories
          */
         function setVerdictChartData() {
-            var vc = util.countVerdicts($scope.gridOptions.data);
-            $scope.verdictCounts = vc;
-
             // TODO Chart experiment
             $scope.verdictChartData = [{
                 label: 'Pass',
@@ -165,10 +96,7 @@
          * Set verdict chart categories
          */
         function setDurationChartData() {
-            var durationCounts = util.classifyDurations($scope.gridOptions.data),
-                DC = defs.DurationClass;
-
-            $scope.durationCounts = durationCounts;
+            DC = defs.DurationClass;
 
             /* TODO dry (see default.css .duration-label-xxx) */
             $scope.durationChartData = [{
@@ -246,7 +174,6 @@
                         console.debug('Unsupported event type:', eventType);
                 }
             });
-
 
             $scope.$watch('gridOptions.data', function() {
                 setVerdictChartData();
