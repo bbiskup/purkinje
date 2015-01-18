@@ -60,6 +60,7 @@ BUNDLES = {
         CONTROLLERS + '/navbar_controller.js',
         CONTROLLERS + '/test_results_table_controller.js',
         CONTROLLERS + '/server_settings_controller.js',
+        CONTROLLERS + '/about_controller.js',
 
         JS + '/filters.js',
 
