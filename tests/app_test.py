@@ -9,12 +9,52 @@ import pytest
 # import websocket
 import httplib
 from flask import url_for
-from purkinje.app import get_app
+import purkinje.app as sut
+import mock
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+class QueueMock(object):
+
+    def __init__(self, values):
+        self._values = values
+
+    def get_nowait(self):
+        if len(self._values) == 0:
+            logger.debug('QueueMock: no queue items left')
+            return None
+        else:
+            result = self._values[0]
+            self._values = self._values[1:]
+            logger.debug('QueueMock: returning {}; {} items left'.format(
+                result, len(self._values)))
+            return result
 
 
 @pytest.fixture
 def app():
-    return get_app()
+    return sut.get_app()
+
+
+@pytest.fixture
+def app_mocked_backlog(app, monkeypatch):
+    monkeypatch.setattr(sut, 'send_to_ws', mock.Mock())
+    monkeypatch.setattr(sut, 'clients', ['dummy_client'])
+
+
+def test_send_bulk_cycle_does_nothing_when_backlog_empty(app_mocked_backlog,
+                                                         monkeypatch):
+    monkeypatch.setattr(sut, 'BACKLOG', QueueMock([]))
+    sut._send_bulk_cycle()
+    assert sut.send_to_ws.call_count == 0
+
+
+def test_send_bulk_cycle_single_msg_gets_sent(app_mocked_backlog, monkeypatch):
+    monkeypatch.setattr(sut, 'BACKLOG', QueueMock(['xyz']))
+    sut._send_bulk_cycle()
+    assert sut.send_to_ws.call_count == 1
 
 
 def test_app_conf(app):

@@ -70,13 +70,17 @@ def _send_bulk_cycle():
         # Read max. MAX_BULK_SIZE messages to send at once
         for i in range(MAX_BULK_SIZE):
             msg = BACKLOG.get_nowait()
+            if msg is None:
+                break
             bulk.append(msg)
     except gq.Empty:
         pass
 
     bulk_len = len(bulk)
     if bulk_len:
-        app.logger.debug('Sending {} messages'.format(bulk_len))
+        app.logger.debug('Sending {} messages to {} clients'.format(
+            bulk_len, len(clients)
+        ))
 
         for client in clients:
             send_to_ws(client, json.dumps(bulk))
