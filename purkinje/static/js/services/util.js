@@ -53,10 +53,13 @@
                 var result = _.countBy(testResults, function(item) {
                     return item.durationClass;
                 });
+
+                /*
                 console.debug('Duration classification:', meanDuration, durationSD, result);
                 console.debug('\tnormal lower threshold:', normal_lowerThresh);
                 console.debug('\tslow lower threshold:', slow_lowerThresh);
                 console.debug('\tslowest lower threshold:', slowest_slowThresh);
+                */
                 return result;
             }
         };

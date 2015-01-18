@@ -70,9 +70,7 @@
                 $rootScope.apply(theCallback.cb.resolve(messageObj.data));
                 delete callbacks[msgID];
             } else {
-                // TODO pass event to app
-                console.debug('Unsolicited event:', messageObj);
-
+                //console.debug('Unsolicited event:', messageObj);
                 $rootScope.$broadcast('webSocketMsg', messageObj);
             }
         }
