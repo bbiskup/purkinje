@@ -51,7 +51,7 @@ BUNDLES = {
         JS + '/app.js',
         JS + '/config.js',
         JS + '/routes.js',
-        JS + '/runblocks.js',
+        # JS + '/runblocks.js',
 
         DIRECTIVES + '/test_activity_directive.js',
 
