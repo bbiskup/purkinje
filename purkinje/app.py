@@ -127,19 +127,6 @@ def send_dummy_notifications():
         _send_dummy_notification(msg_id)
 
 
-# @app.route('/api')
-# def api():
-#     print('api')
-#     if request.environ.get('wsgi.websocket'):
-#         ws = request.environ['wsgi.websocket']
-#         while True:
-#             print('Waiting...')
-#             message = ws.receive()
-#             print('Received "{}"'.format(message))
-#             ws.send(message)
-#     return
-
-
 def configure_app(app_):
     """Configures application logging etc.
     """
@@ -245,26 +232,6 @@ def event():
     except Exception as e:
         app.logger.warning('Client connection aborted (%s)', e)
         return ''
-
-# def send_to_ws():
-#     """Send data to WebSockets (for testing)"""
-#     msg_count = 0
-#     while True:
-# message = ws.receive()
-#         for ws in clients:
-#             ws.send('Response to "%s"', 'message_%d', msg_count)
-#             msg_count += 1
-#             gevent.sleep(5)
-
-
-# @sockets.route('/unsubscribe')
-# def unsubscribe(ws):
-# """To be called by a client which no longer wants to
-# receive events
-# """
-# if ws in clients:
-# app.logger.info('Removing client %s', ws)
-# clients.remove(ws)
 
 
 @app.route('/test/websocket_client')
