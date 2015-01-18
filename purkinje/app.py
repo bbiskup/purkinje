@@ -177,6 +177,24 @@ def page_not_found(error):
     return render_template('404.html', error=error)
 
 
+def _register_client(ws):
+    """Registers a new client that will then receive notifications
+    """
+    app.logger.info('Registering client %s', ws)
+    client_conf_ = ws.receive()
+
+    if not client_conf_:
+        raise Exception('Invalid client conf: {}'.format(client_conf_))
+
+    client_conf = json.loads(client_conf_)
+    app.logger.debug('Client conf: %s', client_conf)
+    clients.append(ws)
+    ws.send(DUMMY_WELCOME_MSG)
+
+    while True:
+        gevent.sleep(1)
+
+
 @app.route('/subscribe2')
 def subscribe2():
     """WebSocket event channel subscription (experimental)"""
@@ -184,19 +202,7 @@ def subscribe2():
     ws = request.environ.get('wsgi.websocket')
     if ws:
         if ws not in clients:
-            app.logger.info('Registering client %s', ws)
-            client_conf_ = ws.receive()
-
-            if not client_conf_:
-                raise Exception('Invalid client conf: {}'.format(client_conf_))
-
-            client_conf = json.loads(client_conf_)
-            app.logger.debug('Client conf: %s', client_conf)
-            clients.append(ws)
-            ws.send(DUMMY_WELCOME_MSG)
-
-            while True:
-                gevent.sleep(1)
+            _register_client(ws)
         else:
             app.logger.debug('already registered')
         return ''  # TODO appropriate response
