@@ -12,10 +12,9 @@
             switch($scope.isLicenseCollapsed){
                 case true:
                     return 'Show license';
-                    break;
                 case false:
                     return 'Hide license';
-                    break;
+                default: break;
             }
         };
     }

@@ -7,11 +7,14 @@
             <a class="navbar-brand app-label" ui-sref="dashboard">purkinje</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-
+            <a href="#" class="connection-status {[connectedClass]}" title="{[connectionStateTitle]}" disabled="disabled"><i class="fa fa-wifi nav-left"></i></a>
             <ul class="nav navbar-nav navbar-right">
-                <li><a ng-class="{'nav-active': isActive('dashboard')}" ui-sref="dashboard" title="Dashboard"><i class="fa fa-area-chart"></i></a></li>
-                <li><a ng-class="{'nav-active': isActive('settings')}" ui-sref="settings" title="Settings"><i class="fa fa-gear"></i></a></li>
-                <li><a ng-class="{'nav-active': isActive('about')}" ui-sref="about" title="About"><i class="fa fa-info-circle"></i></a></li>
+                <li><a ng-class="{'nav-active': isActive('dashboard')}" ui-sref="dashboard" title="Dashboard"><i class="fa fa-area-chart"></i></a>
+                </li>
+                <li><a ng-class="{'nav-active': isActive('settings')}" ui-sref="settings" title="Settings"><i class="fa fa-gear"></i></a>
+                </li>
+                <li><a ng-class="{'nav-active': isActive('about')}" ui-sref="about" title="About"><i class="fa fa-info-circle"></i></a>
+                </li>
             </ul>
         </div>
     </div>

@@ -127,3 +127,15 @@ body{
     font-size: 70%;
 }
 
+a.connection-status{
+    padding-left: 5px;
+    cursor: default;
+}
+
+a.connection-status.connection-established{
+    color: #5cb85c;
+}
+
+a.connection-status.connection-closed{
+    color: #c12e2a;
+}

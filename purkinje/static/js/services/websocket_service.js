@@ -28,11 +28,17 @@
                 resolve(ws);
 
                 Service.registerClient();
+                notifyWebSocketStateChange(ws);
             };
 
             ws.onerror = function(err) {
                 console.error('WebSocket error:', err);
                 reject(ws);
+                notifyWebSocketStateChange(ws);
+            };
+
+            ws.onclose = function(){
+                notifyWebSocketStateChange(ws);
             };
 
             ws.onmessage = function(message) {
@@ -81,6 +87,10 @@
                 currentCallbackId = 0;
             }
             return currentCallbackId;
+        }
+
+        function notifyWebSocketStateChange(webSocket) {
+            $rootScope.$emit('webSocketStateChange', webSocket.url, webSocket.readyState);
         }
 
         Service.registerClient = function() {
