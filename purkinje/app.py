@@ -61,28 +61,34 @@ def enqueue_msg(message):
     BACKLOG.put(message)
 
 
+def _send_bulk_cycle():
+    """Single burst of bulk events
+    """
+    bulk = []
+
+    try:
+        # Read max. MAX_BULK_SIZE messages to send at once
+        for i in range(MAX_BULK_SIZE):
+            msg = BACKLOG.get_nowait()
+            bulk.append(msg)
+    except gq.Empty:
+        pass
+
+    bulk_len = len(bulk)
+    if bulk_len:
+        app.logger.debug('Sending {} messages'.format(bulk_len))
+
+        for client in clients:
+            send_to_ws(client, json.dumps(bulk))
+    else:
+        # app.logger.debug('No bulk data available')
+        gevent.sleep(BULK_POLL_DELAY)
+
+
 def send_bulk():
     app.logger.info('Starting bulk sending')
     while True:
-        bulk = []
-
-        try:
-            # Read max. MAX_BULK_SIZE messages to send at once
-            for i in range(MAX_BULK_SIZE):
-                msg = BACKLOG.get_nowait()
-                bulk.append(msg)
-        except gq.Empty:
-            pass
-
-        bulk_len = len(bulk)
-        if bulk_len:
-            app.logger.debug('Sending {} messages'.format(bulk_len))
-
-            for client in clients:
-                send_to_ws(client, json.dumps(bulk))
-        else:
-            # app.logger.debug('No bulk data available')
-            gevent.sleep(BULK_POLL_DELAY)
+        _send_bulk_cycle()
 
 
 def send_to_ws(websocket, msg):
