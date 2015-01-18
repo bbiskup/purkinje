@@ -128,10 +128,8 @@ TODOs
 
     - Minimal documentation on how to configure py.test with purkinje
 
-    - Remove amount of JS logging (and potentially Python logging)
-
     - Animated gif for README?
-
+      
 Issues
 ======
 
