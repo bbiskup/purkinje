@@ -32,6 +32,9 @@ class QueueMock(object):
                 result, len(self._values)))
             return result
 
+    def length(self):
+        return len(self._values)
+
 
 @pytest.fixture
 def app():
@@ -51,10 +54,37 @@ def test_send_bulk_cycle_does_nothing_when_backlog_empty(app_mocked_backlog,
     assert sut.send_to_ws.call_count == 0
 
 
-def test_send_bulk_cycle_single_msg_gets_sent(app_mocked_backlog, monkeypatch):
+def test_send_bulk_cycle_single_message_gets_sent_in_single_burst(
+        app_mocked_backlog,
+        monkeypatch):
     monkeypatch.setattr(sut, 'BACKLOG', QueueMock(['xyz']))
     sut._send_bulk_cycle()
     assert sut.send_to_ws.call_count == 1
+    assert sut.send_to_ws.call_args[0] == ('dummy_client', '["xyz"]')
+
+
+def test_send_bulk_cycle_two_messages_gets_sent_in_bulk(app_mocked_backlog,
+                                                        monkeypatch):
+    monkeypatch.setattr(sut, 'BACKLOG', QueueMock(['xyz1', 'xyz2']))
+    sut._send_bulk_cycle()
+    assert sut.send_to_ws.call_count == 1
+    assert sut.send_to_ws.call_args[0] == ('dummy_client', '["xyz1", "xyz2"]')
+
+
+def test_send_bulk_cycle_limits_burst_size(
+        app_mocked_backlog,
+        monkeypatch):
+    dummy_messages = ['msg_{}'.format(x)
+                      for x
+                      in range(26)]
+    monkeypatch.setattr(sut, 'BACKLOG', QueueMock(dummy_messages))
+    sut._send_bulk_cycle()
+    assert sut.send_to_ws.call_count == 1
+    assert sut.BACKLOG.length() == 1  # to be sent in next burst
+    sut._send_bulk_cycle()
+    assert sut.send_to_ws.call_count == 2  # (including first call)
+    assert sut.BACKLOG.length() == 0
+    assert sut.send_to_ws.call_args[0] == ('dummy_client', '["msg_25"]')
 
 
 def test_app_conf(app):
