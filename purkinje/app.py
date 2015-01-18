@@ -106,19 +106,25 @@ def send_to_ws(websocket, msg):
         clients.remove(websocket)
 
 
+def _send_dummy_notification(msg_id):
+    """Sends a dummy notification to all clients
+    """
+    app.logger.debug('Sending dummy notification(s)')
+    msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
+    msg['id'] = msg_id
+    msg['timestamp'] = datetime.isoformat(datetime.now())
+    enqueue_msg(json.dumps(msg))
+    msg_id += 1
+    gevent.sleep(DUMMY_PERIODIC_MSG_DELAY)
+
+
 def send_dummy_notifications():
     """Periodically sends dummy requests
     """
     app.logger.info('send_dummy_notifications starting')
     msg_id = 0
     while True:
-        app.logger.debug('Sending dummy notification(s)')
-        msg = copy.deepcopy(DUMMY_PERIODIC_MSG)
-        msg['id'] = msg_id
-        msg['timestamp'] = datetime.isoformat(datetime.now())
-        enqueue_msg(json.dumps(msg))
-        msg_id += 1
-        gevent.sleep(DUMMY_PERIODIC_MSG_DELAY)
+        _send_dummy_notification(msg_id)
 
 
 # @app.route('/api')

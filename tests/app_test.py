@@ -12,6 +12,7 @@ from flask import url_for
 import purkinje.app as sut
 import mock
 import logging
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -85,6 +86,22 @@ def test_send_bulk_cycle_limits_burst_size(
     assert sut.send_to_ws.call_count == 2  # (including first call)
     assert sut.BACKLOG.length() == 0
     assert sut.send_to_ws.call_args[0] == ('dummy_client', '["msg_25"]')
+
+
+def test_send_dummy_notification(app_mocked_backlog, monkeypatch):
+    sleep_mock = mock.Mock()
+    monkeypatch.setattr(sut.gevent, 'sleep', sleep_mock)
+
+    monkeypatch.setattr(sut, 'enqueue_msg', mock.Mock())
+    sut._send_dummy_notification(10)
+    assert sleep_mock.called
+
+    msg_json = sut.enqueue_msg.call_args[0][0]
+    msg = json.loads(msg_json)
+    assert msg['text'] == 'Dummy periodic message'
+    assert msg['type'] == 'info'
+    assert msg['id'] == 10
+    assert 'timestamp' in msg
 
 
 def test_app_conf(app):
