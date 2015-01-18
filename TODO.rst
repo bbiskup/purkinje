@@ -132,6 +132,9 @@ TODOs
     - Minimal but sufficient documentation on how to configure py.test with purkinje
     
     - delete and rereate master branch
+      
+    - Update requirements.txt flotsam purkinje*/pytest-purkinje dependencies to use
+      actual release versions
 
 
 Issues
