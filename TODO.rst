@@ -41,8 +41,6 @@ TODOs
     - Make debug mode configurable (to affect debug logging,
       asset concatenation and compression)
 
-    - JS defs.js as Angular service
-
     - Use controllerAs syntax in Angular templates (?)
 
     - Remove obsolete CSS classes
@@ -86,7 +84,7 @@ TODOs
     - sphinxcontrib.autohttp.flask
 
     - JS API documentation
-      
+
     - Animated gif for README (mini screencast)?
 
 #) Build
@@ -101,7 +99,7 @@ TODOs
 
 #) Publishing
 
-    - register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_) 
+    - register with (`py.test web page <http://pytest.org/latest/plugins_index/index.html?highlight=plugins>`_)
       and / or `  py.test plugs <http://pytest-plugs.herokuapp.com/>`_
 
 #) Packaging
@@ -130,9 +128,9 @@ TODOs
     - YSlow / PageSpeed checks
 
     - Minimal but sufficient documentation on how to configure py.test with purkinje
-    
+
     - delete and recreate master branch
-      
+
     - Update requirements.txt flotsam purkinje*/pytest-purkinje dependencies to use
       actual release versions
 
