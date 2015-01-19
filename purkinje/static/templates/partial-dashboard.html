@@ -70,7 +70,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <progressbar class="testsuite-progress" min="0" max="100" value="suiteProgress" type="default" title="# of test cases: {[tcCount]}, executed: {[gridOptions.data.length]}">{[suiteProgress]} % ({[gridOptions.data.length]} of {[tcCount]})</progressbar>
+                    <progressbar ng-if="testSuiteName.length" class="testsuite-progress" min="0" max="100" value="suiteProgress" type="default" title="# of test cases: {[tcCount]}, executed: {[gridOptions.data.length]}">{[suiteProgress]} % ({[gridOptions.data.length]} of {[tcCount]})</progressbar>
                 </div>
 
                 <div class="col-sm-1">
