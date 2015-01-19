@@ -95,24 +95,9 @@
             handleWebSocketEvent(event, data);
         });
 
-        setResultFilterSelections();
         setVerdictChartOptions();
         setDurationChartOptions();
 
-        /**
-         * Choices for result filter combo box
-         */
-        function setResultFilterSelections() {
-            $scope.resultFilterSelections = [{
-                name: 'pass'
-            }, {
-                name: 'fail & error'
-            }, {
-                name: 'skipped'
-            }, {
-                name: 'all'
-            }];
-        }
 
         /**
          * Configuration of verdict chart
