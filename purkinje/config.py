@@ -6,6 +6,7 @@
 from builtins import object, basestring
 
 import yaml
+import md5
 import logging
 from voluptuous import Schema  # pylint: disable-msg=W0622
 import voluptuous as v
@@ -41,7 +42,8 @@ class Config(object):
                 v.Required('project-path'): basestring,
                 'server-port': port_spec,
                 v.Optional('log-level'): basestring,
-                v.Required('debug-mode', default=False): bool
+                v.Required('debug-mode', default=False): bool,
+                v.Optional('api-key'): basestring,
             }
         })
 
@@ -83,3 +85,10 @@ class Config(object):
         """
         Config._instance = Config(config_file_name)
         return Config._instance
+
+    def is_api_key_valid(self, api_key):
+        if 'api-key' not in self._conf['global']:
+            return True
+        else:
+            return md5.md5(
+                api_key).hexdigest() == self._conf['global']['api-key']

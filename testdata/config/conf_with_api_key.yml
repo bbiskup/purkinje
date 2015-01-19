@@ -1,0 +1,6 @@
+global:
+    project-path: /devel/proj1
+    log-level: debug
+    debug-mode: yes
+    server-port: 12345
+    api-key: d16fb36f0911f878998c136191af705e
