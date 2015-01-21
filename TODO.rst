@@ -59,6 +59,8 @@ TODOs
 
     - heed John Papas style guide
 
+    - provide Modernizr as a service; add Modernizr checks
+
 
 #) User Interface
 
