@@ -11,11 +11,10 @@
         $scope.licenseToggleText = function() {
             switch ($scope.isLicenseCollapsed) {
                 case true:
-                    return 'Show license';
+                    return 'SHOW_LICENSE_BUTTON_TEXT';
                 case false:
-                    return 'Hide license';
-                default:
-                    break;
+                    return 'HIDE_LICENSE_BUTTON_TEXT';
+                default: break;
             }
         };
     }
