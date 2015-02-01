@@ -83,7 +83,7 @@
                 }
 
             ]
-        };
+            };
 
         $scope.extGrid = {
             verdictClassFilter: $filter('verdictClassFilter')
