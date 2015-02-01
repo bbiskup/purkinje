@@ -4,6 +4,9 @@
         .module('purkinje')
         .config(function($translateProvider) {
             $translateProvider.translations('en', {
+                // Main page
+                PURKINJE_APP_TITLE: 'Purkinje Test Runner',
+
                 // Dashboard
                 NO_TEST_SUITE: 'No test suite',
                 PASS: 'Pass',
@@ -35,6 +38,9 @@
                 IDLE: 'Idle'
             });
             $translateProvider.translations('de', {
+                // Main page
+                PURKINJE_APP_TITLE: 'Purkinje Test Runner',
+
                 // Dashboard
                 NO_TEST_SUITE: 'Keine Testsuite',
                 PASS: 'Bestanden',
