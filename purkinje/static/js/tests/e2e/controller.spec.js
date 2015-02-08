@@ -30,5 +30,10 @@
             expect(elem.getText()).toBe('No test suite');
             // expect(elem).toHaveClass('testsuite-header-inactive');
         });
+
+        it('Initially in idle state', function() {
+            var elem = element(by.id('test-progress'));
+            expect(elem.getText()).toBe('State:\nIdle');
+        });
     });
 })();
