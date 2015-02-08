@@ -55,6 +55,9 @@
             element.all(by.css('.ui-grid-row')).count().then(function(theCount) {
                 expect(theCount).toBeGreaterThan(0);
             });
+
+            var numTC = element(by.id('total-num-test-cases'));
+            expect(numTC.getText()).toBe('Total number of test cases: 2000');
         });
     });
 })();

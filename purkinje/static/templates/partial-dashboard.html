@@ -106,7 +106,7 @@
             <div ui-grid="gridOptions" external-scopes="extGrid" class='test-result-table'>
             </div>
         </div>
-        <div ng-if="tcCount > 0" class="text-info"><small>{['TOTAL_NUM_TEST_CASES' | translate]}: {[verdictCounts.all]}</small>
+        <div id="total-num-test-cases" ng-if="tcCount > 0" class="text-info"><small>{['TOTAL_NUM_TEST_CASES' | translate]}: {[verdictCounts.all]}</small>
         </div>
     </div>
 </div>
