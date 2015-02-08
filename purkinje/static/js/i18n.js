@@ -22,6 +22,7 @@
                 DUMMY_DATA_BUTTON: 'Dummy data',
                 NUM_TEST_CASES: '# of test cases',
                 NUM_EXECUTED: 'executed',
+                TOTAL_NUM_TEST_CASES: 'Total number of test cases',
 
                 /* no symbolic name for these grid header keys because this is
                    how they are delivered from the test runner,
@@ -73,6 +74,7 @@
                 DUMMY_DATA_BUTTON: 'Dummy-Daten',
                 NUM_TEST_CASES: 'Anzahl Testfälle',
                 NUM_EXECUTED: 'ausgeführt',
+                TOTAL_NUM_TEST_CASES: 'Insgesamt ausgeführte Testfälle',
 
                 /* no symbolic name for these grid header keys because this is
                    how they are delivered from the test runner,
