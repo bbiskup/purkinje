@@ -6,7 +6,7 @@
             <div id="stats-area">
                 <div id="test-results-charts" class="row">
                     <div class="col-sm-1">
-                        <canvas ng-if="tcCount > 0" title="Verdicts" tc-chartjs-doughnut chart-data="verdictChartData" chart-options="verdictChartOptions" width="80" height="80"></canvas>
+                        <canvas ng-if="tcCount > 0"  tc-chartjs-doughnut chart-data="verdictChartData" chart-options="verdictChartOptions" width="80" height="80"></canvas>
                     </div>
                     <div class="col-sm-3">
                         <ul id="result-summary" ng-if="tcCount > 0">
@@ -37,7 +37,7 @@
                         </ul>
                     </div>
                     <div class="col-sm-1">
-                        <canvas ng-if="tcCount > 0" title="Distribution of execution durations" tc-chartjs-doughnut chart-data="durationChartData" chart-options="durationChartOptions" width="80" height="80"></canvas>
+                        <canvas ng-if="tcCount > 0" tc-chartjs-doughnut chart-data="durationChartData" chart-options="durationChartOptions" width="80" height="80"></canvas>
                     </div>
                     <div class="col-sm-3">
                         <ul id="duration-summary" ng-if="tcCount > 0">
@@ -70,7 +70,9 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <progressbar ng-if="testSuiteName.length" class="testsuite-progress" min="0" max="100" value="suiteProgress" type="default" title="# of test cases: {[tcCount]}, executed: {[gridOptions.data.length]}">{[suiteProgress]} % ({[gridOptions.data.length]} of {[tcCount]})</progressbar>
+                    <progressbar ng-if="testSuiteName.length" class="testsuite-progress" min="0" max="100" value="suiteProgress"
+                    type="default"
+                    title="{[ 'NUM_TEST_CASES' | translate ]}: {[tcCount]}, {['NUM_EXECUTED' | translate ]}: {[gridOptions.data.length]}">{[suiteProgress]} % ({[gridOptions.data.length]} of {[tcCount]})</progressbar>
                 </div>
 
                 <div class="col-sm-1">
