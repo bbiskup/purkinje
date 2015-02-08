@@ -104,8 +104,8 @@
                 STATE: 'Zustand',
                 RUNNING: 'läuft...',
                 IDLE: 'inaktiv'
-            });
-            // $translateProvider.preferredLanguage('en');
+            })
+            .fallbackLanguage('en');
             $translateProvider.determinePreferredLanguage();
         });
 })();
