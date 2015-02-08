@@ -35,5 +35,26 @@
             var elem = element(by.id('test-progress'));
             expect(elem.getText()).toBe('State:\nIdle');
         });
+
+        it('Initially no test results', function() {
+            var elems = element.all(by.css('.ui-grid-row')).then(function() {
+                expect(elems).toBe(undefined);
+            });
+        });
+
+        it('Test results available after generating test data', function() {
+            var button = element(by.id('create-dummy-data-button'));
+            button.click();
+            // browser.pause();
+            // browser.wait(element(by.css('.ui-grid-row')).isPresent);
+            /*var elems = element.all(by.css('.ui-grid-row')).then(function() {
+                expect(elems).not.toBe(undefined);
+                expect(elems.length).toBe(2000);
+            });*/
+
+            element.all(by.css('.ui-grid-row')).count().then(function(theCount) {
+                expect(theCount).toBeGreaterThan(0);
+            });
+        });
     });
 })();
