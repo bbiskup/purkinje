@@ -20,6 +20,8 @@
                 SLOWEST: 'Slowest',
                 CLEAR_BUTTON: 'Clear',
                 DUMMY_DATA_BUTTON: 'Dummy data',
+                NUM_TEST_CASES: '# of test cases',
+                NUM_EXECUTED: 'executed',
 
                 /* no symbolic name for these grid header keys because this is
                    how they are delivered from the test runner,
@@ -69,6 +71,8 @@
                 SLOWEST: 'Sehr langsam',
                 CLEAR_BUTTON: 'Löschen',
                 DUMMY_DATA_BUTTON: 'Dummy-Daten',
+                NUM_TEST_CASES: 'Anzahl Testfälle',
+                NUM_EXECUTED: 'ausgeführt',
 
                 /* no symbolic name for these grid header keys because this is
                    how they are delivered from the test runner,
