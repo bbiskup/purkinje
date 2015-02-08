@@ -26,7 +26,7 @@
         });
 
         it('Initially no test suite', function() {
-            var elem = element(by.css('#test-suite-header'));
+            var elem = element(by.id('test-suite-header'));
             expect(elem.getText()).toBe('No test suite');
             // expect(elem).toHaveClass('testsuite-header-inactive');
         });
