@@ -70,10 +70,10 @@
                     cellTemplate: '<div class="ngCellText grid-cell-numeric duration duration-{[row.entity.durationClass]}  colt{[$index]}">{[ row.entity[col.field] ]}</div>',
                     filters: [{
                         condition: uiGridConstants.filter.GREATER_THAN,
-                        placeholder: 'greater than'
+                        placeholder: $translate.instant('PLACEHOLDER_GREATER_THAN')
                     }, {
                         condition: uiGridConstants.filter.LESS_THAN,
-                        placeholder: 'less than'
+                        placeholder: $translate.instant('PLACEHOLDER_LESS_THAN')
                     }]
                 }, {
                     field: 'timestamp',

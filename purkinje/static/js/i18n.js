@@ -30,6 +30,8 @@
                 Duration: 'Duration',
                 Timestamp: 'Timestamp',
 
+                PLACEHOLDER_LESS_THAN: 'less than',
+                PLACEHOLDER_GREATER_THAN: 'greater than',
 
                 // Settings page
                 SETTINGS_HEADLINE: 'Settings',
@@ -74,6 +76,10 @@
                 Verdict: 'Verdikt',
                 Duration: 'Dauer',
                 Timestamp: 'Zeitstempel',
+
+                PLACEHOLDER_LESS_THAN: 'kleiner als',
+                PLACEHOLDER_GREATER_THAN: 'größer als',
+
 
                 // Settings page
                 SETTINGS_HEADLINE: 'Einstellungen',
