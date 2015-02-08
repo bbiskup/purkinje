@@ -84,10 +84,10 @@
             <div class="col-sm-9">
                 <!-- Filter for test result display -->
                 <div class="btn-group" test-case-controls>
-                    <a class="btn btn-danger" ng-click="clearEvents()" href="#">
+                    <a id="clear-dummy-data-button" class="btn btn-danger" ng-click="clearEvents()" href="#">
                         <i class="fa fa-trash-o fa-lg"></i>{['CLEAR_BUTTON' | translate]}
                     </a>
-                    <a class="btn btn-default" id="create-dummy-data-button" ng-click="createDummyData()" href="#">
+                    <a id="create-dummy-data-button" class="btn btn-default" ng-click="createDummyData()" href="#">
                         <i class="fa fa-paper-plane fa-lg"></i>{[ "DUMMY_DATA_BUTTON" | translate]}
                     </a>
                     <!--button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
