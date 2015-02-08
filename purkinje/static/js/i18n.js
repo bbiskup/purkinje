@@ -20,6 +20,17 @@
                 CLEAR_BUTTON: 'Clear',
                 DUMMY_DATA_BUTTON: 'Dummy data',
 
+                /* no symbolic name for these grid header keys because this is
+                   how they are delivered from the test runner,
+                   and after capitalization by ui-grid
+                   */
+                File: 'File',
+                Name: 'Name',
+                Verdict: 'Verdict',
+                Duration: 'Duration',
+                Timestamp: 'Timestamp',
+
+
                 // Settings page
                 SETTINGS_HEADLINE: 'Settings',
                 HOST: 'Host',
@@ -53,6 +64,16 @@
                 SLOWEST: 'Sehr langsam',
                 CLEAR_BUTTON: 'Löschen',
                 DUMMY_DATA_BUTTON: 'Dummy-Daten',
+
+                /* no symbolic name for these grid header keys because this is
+                   how they are delivered from the test runner,
+                   and after capitalization by ui-grid
+                   */
+                File: 'Datei',
+                Name: 'Name',
+                Verdict: 'Verdikt',
+                Duration: 'Dauer',
+                Timestamp: 'Zeitstempel',
 
                 // Settings page
                 SETTINGS_HEADLINE: 'Einstellungen',

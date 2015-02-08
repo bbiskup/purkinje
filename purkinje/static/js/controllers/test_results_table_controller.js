@@ -6,10 +6,13 @@
         .controller('TestResultsTableController', [
             '$scope', 'defs', 'util', 'WebSocketService',
             'AvvisoService', 'uiGridConstants', '$filter',
+            '$translate',
             TestResultsTableController
         ]);
 
-    function TestResultsTableController($scope, defs, util, WebSocketService, AvvisoService, uiGridConstants, $filter) {
+    function TestResultsTableController($scope, defs, util, WebSocketService,
+                                        AvvisoService, uiGridConstants, $filter,
+                                        $translate) {
         $scope.tcCount = 0;
         $scope.running = false;
 
@@ -54,6 +57,8 @@
                     cellTemplate: '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">{[ row.entity[col.field ] ]}</div>'
                 }, {
                     field: 'file',
+                    //displayName: $translate('GRID_HEADER_FILE'),
+                    headerCellFilter: 'translate',
                     cellTemplate: '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">{[ row.entity[col.field ] ]}</div>'
                 }, {
                     field: 'verdict',
