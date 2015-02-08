@@ -8,13 +8,14 @@
     function AboutController($scope) {
         $scope.isLicenseCollapsed = true;
 
-        $scope.licenseToggleText = function(){
-            switch($scope.isLicenseCollapsed){
+        $scope.licenseToggleText = function() {
+            switch ($scope.isLicenseCollapsed) {
                 case true:
                     return 'Show license';
                 case false:
                     return 'Hide license';
-                default: break;
+                default:
+                    break;
             }
         };
     }
