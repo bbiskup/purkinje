@@ -8,6 +8,7 @@
                 PURKINJE_APP_TITLE: 'Purkinje Test Runner',
 
                 // Dashboard
+                DASHBOARD_HEADLINE: 'Dashboard',
                 NO_TEST_SUITE: 'No test suite',
                 PASS: 'Pass',
                 FAILED: 'Failed',
@@ -51,10 +52,12 @@
                 IDLE: 'Idle'
             });
             $translateProvider.translations('de', {
+
                 // Main page
                 PURKINJE_APP_TITLE: 'Purkinje Test Runner',
 
                 // Dashboard
+                DASHBOARD_HEADLINE: 'Dashboard',
                 NO_TEST_SUITE: 'Keine Testsuite',
                 PASS: 'Bestanden',
                 FAILED: 'Fehlgeschlagen',
