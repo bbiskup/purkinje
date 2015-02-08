@@ -54,6 +54,7 @@
                     visible: false
                 }, {
                     field: 'name',
+                    headerCellFilter: 'translate',
                     cellTemplate: '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">{[ row.entity[col.field ] ]}</div>'
                 }, {
                     field: 'file',
@@ -63,10 +64,12 @@
                 }, {
                     field: 'verdict',
                     width: 90,
+                    headerCellFilter: 'translate',
                     cellTemplate: '<div class="ngCellText verdict verdict-{[row.entity[col.field]]}  colt{[$index]}">{[ row.entity[col.field ] || \'&nbsp;\' ]}</div>'
                 }, {
                     field: 'duration',
                     width: 120,
+                    headerCellFilter: 'translate',
                     cellTemplate: '<div class="ngCellText grid-cell-numeric duration duration-{[row.entity.durationClass]}  colt{[$index]}">{[ row.entity[col.field] ]}</div>',
                     filters: [{
                         condition: uiGridConstants.filter.GREATER_THAN,
@@ -80,6 +83,7 @@
                     width: 200,
                     // visible: false,
                     enableFiltering: null,
+                    headerCellFilter: 'translate',
                     cellTemplate: '<div class="ngCellText colt{[$index]}">{[ row.entity[col.field] | date : "medium" ]}</div>',
                     sort: {
                         direction: uiGridConstants.DESC,
