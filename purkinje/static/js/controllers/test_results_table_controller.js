@@ -5,13 +5,13 @@
         .module('purkinje')
         .controller('TestResultsTableController', [
             '$scope', 'defs', 'WebSocketService',
-            'AvvisoService', 'uiGridConstants', '$filter',
+            'AvvisoService', '$filter',
             '$translate',
             TestResultsTableController
         ]);
 
     function TestResultsTableController($scope, defs, util, WebSocketService,
-                                        AvvisoService, uiGridConstants, $filter,
+                                        AvvisoService, $filter,
                                         $translate) {
         $scope.tcCount = 0;
         $scope.running = false;
