@@ -3,6 +3,7 @@ TODOs
 
 #) Features
     - support of ssh distribution with pytest-xdist
+
       - run purkinje server on external network interface?
 
     - Dektop notifications (optional)
@@ -17,9 +18,6 @@ TODOs
     - drivers for other test frameworks (nose? golang? karma? ...)
 
     - Configurable UI update frequency to avoid high load
-
-#) Misc
-
 
 #) Testing
 
@@ -78,6 +76,8 @@ TODOs
 
 #) Performance
 
+    - YSlow / PageSpeed checks
+
 #) Documentation
 
     - Sphinx, Read The Docs
@@ -104,6 +104,7 @@ TODOs
       and / or `  py.test plugs <http://pytest-plugs.herokuapp.com/>`_
 
 #) Packaging
+
     - split out docformat testing(plugin)?
 
 #) First release prerequisites
@@ -126,11 +127,7 @@ TODOs
 
     - nginx @ port 80; Demo under /purkinje_demo?
 
-    - YSlow / PageSpeed checks
-
     - Minimal but sufficient documentation on how to configure py.test with purkinje
-
-    - delete and recreate master branch
 
     - Update requirements.txt flotsam purkinje*/pytest-purkinje dependencies to use
       actual release versions
@@ -152,6 +149,8 @@ Issues
     - only seems to go away when closing tab
 
     - see Chrome dev tools(timeline and profiles / heap snapshot)
+
+    - still an issue?
 
 - Coverage reports for greenlets are incorrect(see https: // bitbucket.org / ned / coveragepy / issue / 149 / coverage -
   gevent - looks - broken)
