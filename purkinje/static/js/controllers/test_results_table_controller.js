@@ -6,10 +6,13 @@
         .controller('TestResultsTableController', [
             '$scope', 'defs', 'WebSocketService',
             'AvvisoService', 'uiGridConstants', '$filter',
+            '$translate',
             TestResultsTableController
         ]);
 
-    function TestResultsTableController($scope, defs, WebSocketService, AvvisoService, uiGridConstants, $filter) {
+    function TestResultsTableController($scope, defs, util, WebSocketService,
+                                        AvvisoService, uiGridConstants, $filter,
+                                        $translate) {
         $scope.tcCount = 0;
         $scope.running = false;
 

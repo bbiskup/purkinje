@@ -34,6 +34,7 @@ BUNDLES = {
     'js': Bundle(
         BC + '/underscore/underscore.js',
         BC + '/angular/angular.js',
+        BC + '/angular-translate/angular-translate.js',
         BC + '/angular-bootstrap/ui-bootstrap.js',
         BC + '/angular-bootstrap/ui-bootstrap-tpls.js',
         BC + '/ui-router/release/angular-ui-router.js',
@@ -51,6 +52,7 @@ BUNDLES = {
 
         JS + '/app.js',
         JS + '/config.js',
+        JS + '/i18n.js',
         JS + '/routes.js',
 
         # Uncomment next line activate timing of $digest

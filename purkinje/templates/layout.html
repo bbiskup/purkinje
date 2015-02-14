@@ -8,19 +8,19 @@
     <meta description="Purkinje test runner">
     <meta name="author" content="bbiskup@gmx.de">
     <!-- See https://exploreflask.com/static.html -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}"> 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
     <!--[if lt IE 9]><script src="excanvas.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="es5-shim.js"></script><![endif]-->
 
     {% assets "css" %}
-        <link rel="stylesheet" href="{{ ASSET_URL}}" /> 
+        <link rel="stylesheet" href="{{ ASSET_URL}}" />
     {% endassets %}
-    
+
      {% assets "js" %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
-    <title>Purkinje Test Runner</title>
+    <title>{["PURKINJE_APP_TITLE" | translate]}</title>
 </head>
 
 <body>

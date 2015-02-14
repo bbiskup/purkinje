@@ -20,7 +20,6 @@ TODOs
 
 #) Misc
 
-    - i18n
 
 #) Testing
 

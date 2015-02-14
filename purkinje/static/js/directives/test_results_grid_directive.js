@@ -6,11 +6,9 @@
      */
     angular
         .module('purkinje')
-        .directive('testResultsGrid', ['$filter', 'uiGridConstants',
-            TestResultsGrid
-        ]);
+        .directive('testResultsGrid', [TestResultsGrid]);
 
-    function TestResultsGrid($filter, uiGridConstants) {
+    function TestResultsGrid() {
         var directive = {
             restrict: 'E',
             template: '/static/templates/testResultsGrid.html',
@@ -54,69 +52,74 @@
         };
 
         return directive;
+    }
 
-        /**
-         * Column definitions for UI grid
-         */
-        function columnDefs() {
-            return [{
-                field: 'type',
-                visible: false
+    /**
+     * Column definitions for UI grid
+     */
+    function columnDefs() {
+        return [{
+            field: 'type',
+            visible: false
+        }, {
+            field: 'name',
+            headerCellFilter: 'translate',
+            cellTemplate: [
+                '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">',
+                '  {[ row.entity[col.field ] ]}',
+                '</div>'
+            ].join('')
+        }, {
+            field: 'file',
+            headerCellFilter: 'translate',
+            cellTemplate: [
+                '<div class="ngCellText" ',
+                '     title="{[ row.entity[col.field ] ]}">',
+                '  {[ row.entity[col.field ] ]}',
+                '</div>'
+            ].join('')
+        }, {
+            field: 'verdict',
+            width: 90,
+            headerCellFilter: 'translate',
+            cellTemplate: [
+                '<div class="ngCellText verdict ',
+                '     verdict-{[row.entity[col.field]]}  colt{[$index]}">',
+                '  {[ row.entity[col.field ] || \'&nbsp;\' ]}',
+                '</div>'
+            ].join('')
+        }, {
+            field: 'duration',
+            width: 120,
+            headerCellFilter: 'translate',
+            cellTemplate: [
+                '<div class="ngCellText grid-cell-numeric duration ',
+                '     duration-{[row.entity.durationClass]}  colt{[$index]}">',
+                '  {[ row.entity[col.field] ]}',
+                '</div>'
+            ].join(''),
+            filters: [{
+                condition: uiGridConstants.filter.GREATER_THAN,
+                placeholder: $translate.instant('PLACEHOLDER_GREATER_THAN')
             }, {
-                field: 'name',
-                cellTemplate: [
-                    '<div class="ngCellText" title="{[ row.entity[col.field ] ]}">',
-                    '  {[ row.entity[col.field ] ]}',
-                    '</div>'
-                ].join('')
-            }, {
-                field: 'file',
-                cellTemplate: [
-                    '<div class="ngCellText" ',
-                    '     title="{[ row.entity[col.field ] ]}">',
-                    '  {[ row.entity[col.field ] ]}',
-                    '</div>'
-                ].join('')
-            }, {
-                field: 'verdict',
-                width: 90,
-                cellTemplate: [
-                    '<div class="ngCellText verdict ',
-                    '     verdict-{[row.entity[col.field]]}  colt{[$index]}">',
-                    '  {[ row.entity[col.field ] || \'&nbsp;\' ]}',
-                    '</div>'
-                ].join('')
-            }, {
-                field: 'duration',
-                width: 120,
-                cellTemplate: [
-                    '<div class="ngCellText grid-cell-numeric duration ',
-                    '     duration-{[row.entity.durationClass]}  colt{[$index]}">',
-                    '  {[ row.entity[col.field] ]}',
-                    '</div>'
-                ].join(''),
-                filters: [{
-                    condition: uiGridConstants.filter.GREATER_THAN,
-                    placeholder: 'greater than'
-                }, {
-                    condition: uiGridConstants.filter.LESS_THAN,
-                    placeholder: 'less than'
-                }]
-            }, {
-                field: 'timestamp',
-                width: 200,
-                // visible: false,
-                enableFiltering: null,
-                cellTemplate: [
-                    '<div class="ngCellText colt{[$index]}">',
-                    '{[ row.entity[col.field] | date : "medium" ]}',
-                    '</div>'
-                ].join(''),
-                sort: {
-                    direction: uiGridConstants.DESC,
-                    priority: 1
-                },
-            }];
-        }
+                condition: uiGridConstants.filter.LESS_THAN,
+                placeholder: $translate.instant('PLACEHOLDER_LESS_THAN')
+            }]
+        }, {
+            field: 'timestamp',
+            width: 200,
+            // visible: false,
+            enableFiltering: null,
+            headerCellFilter: 'translate',
+            cellTemplate: [
+                '<div class="ngCellText colt{[$index]}">',
+                '{[ row.entity[col.field] | date : "medium" ]}',
+                '</div>'
+            ].join(''),
+            sort: {
+                direction: uiGridConstants.DESC,
+                priority: 1
+            },
+        }];
     }
 })();

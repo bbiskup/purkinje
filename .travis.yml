@@ -52,7 +52,9 @@ script:
 
   - # only run in Firefox because Chrome does not work in OpenVZ2oap
   - make test-js-karma-only-firefox
-  - make test-js-protractor
+  - # Disabled because Selenium 2.44 does not work with Firefox
+  - # make test-js-protractor
+  - make test-js-jshint
 
 
   - # Documentation

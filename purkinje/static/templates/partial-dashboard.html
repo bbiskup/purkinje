@@ -1,67 +1,67 @@
 <div class="row">
     <div class="main" ng-controller="TestResultsTableController">
         <h2 ng-if="testSuiteName.length">{[testSuiteName]}</h2>
-        <h2 class="testsuite-header-inactive" ng-if="!testSuiteName.length">No test suite</h2>
+        <h2 id="test-suite-header" class="testsuite-header-inactive" ng-if="!testSuiteName.length">{["NO_TEST_SUITE" | translate]}</h2>
         <div class="row">
             <div id="stats-area">
                 <div id="test-results-charts" class="row">
                     <div class="col-sm-1">
-                        <canvas ng-if="tcCount > 0" title="Verdicts" tc-chartjs-doughnut chart-data="verdictChartData" chart-options="verdictChartOptions" width="80" height="80"></canvas>
+                        <canvas ng-if="tcCount > 0"  tc-chartjs-doughnut chart-data="verdictChartData" chart-options="verdictChartOptions" width="80" height="80"></canvas>
                     </div>
                     <div class="col-sm-3">
                         <ul id="result-summary" ng-if="tcCount > 0">
                             <li role="presentation">
                                 <a href="#">
-                                    <div class="summary-count-label">Pass</div>
+                                    <div class="summary-count-label">{["PASS" | translate]}</div>
                                     <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="#">
-                                    <div class="summary-count-label">Failed</div>
+                                    <div class="summary-count-label">{["FAILED" | translate]}</div>
                                     <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <div class="summary-count-label">Errors</div>
+                                    <div class="summary-count-label">{["ERRORS" | translate]}</div>
                                     <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="#">
-                                    <div class="summary-count-label">Skipped</div>
+                                    <div class="summary-count-label">{["SKIPPED" | translate]}</div>
                                     <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-1">
-                        <canvas ng-if="tcCount > 0" title="Distribution of execution durations" tc-chartjs-doughnut chart-data="durationChartData" chart-options="durationChartOptions" width="80" height="80"></canvas>
+                        <canvas ng-if="tcCount > 0" tc-chartjs-doughnut chart-data="durationChartData" chart-options="durationChartOptions" width="80" height="80"></canvas>
                     </div>
                     <div class="col-sm-3">
                         <ul id="duration-summary" ng-if="tcCount > 0">
                             <li role="presentation">
                                 <a href="#">
-                                    <div class="summary-count-label">Fast</div>
+                                    <div class="summary-count-label">{["FAST" | translate]}</div>
                                     <span class="label duration-fast label-as-badge">{[ durationCounts.fast || 0 ]}</span>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="#">
-                                    <div class="summary-count-label">Normal</div>
+                                    <div class="summary-count-label">{["NORMAL" | translate]}</div>
                                     <span class="label duration-normal label-as-badge">{[ durationCounts.normal || 0 ]}</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <div class="summary-count-label">Slow</div>
+                                    <div class="summary-count-label">{["SLOW" | translate]}</div>
                                     <span class="label duration-slow label-as-badge">{[ durationCounts.slow || 0 ]}</span>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="#">
-                                    <div class="summary-count-label">Slowest</div><span class="label duration-slowest label-as-badge">{[ durationCounts.slowest || 0 ]}</span>
+                                    <div class="summary-count-label">{["SLOWEST" | translate]}</div><span class="label duration-slowest label-as-badge">{[ durationCounts.slowest || 0 ]}</span>
                                 </a>
                             </li>
                         </ul>
@@ -70,11 +70,13 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <progressbar ng-if="testSuiteName.length" class="testsuite-progress" min="0" max="100" value="suiteProgress" type="default" title="# of test cases: {[tcCount]}, executed: {[gridOptions.data.length]}">{[suiteProgress]} % ({[gridOptions.data.length]} of {[tcCount]})</progressbar>
+                    <progressbar ng-if="testSuiteName.length" class="testsuite-progress" min="0" max="100" value="suiteProgress"
+                    type="default"
+                    title="{[ 'NUM_TEST_CASES' | translate ]}: {[tcCount]}, {['NUM_EXECUTED' | translate ]}: {[gridOptions.data.length]}">{[suiteProgress]} % ({[gridOptions.data.length]} of {[tcCount]})</progressbar>
                 </div>
 
                 <div class="col-sm-1">
-                    <test-progress-indicator state="running"></test-progress-indicator>
+                    <test-progress-indicator id="test-progress" state="running"></test-progress-indicator>
                 </div>
             </div>
         </div>
@@ -82,11 +84,11 @@
             <div class="col-sm-9">
                 <!-- Filter for test result display -->
                 <div class="btn-group" test-case-controls>
-                    <a class="btn btn-danger" ng-click="clearEvents()" href="#">
-                        <i class="fa fa-trash-o fa-lg"></i> Clear
+                    <a id="clear-dummy-data-button" class="btn btn-danger" ng-click="clearEvents()" href="#">
+                        <i class="fa fa-trash-o fa-lg"></i>{['CLEAR_BUTTON' | translate]}
                     </a>
-                    <a class="btn btn-default" ng-click="createDummyData()" href="#">
-                        <i class="fa fa-paper-plane fa-lg"></i>Dummy data
+                    <a id="create-dummy-data-button" class="btn btn-default" ng-click="createDummyData()" href="#">
+                        <i class="fa fa-paper-plane fa-lg"></i>{[ "DUMMY_DATA_BUTTON" | translate]}
                     </a>
                     <!--button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
                 Filter test results
@@ -104,7 +106,7 @@
             <div test-results-grid></div>
             </div>
         </div>
-        <div ng-if="tcCount > 0" class="text-info"><small>Total number of test cases: {[verdictCounts.all]}</small>
+        <div id="total-num-test-cases" ng-if="tcCount > 0" class="text-info"><small>{['TOTAL_NUM_TEST_CASES' | translate]}: {[verdictCounts.all]}</small>
         </div>
     </div>
 </div>
