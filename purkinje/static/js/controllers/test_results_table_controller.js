@@ -59,7 +59,7 @@
          * Set verdict chart categories
          */
         function setVerdictChartData() {
-            // TODO Chart experiment
+            // var vc = util.countVerdicts($scope.gridOptions.data);
             $scope.verdictChartData = [{
                 label: 'Pass',
                 value: vc.pass || 0,
@@ -121,14 +121,8 @@
         }
 
         function handlews_tcFinished(data) {
-            // $scope.gridOptions.data.push(data);
             $scope.gridOptions.data.unshift(data);
             $scope.suiteProgress = Math.round($scope.gridOptions.data.length / $scope.tcCount * 100);
-            /*console.debug('Progress: ',
-                $scope.suiteProgress, ' :: ',
-                $scope.gridOptions.data.length,
-                $scope.tcCount);
-            */
         }
 
         function handlews_info(data) {
@@ -143,7 +137,6 @@
 
             data.forEach(function(msg) {
                 msg = JSON.parse(msg);
-                // console.debug('$scope: webSocketMsg', msg);
                 var eventType = msg.type;
                 switch (eventType) {
                     case 'session_started':
@@ -171,7 +164,6 @@
             $scope.$apply();
 
             var duration = new Date() - start;
-            // console.debug('msg-handler duration: ' + duration + ' ms');
         }
     }
 })();
