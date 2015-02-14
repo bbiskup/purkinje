@@ -35,7 +35,6 @@
         setVerdictChartOptions();
         setDurationChartOptions();
 
-
         /**
          * Configuration of verdict chart
          */
@@ -53,7 +52,6 @@
                 animateRotate: false
             };
         }
-
 
         /*
          * Set verdict chart categories
@@ -78,7 +76,6 @@
                 color: '#e0e0e0'
             }];
         }
-
 
         /*
          * Set verdict chart categories
