@@ -4,25 +4,19 @@
     angular
         .module('purkinje')
         .controller('TestResultsTableController', [
-            '$scope', 'defs', 'WebSocketService',
+            '$scope', 'defs', 'util', 'WebSocketService',
             'AvvisoService', '$filter',
             '$translate',
             TestResultsTableController
         ]);
 
     function TestResultsTableController($scope, defs, util, WebSocketService,
-                                        AvvisoService, $filter,
-                                        $translate) {
+        AvvisoService, $filter,
+        $translate) {
+
+        $scope.data = [];
         $scope.tcCount = 0;
         $scope.running = false;
-
-        $scope.clearEvents = function() {
-            $scope.gridOptions.data = [];
-            $scope.testSuiteName = null;
-            $scope.tcCount = 0;
-            $scope.suiteProgress = 0;
-            $scope.running = false;
-        };
 
         //AvvisoService.notify('mytitle', 'mybody');
 
@@ -57,7 +51,7 @@
          * Set verdict chart categories
          */
         function setVerdictChartData() {
-            // var vc = util.countVerdicts($scope.gridOptions.data);
+            var vc = $scope.verdictCounts;
             $scope.verdictChartData = [{
                 label: 'Pass',
                 value: vc.pass || 0,
@@ -81,7 +75,8 @@
          * Set verdict chart categories
          */
         function setDurationChartData() {
-            DC = defs.DurationClass;
+            var DC = defs.DurationClass,
+                durationCounts = $scope.durationCounts;
 
             /* TODO dry (see default.css .duration-label-xxx) */
             $scope.durationChartData = [{
@@ -105,7 +100,7 @@
         }
 
         function handlews_sessionStarted(data) {
-            $scope.gridOptions.data = [];
+            $scope.data.length = 0;
             $scope.testSuiteName = data.suite_name;
             $scope.suiteProgress = 0;
             $scope.tcCount = data.tc_count;
@@ -118,8 +113,8 @@
         }
 
         function handlews_tcFinished(data) {
-            $scope.gridOptions.data.unshift(data);
-            $scope.suiteProgress = Math.round($scope.gridOptions.data.length / $scope.tcCount * 100);
+            $scope.data.unshift(data);
+            $scope.suiteProgress = Math.round($scope.data.length / $scope.tcCount * 100);
         }
 
         function handlews_info(data) {
@@ -153,7 +148,9 @@
                 }
             });
 
-            $scope.$watch('gridOptions.data', function() {
+            $scope.$watch('data', function() {
+                $scope.verdictCounts = util.countVerdicts($scope.data);
+                $scope.durationCounts = util.classifyDurations($scope.data);
                 setVerdictChartData();
                 setDurationChartData();
             });

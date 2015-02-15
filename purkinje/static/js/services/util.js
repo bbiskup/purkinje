@@ -11,6 +11,9 @@
              * Computes counts of verdicts to display summary
              */
             countVerdicts: function(testResults) {
+                if (!testResults){
+                    return 0;
+                }
                 var result = _.countBy(testResults, function(item) {
                     return item.verdict;
                 });

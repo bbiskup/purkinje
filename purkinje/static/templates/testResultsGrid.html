@@ -1,3 +1,28 @@
+<h1>DUMMY</h1>
+<div class="row">
+    <div class="col-sm-9">
+        <!-- Filter for test result display -->
+        <div class="btn-group" test-case-controls>
+            <a id="clear-dummy-data-button" class="btn btn-danger" ng-click="clearEvents()" href="#">
+                <i class="fa fa-trash-o fa-lg"></i>{['CLEAR_BUTTON' | translate]}
+            </a>
+            <a id="create-dummy-data-button" class="btn btn-default" ng-click="createDummyData()" href="#">
+                <i class="fa fa-paper-plane fa-lg"></i>{[ "DUMMY_DATA_BUTTON" | translate]}
+            </a>
+            <!--button type="button" dropdown-toggle class="btn btn-primary dropdown-toggle">
+                Filter test results
+                <span class="caret" />
+                </button-->
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="sel in resultFilterSelections"><a href="#">{[sel.name]}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<p></p>
 <div class='test-results-grid'>
     <div ui-grid="gridOptions" external-scopes="extGrid" class='test-result-table'></div>
+</div>
+<div id="total-num-test-cases" ng-if="tcCount > 0" class="text-info"><small>{['TOTAL_NUM_TEST_CASES' | translate]}: {[verdictCounts.all]}</small>
 </div>

@@ -6,48 +6,55 @@
      */
     angular
         .module('purkinje')
-        .directive('testResultsGrid',
-                   ['uiGridConstants', '$translate', '$filter', TestResultsGrid]);
+        .directive('testResultsGrid', ['uiGridConstants', '$translate', '$filter', TestResultsGrid]);
 
     function TestResultsGrid(uiGridConstants, $translate, $filter) {
         var directive = {
             restrict: 'E',
-            template: '/static/templates/testResultsGrid.html',
+            templateUrl: '/static/templates/testResultsGrid.html',
             scope: {
-                gridOptions: {
-                    enableFiltering: true,
-                    infiniteScroll: 20,
-                    data: [],
-                    columnDefs: columnDefs()
-                },
-                extGrid: {
-                    verdictClassFilter: $filter('verdictClassFilter')
-                },
-                createDummyData: function() {
-                    var data = [],
-                        initialTimestamp = (new Date()).getTime(),
-                        tcCount = 2000;
-                    for (var i = 0; i < tcCount; ++i) {
-                        data.push({
-                            type: 'tc_finished',
-                            verdict: 'pass',
-                            name: i + '_dummy_name',
-                            file: 'dummy_file',
-                            timestamp: (new Date(initialTimestamp + i * 1000)).toISOString(),
-                            duration: i
-                        });
-                    }
-                    this.tcCount = tcCount;
-                    this.suiteProgress = 100; // adding all results at once
-                    this.testSuiteName = 'Dummy Test Suite';
-                    this.gridOptions.data = data;
-                }
+                gridData: '='
             },
-            controller: ['util', 'uiGridConstants',
-                function(util, uiGridConstants) {
-                    alert('hier controller');
-                    this.verdictCounts = util.countVerdicts(this.gridOptions.data);
-                    this.durationCounts = util.classifyDurations(this.gridOptions.data);
+            controller: ['$scope', 'util', 'uiGridConstants',
+                function($scope, util, uiGridConstants) {
+                    $scope.gridOptions = {
+                        enableFiltering: true,
+                        infiniteScroll: 20,
+                        data: $scope.gridData,
+                        columnDefs: columnDefs()
+                    };
+
+                    $scope.createDummyData = function() {
+                        var data = [],
+                            initialTimestamp = (new Date()).getTime(),
+                            tcCount = 2000;
+                        for (var i = 0; i < tcCount; ++i) {
+                            data.push({
+                                type: 'tc_finished',
+                                verdict: 'pass',
+                                name: i + '_dummy_name',
+                                file: 'dummy_file',
+                                timestamp: (new Date(initialTimestamp + i * 1000)).toISOString(),
+                                duration: i
+                            });
+                        }
+                        $scope.tcCount = tcCount;
+                        $scope.suiteProgress = 100; // adding all results at once
+                        $scope.testSuiteName = 'Dummy Test Suite';
+                        $scope.gridOptions.data = data;
+                    };
+
+                    $scope.clearEvents = function() {
+                        $scope.gridOptions.data.length = 0;
+                        $scope.testSuiteName = null;
+                        $scope.tcCount = 0;
+                        $scope.suiteProgress = 0;
+                        $scope.running = false;
+                    };
+
+                    $scope.extGrid = {
+                        verdictClassFilter: $filter('verdictClassFilter')
+                    };
                 }
             ]
         };
