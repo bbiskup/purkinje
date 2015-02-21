@@ -11,9 +11,10 @@
     function TestResultsGrid(uiGridConstants, $translate, $filter) {
         var directive = {
             restrict: 'E',
-            templateUrl: '/static/templates/testResultsGrid.html',
+            templateUrl: 'templates/testResultsGrid.html',
             scope: {
-                gridData: '='
+                gridData: '=',
+                verdictCounts: '='
             },
             controller: ['$scope', 'util', 'uiGridConstants',
                 function($scope, util, uiGridConstants) {
@@ -45,7 +46,10 @@
                     };
 
                     $scope.clearEvents = function() {
-                        $scope.gridOptions.data.length = 0;
+                        if ($scope.gridOptions.data) {
+                            $scope.gridOptions.data.length = 0;
+                        }
+
                         $scope.testSuiteName = null;
                         $scope.tcCount = 0;
                         $scope.suiteProgress = 0;
@@ -55,6 +59,8 @@
                     $scope.extGrid = {
                         verdictClassFilter: $filter('verdictClassFilter')
                     };
+
+                    $scope.clearEvents();
                 }
             ]
         };

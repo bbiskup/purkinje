@@ -7,10 +7,20 @@ module.exports = function(config) {
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: 'purkinje/static',
 
+        plugins: [
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-mocha',  // must be listed explicitly _if_ plugins property is given
+            'karma-ng-html2js-preprocessor'
+        ],
+
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['mocha'],
+
+        // For testing directives with templateUrl
+        //plugins: ['ng-html2js'],
 
 
         // list of files / patterns to load in the browser
@@ -22,6 +32,7 @@ module.exports = function(config) {
             'bower_components/ngMidwayTester/src/ngMidwayTester.js',
 
             // Libs
+            'bower_components//jquery/dist/jquery.js',
             'bower_components/angular/angular.js',
             'bower_components/angular-translate/angular-translate.js',
             'bower_components/angular-bootstrap/ui-bootstrap.js',
@@ -48,13 +59,17 @@ module.exports = function(config) {
             'js/directives/*.js',
             'js/services/*.js',
             'js/filters.js',
-            'js/controllers/test_results_table_controller.js',  // for midway testing
+            'js/controllers/test_results_table_controller.js', // for midway testing
 
 
 
             // Test files
             'js/tests/unit/*.spec.js',
             'js/tests/midway/*.spec.js',
+
+            // Client-side HTML templates
+            'templates/**/*.html',
+            'templates/*.html'
         ],
 
 
@@ -66,7 +81,19 @@ module.exports = function(config) {
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {},
+        preprocessors: {
+            // Serve HTML templates  (see http://daginge.com/technology/2013/12/14/testing-angular-templates-with-jasmine-and-karma/)
+            'templates/**/*.html': ['ng-html2js'],
+            'templates/*.html': ['ng-html2js']
+        },
+
+        ngHtml2JsPreprocessor: {
+            // setting this option will create only a single module that contains templates
+            // from all the files, so you can load them all with module('foo')
+            //moduleName: 'templates',
+            stripPrefix: '/static/',
+            //prependPrefix: '/static/templates/'
+        },
 
 
         // test results reporter to use

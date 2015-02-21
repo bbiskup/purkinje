@@ -33,6 +33,7 @@ BUNDLES = {
     ),
     'js': Bundle(
         BC + '/underscore/underscore.js',
+        BC + '/jquery/dist/jquery.js',
         BC + '/angular/angular.js',
         BC + '/angular-translate/angular-translate.js',
         BC + '/angular-bootstrap/ui-bootstrap.js',
