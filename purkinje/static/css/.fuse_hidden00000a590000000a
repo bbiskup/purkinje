@@ -1,0 +1,128 @@
+/* Needed by ui-bootstrap
+See http://angular-ui.github.io/bootstrap/ */
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+
+body{
+    font-family: "Droid Sans";
+}
+
+
+/* for Angular ui-grid */
+.test-result-table{
+    /* TODO appropriate dimensions */
+    width: 100%;
+    height: 600px;
+}
+
+
+.verdict{
+    height: 100%;
+    color: white;
+    font-weight: bold;
+}
+
+.verdict-pass{
+    background-color: #5cb85c; /* TODO DRY  (bootstrap green) */
+}
+
+.verdict-fail{
+    background-color: #c12e2a; /* TODO DRY (bootstrap red) */
+}
+
+.verdict-skipped{
+    background-color: #e0e0e0; /* TODO DRY (bootstrap default gray) */
+}
+
+.nav-active{
+    font-size: 120%;
+    /* font-weight: bold; */
+    text-decoration: underline;
+}
+
+.grid-cell-numeric{
+    text-align: right;
+    padding-right: 3px;
+}
+
+.testsuite-header-inactive{
+    color: gray;
+}
+
+.testsuite-progress{
+    width: 60%;
+}
+
+
+#test-results-charts{
+    height: 125px;
+}
+
+.summary-count-label{
+    display: inline-block;
+    width: 70px;
+}
+
+.duration{
+    height: 100%;
+}
+
+/* TODO dry (see controller) */
+.duration-fast{
+    background-color: AquaMarine;
+}
+
+.duration-normal{
+    background-color: MediumAquaMarine;
+}
+
+.duration-slow{
+    background-color: Bisque;
+}
+
+.duration-slowest{
+    background-color: DarkSalmon;
+}
+
+.label-as-badge{
+    /* fixed-width badge */
+    float: right;
+    min-width: 35px;
+
+    /* Reduce space between label and badge */
+    margin-right: 50px;
+}
+
+.navbar-brand.app-label{
+    display: block;
+    color: black !important;
+    background-color: #5cb85c;
+}
+
+.navbar-brand.app-label:hover{
+    background-color: LightGreen;
+}
+
+.ngCellText{
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* height: 30px; */
+}
+
+.activity-indicator{
+    width: 120px;
+    padding: 5px;
+    background-color: lightgray;
+}
+
+.activity-indicator-running{
+}
+
+.license-info{
+    font-size: 70%;
+}

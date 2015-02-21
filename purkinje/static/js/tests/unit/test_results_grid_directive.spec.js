@@ -5,7 +5,7 @@
         var elm, scope;
 
 
-        beforeEach(module('templates/testResultsGrid.html'));
+        beforeEach(module('/static/templates/testResultsGrid.html'));
         beforeEach(module('purkinje'));
 
         beforeEach(inject(function($compile, $rootScope) {
