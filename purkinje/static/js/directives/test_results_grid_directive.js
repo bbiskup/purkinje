@@ -11,7 +11,7 @@
     function TestResultsGrid(uiGridConstants, $translate, $filter) {
         var directive = {
             restrict: 'E',
-            templateUrl: 'templates/testResultsGrid.html',
+            templateUrl: '/static/templates/testResultsGrid.html',
             scope: {
                 gridData: '=',
                 verdictCounts: '='
@@ -43,6 +43,10 @@
                         $scope.suiteProgress = 100; // adding all results at once
                         $scope.testSuiteName = 'Dummy Test Suite';
                         $scope.gridOptions.data = data;
+                        $scope.verdictCounts = {
+                            all: tcCount,
+                            pass: tcCount
+                        };
                     };
 
                     $scope.clearEvents = function() {
