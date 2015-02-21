@@ -1,9 +1,9 @@
 <div ng-controller="AboutController">
-    <h2>xxx {['ABOUT_HEADLINE' | translate]}</h2>
+    <h2>{['ABOUT_HEADLINE' | translate]}</h2>
 
     <div class="row">
         <div class="col-md-12">
-            <p><a href="https://github.com/bbiskup/purkinje/" target='_blank'>
+            <p><a href="https://github.com/bbiskup/purkinje/" target='_blank' id="purkinje-github-link">
             {['PURKINJE_ON_GITHUB' | translate]}
             </a>
             </p>
@@ -11,10 +11,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-1">
-            <button class="btn btn-sm" ng-click="isLicenseCollapsed = !isLicenseCollapsed">{[licenseToggleText() | translate]}</button>
-        </div>
-        <div class="col-md-offset-1 col-md-6" collapse="isLicenseCollapsed">
+        <div class="col-md-offset-2 col-md-8 col-sm-offset-0 col-sm-12" collapse="isLicenseCollapsed">
             <ng-include src="'/static/templates/license.html'">
             </ng-include>
         </div>
