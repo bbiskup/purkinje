@@ -4,69 +4,7 @@
         <h2 id="test-suite-header" class="testsuite-header-inactive" ng-if="!testSuiteName.length">{["NO_TEST_SUITE" | translate]}</h2>
         <div class="row">
             <div id="stats-area">
-                <div id="test-results-charts" class="row">
-                    <div class="col-sm-1">
-                        <canvas ng-if="tcCount > 0"  tc-chartjs-doughnut chart-data="verdictChartData" chart-options="verdictChartOptions" width="80" height="80"></canvas>
-                    </div>
-                    <div class="col-sm-3">
-                        <ul id="result-summary" ng-if="tcCount > 0">
-                            <li role="presentation">
-                                <a href="#">
-                                    <div class="summary-count-label">{["PASS" | translate]}</div>
-                                    <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span>
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#">
-                                    <div class="summary-count-label">{["FAILED" | translate]}</div>
-                                    <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="summary-count-label">{["ERRORS" | translate]}</div>
-                                    <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span>
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#">
-                                    <div class="summary-count-label">{["SKIPPED" | translate]}</div>
-                                    <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-1">
-                        <canvas ng-if="tcCount > 0" tc-chartjs-doughnut chart-data="durationChartData" chart-options="durationChartOptions" width="80" height="80"></canvas>
-                    </div>
-                    <div class="col-sm-3">
-                        <ul id="duration-summary" ng-if="tcCount > 0">
-                            <li role="presentation">
-                                <a href="#">
-                                    <div class="summary-count-label">{["FAST" | translate]}</div>
-                                    <span class="label duration-fast label-as-badge">{[ durationCounts.fast || 0 ]}</span>
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#">
-                                    <div class="summary-count-label">{["NORMAL" | translate]}</div>
-                                    <span class="label duration-normal label-as-badge">{[ durationCounts.normal || 0 ]}</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="summary-count-label">{["SLOW" | translate]}</div>
-                                    <span class="label duration-slow label-as-badge">{[ durationCounts.slow || 0 ]}</span>
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#">
-                                    <div class="summary-count-label">{["SLOWEST" | translate]}</div><span class="label duration-slowest label-as-badge">{[ durationCounts.slowest || 0 ]}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <test-results-charts tc-count="tcCount" verdict-counts="verdictCounts" duration-counts="durationCounts"/>
             </div>
             <div class="row">
                 <div class="col-sm-9">

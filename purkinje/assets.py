@@ -60,6 +60,7 @@ BUNDLES = {
         # JS + '/runblocks.js',
 
         DIRECTIVES + '/test_activity_directive.js',
+        DIRECTIVES + '/test_results_charts_directive.js',
         DIRECTIVES + '/test_results_grid_directive.js',
 
         CONTROLLERS + '/navbar_controller.js',

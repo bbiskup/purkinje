@@ -24,7 +24,7 @@ test-js-esvalidate:
 test-js-jshint:
 	jshint *.js purkinje/static/js
 
-test-js: test-js-karma test-js-protractor test-js-esvalidate test-js-jshint
+test-js: test-js-jshint test-js-karma test-js-protractor test-js-esvalidate
 
 test: test-py test-js
 
