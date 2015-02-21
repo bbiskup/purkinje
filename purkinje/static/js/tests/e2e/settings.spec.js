@@ -3,7 +3,7 @@
 
     describe('Settings page', function() {
         beforeEach(function() {
-            browser.get('/#/settings')
+            browser.get('/#/settings');
         });
 
         it('Headline set', function() {

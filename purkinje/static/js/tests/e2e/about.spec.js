@@ -3,7 +3,7 @@
 
     describe('About page', function() {
         beforeEach(function() {
-            browser.get('/#/about')
+            browser.get('/#/about');
         });
 
         it('Github link present', function() {
