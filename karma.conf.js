@@ -59,7 +59,7 @@ module.exports = function(config) {
             'js/directives/*.js',
             'js/services/*.js',
             'js/filters.js',
-            'js/controllers/test_results_table_controller.js', // for midway testing
+            'js/controllers/*.js', // for midway testing
 
 
 

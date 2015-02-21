@@ -3,9 +3,9 @@
 
     angular
         .module('purkinje')
-        .controller('ServerSettingsController', ['$scope', '$http', ServerSettingsController]);
+        .controller('SettingsController', ['$scope', '$http', SettingsController]);
 
-    function ServerSettingsController($scope, $http) {
+    function SettingsController($scope, $http) {
 
         $http.get('/api/server_info')
             .success(function(data) {
