@@ -132,6 +132,8 @@ TODOs
     - Update requirements.txt flotsam purkinje*/pytest-purkinje dependencies to use
       actual release versions
 
+    - Should receive messages (test results) when not on dashboard page
+
 
 Issues
 ======
