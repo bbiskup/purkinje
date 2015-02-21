@@ -1,16 +1,11 @@
 (function() {
     'use strict';
 
-    describe('E2E: test 1', function() {
+    describe('Dashboard page', function() {
         beforeEach(function() {
             // TODO actual E2E test URL
             browser.get('/');
             //browser().reload();
-        });
-
-
-        it('Dummy test 1', function() {
-            expect('1').toBe('1');
         });
 
         it('Dummy test without DOM', function() {
