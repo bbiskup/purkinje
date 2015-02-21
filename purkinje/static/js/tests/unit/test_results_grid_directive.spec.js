@@ -42,5 +42,5 @@
             // elm.find('#xyz').eq(0).text().should.equal('other: 0');
             // elm.find('#total-num-test-cases').eq(0).text().should.equal('100');
         });
-    })
+    });
 })();
