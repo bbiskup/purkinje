@@ -1,7 +1,7 @@
 <div ng-controller="ServerSettingsController">
-<h2>{['SETTINGS_HEADLINE' | translate]}</h2>
+<h2 id="settings-headline">{['SETTINGS_HEADLINE' | translate]}</h2>
 
-<table class="settings-table table table-responsive">
+<table id="settings-settings-table" class="settings-table table table-responsive">
 <tr><td>{["HOST" | translate]}:</td><td>{[server.host]}</td></tr>
 <tr><td>{["DIRECTORY" | translate ]}:</td><td>{[server.directory]}</td></tr>
 <tr><td>{["USER" | translate ]}:</td><td>{[server.user]}</td></tr>
