@@ -13,7 +13,7 @@
             restrict: 'E',
             templateUrl: '/static/templates/testProgressIndicator.html',
             scope: {
-                state: '=state'
+                state: '='
             }
         };
         return directive;
