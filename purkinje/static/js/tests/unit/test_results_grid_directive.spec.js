@@ -2,45 +2,43 @@
     'use strict';
 
     describe('test-results-grid-directive tests', function() {
-        var elm, scope;
+        var $scope, $compile;
 
 
         beforeEach(module('/static/templates/testResultsGrid.html'));
         beforeEach(module('purkinje'));
 
-        beforeEach(inject(function($compile, $rootScope) {
-            elm = angular.element('<test-results-grid grid-data="gridData" verdictCounts="verdictCounts"/>');
-            scope = $rootScope;
-            //scope = elm.isolateScope();
-
-            scope.verdictCounts = {all: 3};
-            $compile(elm)(scope);
-            scope.$digest();
+        beforeEach(inject(function(_$compile_, _$rootScope_) {
+            $scope = _$rootScope_.$new();
+            $compile = _$compile_;
+            $scope.$digest();
         }));
 
         it('should display verdict counts', function() {
-            // module(function($provide) {
-            //     $provide.value('verdictCounts', 100);
-            // });
+            $scope.gridData = [];
+            $scope.verdictCounts = {
+                all: 0
+            };
 
-            scope.$apply(function() {
-                scope.gridData = [];
-                scope.verdictCounts = {
-                    all: 100
-                };
-            });
+            var template = $compile('<test-results-grid verdict-counts="verdictCounts" gridData="gridData"/>')($scope);
 
-            // console.debug(elm);
+            template.scope().$digest();
 
-            var isolated = elm.isolateScope();
-            chai.expect(isolated.tcCount).to.equal(0);
-            chai.expect(isolated.gridData).to.have.length(0);
-            chai.expect(isolated.suiteProgress).to.equal(0);
-            //chai.expect(isolated.verdictCounts.all).to.equal(0);
+            //var templateAsHtml = template.html();
+            //console.debug(templateAsHtml);
+
+            var isolated = template.isolateScope();
+            isolated.tcCount.should.equal(0);
+            isolated.gridOptions.should.have.property('columnDefs').with.length(6);
+            isolated.gridOptions.should.have.property('data').with.length(0);
+            isolated.suiteProgress.should.equal(0);
+            chai.expect(isolated.verdictCounts).to.deep.equal({all: 0});
 
             // Needs jQuery, not jqLite, which does not allow querying by ID
-            // elm.find('#xyz').eq(0).text().should.equal('other: 0');
-            // elm.find('#total-num-test-cases').eq(0).text().should.equal('100');
+            // template.find('#xyz').eq(0).text().should.equal('other: 0');
+
+            // Not shown if no test data
+            template.find('#total-num-test-cases').should.have.length(0);
         });
     });
 })();

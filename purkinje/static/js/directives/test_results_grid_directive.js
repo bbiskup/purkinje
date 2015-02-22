@@ -25,6 +25,10 @@
                         columnDefs: columnDefs()
                     };
 
+                    $scope.hasData = function(){
+                        return $scope.gridOptions.data.length > 0;
+                    }
+
                     $scope.createDummyData = function() {
                         var data = [],
                             initialTimestamp = (new Date()).getTime(),
