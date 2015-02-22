@@ -59,7 +59,7 @@ BUNDLES = {
         # Uncomment next line activate timing of $digest
         # JS + '/runblocks.js',
 
-        DIRECTIVES + '/test_activity_directive.js',
+        DIRECTIVES + '/test_progress_indicator_directive.js',
         DIRECTIVES + '/test_results_charts_directive.js',
         DIRECTIVES + '/test_results_grid_directive.js',
 
