@@ -4,13 +4,13 @@
     angular
         .module('purkinje')
         .controller('TestResultsTableController', [
-            '$scope', 'defs', 'util', 'WebSocketService',
+            '$scope', 'util', 'WebSocketService',
             'AvvisoService', '$filter',
             '$translate',
             TestResultsTableController
         ]);
 
-    function TestResultsTableController($scope, defs, util, WebSocketService,
+    function TestResultsTableController($scope, util, WebSocketService,
         AvvisoService, $filter,
         $translate) {
 
