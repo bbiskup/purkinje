@@ -20,8 +20,6 @@
 
         //AvvisoService.notify('mytitle', 'mybody');
 
-        $scope.webSocketEvents = [];
-
         $scope.$on('webSocketMsg', function(event, data) {
             handleWebSocketEvent(event, data);
         });
