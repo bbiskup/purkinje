@@ -64,7 +64,7 @@ BUNDLES = {
         DIRECTIVES + '/test_results_grid_directive.js',
 
         CONTROLLERS + '/navbar_controller.js',
-        CONTROLLERS + '/test_results_table_controller.js',
+        CONTROLLERS + '/dashboard_controller.js',
         CONTROLLERS + '/settings_controller.js',
         CONTROLLERS + '/about_controller.js',
 
