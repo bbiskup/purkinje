@@ -3,14 +3,14 @@
 
     angular
         .module('purkinje')
-        .controller('TestResultsTableController', [
+        .controller('DashboardController', [
             '$scope', 'util', 'WebSocketService',
             'AvvisoService', '$filter',
             '$translate',
-            TestResultsTableController
+            DashboardController
         ]);
 
-    function TestResultsTableController($scope, util, WebSocketService,
+    function DashboardController($scope, util, WebSocketService,
         AvvisoService, $filter,
         $translate) {
 
