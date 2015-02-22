@@ -32,6 +32,7 @@ module.exports = function(config) {
             'bower_components/ngMidwayTester/src/ngMidwayTester.js',
 
             // Libs
+            'bower_components/underscore/underscore.js',
             'bower_components//jquery/dist/jquery.js',
             'bower_components/angular/angular.js',
             'bower_components/angular-translate/angular-translate.js',
