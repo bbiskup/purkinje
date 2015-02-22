@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    describe('test-activity-directive tests', function() {
+    describe('test-progress-indicator directive tests', function() {
         var $scope,
             $compile,
             templateStr = '<test-progress-indicator state="state"/>';
