@@ -15,10 +15,12 @@
         }));
 
         it('should display verdict counts', function() {
-            $scope.gridData = [];
-            $scope.verdictCounts = {
-                all: 0
-            };
+            $.extend($scope, {
+                gridData: [],
+                verdictCounts: {
+                    all: 0
+                }
+            });
 
             var template = $compile('<test-results-grid verdict-counts="verdictCounts" gridData="gridData"/>')($scope);
 
