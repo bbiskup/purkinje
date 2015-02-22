@@ -10,7 +10,7 @@ test-js-karma:
 	./node_modules/karma/bin/karma start --single-run
 
 test-js-karma-continuous:
-	./node_modules/karma/bin/karma start
+	./node_modules/karma/bin/karma --browsers=Chrome start
 
 test-js-karma-only-firefox:
 	./node_modules/karma/bin/karma start --single-run --browsers=Firefox
