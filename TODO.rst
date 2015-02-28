@@ -23,8 +23,6 @@ TODOs
 
     - test cases for WebSocket endpoint(s)
 
-    - pre - commit hook?
-
     - Move test config files to subdirectory
 
     - show badge with test coverage(of purkinje project) on github?
@@ -42,17 +40,10 @@ TODOs
 
     - Remove obsolete CSS classes
 
-    - Send first WebSocket message as quickly as possible, to change state to running?
-      (before test case collection; to reduce perceived lag)
-
     - py.test & py.test does not work correctly xdist (-n 2):
       - test results get recorded (all?)
       - no doughnut charts (because no suite-finished event? Investigate)
       - session start and session terminated messages arrive twice
-
-    - Doughnut charts as directives
-
-    - generally: skinny controllers
 
     - heed John Papas style guide
 
@@ -67,8 +58,6 @@ TODOs
 
    - Chartjs tooltips are cut off at the border of the canvas;
      see https://github.com/nnnick/Chart.js/issues/622
-
-   - column filters: select or typeahead?
 
    - show tag counts?
 
