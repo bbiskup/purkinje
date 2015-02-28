@@ -30,10 +30,8 @@
             //console.debug(templateAsHtml);
 
             var isolated = template.isolateScope();
-            isolated.tcCount.should.equal(0);
             isolated.gridOptions.should.have.property('columnDefs').with.length(6);
             isolated.gridOptions.should.have.property('data').with.length(0);
-            isolated.suiteProgress.should.equal(0);
             chai.expect(isolated.verdictCounts).to.deep.equal({all: 0});
 
             // Needs jQuery, not jqLite, which does not allow querying by ID
