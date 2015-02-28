@@ -24,7 +24,6 @@
             handleWebSocketEvent(event, data);
         });
 
-
         function handlews_sessionStarted(data) {
             $scope.data.length = 0;
             $scope.testSuiteName = data.suite_name;
