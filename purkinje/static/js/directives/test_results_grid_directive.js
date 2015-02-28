@@ -29,46 +29,9 @@
                         return $scope.gridOptions.data.length > 0;
                     };
 
-                    $scope.createDummyData = function() {
-                        var data = [],
-                            initialTimestamp = (new Date()).getTime(),
-                            tcCount = 2000;
-                        for (var i = 0; i < tcCount; ++i) {
-                            data.push({
-                                type: 'tc_finished',
-                                verdict: 'pass',
-                                name: i + '_dummy_name',
-                                file: 'dummy_file',
-                                timestamp: (new Date(initialTimestamp + i * 1000)).toISOString(),
-                                duration: i
-                            });
-                        }
-                        $scope.tcCount = tcCount;
-                        $scope.suiteProgress = 100; // adding all results at once
-                        $scope.testSuiteName = 'Dummy Test Suite';
-                        $scope.gridOptions.data = data;
-                        $scope.verdictCounts = {
-                            all: tcCount,
-                            pass: tcCount
-                        };
-                    };
-
-                    $scope.clearEvents = function() {
-                        if ($scope.gridOptions.data) {
-                            $scope.gridOptions.data.length = 0;
-                        }
-
-                        $scope.testSuiteName = null;
-                        $scope.tcCount = 0;
-                        $scope.suiteProgress = 0;
-                        $scope.running = false;
-                    };
-
                     $scope.extGrid = {
                         verdictClassFilter: $filter('verdictClassFilter')
                     };
-
-                    $scope.clearEvents();
                 }
             ]
         };

@@ -18,11 +18,57 @@
         $scope.tcCount = 0;
         $scope.running = false;
 
+        $scope.createDummyData = function() {
+            var data = [],
+                initialTimestamp = (new Date()).getTime(),
+                tcCount = 2000;
+
+            watchData();
+
+            handlews_sessionStarted({
+                suite_name: 'Dummy Suite',
+                tc_count: tcCount
+            });
+            for (var i = 0; i < tcCount; ++i) {
+                handlews_tcFinished({
+                    type: 'tc_finished',
+                    verdict: 'pass',
+                    name: i + '_dummy_name',
+                    file: 'dummy_file',
+                    timestamp: (new Date(initialTimestamp + i * 1000)).toISOString(),
+                    duration: i
+                });
+            }
+
+            handlews_sessionTerminated();
+        };
+
+        $scope.clearEvents = function() {
+            if ($scope.data) {
+                $scope.data.length = 0;
+            }
+
+            $scope.testSuiteName = null;
+            $scope.tcCount = 0;
+            $scope.suiteProgress = 0;
+            $scope.running = false;
+        };
+
         //AvvisoService.notify('mytitle', 'mybody');
 
         $scope.$on('webSocketMsg', function(event, data) {
             handleWebSocketEvent(event, data);
         });
+
+
+        $scope.clearEvents();
+
+        function watchData() {
+            $scope.$watch('data', function() {
+                $scope.verdictCounts = util.countVerdicts($scope.data);
+                $scope.durationCounts = util.classifyDurations($scope.data);
+            });
+        }
 
         function handlews_sessionStarted(data) {
             $scope.data.length = 0;
@@ -73,11 +119,7 @@
                 }
             });
 
-            $scope.$watch('data', function() {
-                $scope.verdictCounts = util.countVerdicts($scope.data);
-                $scope.durationCounts = util.classifyDurations($scope.data);
-            });
-
+            watchData();
             $scope.$apply();
 
             var duration = new Date() - start;

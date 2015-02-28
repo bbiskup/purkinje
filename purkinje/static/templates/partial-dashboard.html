@@ -4,13 +4,11 @@
         <h2 id="test-suite-header" class="testsuite-header-inactive" ng-if="!testSuiteName.length">{["NO_TEST_SUITE" | translate]}</h2>
         <div class="row">
             <div id="stats-area">
-            <test-results-charts tc-count="tcCount" verdict-counts="verdictCounts" duration-counts="durationCounts"/>
+                <test-results-charts tc-count="tcCount" verdict-counts="verdictCounts" duration-counts="durationCounts" />
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <progressbar ng-if="testSuiteName.length" class="testsuite-progress" min="0" max="100" value="suiteProgress"
-                    type="default"
-                    title="{[ 'NUM_TEST_CASES' | translate ]}: {[tcCount]}, {['NUM_EXECUTED' | translate ]}: {[gridData.length]}">{[suiteProgress]} % ({[gridData.length]} of {[tcCount]})</progressbar>
+                    <progressbar ng-if="testSuiteName.length" class="testsuite-progress" min="0" max="100" value="suiteProgress" type="default" title="{[ 'NUM_TEST_CASES' | translate ]}: {[tcCount]}, {['NUM_EXECUTED' | translate ]}: {[gridData.length]}">{[suiteProgress]} % ({[gridData.length]} of {[tcCount]})</progressbar>
                 </div>
 
                 <div class="col-sm-1">
@@ -18,10 +16,21 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
-            <test-results-grid grid-data="data" verdict-counts="verdictCounts"/>
+            <div class="col-sm-9">
+                <div class="btn-group test-case-controls">
+                    <a id="clear-dummy-data-button" class="btn btn-danger" ng-click="clearEvents()" href="#">
+                        <i class="fa fa-trash-o fa-lg"></i>{["CLEAR_BUTTON" | translate]}
+                    </a>
+                    <a id="create-dummy-data-button" class="btn btn-default" ng-click="createDummyData()" href="#">
+                        <i class="fa fa-paper-plane fa-lg"></i>{[ "DUMMY_DATA_BUTTON" | translate]}
+                    </a>
+                </div>
             </div>
         </div>
+        <div class="row">
+            <test-results-grid grid-data="data" verdict-counts="verdictCounts" />
+        </div>
     </div>
+</div>
 </div>
