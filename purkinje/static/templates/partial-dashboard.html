@@ -1,7 +1,7 @@
 <div class="row">
     <div class="main" ng-controller="DashboardController">
-        <h2 ng-if="testSuiteName.length">{[testSuiteName]}</h2>
-        <h2 id="test-suite-header" class="testsuite-header-inactive" ng-if="!testSuiteName.length">{["NO_TEST_SUITE" | translate]}</h2>
+        <h2 ng-if="testSuiteName.length" ng-bind="testSuiteName"></h2>
+        <h2 id="test-suite-header" class="testsuite-header-inactive" ng-if="!testSuiteName.length" translate="NO_TEST_SUITE"></h2>
         <div class="row">
             <div id="stats-area">
                 <test-results-charts tc-count="tcCount" verdict-counts="verdictCounts" duration-counts="durationCounts" />
@@ -20,10 +20,10 @@
             <div class="col-sm-9">
                 <div class="btn-group test-case-controls">
                     <a id="clear-dummy-data-button" class="btn btn-danger" ng-click="clearEvents()" href="#">
-                        <i class="fa fa-trash-o fa-lg"></i>{["CLEAR_BUTTON" | translate]}
+                        <i class="fa fa-trash-o fa-lg"></i> {["CLEAR_BUTTON" | translate]}
                     </a>
                     <a id="create-dummy-data-button" class="btn btn-default" ng-click="createDummyData()" href="#">
-                        <i class="fa fa-paper-plane fa-lg"></i>{[ "DUMMY_DATA_BUTTON" | translate]}
+                        <i class="fa fa-paper-plane fa-lg"></i> {[ "DUMMY_DATA_BUTTON" | translate]}
                     </a>
                 </div>
             </div>

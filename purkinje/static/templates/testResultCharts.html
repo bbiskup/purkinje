@@ -6,25 +6,25 @@
         <ul id="result-summary" ng-if="tcCount > 0">
             <li role="presentation">
                 <a href="#">
-                    <div class="summary-count-label">{["PASS" | translate]}</div>
+                    <div class="summary-count-label" translate="PASS"/>
                     <span class="label label-success label-as-badge">{[ verdictCounts.pass || 0 ]}</span>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#">
-                    <div class="summary-count-label">{["FAILED" | translate]}</div>
+                    <div class="summary-count-label" translate="FAILED"/>
                     <span class="label label-danger label-as-badge">{[ verdictCounts.fail || 0 ]}</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <div class="summary-count-label">{["ERRORS" | translate]}</div>
+                    <div class="summary-count-label" translate="ERRORS"/>
                     <span class="label label-warning label-as-badge">{[ verdictCounts.error || 0 ]}</span>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#">
-                    <div class="summary-count-label">{["SKIPPED" | translate]}</div>
+                    <div class="summary-count-label" translate="SKIPPED"/>
                     <span class="label label-default label-as-badge">{[ verdictCounts.skipped || 0 ]}</span>
                 </a>
             </li>
@@ -37,25 +37,26 @@
         <ul id="duration-summary" ng-if="tcCount > 0">
             <li role="presentation">
                 <a href="#">
-                    <div class="summary-count-label">{["FAST" | translate]}</div>
+                    <div class="summary-count-label" translate="FAST"/>
                     <span class="label duration-fast label-as-badge">{[ durationCounts.fast || 0 ]}</span>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#">
-                    <div class="summary-count-label">{["NORMAL" | translate]}</div>
+                    <div class="summary-count-label" translate="NORMAL"/>
                     <span class="label duration-normal label-as-badge">{[ durationCounts.normal || 0 ]}</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <div class="summary-count-label">{["SLOW" | translate]}</div>
+                    <div class="summary-count-label" translate="SLOW"/>
                     <span class="label duration-slow label-as-badge">{[ durationCounts.slow || 0 ]}</span>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#">
-                    <div class="summary-count-label">{["SLOWEST" | translate]}</div><span class="label duration-slowest label-as-badge">{[ durationCounts.slowest || 0 ]}</span>
+                    <div class="summary-count-label" translate="SLOWEST"/>
+                    <span class="label duration-slowest label-as-badge">{[ durationCounts.slowest || 0 ]}</span>
                 </a>
             </li>
         </ul>
