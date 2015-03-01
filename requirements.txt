@@ -14,9 +14,8 @@ websocket-client==0.23.0
 Werkzeug==0.9.6
 wsgiref==0.1.2
 voluptuous==0.8.7
--e git+https://github.com/bbiskup/flotsam.git@dev#egg=flotsam-dev
--e git+https://github.com/bbiskup/purkinje-messages.git@dev#egg=purkinje-messages-dev
--e git+https://github.com/bbiskup/purkinje-pytest.git@dev#egg=purkinje-pytest-dev
+flotsam>=0.1
+purkinje-messages>=0.1
 Flask-Script==2.0.5
 jsmin==2.1.0
 Flask-Compress==1.0.2
