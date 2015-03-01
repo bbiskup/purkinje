@@ -41,7 +41,7 @@ setup(name='purkinje',
               'purkinje = purkinje.purkinje:main'
           ]
       },
-      classifiers={
+      classifiers=[
           'Development Status :: 2 - Pre-Alpha',
           'Environment :: Console',
           'Environment :: Web Environment',
@@ -49,7 +49,7 @@ setup(name='purkinje',
           'License :: OSI Approved :: MIT License',
           'Programming Language :: Python :: 2.7',
           'Topic :: Software Development :: Testing'
-      },
+      ],
       license='The MIT License (MIT)',
       keywords='purkinje pytest testrunner websockets',
       tests_require=['tox'],
