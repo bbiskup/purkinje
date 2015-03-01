@@ -68,7 +68,7 @@ Build Status
 Branch Status
 ====== ===============
 dev    |travis-dev|
-master |travis-master| (TODO: set up .travis.yml for master, or disable build of master in Travis)
+master |travis-master|
 ====== ===============
 
 Coverage: |coveralls|
