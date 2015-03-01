@@ -6,6 +6,61 @@ Test runner for py.test test framework with web GUI
 
 `Live Demo <http://vsrv14679.customer.xenway.de:5000/#/dashboard/>`_
 
+Getting Started
+===============
+
+pukinje is a browser application intended to run on a spare monitor. It shows results of automated
+tests in realtime. Currently, the only supported test framework is `py.test <http://pytest.org/latest/>`_.
+
+To use purkinje:
+
+Create a virtual environment for purkinje and activate it::
+
+    mkvirtualenv purkinje
+    workon purkinje
+
+Install purkinje::
+
+    pip install purkinje
+
+Launch it::
+
+    purkinje
+
+Open it in a browser::
+
+    google-chrome http://localhost:5000/
+
+Prepare your Python/py.test project for reporting to purkinje. In your project's virtualenv,
+install the py.test plugin for purkinje::
+
+    pip install pytest-purkinje
+
+Run your tests. The results should be visible in the browser::
+
+    py.test
+
+Alternatively, you may run ``purkinje_runner`` in your project directory. It will
+automatically detect changes the the sources and execute py.test::
+
+    purkinje_runner
+
+Known Limitations
+=================
+
+- Security: There is no access restriction; use only on the local machine
+
+  - Anyone can use the web application
+
+  - Anyone can send test results to the purkinje server
+
+  Thus, the server is running on localhost and not accessible from other machines.
+
+- Only a single test suite
+
+  If you run multiple purkinje-enabled test suites simultaneously, test results will
+  get mixed up. This might change in a future version.
+
 Build Status
 ============
 
