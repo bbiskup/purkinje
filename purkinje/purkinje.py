@@ -40,7 +40,7 @@ def main():
         # (WebSocketConnectionClosedException in client)
         # app = DebuggedApplication(app, evalex=True)
 
-        http_server = WSGIServer(('', APP_PORT),
+        http_server = WSGIServer(('localhost', APP_PORT),
                                  app,
                                  handler_class=WebSocketHandler)
 
