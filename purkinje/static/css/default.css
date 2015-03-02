@@ -9,6 +9,7 @@ body {
 
 /* for Angular ui-grid */
 .test-result-table {
+
     /* TODO appropriate dimensions */
     width: 100%;
     height: 600px;
@@ -28,8 +29,7 @@ body {
     background-color: #e0e0e0; /* TODO DRY (bootstrap default gray) */
 }
 .nav-active {
-    font-size: 120%;
-    /* font-weight: bold;
+    font-size: 120%;    /* font-weight: bold;
     */
     text-decoration: underline;
 }
@@ -68,6 +68,7 @@ body {
     background-color: DarkSalmon;
 }
 .label-as-badge {
+
     /* fixed-width badge */
     float: right;
     min-width: 35px; /* Reduce space between label and badge */
@@ -86,8 +87,7 @@ body {
     padding-right: 10px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    /* height: 30px;
+    text-overflow: ellipsis;    /* height: 30px;
     */
 }
 .activity-indicator {
@@ -112,4 +112,7 @@ a.connection-status.connection-closed {
 }
 .test-case-controls {
     padding-bottom: 10px;
+}
+#create-dummy-data-button {
+    display: none;
 }
