@@ -4,9 +4,9 @@
 """ Reading and validation of configuration file
 """
 from builtins import object, basestring
-
 import yaml
 import logging
+import copy
 from voluptuous import Schema  # pylint: disable-msg=W0622
 import voluptuous as v
 
@@ -21,6 +21,10 @@ class ConfigException(Exception):
     def __init__(self, message):
         Exception.__init__(self, message)
 
+DEFAULT_DEBUG_MODE = False
+DEFAULT_LOG_LEVEL = 'debug'
+DEFAULT_PORT = 5000
+
 
 class Config(object):
 
@@ -28,25 +32,35 @@ class Config(object):
     """
     _instance = None  # singleton instance
 
+    DEFAULT_CONFIG = {
+        'global': {'debugMode': DEFAULT_DEBUG_MODE,
+                   'logLevel': DEFAULT_LOG_LEVEL,
+                   'serverPort': DEFAULT_PORT
+                   }
+    }
+
     def __init__(self, config_file_name):
         self._config_file_name = config_file_name
-        logger.debug(
-            'Initializing configuration from file %s',
-            self._config_file_name)
-
         port_spec = v.All(int, v.Range(min=1, max=65535))
 
         self._validation_schema = Schema({
             'global': {
-                v.Required('project-path'): basestring,
-                'server-port': port_spec,
-                v.Optional('log-level'): basestring,
-                v.Required('debug-mode', default=False): bool
+                # v.Required('projectPath'): basestring,
+                v.Required('serverPort', default=DEFAULT_PORT): port_spec,
+                v.Optional('logLevel'): basestring,
+                v.Required('debugMode', default=DEFAULT_DEBUG_MODE): bool
             }
         })
 
-        with open(config_file_name, 'r') as conf_file:
-            self._conf = yaml.load(conf_file)
+        if config_file_name:
+            logger.debug(
+                'Initializing configuration from file %s',
+                self._config_file_name)
+            with open(config_file_name, 'r') as conf_file:
+                self._conf = yaml.load(conf_file)
+        else:
+            logger.debug('No config file; using default values')
+            self._conf = copy.deepcopy(Config.DEFAULT_CONFIG)
 
         # validate and populate default values
         self._conf = self._validate(self._conf)

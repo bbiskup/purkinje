@@ -4,43 +4,66 @@
 
 from __future__ import print_function
 from __future__ import absolute_import
+import sys
+import argparse
 import gevent
 import gevent.monkey
 gevent.monkey.patch_all()
 from gevent.pywsgi import WSGIServer
 from geventwebsocket.handler import WebSocketHandler
 import werkzeug.serving
+from .config import Config
 # from werkzeug.debug import DebuggedApplication
 
-# TODO .app gives error about relative import
-from .app import get_app, send_bulk
-
-APP_PORT = 5000
-DEBUG = True
+CONFIG_FILENAME = 'purkinje.yml'
 
 
-#
+def args_parser():
+    parser = argparse.ArgumentParser(description='purkinje test runner')
+    parser.add_argument('-c', '--config', type=str, action='store',
+                        help='Configuration file name')
+    return parser
+
+
 def main():
     """Starts web application
     """
 
+    parser = args_parser()
+    args = parser.parse_args(sys.argv[1:])
+
+    if 'config' in args:
+        config_filename = args.config
+    else:
+        config_filename = CONFIG_FILENAME
+
+    Config.create(config_filename)
+
+    debug = Config.get().settings()['global']['debugMode']
+
+    from .app import get_app, send_bulk
+
     @werkzeug.serving.run_with_reloader
     def go():
+
         app = get_app()
-        app.debug = DEBUG
+        app.debug = debug
 
         if app.debug:
             app.config.update(SEND_FILE_MAX_AGE_DEFAULT=0)
 
         #  TODO: asset debug settings will cause bad YSLOW rating
         app.config['COMPRESS_DEBUG'] = False
-        app.config['ASSETS_DEBUG'] = DEBUG
+        app.config['ASSETS_DEBUG'] = debug
 
         # Breaks web socket communication
         # (WebSocketConnectionClosedException in client)
         # app = DebuggedApplication(app, evalex=True)
 
-        http_server = WSGIServer(('localhost', APP_PORT),
+        host = 'localhost'
+        port = Config.get().settings()['global']['serverPort']
+        print ('Server: {}:{}'.format(host, port))
+        http_server = WSGIServer((host, port),
                                  app,
                                  handler_class=WebSocketHandler)
 
@@ -50,7 +73,9 @@ def main():
         http_server.serve_forever()
         # app.run()
 
+
 if __name__ == '__main__':
+
     main = werkzeug.serving.run_with_reloader(main)
     print('purkinje ready')
     main()
