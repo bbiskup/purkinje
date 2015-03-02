@@ -25,7 +25,7 @@ class Tox(TestCommand):
         sys.exit(errcode)
 
 setup(name='purkinje',
-      version='0.1.0',
+      version='0.1.1',
       description='Test runner for py.test with web GUI',
       long_description=readme + '\n\n' + history,
       author='Bernhard Biskup',
