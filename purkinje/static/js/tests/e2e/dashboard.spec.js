@@ -37,30 +37,34 @@
             });
         });
 
-        it('Test results available after generating test data', function() {
-            var button = element(by.id('create-dummy-data-button'));
-            button.click();
-            // browser.pause();
-            // browser.wait(element(by.css('.ui-grid-row')).isPresent);
-            /*var elems = element.all(by.css('.ui-grid-row')).then(function() {
-                expect(elems).not.toBe(undefined);
-                expect(elems.length).toBe(2000);
-            });*/
 
-            element.all(by.css('.ui-grid-row')).count().then(function(theCount) {
-                expect(theCount).toBeGreaterThan(0);
-            });
+        // Disabled for now (since button is not visible by default)
+        //
+        // it('Test results available after generating test data', function() {
+        //     var button = element(by.id('create-dummy-data-button'));
 
-            var numTC = element(by.id('total-num-test-cases'));
-            expect(numTC.getText()).toBe('Total number of test cases: 2000');
+        //     button.click();
+        //     // browser.pause();
+        //     // browser.wait(element(by.css('.ui-grid-row')).isPresent);
+        //     /*var elems = element.all(by.css('.ui-grid-row')).then(function() {
+        //         expect(elems).not.toBe(undefined);
+        //         expect(elems.length).toBe(2000);
+        //     });*/
 
-            button = element(by.id('clear-dummy-data-button'));
-            button.click();
-            expect(numTC.isPresent()).toBe(false);
-            element.all(by.css('.ui-grid-row')).count().then(function(theCount) {
-                expect(theCount).toBe(0);
-            });
+        //     element.all(by.css('.ui-grid-row')).count().then(function(theCount) {
+        //         expect(theCount).toBeGreaterThan(0);
+        //     });
 
-        });
+        //     var numTC = element(by.id('total-num-test-cases'));
+        //     expect(numTC.getText()).toBe('Total number of test cases: 2000');
+
+        //     button = element(by.id('clear-dummy-data-button'));
+        //     button.click();
+        //     expect(numTC.isPresent()).toBe(false);
+        //     element.all(by.css('.ui-grid-row')).count().then(function(theCount) {
+        //         expect(theCount).toBe(0);
+        //     });
+
+        // });
     });
 })();
