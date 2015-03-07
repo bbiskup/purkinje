@@ -27,11 +27,11 @@ Install purkinje::
 Optionally, create a configuration file ``purkinje.yml`` with the
 following contents:
 
-global:
-    logLevel: debug
-    debugMode: yes
-    serverPort: 5000
-    serverHost: localhost
+    global:
+        logLevel: debug
+        debugMode: yes
+        serverPort: 5000
+        serverHost: localhost
 
 Launch it::
 
