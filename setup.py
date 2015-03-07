@@ -1,9 +1,9 @@
 import sys
 from setuptools import setup
-from setuptools.command.test import test as TestCommand
+from setuptools.command.test import test as cmd_test
 
 readme = open('README.rst').read()
-history = open('HISTORY.rst').read()
+changes = open('CHANGES.rst').read()
 
 
 def parse_requirements():
@@ -11,10 +11,10 @@ def parse_requirements():
         return req.readlines()
 
 
-class Tox(TestCommand):
+class Tox(cmd_test):
 
     def finalize_options(self):
-        TestCommand.finalize_options(self)
+        cmd_test.finalize_options(self)
         self.test_args = []
         self.test_suite = True
 
@@ -27,7 +27,7 @@ class Tox(TestCommand):
 setup(name='purkinje',
       version='0.1.1',
       description='Test runner for py.test with web GUI',
-      long_description=readme + '\n\n' + history,
+      long_description=readme + '\n\n' + changes,
       author='Bernhard Biskup',
       author_email='bbiskup@gmx.de',
       url='https://github.com/bbiskup/',
