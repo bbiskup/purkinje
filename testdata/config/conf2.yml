@@ -1,3 +1,2 @@
 global:
     logLevel: debug
-    serverPort: 12345

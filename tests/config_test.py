@@ -24,12 +24,16 @@ def test_valid(conf1_name):
     conf_data = conf.settings()
     assert conf_data['global']['logLevel'] == 'debug'
     assert conf_data['global']['debugMode']
+    assert conf_data['global']['serverHost'] == '1.2.3.4'
+    assert conf_data['global']['serverPort'] == 12345
 
 
 def test_valid_default(conf2_name):
     conf = sut.Config(conf2_name)
     conf_data = conf.settings()
     assert conf_data['global']['debugMode'] is False
+    assert conf_data['global']['serverHost'] == 'localhost'
+    assert conf_data['global']['serverPort'] == 5000
 
 
 def test_get_fails_if_uninitialized():

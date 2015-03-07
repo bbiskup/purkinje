@@ -2,3 +2,4 @@ global:
     logLevel: debug
     debugMode: yes
     serverPort: 12345
+    serverHost: 1.2.3.4
