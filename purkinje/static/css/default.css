@@ -4,7 +4,7 @@ See http://angular-ui.github.io/bootstrap/ */
     cursor: pointer;
 }
 body {
-    font-family: "Droid Sans";
+    font-family: "Droid Sans", Arial;
 }
 
 /* for Angular ui-grid */
