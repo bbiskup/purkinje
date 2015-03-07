@@ -39,7 +39,8 @@ def main():
 
     Config.create(config_filename)
 
-    debug = Config.get().settings()['global']['debugMode']
+    conf_global = Config.get().settings()['global']
+    debug = conf_global['debugMode']
 
     from .app import get_app, send_bulk
 
@@ -60,9 +61,9 @@ def main():
         # (WebSocketConnectionClosedException in client)
         # app = DebuggedApplication(app, evalex=True)
 
-        host = 'localhost'
-        port = Config.get().settings()['global']['serverPort']
-        print ('Server: {}:{}'.format(host, port))
+        host = conf_global['serverHost']
+        port = conf_global['serverPort']
+        print('Server: {}:{}'.format(host, port))
         http_server = WSGIServer((host, port),
                                  app,
                                  handler_class=WebSocketHandler)

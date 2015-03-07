@@ -23,6 +23,7 @@ class ConfigException(Exception):
 
 DEFAULT_DEBUG_MODE = False
 DEFAULT_LOG_LEVEL = 'debug'
+DEFAULT_HOST = 'localhost'
 DEFAULT_PORT = 5000
 
 
@@ -46,6 +47,7 @@ class Config(object):
         self._validation_schema = Schema({
             'global': {
                 # v.Required('projectPath'): basestring,
+                v.Required('serverHost', default=DEFAULT_HOST): basestring,
                 v.Required('serverPort', default=DEFAULT_PORT): port_spec,
                 v.Optional('logLevel'): basestring,
                 v.Required('debugMode', default=DEFAULT_DEBUG_MODE): bool
