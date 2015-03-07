@@ -123,7 +123,7 @@ Development
 
 - uses `semantic versioning <http://semver.org/>`_
 - uses `git-flow git workflow <http://nvie.com/posts/a-successful-git-branching-model/>`_
-- Homepage: `https://github.com/bbiskup/purkinje/`_
+- `GitHub page <https://github.com/bbiskup/purkinje/>`_
 
 .. |travis-dev| image:: https://travis-ci.org/bbiskup/purkinje.svg?branch=dev
         :target: https://travis-ci.org/bbiskup/purkinje
