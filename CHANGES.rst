@@ -3,6 +3,13 @@ ChangeLog
 
 Some minor changes were omitted from this list. For details, see git log.
 
+Release 0.1.4
+-------------
+
+2015-03-07
+
+- Fixed formatting in README.rst
+
 Release 0.1.3
 -------------
 
