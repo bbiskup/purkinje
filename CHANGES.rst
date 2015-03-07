@@ -6,6 +6,8 @@ Some minor changes were omitted from this list. For details, see git log.
 Release 0.1.2
 -------------
 
+2015-03-07
+
 - Optional configuration file
 - logLevel, debugMode, serverPort configurable
 - disabled desktop notifications
