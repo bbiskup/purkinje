@@ -8,6 +8,9 @@ Release 0.1.2
 
 - Optional configuration file
 - logLevel, debugMode, serverPort configurable
+- disabled desktop notifications
+- Arial as fallback for Droid Sans font (the latter may not be available
+  on Windows)
 
 Release 0.1.1
 -------------
