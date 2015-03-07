@@ -27,6 +27,7 @@ from flask.ext.compress import Compress
 from assets import register_assets
 
 from purkinje_messages.message import MsgType, Event
+from config import Config
 
 app = Flask(__name__)
 
@@ -211,10 +212,20 @@ def subscribe():
         raise Exception('No WebSocket request')
 
 
+def _check_api_key(msg):
+    if 'apiKey' not in msg:
+                raise Exception('API key missing')
+
+    if not Config.get().is_api_key_valid(msg['apiKey']):
+        raise Exception('API key missing')
+
+
 @app.route('/event')
 def event():
     """WebSocket endpoint for incoming events. These
-       events will be broadcasted to all subscribers
+       events will be broadcasted to all subscribers.
+
+       The sender must pass a valid API key.
     """
     app.logger.debug('event')
     ws = request.environ.get('wsgi.websocket')
@@ -225,6 +236,9 @@ def event():
             msg = Event.parse(msg_str)
             # msg = json.loads(msg_str)
             app.logger.debug('Received event: {}'.format(msg_str))
+
+            # _check_api_key(msg)
+
             if ws:
                 enqueue_msg(msg.serialize())
 

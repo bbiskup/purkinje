@@ -6,6 +6,7 @@ Test runner for py.test test framework with web GUI
 
 `Live Demo <http://vsrv14679.customer.xenway.de:5000/#/dashboard/>`_
 
+
 Getting Started
 ===============
 
@@ -23,7 +24,20 @@ Install purkinje::
 
     pip install purkinje
 
+Optionally, create a configuration file ``purkinje.yml`` with the
+following contents:
+
+global:
+    logLevel: debug
+    debugMode: yes
+    serverPort: 5000
+    serverHost: localhost
+
 Launch it::
+
+    purkinje -f purkinje.yml
+
+or, without configuration file::
 
     purkinje
 
@@ -45,21 +59,24 @@ automatically detect changes the the sources and execute py.test::
 
     purkinje_runner
 
+
 Known Limitations
 =================
 
-- Security: There is no access restriction; use only on the local machine
+- Security: There is **no access restriction**; for now, use only on the local machine
 
   - Anyone can use the web application
 
   - Anyone can send test results to the purkinje server
 
-  Thus, the server is running on localhost and not accessible from other machines.
+  By default, the server is running on localhost and not accessible from
+  other machines.
 
 - Only a single test suite
 
-  If you run multiple purkinje-enabled test suites simultaneously, test results will
-  get mixed up. This might change in a future version.
+  If you run multiple purkinje-enabled test suites simultaneously, test results
+  will get mixed up. This might change in a future version.
+
 
 Build Status
 ============
@@ -74,7 +91,6 @@ master |travis-master|
 Coverage: |coveralls|
 
 
-
 System Requirements
 ===================
 
@@ -82,6 +98,7 @@ System Requirements
   might get replaced e.g. by `guv <https://github.com/veegee/guv>`_.
 - tested on Ubuntu 14.04
 - needs a modern browser that supports WebSockets
+
 
 Supported Python versions
 =========================
@@ -92,14 +109,21 @@ Supported Python versions
   gevent (which is blocking gevent-websocket)
   inotifyx (which is blocking gevent_inotifyx)
 
+
+Supported Operating Systems
+===========================
+
+- The server part has only been tested on Ubuntu Linux 14.04 64 bit
+- The web application should work on any operating system using a modern browser
+  (tested with Chrome 40 and Firefox 35)
+
+
 Development
 ===========
 
 - uses `semantic versioning <http://semver.org/>`_
 - uses `git-flow git workflow <http://nvie.com/posts/a-successful-git-branching-model/>`_
-- Download archive: `branch *dev*`__
-
-__ https://github.com/bbiskup/purkinje/archive/dev.zip
+- `GitHub page <https://github.com/bbiskup/purkinje/>`_
 
 .. |travis-dev| image:: https://travis-ci.org/bbiskup/purkinje.svg?branch=dev
         :target: https://travis-ci.org/bbiskup/purkinje

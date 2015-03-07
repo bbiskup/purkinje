@@ -5,14 +5,12 @@
         .module('purkinje')
         .controller('DashboardController', [
             '$scope', 'util', 'WebSocketService',
-            'AvvisoService', '$filter',
-            '$translate',
+            '$filter', '$translate',
             DashboardController
         ]);
 
     function DashboardController($scope, util, WebSocketService,
-        AvvisoService, $filter,
-        $translate) {
+        $filter, $translate) {
 
         $scope.data = [];
         $scope.tcCount = 0;

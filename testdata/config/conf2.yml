@@ -1,4 +1,2 @@
 global:
-    project-path: /devel/proj1
-    log-level: debug
-    server-port: 12345
+    logLevel: debug
