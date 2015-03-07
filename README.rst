@@ -25,7 +25,7 @@ Install purkinje::
     pip install purkinje
 
 Optionally, create a configuration file ``purkinje.yml`` with the
-following contents:
+following contents::
 
     global:
         logLevel: debug
