@@ -19,3 +19,4 @@ purkinje-messages>=0.1
 Flask-Script==2.0.5
 jsmin==2.1.0
 Flask-Compress==1.0.2
+pyaml==14.12.10
