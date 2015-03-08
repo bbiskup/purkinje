@@ -9,7 +9,7 @@ Release 0.1.7
 
 2015-03-08
 
-- Fix: Removed duplicate dependency
+- Fix: Removed duplicate dependency (fixes Travis build)
 
 Release 0.1.6
 -------------
