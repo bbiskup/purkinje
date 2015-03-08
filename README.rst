@@ -109,6 +109,7 @@ System Requirements
   might get replaced e.g. by `guv <https://github.com/veegee/guv>`_.
 - tested on Ubuntu 14.04
 - needs a modern browser that supports WebSockets
+- Python development packages (``python-dev`` on Ubuntu) is required to build the dependency ``gevent``.
 
 
 Supported Python versions
@@ -116,9 +117,9 @@ Supported Python versions
 
 - Currently, only 2.7.x is supported. Python 3 support is blocked by the following packages:
 
-  cssmin
-  gevent (which is blocking gevent-websocket)
-  inotifyx (which is blocking gevent_inotifyx)
+  - cssmin
+  - gevent (which is blocking gevent-websocket)
+  - inotifyx (which is blocking gevent_inotifyx)
 
 
 Supported Operating Systems

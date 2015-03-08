@@ -25,7 +25,7 @@ class Tox(cmd_test):
         sys.exit(errcode)
 
 setup(name='purkinje',
-      version='0.1.5',
+      version='0.1.6',
       description='Test runner for py.test with web GUI',
       long_description=readme + '\n\n' + changes,
       author='Bernhard Biskup',
@@ -35,7 +35,7 @@ setup(name='purkinje',
       packages=['purkinje'],
       zip_safe=False,
       include_package_data=True,
-      # install_requires=parse_requirements(),
+      install_requires=parse_requirements(),
       entry_points={
           'console_scripts': [
               'purkinje = purkinje.purkinje:main'
