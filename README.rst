@@ -25,7 +25,9 @@ Install purkinje::
     pip install purkinje
 
 Optionally, create a configuration file ``purkinje.yml`` with the
-following contents::
+following contents:
+
+.. code-block:: yaml
 
     global:
         logLevel: debug
@@ -52,7 +54,9 @@ install the py.test plugin for purkinje::
 
 This will automatically activate the plugin and test results will be sent to the
 purkinje server. If you changed the host and/or port, specify them in your
-project's ``pytest.ini``::
+project's ``pytest.ini``:
+
+.. code-block:: ini
 
     [pytest]
         addopts = --websocket_host myhost --websocket_port 40000
