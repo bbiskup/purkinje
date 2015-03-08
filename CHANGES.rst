@@ -3,13 +3,21 @@ ChangeLog
 
 Some minor changes were omitted from this list. For details, see git log.
 
+
+Release 0.1.7
+-------------
+
+2015-03-08
+
+- Fix: Removed duplicate dependency
+
 Release 0.1.6
 -------------
 
 2015-03-08
 
-- Added install_requires to setup.py
-- Added missing requirements cssmin, pyaml
+- Fix: Added install_requires to setup.py
+- Fix: Added missing requirements cssmin, pyaml
 
 Release 0.1.5
 -------------
@@ -24,14 +32,14 @@ Release 0.1.4
 
 2015-03-07
 
-- Fixed formatting in README.rst
+- Fix: formatting in README.rst
 
 Release 0.1.3
 -------------
 
 2015-03-07
 
-- Fixed formatting in README.rst
+- Fix: formatting in README.rst
 
 Release 0.1.2
 -------------
