@@ -10,6 +10,8 @@ Release 0.1.7
 2015-03-08
 
 - Fix: Removed duplicate dependency (fixes Travis build)
+- Syntax highlighting for YAML/INI fragments in README.rst
+  (thanks to `Marc Abramowitz`_)
 
 Release 0.1.6
 -------------
@@ -72,3 +74,5 @@ Start of Development
 --------------------
 
 2014-12-11
+
+.. _`Marc Abramowitz`: https://github.com/msabramo
