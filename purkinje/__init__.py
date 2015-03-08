@@ -1,6 +1,6 @@
 __author__ = 'Bernhard Biskup'
 __email__ = 'bbiskup@gmx.de'
-__version__ = '0.1.6'
+__version__ = '0.1.7'
 
 
 # Additional MIME types for Flask
