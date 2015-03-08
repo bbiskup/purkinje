@@ -50,6 +50,17 @@ install the py.test plugin for purkinje::
 
     pip install pytest-purkinje
 
+This will automatically activate the plugin and test results will be sent to the
+purkinje server. If you changed the host and/or port, specify them in your
+project's ``pytest.ini``::
+
+    [pytest]
+        addopts = --websocket_host myhost --websocket_port 40000
+
+If the settings should be incorrect, there will be a warning message but your
+tests will execute nevertheless. You may add ``-p no:purkinje`` to ``pytest.ini``
+or as a command line argument to ``py.test`` to disable the purkinje plugin.
+
 Run your tests. The results should be visible in the browser::
 
     py.test
