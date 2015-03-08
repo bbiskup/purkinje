@@ -50,3 +50,7 @@ update: install_selenium
 	bower install
 	npm install
 	pip install -e .
+
+upload-pypi:
+	python setup.py sdist upload -r pypi
+
