@@ -9,6 +9,7 @@ Release 0.1.6
 2015-03-08
 
 - Added install_requires to setup.py
+- Added missing requirements cssmin, pyaml
 
 Release 0.1.5
 -------------
