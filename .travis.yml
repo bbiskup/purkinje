@@ -28,6 +28,10 @@ install:
   - #wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   - #sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
   - sudo add-apt-repository -y ppa:chris-lea/node.js
+  
+  - # debug "TypeError: this is undefined" which only occurs on Travis
+  - cat -n /home/travis/build/bbiskup/purkinje/purkinje/static/bower_components/simple-statistics/src/simple_statistics.js
+
   - sudo apt-get -y update
   - # sudo apt-get -y install nodejs google-chrome-stable firefox
   - sudo apt-get -y install nodejs firefox
@@ -38,6 +42,7 @@ install:
 
 before_script:
   - bower install -F
+  - bower list
 
 script:
   - make test-py
