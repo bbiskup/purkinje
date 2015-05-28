@@ -39,9 +39,9 @@ install:
 
 before_script:
   - bower install -F
-  - bower list
 
 script:
+  - bower list
   - make test-py
 
   # E2E Tests
