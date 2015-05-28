@@ -55,9 +55,6 @@ script:
   - # only run in Firefox because Chrome does not work in OpenVZ2oap
   - make test-js-karma-only-firefox
 
-  - # debug "TypeError: this is undefined" which only occurs on Travis
-  - cat -n /home/travis/build/bbiskup/purkinje/purkinje/static/bower_components/simple-statistics/src/simple_statistics.js
-
   - # Disabled because Selenium 2.44 does not work with Firefox
   - # make test-js-protractor
   - make test-js-jshint
