@@ -7,8 +7,8 @@ cache:
   directories:
     - $HOME/.pip-cache/
     - $HOME/.tox
-    - /usr/lib/node_modules/
-    - $HOME/node_modules/
+      #- /usr/lib/node_modules/
+      #- $HOME/node_modules/
     - /home/travis/virtualenv/python2.7
 before_install:
   - "export DISPLAY=:99.0"
