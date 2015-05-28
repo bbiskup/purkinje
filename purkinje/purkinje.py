@@ -63,7 +63,7 @@ def main():
 
         host = conf_global['serverHost']
         port = conf_global['serverPort']
-        print('Server: {}:{}'.format(host, port))
+        print('Server: {0}:{1}'.format(host, port))
         http_server = WSGIServer((host, port),
                                  app,
                                  handler_class=WebSocketHandler)

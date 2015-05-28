@@ -18,7 +18,7 @@ def api():
         while True:
             print('Waiting...')
             message = ws.receive()
-            print('Received "{}"'.format(message))
+            print('Received "{0}"'.format(message))
             ws.send(message)
     return
 

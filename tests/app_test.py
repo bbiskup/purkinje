@@ -29,7 +29,7 @@ class QueueMock(object):
         else:
             result = self._values[0]
             self._values = self._values[1:]
-            logger.debug('QueueMock: returning {}; {} items left'.format(
+            logger.debug('QueueMock: returning {0}; {1} items left'.format(
                 result, len(self._values)))
             return result
 
@@ -75,7 +75,7 @@ def test_send_bulk_cycle_two_messages_gets_sent_in_bulk(app_mocked_backlog,
 def test_send_bulk_cycle_limits_burst_size(
         app_mocked_backlog,
         monkeypatch):
-    dummy_messages = ['msg_{}'.format(x)
+    dummy_messages = ['msg_{0}'.format(x)
                       for x
                       in range(26)]
     monkeypatch.setattr(sut, 'BACKLOG', QueueMock(dummy_messages))
@@ -170,7 +170,7 @@ def test_register_client_with_invalid_config_not_added(client_conf,
 
 # ws = websocket.create_connection('ws://127.0.0.1:5000/subscribe')
 #     view_url = url_for('subscribe')
-#     full_url = '{}{}'.format(ws_url_base, view_url)
+#     full_url = '{0}{1}'.format(ws_url_base, view_url)
 #     ws = websocket.create_connection(full_url)
 
 

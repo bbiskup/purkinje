@@ -79,7 +79,7 @@ def _send_bulk_cycle():
 
     bulk_len = len(bulk)
     if bulk_len:
-        app.logger.debug('Sending {} messages to {} clients'.format(
+        app.logger.debug('Sending {0} messages to {1} clients'.format(
             bulk_len, len(clients)
         ))
 
@@ -185,7 +185,7 @@ def _register_client(ws):
     client_conf_ = ws.receive()
 
     if not client_conf_:
-        raise ValueError('Invalid client conf: {}'.format(client_conf_))
+        raise ValueError('Invalid client conf: {0}'.format(client_conf_))
 
     client_conf = json.loads(client_conf_)
     app.logger.debug('Client conf: %s', client_conf)
@@ -235,7 +235,7 @@ def event():
             msg_str = ws.receive()
             msg = Event.parse(msg_str)
             # msg = json.loads(msg_str)
-            app.logger.debug('Received event: {}'.format(msg_str))
+            app.logger.debug('Received event: {0}'.format(msg_str))
 
             # _check_api_key(msg)
 

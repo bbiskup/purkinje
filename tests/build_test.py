@@ -11,7 +11,7 @@ def test_build_static_assets(bundle, tmpdir):
     """Verify that static resources can be built
        (e.g. referenced files exist)
     """
-    os.system('python manage.py assets build --output {} {}/{}'.format(
+    os.system('python manage.py assets build --output {0} {1}/{2}'.format(
         bundle,
         str(tmpdir),
         bundle))

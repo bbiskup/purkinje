@@ -3,10 +3,10 @@ from geventwebsocket.handler import WebSocketHandler
 
 
 def websocket_app(environ, start_response):
-    print('Request for {}'.format(environ["PATH_INFO"]))
+    print('Request for {0}'.format(environ["PATH_INFO"]))
     if environ["PATH_INFO"] == '/echo':
         ws = environ["wsgi.websocket"]
-        print('ws: {}'.format(ws))
+        print('ws: {0}'.format(ws))
 
         while True:
             message = ws.receive()

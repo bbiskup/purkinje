@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     if len(sys.argv) != 2:
         raise Exception(
-            'Usage: {} <websocket URL>\nExample URL: {}'.format(
+            'Usage: {0} <websocket URL>\nExample URL: {1}'.format(
                 __file__,
                 'ws://localhost:5000/event'))
     websocket_url = sys.argv[1]
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     # about project / test suite
 
     for i in range(MSG_COUNT):
-        event = message.TestCaseStartEvent('dummy_client msg #{}'.format(i))
+        event = message.TestCaseStartEvent('dummy_client msg #{0}'.format(i))
         ws.send(event.serialize())
         time.sleep(MSG_INTERVAL)
 
