@@ -41,7 +41,7 @@ def test_get_fails_if_uninitialized():
         sut.Config.get()
 
 
-def test_get_succeeds_if_previously_created(conf1_name):
+def test_get_prev_created(conf1_name):
     conf1 = sut.Config.create(conf1_name)
     assert conf1 is not None
     conf2 = sut.Config.get()

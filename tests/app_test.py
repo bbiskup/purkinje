@@ -127,7 +127,7 @@ def test_trigger_error(client):
         '/trigger_error').status_code == httplib.INTERNAL_SERVER_ERROR
 
 
-def test_register_client_with_valid_config_gets_added(monkeypatch):
+def test_reg_client_valid_conf(monkeypatch):
     monkeypatch.setattr(sut, 'clients', [])
     mock_ws = Mock()
     mock_ws.receive.return_value = json.dumps({})
@@ -138,7 +138,7 @@ def test_register_client_with_valid_config_gets_added(monkeypatch):
     assert mock_ws.send.call_args[0][0] == sut.WELCOME_MSG
 
 
-def test_register_empty_client_not_added(monkeypatch):
+def test_reg_empty_client(monkeypatch):
     monkeypatch.setattr(sut, 'clients', [])
 
     with pytest.raises(Exception):
