@@ -3,6 +3,18 @@ ChangeLog
 
 Some minor changes were omitted from this list. For details, see git log.
 
+Release 0.1.8
+-------------
+
+- Changed demo server URL (HostEurope server)
+- Upgraded py version
+- Removed obsolete debug output of problematic JS package simple-statistics
+- Pin version of simple-statistics to 0.9.0, as 0.9.2 has error
+- Miscellaneous fixes/improvements related to Travis
+- Shorter test function names
+- Miscellaneous code style improvements
+- Set github homepage
+
 
 Release 0.1.7
 -------------
