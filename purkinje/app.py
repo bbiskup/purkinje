@@ -280,3 +280,9 @@ def webfont_workaround():
 
     # TODO pass on Query string (v=4.2.0)?
     return redirect(op.join(fontawesome_dir, 'fonts/fontawesome-webfont.woff'))
+
+
+@app.after_request
+def add_header(response):
+    response.cache_control.max_age = 300
+    return response
