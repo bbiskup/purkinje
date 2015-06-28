@@ -26,6 +26,7 @@ def test_valid(conf1_name):
     assert conf_data['global']['debugMode']
     assert conf_data['global']['serverHost'] == '1.2.3.4'
     assert conf_data['global']['serverPort'] == 12345
+    assert conf_data['global']['compressAssets']
 
 
 def test_valid_default(conf2_name):
@@ -34,6 +35,7 @@ def test_valid_default(conf2_name):
     assert conf_data['global']['debugMode'] is False
     assert conf_data['global']['serverHost'] == 'localhost'
     assert conf_data['global']['serverPort'] == 5000
+    assert conf_data['global']['compressAssets']
 
 
 def test_get_fails_if_uninitialized():

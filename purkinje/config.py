@@ -25,6 +25,7 @@ DEFAULT_DEBUG_MODE = False
 DEFAULT_LOG_LEVEL = 'debug'
 DEFAULT_HOST = 'localhost'
 DEFAULT_PORT = 5000
+DEFAULT_COMPRESS_ASSETS = True
 
 
 class Config(object):
@@ -36,7 +37,8 @@ class Config(object):
     DEFAULT_CONFIG = {
         'global': {'debugMode': DEFAULT_DEBUG_MODE,
                    'logLevel': DEFAULT_LOG_LEVEL,
-                   'serverPort': DEFAULT_PORT
+                   'serverPort': DEFAULT_PORT,
+                   'compressAssets': DEFAULT_COMPRESS_ASSETS,
                    }
     }
 
@@ -50,7 +52,9 @@ class Config(object):
                 v.Required('serverHost', default=DEFAULT_HOST): basestring,
                 v.Required('serverPort', default=DEFAULT_PORT): port_spec,
                 v.Optional('logLevel'): basestring,
-                v.Required('debugMode', default=DEFAULT_DEBUG_MODE): bool
+                v.Required('debugMode', default=DEFAULT_DEBUG_MODE): bool,
+                v.Required('compressAssets',
+                           default=DEFAULT_COMPRESS_ASSETS): bool
             }
         })
 

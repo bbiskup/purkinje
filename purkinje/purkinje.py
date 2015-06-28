@@ -54,7 +54,7 @@ def main():
             app.config.update(SEND_FILE_MAX_AGE_DEFAULT=0)
 
         #  TODO: asset debug settings will cause bad YSLOW rating
-        app.config['COMPRESS_DEBUG'] = False
+        app.config['COMPRESS_DEBUG'] = conf_global['compressAssets']
         app.config['ASSETS_DEBUG'] = debug
 
         # Breaks web socket communication
