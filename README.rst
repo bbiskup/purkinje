@@ -4,7 +4,7 @@ purkinje
 
 Test runner for py.test test framework with web GUI
 
-`Live Demo <http://vsrv14679.customer.xenway.de:5000/#/dashboard/>`_
+`Live Demo <http://lvps46-163-112-196.dedicated.hosteurope.de:5000/#/dashboard/>`_
 
 
 Getting Started
