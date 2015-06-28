@@ -7,7 +7,7 @@ greenlet==0.4.5
 itsdangerous==0.24
 Jinja2==2.7.3
 MarkupSafe==0.23
-py==1.4.26
+py>=1.4.29
 six==1.8.0
 webassets==0.10.1
 websocket-client==0.23.0
