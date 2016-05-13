@@ -10,7 +10,7 @@ Test runner for py.test test framework with web GUI
 Getting Started
 ===============
 
-pukinje is a browser application intended to run on a spare monitor. It shows results of automated
+purkinje is a browser application intended to run on a spare monitor. It shows results of automated
 tests in realtime. Currently, the only supported test framework is `py.test <http://pytest.org/latest/>`_.
 
 To use purkinje:
