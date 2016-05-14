@@ -3,8 +3,26 @@ ChangeLog
 
 Some minor changes were omitted from this list. For details, see git log.
 
+Release 0.1.9
+-------------
+
+2016-05-14
+
+- Reduced size of ``purkinje`` package
+  - don't add web assets cache
+  - remove some unnecessary JS resources
+- Configurable asset compression
+- Updated most third-party Python libs
+- Updated some third-party JavaScript libs
+- Added cache control header
+- Added warning about hanging Flask server with ``gevent`` when
+  ``watchdog`` package is installed
+- misc. minor fixes
+
 Release 0.1.8
 -------------
+
+2015-06-28
 
 - Changed demo server URL (HostEurope server)
 - Upgraded py version
