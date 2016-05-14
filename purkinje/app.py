@@ -17,6 +17,7 @@ import logging
 import sys
 import httplib
 import os
+import pwd
 import socket
 import os.path as op
 
@@ -171,9 +172,10 @@ def index():
 
 @app.route('/api/server_info', methods=['GET'])
 def server_info():
+    user_name = pwd.getpwuid(os.geteuid()).pw_name
     return jsonify(host=socket.gethostname(),
                    directory=os.getcwd(),
-                   user=os.getlogin())
+                   user=user_name)
 
 
 @app.route('/trigger_error', methods=['GET'])
