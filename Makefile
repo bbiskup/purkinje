@@ -31,9 +31,13 @@ test: test-py test-js
 doc-clean:
 	(cd docs/ && make clean)
 
-dist:
+sdist:
 	python setup.py sdist
+
+wheel:
 	python setup.py bdist_wheel
+
+dist: sdist wheel
 
 .PHONY: dist
 
