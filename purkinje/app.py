@@ -29,6 +29,18 @@ from assets import register_assets
 from purkinje_messages.message import MsgType, Event
 from config import Config
 
+
+# watchdog not compatible with gevent
+# see https://github.com/gorakhargosh/watchdog/issues/306
+try:
+    import watchdog  # NOQA
+    print('#' * 79)
+    print('WARNING: Package "watchdog" detected;'
+          ' will cause Flask reloader to freeze')
+    print('#' * 79)
+except ImportError as e:
+    pass
+
 app = Flask(__name__)
 
 Compress(app)
