@@ -4,9 +4,10 @@
 """ Reading and validation of configuration file
 """
 from builtins import object, basestring
-import yaml
 import logging
 import copy
+
+import yaml
 from voluptuous import Schema  # pylint: disable-msg=W0622
 import voluptuous as v
 

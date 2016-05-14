@@ -4,14 +4,18 @@
 
 from __future__ import print_function
 from __future__ import absolute_import
-import sys
-import argparse
+
 import gevent
 import gevent.monkey
 gevent.monkey.patch_all()
+
+import sys
+import argparse
+
 from gevent.pywsgi import WSGIServer
 from geventwebsocket.handler import WebSocketHandler
 import werkzeug.serving
+
 from .config import Config
 # from werkzeug.debug import DebuggedApplication
 

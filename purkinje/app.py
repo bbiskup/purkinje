@@ -10,8 +10,7 @@ standard_library.install_aliases()
 import gevent.monkey
 gevent.monkey.patch_all()
 import gevent
-import gevent.queue as gq
-from geventwebsocket import WebSocketError
+
 import json
 import logging
 import sys
@@ -20,9 +19,11 @@ import os
 import pwd
 import socket
 import os.path as op
-
 from datetime import datetime
 import copy
+
+import gevent.queue as gq
+from geventwebsocket import WebSocketError
 from flask import Flask, render_template, request, redirect, jsonify
 from flask.ext.compress import Compress
 from assets import register_assets
