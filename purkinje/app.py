@@ -214,7 +214,7 @@ def subscribe():
 
 def _check_api_key(msg):
     if 'apiKey' not in msg:
-                raise Exception('API key missing')
+        raise Exception('API key missing')
 
     if not Config.get().is_api_key_valid(msg['apiKey']):
         raise Exception('API key missing')
@@ -265,7 +265,7 @@ def websocket_client():
 
 
 @app.route('/static/fonts/fontawesome-webfont.woff')
-def webfont_workaround():
+def fontawesome_webfont_workaround():
     """TODO remove workaround for fontawesome webfont
 
        Work-around needed because Font-Awesome does not reference the actual
@@ -280,6 +280,15 @@ def webfont_workaround():
 
     # TODO pass on Query string (v=4.2.0)?
     return redirect(op.join(fontawesome_dir, 'fonts/fontawesome-webfont.woff'))
+
+
+@app.route('/static/gen/ui-grid.woff')
+def uigrid_webfont_workaround():
+    """See :py:func:fontawesome_webfont_workaround"""
+    ui_grid_dir = '/static/bower_components/angular-ui-grid/'
+
+    # TODO pass on Query string (v=4.2.0)?
+    return redirect(op.join(ui_grid_dir, 'ui-grid.woff'))
 
 
 @app.after_request
