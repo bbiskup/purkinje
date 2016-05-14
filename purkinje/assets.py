@@ -42,7 +42,7 @@ BUNDLES = {
         BC + '/angular-ui-grid/ui-grid.js',
         BC + '/simple-statistics/src/simple_statistics.js',
         BC + '/ng-blink/ng-blink.js',
-        BC + '/modernizr/modernizr.js',
+        BC + '/modernizr/src/Modernizr.js',
 
         BC + '/Chart.js/Chart.js',
         BC + '/tc-angular-chartjs/dist/tc-angular-chartjs.js',
