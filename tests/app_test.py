@@ -178,7 +178,13 @@ def test_websocket_client(client):
     assert client.get(url_for('websocket_client')).status_code == httplib.OK
 
 
-def test_webfont_workaround(client):
+def test_fontawesome_webfont_workaround(client):
     status = client.get(url_for(
-        'webfont_workaround')).status_code
+        'fontawesome_webfont_workaround')).status_code
+    assert status == httplib.FOUND
+
+
+def test_uigrid_webfont_workaround(client):
+    status = client.get(url_for(
+        'uigrid_webfont_workaround')).status_code
     assert status == httplib.FOUND
