@@ -1,5 +1,8 @@
-recursive-include purkinje/templates *
 recursive-include purkinje/static *
+recursive-exclude purkinje/static/.webassets-cache *
+recursive-exclude purkinje/static/bower_components/ui-bootstrap/src *
+recursive-exclude purkinje/static/bower_components/jquery/src *
+recursive-exclude purkinje/static/bower_components/Chart.js/src *
 
 include  requirements.txt
 include  dev-requirements.txt
