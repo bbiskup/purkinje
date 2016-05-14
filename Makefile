@@ -7,13 +7,13 @@ test-tox:
 test-py: test-tox
 
 test-js-karma:
-	./node_modules/karma/bin/karma start --single-run
+	LANG=en ./node_modules/karma/bin/karma start --single-run
 
 test-js-karma-continuous:
-	./node_modules/karma/bin/karma --browsers=Chrome start
+	LANG=en ./node_modules/karma/bin/karma --browsers=Chrome start
 
 test-js-karma-only-firefox:
-	./node_modules/karma/bin/karma start --single-run --browsers=Firefox
+	LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox
 
 test-js-protractor:
 	npm test
@@ -35,11 +35,16 @@ dist:
 	python setup.py sdist
 	python setup.py bdist_wheel
 
+.PHONY: dist
+
 build-docker:
 	sudo docker build .
 
+assets-clean:
+	rm -rf purkinje/static/.webassets-cache
+
 # Build Flask assets
-assets:
+assets: assets-clean
 	python manage.py assets build
 
 install_selenium:
@@ -51,6 +56,6 @@ update: install_selenium
 	npm install
 	pip install -e .
 
-upload-pypi:
+upload-pypi: assets-clean
 	python setup.py sdist upload -r pypi
 
