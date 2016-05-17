@@ -63,6 +63,12 @@ TODOs
 
    - show nav menu when view is too narrow
 
+   - show error when WebSocket communication is blocked by proxy
+     20150516: only shows 'Disconnected' icon. Console shows error
+     in angular-reconnecting-websocket.js:124
+
+   - Better looking idle state with no data?
+
 #) Performance
 
     - YSlow / PageSpeed checks
