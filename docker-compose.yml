@@ -1,0 +1,28 @@
+version: "2"
+services:
+    base:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: Dockerfile
+        networks:
+            - default
+    purkinje:
+        extends: base
+        ports:
+            - "5000:5000"
+    dev:
+        extends: base
+        restart: "no"
+        volumes:
+            - ./purkinje:/code/purkinje
+            - ./docker/purkinje.yml:/code/purkinje.yml
+            - ./tests:/code/tests
+            - ./pytest.ini:/code/pytest.ini
+            - ./tox.ini:/code/tox.ini
+        ports:
+            - "5001:5000"
+        entrypoint:
+            - bash
+            - -c
+        command: bash

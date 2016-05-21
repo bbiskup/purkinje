@@ -1,0 +1,8 @@
+global:
+    # projectPath: /devel/proj1
+    logLevel: debug
+    debugMode: yes
+    serverPort: 5000
+    serverHost: 0.0.0.0
+    # api-key: d16fb36f0911f878998c136191af705e
+    compressAssets: yes

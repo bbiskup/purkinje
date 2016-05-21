@@ -1,23 +1,40 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Bernhard Biskup <bbiskup@gmx.de>
 
 # Install dependencies
 RUN echo 'Running installation'
-WORKDIR /build
+WORKDIR /code
+
+ENV NODE_DIR=node-v6.2.0-linux-x64
+ENV NODE_ARCHIVE=$NODE_DIR.tar.xz
+ENV PATH=/opt/node/bin:$PATH
 
 RUN apt-get -y update && apt-get install -y \
     firefox \
+    gcc \
     libyaml-dev \
     make \
     python \
     python-dev \
     software-properties-common \
-    wget
-RUN add-apt-repository -y ppa:chris-lea/node.js
-RUN apt-get -y update && apt-get install -y \
-    nodejs
+    wget \
+    xz-utils
 
-# RUN apt-get -y install nodejs google-chrome-stable firefox
+# Install Google Chrome
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+RUN apt-get update -yy && apt-get install -yy google-chrome-stable
+RUN google-chrome --version
+
+# Install node.js; use most recent version to have access to latest features
+WORKDIR /opt
+RUN wget https://nodejs.org/dist/v6.2.0/$NODE_ARCHIVE && \
+    tar xJf $NODE_ARCHIVE && \
+    ln -s /opt/$NODE_DIR /opt/node && \
+    rm $NODE_ARCHIVE
+WORKDIR /code
+RUN node --version
+RUN npm --version
 
 # Ubuntu's python-pip throws exception with requests lib
 # see https://bugs.launchpad.net/ubuntu/+source/python-pip/+bug/1306991
@@ -25,47 +42,42 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
     rm get-pip.py
 
-ADD package.json /build/package.json
-ADD bower.json /build/bower.json
-ADD .bowerrc /build/.bowerrc
+ADD package.json /code/package.json
+ADD bower.json /code/bower.json
+ADD .bowerrc /code/.bowerrc
 
 RUN npm install
 
 # Set up Chrome webdriver for Protractor
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
-ADD README.rst /build/README.rst
-ADD CHANGES.rst /build/CHANGES.rst
+ADD README.rst /code/README.rst
+ADD CHANGES.rst /code/CHANGES.rst
 
-ADD requirements.txt /build/requirements.txt
-ADD dev-requirements.txt /build/dev-requirements.txt
+ADD requirements.txt /code/requirements.txt
+ADD dev-requirements.txt /code/dev-requirements.txt
 
 # Python
 RUN pip install --upgrade -r dev-requirements.txt --cache-dir $HOME/.pip-cache
-ENTRYPOINT "/bin/bash"
+
+# Avoid Flask freezing
+RUN pip uninstall -y watchdog
+
 RUN echo "Installed Python packages:"
 RUN pip freeze
 
+ADD tox.ini /code/tox.ini
+ADD pytest.ini /code/pytest.ini
+ADD MANIFEST.in /code/MANIFEST.in
+ADD setup.py /code/setup.py
+ADD Makefile /code/Makefile
+ADD purkinje /code/purkinje
+ADD ./docker/purkinje.yml /code/purkinje.yml
 
-ADD tox.ini /build/tox.ini
-ADD pytest.ini /build/pytest.ini
-ADD MANIFEST.in /build/MANIFEST.in
-ADD setup.py /build/setup.py
-ADD Makefile /build/Makefile
-ADD purkinje /build/purkinje
+RUN pip install -e .
 
+## Build tox environment
+# RUN echo ls /code; ls /code
+# RUN cd /code; tox -r
 
-
-# JS
-#wget -q -O https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-#sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-
-
-
-# Build tox environment
-RUN echo ls /build; ls /build
-RUN cd /build; tox -r
-
-#ENTRYPOINT ["/bin/bash", "-c", "cd", "/build", ";", "make"]
-#ENTRYPOINT "date"
-ENTRYPOINT cd /build ; make test
+ENTRYPOINT ["purkinje", "-c", "purkinje.yml"]

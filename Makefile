@@ -1,3 +1,9 @@
+build-docker:
+	docker-compose build
+
+stack-up: build-docker
+	docker-compose up -d
+
 doc:
 	(cd docs/ && make html)
 
@@ -40,9 +46,6 @@ wheel:
 dist: sdist wheel
 
 .PHONY: dist
-
-build-docker:
-	sudo docker build .
 
 assets-clean:
 	rm -rf purkinje/static/.webassets-cache
