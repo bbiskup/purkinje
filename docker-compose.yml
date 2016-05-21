@@ -18,8 +18,11 @@ services:
             - ./purkinje:/code/purkinje
             - ./docker/purkinje.yml:/code/purkinje.yml
             - ./tests:/code/tests
+            - ./testdata:/code/testdata
             - ./pytest.ini:/code/pytest.ini
             - ./tox.ini:/code/tox.ini
+            - ./.jshintrc:/code/.jshintrc
+            - ./data/tox:/code/.tox
         ports:
             - "5001:5000"
         entrypoint:
