@@ -61,15 +61,6 @@ assets-clean:
 assets: assets-clean
 	python manage.py assets build
 
-install_selenium:
-	./node_modules/protractor/bin/webdriver-manager update
-
-update: install_selenium
-	pip install -r dev-requirements.txt
-	bower install
-	npm install
-	pip install -e .
-
 upload-pypi: assets-clean
 	python setup.py sdist upload -r pypi
 
