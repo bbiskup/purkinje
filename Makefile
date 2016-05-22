@@ -5,7 +5,10 @@ stack-up: build-docker
 	docker-compose up -d
 
 test-js-karma-docker:
-	./dockercmd.sh "Xvfb :1 -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:1 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox,Chrome"
+	./dockercmd.sh "Xvfb :0 -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox,Chrome"
+
+test-js-protractor-docker:
+	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 npm test"
 
 doc:
 	(cd docs/ && make html)

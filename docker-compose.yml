@@ -25,10 +25,13 @@ services:
             - ./.jshintrc:/code/.jshintrc
             - ./karma.conf.js:/code/karma.conf.js
             - ./mocha.conf.js:/code/mocha.conf.js
+            - ./protractor-conf.js:/code/protractor-conf.js
             - ./data/tox:/code/.tox
-            - /tmp/.X11-unix:/tmp/.X11-unix
+            # - /tmp/.X11-unix:/tmp/.X11-unix
         ports:
             - "5001:5000"
+        links:
+            - purkinje
         environment:
             - DISPLAY=unix${DISPLAY}
         entrypoint:
