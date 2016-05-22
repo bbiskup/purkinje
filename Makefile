@@ -1,8 +1,12 @@
 build-docker:
 	docker-compose build
+	$(MAKE) bower-install
 
 stack-up: build-docker
 	docker-compose up -d
+
+bower-install:
+	./dockercmd.sh bower --allow-root install -F
 
 build-dist:
 	./dockercmd.sh docker build -f Dockerfile.dist -t purkinje_dist .
