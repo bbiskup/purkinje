@@ -4,7 +4,6 @@ python:
   - "2.7"
 cache:
   apt: true
-  # TODO local node modules path correct?
   directories:
     - $HOME/data
 
@@ -15,7 +14,9 @@ before_install:
     - docker-compose --version
 
     - sudo service docker stop
-    - sudo bash -c "curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz > /usr/bin/docker"
+    - curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz
+    - tar xzvf docker-1.11.0.tgz
+    - sudo mv docker /usr/bin
     - sudo chmod +x /usr/bin/docker
     - sudo service docker restart
     - docker ps
