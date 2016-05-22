@@ -14,10 +14,10 @@ before_install:
     - type docker-compose
     - docker-compose --version
 
-    - service docker stop
+    - sudo service docker stop
     - sudo bash -c "curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz > /usr/bin/docker"
     - sudo chmod +x /usr/bin/docker
-    - service docker restart
+    - sudo service docker restart
     - docker ps
     - sudo bash -c "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
     - sudo chmod +x /usr/local/bin/docker-compose
