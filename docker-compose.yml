@@ -14,6 +14,7 @@ services:
     dev:
         extends: base
         restart: "no"
+        privileged: yes
         volumes:
             - ./purkinje:/code/purkinje
             - ./docker/purkinje.yml:/code/purkinje.yml
@@ -22,9 +23,14 @@ services:
             - ./pytest.ini:/code/pytest.ini
             - ./tox.ini:/code/tox.ini
             - ./.jshintrc:/code/.jshintrc
+            - ./karma.conf.js:/code/karma.conf.js
+            - ./mocha.conf.js:/code/mocha.conf.js
             - ./data/tox:/code/.tox
+            - /tmp/.X11-unix:/tmp/.X11-unix
         ports:
             - "5001:5000"
+        environment:
+            - DISPLAY=unix${DISPLAY}
         entrypoint:
             - bash
             - -c

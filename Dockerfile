@@ -80,4 +80,7 @@ RUN pip install -e .
 # RUN echo ls /code; ls /code
 # RUN cd /code; tox -r
 
+# TODO consolidate all apt-get; clean up after install
+RUN apt-get install -y xvfb
+
 ENTRYPOINT ["purkinje", "-c", "purkinje.yml"]
