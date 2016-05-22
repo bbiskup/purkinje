@@ -34,9 +34,17 @@ before_install:
 install:
     - make stack-up
 
+before_script:
+    - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    - docker pull bbiskup/purkinje_dev:latest || true
+
 script:
    - make test
    - make doc
 
-# after_success:
-#   make coveralls
+after_success:
+    #   make coveralls
+    - docker tag -f purkinje_dev bbiskup/purkinje_dev:latest
+    - docker tag purkinje_dev bbiskup/purkinje_dev:$TRAVIS_BUILD_NUMBER
+    - docker push bbiskup/purkinje_dev:latest
+    - docker push bbiskup/purkinje_dev:$TRAVIS_BUILD_NUMBER
