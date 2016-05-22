@@ -9,13 +9,10 @@ cache:
     - $HOME/data
 
 before_install:
-    - apt-get update -yy
-    - apt-get install make
+    - sudo apt-get update -yy
+    - sudo apt-get install make
 install:
     - make stack-up
-
-before_script:
-  - bower install -F
 
 script:
    - make test

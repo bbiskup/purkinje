@@ -27,6 +27,10 @@ TODOs
 
     - show badge with test coverage(of purkinje project) on github?
 
+#) Continuous integration
+
+    - Configure and activated coveralls
+
 #) Code
 
     - verify each JS file uses strict mode
