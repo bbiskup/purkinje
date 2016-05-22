@@ -35,7 +35,7 @@ test-js-esvalidate:
 	./dockercmd.sh 'find purkinje/static/js/ -iname "*.js" |xargs ./node_modules/esvalidate/bin/esvalidate'
 
 test-js-jshint:
-	./node_modules/jshint/bin/jshint *.js purkinje/static/js
+	./dockercmd.sh './node_modules/jshint/bin/jshint *.js purkinje/static/js'
 
 test-js: test-js-jshint test-js-karma test-js-protractor test-js-esvalidate
 

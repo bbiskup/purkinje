@@ -35,12 +35,6 @@ install:
     - make stack-up
 
 script:
-   - echo '## script'
-   - pwd
-   - ls -l
-   - ls -l node_modules
-   - ls -l node_modules/jshint
-   - ls -l node_modules/jshint/bin
    - make test
    - make doc
 
