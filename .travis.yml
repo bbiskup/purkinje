@@ -6,7 +6,8 @@ cache:
   apt: true
   directories:
     - $HOME/data
-    - /var/lib/docker
+    # Permission denied
+    # - /var/lib/docker
 
 before_install:
     - type docker
