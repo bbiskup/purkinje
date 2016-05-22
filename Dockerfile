@@ -75,6 +75,11 @@ RUN pip uninstall -y watchdog
 RUN echo "Installed Python packages:"
 RUN pip freeze
 
+# TODO remove git dependency when removing bower
+RUN apt-get update -yy && apt-get install -yy git
+RUN npm install -g bower
+RUN bower --allow-root install -F
+
 ADD tox.ini /code/tox.ini
 ADD pytest.ini /code/pytest.ini
 ADD MANIFEST.in /code/MANIFEST.in
@@ -84,15 +89,7 @@ ADD purkinje /code/purkinje
 ADD ./docker/purkinje.yml /code/purkinje.yml
 
 RUN pip install -e .
-
-## Build tox environment
-# RUN echo ls /code; ls /code
-# RUN cd /code; tox -r
-
-# TODO remove git dependency when removing bower
-RUN apt-get update -yy && apt-get install -yy git
-RUN npm install -g bower
-RUN bower --allow-root install -F
+RUN python setup.py sdist
 
 ENV NODE_ARCHIVE ""
 ENV NODE_DIR ""
