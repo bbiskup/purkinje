@@ -8,7 +8,7 @@
         //seleniumAddress: 'http://localhost:4444/wd/hub',
         specs: ['purkinje/static/js/tests/e2e/*.spec.js'],
 
-        baseUrl: 'http://localhost:5000/',
+        baseUrl: 'http://purkinje:5000/',
 
         capabilities: {
             // Selenium
@@ -17,7 +17,8 @@
             //browserName: 'firefox',
             browserName: 'chrome',
         },
-        // chromeOnly: true
+        //directConnect: true,
+        chromeOnly: true,
 
         jasmineNodeOpts: {
             isVerbose: true,
