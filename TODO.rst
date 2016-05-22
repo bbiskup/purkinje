@@ -33,6 +33,8 @@ TODOs
 
 #) Code
 
+    - Python 3 support?
+
     - verify each JS file uses strict mode
 
     - set purkinje.__version__ and use it in setup.py
@@ -136,11 +138,6 @@ TODOs
 
 Issues
 ======
-
-- Exception KeyError:
-    KeyError(139899605760272,) in < module 'threading' from '/usr/lib/python2.7/threading.pyc' > ignored(after py.test execution
-    not causing a problem, but irritating
-    see http: // stackoverflow.com / questions / 8774958 / keyerror - in-module - threading - after - a - successful - py - test - run)
 
 - Memory leak in Chrome:
 
