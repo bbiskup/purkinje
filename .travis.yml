@@ -1,67 +1,25 @@
-language: python
+sudo: required
+dist: xenial
 python:
   - "2.7"
 cache:
   apt: true
   # TODO local node modules path correct?
   directories:
-    - $HOME/.pip-cache/
-    - $HOME/.tox
-    - /usr/lib/node_modules/
-    - $HOME/node_modules/
-    - /home/travis/virtualenv/python2.7
+    - $HOME/data
+
 before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+    - apt-get update -yy
+    - apt-get install make
 install:
-  - echo 'Running installation in directory $PWD'
-  - # Python
-  - pip install -r dev-requirements.txt --download-cache $HOME/.pip-cache --use-mirrors
-
-    # needed for Sphinx
-  - pip install -e .
-
-  - echo "Installed Python packages:"
-  - pip freeze
-
-  - # JS
-  - #wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  - #sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - sudo add-apt-repository -y ppa:chris-lea/node.js
-
-  - sudo apt-get -y update
-  - # sudo apt-get -y install nodejs google-chrome-stable firefox
-  - sudo apt-get -y install nodejs firefox
-  - sudo npm install
-
-  - # Set up Chrome webdriver for Protractor
-  - ./node_modules/protractor/bin/webdriver-manager update
+    - make stack-up
 
 before_script:
   - bower install -F
 
 script:
-  - bower list
-  - make test-py
+   - make test
+   - make doc
 
-  # E2E Tests
-  # Setup up JS E2E
-  - # google-chrome --no-sandbox &
-
-  - # Start server for E2E tests
-  - ./run.py &
-  - sleep 5
-
-  - # only run in Firefox because Chrome does not work in OpenVZ2oap
-  - make test-js-karma-only-firefox
-
-  - # Disabled because Selenium 2.44 does not work with Firefox
-  - # make test-js-protractor
-  - make test-js-jshint
-
-
-  - # Documentation
-  - make doc
-
-after_succes:
-  coveralls
+# after_success:
+#   make coveralls

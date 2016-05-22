@@ -4,34 +4,25 @@ build-docker:
 stack-up: build-docker
 	docker-compose up -d
 
-test-js-karma-docker:
+test-js-karma:
 	./dockercmd.sh "Xvfb :0 -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox,Chrome"
 
-test-js-protractor-docker:
+test-js-protractor:
 	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 npm test"
 
-test-js-karma-continuous-docker:
+test-js-karma-continuous:
 	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma --browsers=Chrome start"
 
 doc:
 	./dockercmd.sh "(cd docs/ && make html)"
 
+coveralls:
+	./dockercmd.sh coveralls
+
 test-tox:
 	./dockercmd.sh tox
 
 test-py: test-tox
-
-test-js-karma:
-	LANG=en ./node_modules/karma/bin/karma start --single-run
-
-test-js-karma-continuous:
-	LANG=en ./node_modules/karma/bin/karma --browsers=Chrome start
-
-test-js-karma-only-firefox:
-	LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox
-
-test-js-protractor:
-	npm test
 
 test-js-esvalidate:
 	./dockercmd.sh 'find purkinje/static/js/ -iname "*.js" |xargs node_modules/esvalidate/bin/esvalidate'
