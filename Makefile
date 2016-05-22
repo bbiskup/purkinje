@@ -10,6 +10,9 @@ test-js-karma-docker:
 test-js-protractor-docker:
 	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 npm test"
 
+test-js-karma-continuous-docker:
+	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma --browsers=Chrome start"
+
 doc:
 	./dockercmd.sh "(cd docs/ && make html)"
 
