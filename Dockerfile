@@ -1,3 +1,4 @@
+# Dockerfile for purkinje development
 FROM ubuntu:16.04
 MAINTAINER Bernhard Biskup <bbiskup@gmx.de>
 
@@ -66,7 +67,10 @@ ADD dev-requirements.txt /code/dev-requirements.txt
 RUN pip install --upgrade -r dev-requirements.txt --cache-dir $HOME/.pip-cache
 
 # Avoid Flask freezing
+# watchdog not compatible with gevent
+# see https://github.com/gorakhargosh/watchdog/issues/306
 RUN pip uninstall -y watchdog
+
 
 RUN echo "Installed Python packages:"
 RUN pip freeze
@@ -85,6 +89,10 @@ RUN pip install -e .
 # RUN echo ls /code; ls /code
 # RUN cd /code; tox -r
 
+# TODO remove git dependency when removing bower
+RUN apt-get update -yy && apt-get install -yy git
+RUN npm install -g bower
+RUN bower --allow-root install -F
 
 ENV NODE_ARCHIVE ""
 ENV NODE_DIR ""

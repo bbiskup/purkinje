@@ -4,6 +4,9 @@ build-docker:
 stack-up: build-docker
 	docker-compose up -d
 
+build-dist:
+	./dockercmd.sh docker build -f Dockerfile.dist -t purkinje_dist .
+
 test-js-karma:
 	./dockercmd.sh "Xvfb :0 -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox,Chrome"
 

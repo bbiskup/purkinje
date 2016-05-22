@@ -17,6 +17,7 @@ services:
         privileged: yes
         volumes:
             - ./purkinje:/code/purkinje
+            - ./purkinje/static/bower_components:/code/purkinje/static/bower_components
             - ./docs:/code/docs
             - ./docker/purkinje.yml:/code/purkinje.yml
             - ./tests:/code/tests
@@ -27,14 +28,17 @@ services:
             - ./karma.conf.js:/code/karma.conf.js
             - ./mocha.conf.js:/code/mocha.conf.js
             - ./protractor-conf.js:/code/protractor-conf.js
+            - ./data/webassets_cache:/code/purkinje/static/.webassets_cache
             - ./data/tox:/code/.tox
-            # - /tmp/.X11-unix:/tmp/.X11-unix
+            - ./Dockerfile.dist:/code/Dockerfile.dist
+
+            # Access to Docker daemon on host
+            - /usr/bin/docker:/usr/bin/docker
+            - /var/run/docker.sock:/var/run/docker.sock
         ports:
             - "5001:5000"
         links:
             - purkinje
-        environment:
-            - DISPLAY=unix${DISPLAY}
         entrypoint:
             - bash
             - -c
