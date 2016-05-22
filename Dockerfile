@@ -5,20 +5,23 @@ MAINTAINER Bernhard Biskup <bbiskup@gmx.de>
 RUN echo 'Running installation'
 WORKDIR /code
 
+ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_DIR=node-v6.2.0-linux-x64
 ENV NODE_ARCHIVE=$NODE_DIR.tar.xz
 ENV PATH=/opt/node/bin:$PATH
 
 RUN apt-get -y update && apt-get install -y \
-    firefox \
-    gcc \
-    libyaml-dev \
-    make \
-    python \
-    python-dev \
-    software-properties-common \
-    wget \
-    xz-utils
+        firefox \
+        gcc \
+        libyaml-dev \
+        make \
+        python2.7 \
+        python2.7-dev \
+        software-properties-common \
+        wget \
+        xvfb \
+        xz-utils \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install Google Chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -35,6 +38,8 @@ RUN wget https://nodejs.org/dist/v6.2.0/$NODE_ARCHIVE && \
 WORKDIR /code
 RUN node --version
 RUN npm --version
+RUN python2.7 --version
+RUN ln -sf /usr/bin/python2.7 /usr/bin/python
 
 # Ubuntu's python-pip throws exception with requests lib
 # see https://bugs.launchpad.net/ubuntu/+source/python-pip/+bug/1306991
@@ -80,7 +85,8 @@ RUN pip install -e .
 # RUN echo ls /code; ls /code
 # RUN cd /code; tox -r
 
-# TODO consolidate all apt-get; clean up after install
-RUN apt-get install -y xvfb
+
+ENV NODE_ARCHIVE ""
+ENV NODE_DIR ""
 
 ENTRYPOINT ["purkinje", "-c", "purkinje.yml"]
