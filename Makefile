@@ -5,7 +5,7 @@ stack-up: build-docker
 	docker-compose up -d
 
 test-js-karma-docker:
-	./dockercmd.sh "Xvfb :1 -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:1 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox"
+	./dockercmd.sh "Xvfb :1 -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:1 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox,Chrome"
 
 doc:
 	(cd docs/ && make html)
