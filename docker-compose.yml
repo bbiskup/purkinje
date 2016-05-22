@@ -23,7 +23,7 @@ services:
             - ./tests:/code/tests
             - ./testdata:/code/testdata
             - ./meta/python/pytest.ini:/code/pytest.ini
-            - ./meta/python//tox.ini:/code/tox.ini
+            - ./meta/python/tox.ini:/code/tox.ini
             - ./meta/js/.jshintrc:/code/.jshintrc
             - ./meta/js/karma.conf.js:/code/karma.conf.js
             - ./meta/js/mocha.conf.js:/code/mocha.conf.js
