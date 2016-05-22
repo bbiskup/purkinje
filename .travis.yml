@@ -36,7 +36,8 @@ install:
 
 script:
    - echo '## script'
-   - echo 'pwd'
+   - pwd
+   - ls -l
    - ls -l node_modules
    - ls -l node_modules/jshint
    - ls -l node_modules/jshint/bin
