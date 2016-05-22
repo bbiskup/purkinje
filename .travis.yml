@@ -6,6 +6,7 @@ cache:
   apt: true
   directories:
     - $HOME/data
+    - /var/lib/docker
 
 before_install:
     - type docker
@@ -15,9 +16,10 @@ before_install:
 
     - sudo service docker stop
     - wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz
-    - tar xzvf docker-1.11.0.tgz
-    - chmod +x docker/*
-    - sudo mv docker/* /usr/bin
+    - mkdir dockertmp
+    - tar xzvf docker-1.11.0.tgz -C dockertmp
+    - chmod +x dockertmp/docker/*
+    - sudo mv dockertmp/docker/* /usr/bin
     - sudo service docker restart
     - docker ps
     - sudo bash -c "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
