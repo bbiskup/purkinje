@@ -22,12 +22,12 @@ services:
             - ./docker/purkinje.yml:/code/purkinje.yml
             - ./tests:/code/tests
             - ./testdata:/code/testdata
-            - ./pytest.ini:/code/pytest.ini
-            - ./tox.ini:/code/tox.ini
-            - ./.jshintrc:/code/.jshintrc
-            - ./karma.conf.js:/code/karma.conf.js
-            - ./mocha.conf.js:/code/mocha.conf.js
-            - ./protractor-conf.js:/code/protractor-conf.js
+            - ./meta/python/pytest.ini:/code/pytest.ini
+            - ./meta/python//tox.ini:/code/tox.ini
+            - ./meta/js/.jshintrc:/code/.jshintrc
+            - ./meta/js/karma.conf.js:/code/karma.conf.js
+            - ./meta/js/mocha.conf.js:/code/mocha.conf.js
+            - ./meta/js/protractor-conf.js:/code/protractor-conf.js
             - ./data/webassets_cache:/code/purkinje/static/.webassets_cache
             - ./data/tox:/code/.tox
             - ./Dockerfile.dist:/code/Dockerfile.dist
