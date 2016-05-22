@@ -11,10 +11,10 @@ test-js-protractor-docker:
 	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 & DISPLAY=:0 npm test"
 
 doc:
-	(cd docs/ && make html)
+	./dockercmd.sh "(cd docs/ && make html)"
 
 test-tox:
-	tox
+	./dockercmd.sh tox
 
 test-py: test-tox
 
@@ -31,7 +31,7 @@ test-js-protractor:
 	npm test
 
 test-js-esvalidate:
-	find purkinje/static/js/ -iname "*.js" |xargs esvalidate
+	./dockercmd.sh 'find purkinje/static/js/ -iname "*.js" |xargs node_modules/esvalidate/bin/esvalidate'
 
 test-js-jshint:
 	jshint *.js purkinje/static/js

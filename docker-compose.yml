@@ -17,6 +17,7 @@ services:
         privileged: yes
         volumes:
             - ./purkinje:/code/purkinje
+            - ./docs:/code/docs
             - ./docker/purkinje.yml:/code/purkinje.yml
             - ./tests:/code/tests
             - ./testdata:/code/testdata
