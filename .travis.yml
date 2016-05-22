@@ -14,7 +14,7 @@ before_install:
     - docker-compose --version
 
     - sudo service docker stop
-    - curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz
+    - curl https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz
     - tar xzvf docker-1.11.0.tgz
     - sudo mv docker /usr/bin
     - sudo chmod +x /usr/bin/docker
