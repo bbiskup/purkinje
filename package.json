@@ -33,7 +33,8 @@
     "karma-ng-scenario": "^0.1.0",
     "mocha": "^2.0.1",
     "protractor": "^1.5.0",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-devserver": "0.0.4"
   },
   "dependencies": {
     "bower": "^1.7.9",
