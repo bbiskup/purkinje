@@ -4,6 +4,7 @@
   "description": "Test runner for py.test test framework with web GUI",
   "main": "karma.conf.js",
   "scripts": {
+    "webpack": "webpack",
     "test": "./node_modules/protractor/bin/protractor protractor-conf.js"
   },
   "repository": {
