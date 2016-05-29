@@ -14,6 +14,7 @@ ENV PATH=/opt/node/bin:$PATH
 RUN apt-get -y update && apt-get install -y \
         firefox \
         gcc \
+        git \
         libyaml-dev \
         make \
         python2.7 \
