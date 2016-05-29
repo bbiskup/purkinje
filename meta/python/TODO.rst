@@ -55,6 +55,11 @@ TODOs
 
     - provide Modernizr as a service; add Modernizr checks
 
+    - migration bower --> webpack
+
+      - http://angular-tips.com/blog/2015/06/using-angular-1-dot-x-with-es6-and-webpack/
+      - https://egghead.io/series/angular-and-webpack-for-modular-applications
+        (pro content)
 
 #) User Interface
 
