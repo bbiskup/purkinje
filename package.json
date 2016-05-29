@@ -4,6 +4,7 @@
   "description": "Test runner for py.test test framework with web GUI",
   "main": "karma.conf.js",
   "scripts": {
+    "start": "webpack-dev-server --port 8081",
     "webpack": "webpack",
     "test": "./node_modules/protractor/bin/protractor protractor-conf.js"
   },
@@ -23,25 +24,44 @@
   },
   "homepage": "https://github.com/bbiskup/purkinje",
   "devDependencies": {
+    "angular": "^1.5.5",
+    "angular-bootstrap": "^0.12.2",
+    "angular-mocks": "^1.5.5",
+    "angular-reconnecting-websocket": "git+https://github.com/adieu/angular-reconnecting-websocket.git",
+    "angular-translate": "^2.11.0",
+    "angular-ui-grid": "^3.1.1",
+    "bootstrap": "^3.3.6",
+    "bootstrap-glyphicons": "git+https://github.com/rchampourlier/bootstrap-glyphicons.git",
     "bower": "^1.3.12",
+    "fontawesome": "^4.5.0",
     "grunt-cli": "^0.1.13",
-    "karma": "^0.12.28",
+    "jquery": "^2.2.4",
+    "karma": "^0.12.37",
     "karma-chrome-launcher": "^0.1.7",
     "karma-firefox-launcher": "^0.1.3",
     "karma-mocha": "^0.1.10",
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-ng-scenario": "^0.1.0",
     "mocha": "^2.0.1",
+    "modernizr": "^3.3.1",
+    "ng-midway-tester": "^2.0.5",
+    "ngblink": "0.0.3",
     "protractor": "^1.5.0",
-    "webpack": "^1.13.1",
-    "webpack-devserver": "0.0.4"
+    "simple-statistics": "^2.0.0-beta1",
+    "tc-angular-chartjs": "^1.0.15",
+    "ui-bootstrap": "^0.1.0",
+    "ui-router": "^1.0.0-alpha.3",
+    "underscore": "^1.8.3",
+    "webpack": "^1.13.1"
   },
   "dependencies": {
+    "angular-ui-router": "^0.2.13",
     "bower": "^1.7.9",
     "esvalidate": "^0.1.3",
     "jshint": "^2.9.2",
     "karma": "^0.12.37",
     "karma-firefox-launcher": "^0.1.7",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "webpack-dev-server": "^1.14.1"
   }
 }
