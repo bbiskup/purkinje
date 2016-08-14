@@ -2,7 +2,7 @@ from setuptools import setup
 
 PY_METAPATH = 'meta/python'
 
-readme = open('{0}/README.rst'.format(PY_METAPATH)).read()
+readme = open('README.rst').read()
 changes = open('{0}/CHANGES.rst'.format(PY_METAPATH)).read()
 
 
