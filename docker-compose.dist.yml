@@ -1,0 +1,12 @@
+version: "2"
+services:
+    purkinje_dist:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: Dockerfile.dist
+        networks:
+            - default
+        ports:
+            - 15000:5000
+        command: /usr/bin/purkinje

@@ -1,0 +1,24 @@
+# Dockerfile for distribution of purkinje application.
+# This image is intended to be built inside
+# the purkinje_dev environment.
+# A separate image is used to avoid bloat from development tools.
+
+FROM alpine:3.4
+MAINTAINER Bernhard Biskup <bbiskup@gmx.de>
+
+WORKDIR /code
+
+COPY ./dist /code/dist
+
+RUN apk add --update \
+        python \
+        python-dev \
+        py-pip \
+        py-cffi \
+        build-base \
+    && rm -rf /var/cache/apk/* \
+    && pip install dist/purkinje-*.tar.gz \
+    && apk del build-base python-dev
+
+EXPOSE 5000
+
