@@ -29,6 +29,8 @@ script:
    - make test
    - make doc
 
+   - make build-docker-dist-img
+
 after_success:
     #   make coveralls
     - docker tag -f purkinje_dev bbiskup/purkinje_dev:latest
