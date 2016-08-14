@@ -26,10 +26,17 @@ doc:
 coveralls:
 	./dockercmd.sh coveralls
 
-test-tox:
-	./dockercmd.sh tox
+bash:
+	./dockercmd.sh bash
 
-test-py: test-tox
+
+test-py: test-pytest test-flake8
+
+test-pytest:
+	./dockercmd.sh py.test
+
+test-flake8:
+	./dockercmd.sh  'flake8 --ignore=E402 --exclude=venv --exclude=node_modules --max-complexity=10 .'
 
 test-js-esvalidate:
 	./dockercmd.sh 'find purkinje/static/js/ -iname "*.js" |xargs ./node_modules/esvalidate/bin/esvalidate'

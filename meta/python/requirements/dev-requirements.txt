@@ -15,5 +15,4 @@ restructuredtext-lint==0.14.2
 sphinx-autobuild==0.6.0
 sphinx-bootstrap-theme==0.4.9
 Sphinx==1.4.1
-tox==2.3.1
 wheel==0.29.0

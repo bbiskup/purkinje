@@ -58,9 +58,6 @@ RUN npm install
 # Set up Chrome webdriver for Protractor
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
-ADD README.rst /code/README.rst
-ADD meta/python/CHANGES.rst /code/CHANGES.rst
-
 ADD meta/python/requirements/base.txt /code/requirements.txt
 ADD meta/python/requirements/dev-requirements.txt /code/dev-requirements.txt
 
@@ -80,13 +77,16 @@ RUN apt-get update -yy && apt-get install -yy git
 RUN npm install -g bower
 RUN bower --allow-root install -F
 
-ADD meta/python/tox.ini /code/tox.ini
 ADD meta/python/pytest.ini /code/pytest.ini
 ADD meta/python/MANIFEST.in /code/MANIFEST.in
 ADD setup.py /code/setup.py
 ADD Makefile /code/Makefile
 ADD purkinje /code/purkinje
 ADD ./docker/purkinje.yml /code/purkinje.yml
+
+ADD README.rst /code/README.rst
+ADD meta/python/CHANGES.rst /code/CHANGES.rst
+
 
 RUN pip install -e .
 RUN python setup.py sdist
