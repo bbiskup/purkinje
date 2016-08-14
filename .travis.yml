@@ -33,6 +33,9 @@ script:
 
    - make build-docker-dist-img
 
+after_success:
+    - true
+
 deploy:
     #   make coveralls
 
