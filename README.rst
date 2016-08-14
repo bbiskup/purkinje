@@ -25,7 +25,7 @@ Pull and start purkinje::
 
   docker run -ti -p15000:5000   --rm bbiskup/purkinje_dist:latest purkinje
 
-Open the URL `<http://localhost:15000/>`_ in your browser.
+Open the URL `<http://localhost:15000/>`__ in your browser.
 
 Customizing the configuration
 +++++++++++++++++++++++++++++
@@ -46,7 +46,7 @@ Pull and start purkinje::
 
   docker run -ti -p15000:5000  -v$PWD/docker/purkinje.yml:/code/purkinje.yml --rm bbiskup/purkinje_dist:latest purkinje -c purkinje.yml
 
-Open the URL `<http://localhost:15000/>`_ in your browser.
+Open the URL `<http://localhost:15000/>`__ in your browser.
 
 - Port 15000 is the port on which you access the purkinje web app with your browser;
   this may have to be changed in case the port is already in use
