@@ -69,8 +69,8 @@ assets: assets-clean
 	python manage.py assets build
 
 
-build-docker-dist-img: sdist
-	./dockercmd.sh 'docker-compose -f docker-compose.dist.yml build'
+build-docker-dist-img:
+	./dockercmd.sh 'python setup.py sdist && docker-compose -f docker-compose.dist.yml build'
 
 
 upload-pypi: assets-clean

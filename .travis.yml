@@ -33,7 +33,15 @@ script:
 
 after_success:
     #   make coveralls
+
+    # push latest version of dev image to speed up future builds
     - docker tag -f purkinje_dev bbiskup/purkinje_dev:latest
     - docker tag purkinje_dev bbiskup/purkinje_dev:$TRAVIS_BUILD_NUMBER
     - docker push bbiskup/purkinje_dev:latest
     - docker push bbiskup/purkinje_dev:$TRAVIS_BUILD_NUMBER
+
+    # push distribution image
+    - docker tag -f purkinje_dist bbiskup/purkinje_dist:latest
+    - docker tag purkinje_dist bbiskup/purkinje_dist:$TRAVIS_BUILD_NUMBER
+    - docker push bbiskup/purkinje_dist:latest
+    - docker push bbiskup/purkinje_dist:$TRAVIS_BUILD_NUMBER
