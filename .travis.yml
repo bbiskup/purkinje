@@ -32,7 +32,7 @@ script:
 
    - make build-docker-dist-img
 
-after_success:
+deploy:
     #   make coveralls
 
     # push latest version of dev image to speed up future builds
