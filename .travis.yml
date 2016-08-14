@@ -4,7 +4,6 @@ language: python
 python:
   - "2.7"
 cache:
-  pip: true
   apt: true
   directories:
     - $HOME/data
