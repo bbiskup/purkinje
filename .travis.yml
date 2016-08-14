@@ -34,11 +34,6 @@ script:
    - make build-docker-dist-img
 
 after_success:
-    - true
-
-deploy:
-    #   make coveralls
-
     # push latest version of dev image to speed up future builds
     - docker tag purkinje_dev bbiskup/purkinje_dev:latest
     - docker tag purkinje_dev bbiskup/purkinje_dev:$TRAVIS_BUILD_NUMBER
