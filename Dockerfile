@@ -84,8 +84,8 @@ ADD Makefile /code/Makefile
 ADD purkinje /code/purkinje
 ADD ./docker/purkinje.yml /code/purkinje.yml
 
-ADD README.rst /code/README.rst
-ADD meta/python/CHANGES.rst /code/CHANGES.rst
+ADD README.rst /code/meta/python/README.rst
+ADD meta/python/CHANGES.rst /code/meta/python/CHANGES.rst
 
 
 RUN pip install -e .

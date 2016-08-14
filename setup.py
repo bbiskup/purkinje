@@ -1,7 +1,9 @@
 from setuptools import setup
 
-readme = open('README.rst').read()
-changes = open('CHANGES.rst').read()
+PY_METAPATH = 'meta/python'
+
+readme = open('{0}/README.rst'.format(PY_METAPATH)).read()
+changes = open('{0}/CHANGES.rst'.format(PY_METAPATH)).read()
 
 
 def parse_requirements():

@@ -52,8 +52,8 @@ Open the URL `<http://localhost:15000/>`__ in your browser.
   this may have to be changed in case the port is already in use
 - Port 5000 is the port inside the container; may not be changed.
 
-Option 2: without Docker (**no longer supported**)
---------------------------------------------------
+Option 2: without Docker
+------------------------
 
 Create a virtual environment for purkinje and activate it::
 
@@ -199,6 +199,14 @@ dependencies are provided by the Docker configuration.
 In the top-level directory ``purkinje``, run::
 
   make
+
+The development environment may be used either by running various ``make`` commands based
+on ``docker.cmd``, or interactively by running::
+
+  make bash
+
+The Docker image for distribution is built by the make target ``build-docker-dist-img``;
+see ``.travis.yml``.
 
 Versioning
 ----------

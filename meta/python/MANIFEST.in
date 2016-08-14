@@ -6,10 +6,10 @@ recursive-exclude purkinje/static/bower_components/Chart.js/src *
 
 include  requirements.txt
 include  dev-requirements.txt
-include AUTHORS.rst
-include CHANGES.rst
-include LICENSE.txt
-include README.rst
+include meta/python/AUTHORS.rst
+include meta/python/CHANGES.rst
+include meta/python/LICENSE.txt
+include meta/python/README.rst
 recursive-include purkinje/templates *.html
 recursive-include tests *
 recursive-exclude * __pycache__
