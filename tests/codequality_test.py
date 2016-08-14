@@ -10,7 +10,7 @@ MAX_MCCABE_COMPLEXITY = 10
 
 @pytest.mark.slow
 def test_mccabe():
-    # TODO Test remove test case? (Now performed with tox tests)
+    # TODO Test remove test case? (Now performed separately with flake8)
     cmd = 'flake8 --ignore=E402 --max-complexity={0} purkinje'\
         .format(MAX_MCCABE_COMPLEXITY)
     result = subprocess.call(cmd.split())

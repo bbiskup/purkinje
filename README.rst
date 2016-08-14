@@ -15,6 +15,43 @@ tests in realtime. Currently, the only supported test framework is `py.test <htt
 
 To use purkinje:
 
+Option 1: with Docker
+---------------------
+
+Quickstart using default configuration
+++++++++++++++++++++++++++++++++++++++
+
+Pull and start purkinje::
+
+  docker run -ti -p15000:5000   --rm bbiskup/purkinje_dist:latest purkinje
+
+Customizing the configuration
++++++++++++++++++++++++++++++
+
+Create a configuration file ``purkinje.yml`` with the
+following contents:
+
+.. code-block:: yaml
+
+    global:
+        logLevel: debug
+        debugMode: yes
+        serverPort: 5000
+        serverHost: localhost
+
+
+Pull and start purkinje::
+
+  docker run -ti -p15000:5000  -v$PWD/docker/purkinje.yml:/code/purkinje.yml --rm bbiskup/purkinje_dist:latest purkinje -c purkinje.yml
+
+
+- Port 15000 is the port on which you access the purkinje web app with your browser;
+  this may have to be changed in case the port is already in use
+- Port 5000 is the port inside the container; may not be changed.
+
+Option 2: without Docker (**no longer supported**)
+--------------------------------------------------
+
 Create a virtual environment for purkinje and activate it::
 
     mkvirtualenv purkinje

@@ -20,5 +20,7 @@ RUN apk add --update \
     && pip install dist/purkinje-*.tar.gz \
     && apk del build-base python-dev
 
+COPY purkinje.yml /code/
+
 EXPOSE 5000
 

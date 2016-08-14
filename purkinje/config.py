@@ -49,7 +49,6 @@ class Config(object):
 
         self._validation_schema = Schema({
             'global': {
-                # v.Required('projectPath'): basestring,
                 v.Required('serverHost', default=DEFAULT_HOST): basestring,
                 v.Required('serverPort', default=DEFAULT_PORT): port_spec,
                 v.Optional('logLevel'): basestring,
