@@ -15,18 +15,18 @@ before_install:
     - type docker-compose
     - docker-compose --version
 
-    - sudo service docker stop
-    - wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz
-    - mkdir dockertmp
-    - tar xzvf docker-1.11.0.tgz -C dockertmp
-    - chmod +x dockertmp/docker/*
-    - sudo mv dockertmp/docker/* /usr/bin
-    - sudo service docker restart
-    - docker ps
-    - sudo bash -c "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
-    - sudo chmod +x /usr/local/bin/docker-compose
-    - type docker-compose
-    - docker-compose --version
+    # - sudo service docker stop
+    # - wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz
+    # - mkdir dockertmp
+    # - tar xzvf docker-1.11.0.tgz -C dockertmp
+    # - chmod +x dockertmp/docker/*
+    # - sudo mv dockertmp/docker/* /usr/bin
+    # - sudo service docker restart
+    # - docker ps
+    # - sudo bash -c "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
+    # - sudo chmod +x /usr/local/bin/docker-compose
+    # - type docker-compose
+    # - docker-compose --version
 
     - sudo apt-get update -yy
     - sudo apt-get install -yy make
