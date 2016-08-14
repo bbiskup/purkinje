@@ -136,9 +136,35 @@ Supported Operating Systems
 Development
 ===========
 
+Source code
+-----------
+
+- `GitHub page <https://github.com/bbiskup/purkinje/>`_
+
+Development environment
+-----------------------
+
+`Docker <http://docker.io/>`_ and `docker-compose` required to develop purkinje.
+
+Installation instructions for
+
+- `Docker engine <https://docs.docker.com/engine/installation/>`_
+- `docker-compose <https://docs.docker.com/compose/install/>`_
+   Note: ``docker-compose`` version >= 1.6 is required because the
+   ``docker-compose*yml`` files use syntax version 2.
+
+Apart from Docker, GNU ``make`` is required. All other development tools and
+dependencies are provided by the Docker configuration.
+
+In the top-level directory ``purkinje``, run::
+
+  make
+
+Versioning
+----------
 - uses `semantic versioning <http://semver.org/>`_
 - uses `git-flow git workflow <http://nvie.com/posts/a-successful-git-branching-model/>`_
-- `GitHub page <https://github.com/bbiskup/purkinje/>`_
+
 
 .. |travis-dev| image:: https://travis-ci.org/bbiskup/purkinje.svg?branch=dev
         :target: https://travis-ci.org/bbiskup/purkinje
