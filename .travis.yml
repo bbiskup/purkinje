@@ -18,12 +18,13 @@ before_install:
     - sudo apt-get update -yy
     - sudo apt-get install -yy make
 
+    - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    - docker pull bbiskup/purkinje_dev:latest || true
+
 install:
     - make stack-up
 
-before_script:
-    - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-    - docker pull bbiskup/purkinje_dev:latest || true
+# before_script:
 
 script:
    - make test

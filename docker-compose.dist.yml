@@ -1,6 +1,6 @@
 version: "2"
 services:
-    purkinje_dist:
+    dist:
         restart: unless-stopped
         build:
             context: .
