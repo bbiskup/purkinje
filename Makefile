@@ -12,7 +12,7 @@ build-dist:
 	./dockercmd.sh docker build -f Dockerfile.dist -t purkinje_dist .
 
 test-js-karma:
-	./dockercmd.sh "Xvfb :0 -screen 0 1280x1024x16 & sleep 2 && DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox,Chrome"
+	./dockercmd.sh "Xvfb :0 -screen 0 1280x1024x16 & sleep 2 && DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox,Chrome ; pkill Xvfb; pkill chrome || true"
 
 test-js-protractor:
 	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 && DISPLAY=:0 npm test"
