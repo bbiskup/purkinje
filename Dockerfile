@@ -94,4 +94,6 @@ RUN python setup.py sdist
 ENV NODE_ARCHIVE ""
 ENV NODE_DIR ""
 
+ADD docker/purkinje.docker.yml purkinje.yml
+
 ENTRYPOINT ["purkinje", "-c", "purkinje.yml"]
