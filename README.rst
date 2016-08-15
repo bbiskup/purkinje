@@ -23,7 +23,7 @@ Quickstart using default configuration
 
 Pull and start purkinje::
 
-  docker run -ti -p15000:5000   --rm bbiskup/purkinje_dist:latest purkinje
+  docker run -ti -p15000:5000   --rm bbiskup/purkinje_dist:latest
 
 Open the URL `<http://localhost:15000/>`__ in your browser.
 

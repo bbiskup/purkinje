@@ -3,7 +3,7 @@
 # the purkinje_dev environment.
 # A separate image is used to avoid bloat from development tools.
 
-FROM alpine:3.4
+FROM python:2.7-alpine
 MAINTAINER Bernhard Biskup <bbiskup@gmx.de>
 
 WORKDIR /code
@@ -20,7 +20,9 @@ RUN apk add --update \
     && pip install dist/purkinje-*.tar.gz \
     && apk del build-base python-dev
 
-COPY purkinje.yml /code/
+COPY purkinje.docker.yml /code/purkinje.yml
 
 EXPOSE 5000
+
+ENTRYPOINT ["purkinje", "-c", "purkinje.yml"]
 

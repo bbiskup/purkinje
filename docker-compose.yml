@@ -19,7 +19,7 @@ services:
             - ./purkinje:/code/purkinje
             - ./purkinje/static/bower_components:/code/purkinje/static/bower_components
             - ./docs:/code/docs
-            - ./docker/purkinje.yml:/code/purkinje.yml
+            - ./docker/purkinje.docker.yml:/code/purkinje.yml
             - ./tests:/code/tests
             - ./testdata:/code/testdata
             - ./meta/python/pytest.ini:/code/pytest.ini

@@ -82,7 +82,7 @@ ADD meta/python/MANIFEST.in /code/MANIFEST.in
 ADD setup.py /code/setup.py
 ADD Makefile /code/Makefile
 ADD purkinje /code/purkinje
-ADD ./docker/purkinje.yml /code/purkinje.yml
+ADD ./docker/purkinje*.yml /code/
 
 ADD README.rst README.rst
 ADD meta/python/CHANGES.rst /code/meta/python/CHANGES.rst

@@ -1,0 +1,6 @@
+global:
+    logLevel: debug
+    debugMode: yes
+    serverPort: 5000
+    serverHost: localhost
+    compressAssets: yes
