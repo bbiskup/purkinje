@@ -39,6 +39,9 @@ RUN wget -q https://nodejs.org/dist/v6.2.0/$NODE_ARCHIVE && \
 WORKDIR /code
 RUN node --version
 RUN npm --version
+
+# make npm less noisy
+RUN npm config set loglevel warn
 RUN python2.7 --version
 RUN ln -sf /usr/bin/python2.7 /usr/bin/python
 
