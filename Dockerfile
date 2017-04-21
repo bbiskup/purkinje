@@ -62,7 +62,7 @@ ADD meta/python/requirements/base.txt /code/requirements.txt
 ADD meta/python/requirements/dev-requirements.txt /code/dev-requirements.txt
 
 # Python
-RUN pip install --upgrade -r dev-requirements.txt --cache-dir $HOME/.pip-cache
+RUN pip install -q --upgrade -r dev-requirements.txt --cache-dir $HOME/.pip-cache
 
 # Avoid Flask freezing
 # watchdog not compatible with gevent
@@ -73,7 +73,7 @@ RUN echo "Installed Python packages:"
 RUN pip freeze
 
 # TODO remove git dependency when removing bower
-RUN apt-get update -yy && apt-get install -yy git
+RUN apt-get update -q -yy && apt-get install -yy git
 RUN npm install -g bower
 RUN bower --allow-root install -F
 
