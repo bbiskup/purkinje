@@ -11,7 +11,7 @@ ENV NODE_DIR=node-v6.2.0-linux-x64
 ENV NODE_ARCHIVE=$NODE_DIR.tar.xz
 ENV PATH=/opt/node/bin:$PATH
 
-RUN apt-get -y update && apt-get install -y \
+RUN apt-get -q -y update && apt-get install -y \
         firefox \
         gcc \
         libyaml-dev \
@@ -27,12 +27,12 @@ RUN apt-get -y update && apt-get install -y \
 # Install Google Chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-RUN apt-get update -yy && apt-get install -yy google-chrome-stable
+RUN apt-get update -q -yy && apt-get install -yy google-chrome-stable
 RUN google-chrome --version
 
 # Install node.js; use most recent version to have access to latest features
 WORKDIR /opt
-RUN wget https://nodejs.org/dist/v6.2.0/$NODE_ARCHIVE && \
+RUN wget -q https://nodejs.org/dist/v6.2.0/$NODE_ARCHIVE && \
     tar xJf $NODE_ARCHIVE && \
     ln -s /opt/$NODE_DIR /opt/node && \
     rm $NODE_ARCHIVE
@@ -44,7 +44,7 @@ RUN ln -sf /usr/bin/python2.7 /usr/bin/python
 
 # Ubuntu's python-pip throws exception with requests lib
 # see https://bugs.launchpad.net/ubuntu/+source/python-pip/+bug/1306991
-RUN wget https://bootstrap.pypa.io/get-pip.py && \
+RUN wget -q https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
     rm get-pip.py
 
