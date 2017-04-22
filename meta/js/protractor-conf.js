@@ -5,20 +5,22 @@
   // protractor configuration
 
   exports.config = {
-    // seleniumAddress: 'http://localhost:4444/wd/hub',
+    seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: ['purkinje/static/js/tests/e2e/*.spec.js'],
 
     baseUrl: 'http://purkinje:5000/',
 
+    chromeDriver: '/usr/bin/google-chrome',
     capabilities: {
       // Selenium
       // "Selenium 2.44 is currently not compatible with Firefox 35. –  rajana
       // sekhar Feb 3 at 7:18"
       // http://stackoverflow.com/a/28107139
-      // browserName: 'firefox',
-      browserName: 'chrome',
+      browserName: 'firefox',
+      // browserName: 'chrome',
+      chromeOptions: {'args': ['--no-sandbox', '-y']}
     },
-    directConnect: true,
+    // directConnect: true,
     // chromeOnly: true,
 
     jasmineNodeOpts:

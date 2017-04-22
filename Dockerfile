@@ -99,4 +99,12 @@ ENV NODE_DIR ""
 
 ADD docker/purkinje.docker.yml purkinje.yml
 
+# For standalone selenium webdriver
+RUN apt-get install -y default-jre-headless
+
+# To avoid chrome waiting for gnome keyring
+RUN apt-get install -y dbus-x11
+ENV DBUS_SESSION_BUS_ADDRESS /dev/null
+RUN dpkg -r libfolks-eds25 gnome-keyring seahorse gcr evolution-data-server oneconf python-ubuntuone-storageprotocol ubuntu-sso-client python-ubuntu-sso-client pinentry-gnome3
+
 ENTRYPOINT ["purkinje", "-c", "purkinje.yml"]

@@ -35,6 +35,12 @@ services:
             # Access to Docker daemon on host
             - /usr/bin/docker:/usr/bin/docker
             - /var/run/docker.sock:/var/run/docker.sock
+
+            # For Chrome
+            # - /dev/shm:/dev/shm
+
+            # To debug Chrome using host X11
+            # - /tmp/.X11-unix:/tmp/.X11-unix
         ports:
             - "5001:5000"
         links:

@@ -24,14 +24,14 @@
   "devDependencies": {
     "bower": "^1.3.12",
     "grunt-cli": "^0.1.13",
-    "karma": "^0.12.28",
-    "karma-chrome-launcher": "^0.1.7",
-    "karma-firefox-launcher": "^0.1.3",
-    "karma-mocha": "^0.1.10",
+    "karma": "^1.6.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-mocha": "^1.3.0",
     "karma-ng-html2js-preprocessor": "^0.1.2",
-    "karma-ng-scenario": "^0.1.0",
+    "karma-ng-scenario": "^1.0.0",
     "mocha": "^2.0.1",
-    "protractor": "^1.5.0"
+    "protractor": "^5.1.1"
   },
   "dependencies": {
     "bower": "^1.7.9",
