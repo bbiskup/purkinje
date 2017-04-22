@@ -19,7 +19,7 @@
     ],
 
     // running tests in two browsers simultaneously may cause errors
-    maxSessions: 1,
+    // maxSessions: 1,
     // directConnect: true,
     // chromeOnly: true,
 
