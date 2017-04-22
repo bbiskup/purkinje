@@ -11,15 +11,15 @@
     baseUrl: 'http://purkinje:5000/',
 
     chromeDriver: '/usr/bin/google-chrome',
-    capabilities: {
-      // Selenium
-      // "Selenium 2.44 is currently not compatible with Firefox 35. –  rajana
-      // sekhar Feb 3 at 7:18"
-      // http://stackoverflow.com/a/28107139
-      browserName: 'firefox',
-      // browserName: 'chrome',
-      chromeOptions: {'args': ['--no-sandbox', '-y']}
-    },
+    multiCapabilities: [
+      {
+        browserName: 'firefox',
+      },
+      {browserName: 'chrome', chromeOptions: {'args': ['--no-sandbox', '-y']}}
+    ],
+
+    // running tests in two browsers simultaneously may cause errors
+    maxSessions: 1,
     // directConnect: true,
     // chromeOnly: true,
 
