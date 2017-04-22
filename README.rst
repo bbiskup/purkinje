@@ -7,6 +7,17 @@ Test runner for py.test test framework with web GUI
 `Live Demo <http://lvps46-163-112-196.dedicated.hosteurope.de:5000/#/dashboard/>`_
 
 
+Build Status
+============
+
+====== ===============
+Branch Status
+====== ===============
+dev    |travis-dev|
+master |travis-master|
+====== ===============
+
+
 Getting Started
 ===============
 
@@ -131,19 +142,6 @@ Known Limitations
 
   If you run multiple purkinje-enabled test suites simultaneously, test results
   will get mixed up. This might change in a future version.
-
-
-Build Status
-============
-
-====== ===============
-Branch Status
-====== ===============
-dev    |travis-dev|
-master |travis-master|
-====== ===============
-
-Coverage: |coveralls|
 
 
 System Requirements
