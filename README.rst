@@ -150,7 +150,7 @@ System Requirements
 - Python 2.7.
 - tested on Ubuntu 16.04
 - needs a modern browser that supports WebSockets
-- Python development packages (``python-dev`` on Ubuntu) is required to build the dependency ``gevent``.
+- Python development packages (``python-dev`` on Ubuntu) are required to build the dependency ``gevent``.
 
 
 Supported Python versions
@@ -158,17 +158,16 @@ Supported Python versions
 
 - Currently, only 2.7.x is supported. Python 3 support is blocked by the following packages:
 
-  - cssmin
-  - gevent (which is blocking gevent-websocket)
-  - inotifyx (which is blocking gevent_inotifyx)
+  - ``cssmin``
+  - ``inotifyx`` (which is blocking gevent_inotifyx)
 
 
 Supported Operating Systems
 ===========================
 
-- The server part has only been tested on Ubuntu Linux 14.04 64 bit
+- The server part has only been tested on Ubuntu Linux 14.04 and 16.04 (64 bit).
 - The web application should work on any operating system using a modern browser
-  (tested with Chrome 40 and Firefox 35)
+  (tested with Chrome 40-57 and Firefox 35-53).
 
 
 Development
