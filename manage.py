@@ -22,5 +22,6 @@ manager.add_command("assets", ManageAssets(assets_env))
 def hello():
     print 'hello'
 
+
 if __name__ == "__main__":
     manager.run()

@@ -22,6 +22,7 @@ def api():
             ws.send(message)
     return
 
+
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app, handler_class=WebSocketHandler)
     http_server.serve_forever()

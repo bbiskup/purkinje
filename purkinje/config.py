@@ -22,6 +22,7 @@ class ConfigException(Exception):
     def __init__(self, message):
         Exception.__init__(self, message)
 
+
 DEFAULT_DEBUG_MODE = False
 DEFAULT_LOG_LEVEL = 'debug'
 DEFAULT_HOST = 'localhost'

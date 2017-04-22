@@ -10,6 +10,7 @@ def parse_requirements():
     with open('requirements.txt') as req:
         return req.readlines()
 
+
 setup(name='purkinje',
       version='0.1.9',
       description='Test runner for py.test with web GUI',

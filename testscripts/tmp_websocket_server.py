@@ -12,6 +12,7 @@ def websocket_app(environ, start_response):
             message = ws.receive()
             ws.send(message)
 
+
 server = pywsgi.WSGIServer(("", 8000), websocket_app,
                            handler_class=WebSocketHandler)
 server.serve_forever()
