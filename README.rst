@@ -148,6 +148,7 @@ System Requirements
 ===================
 
 - Tested on Python versions:
+
   - 2.7
   - 3.5
   - 3.6
