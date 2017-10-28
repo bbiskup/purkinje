@@ -28,6 +28,7 @@ services:
             - ./mocha.conf.js:/code/mocha.conf.js
             - ./protractor-conf.js:/code/protractor-conf.js
             - ./data/webassets_cache:/code/purkinje/static/.webassets_cache
+            - ./data/tox:/code/.tox
             # - ./data/dist:/code/dist
             - ./Dockerfile.dist:/code/Dockerfile.dist
             - ./docker-compose.dist.yml:/code/docker-compose.dist.yml

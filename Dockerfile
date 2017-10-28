@@ -78,9 +78,10 @@ RUN pip freeze
 # TODO remove git dependency when removing bower
 RUN apt-get update -q -yy && apt-get install -yy git
 RUN npm install -g bower
-RUN bower --allow-root install -F
+RUN bower --allow-root --quiet install -F
 
 ADD pytest.ini /code/pytest.ini
+ADD tox.ini /code/tox.ini
 ADD MANIFEST.in /code/MANIFEST.in
 ADD setup.py /code/setup.py
 ADD Makefile /code/Makefile

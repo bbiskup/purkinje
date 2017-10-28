@@ -30,13 +30,16 @@ bash:
 	./dockercmd.sh bash
 
 
-test-py: test-pytest test-flake8
+test-py: test-pytest test-flake8 test-tox
 
 test-pytest:
 	./dockercmd.sh py.test
 
 test-flake8:
-	./dockercmd.sh  'flake8 --ignore=E402 --exclude=venv --exclude=node_modules --max-complexity=10 .'
+	./dockercmd.sh  'flake8 --ignore=E402 --exclude=venv --exclude=node_modules --exclude=.tox --max-complexity=10 .'
+
+test-tox:
+	./dockercmd.sh tox
 
 test-js-esvalidate:
 	./dockercmd.sh 'find purkinje/static/js/ -iname "*.js" |xargs ./node_modules/esvalidate/bin/esvalidate'
