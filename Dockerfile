@@ -52,17 +52,17 @@ RUN wget -q https://bootstrap.pypa.io/get-pip.py && \
     rm get-pip.py
 
 ADD package.json /code/package.json
-ADD meta/js/bower.json /code/bower.json
-ADD meta/js/.jshintrc /code/.jshintrc
-ADD meta/js/.bowerrc /code/.bowerrc
+ADD bower.json /code/bower.json
+ADD .jshintrc /code/.jshintrc
+ADD .bowerrc /code/.bowerrc
 
 RUN npm install
 
 # Set up Chrome webdriver for Protractor
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
-ADD meta/python/requirements/base.txt /code/requirements.txt
-ADD meta/python/requirements/dev-requirements.txt /code/dev-requirements.txt
+ADD requirements.txt /code/requirements.txt
+ADD dev-requirements.txt /code/dev-requirements.txt
 
 # Python
 RUN pip install -q --upgrade -r dev-requirements.txt --cache-dir $HOME/.pip-cache
@@ -80,15 +80,15 @@ RUN apt-get update -q -yy && apt-get install -yy git
 RUN npm install -g bower
 RUN bower --allow-root install -F
 
-ADD meta/python/pytest.ini /code/pytest.ini
-ADD meta/python/MANIFEST.in /code/MANIFEST.in
+ADD pytest.ini /code/pytest.ini
+ADD MANIFEST.in /code/MANIFEST.in
 ADD setup.py /code/setup.py
 ADD Makefile /code/Makefile
 ADD purkinje /code/purkinje
 ADD ./docker/purkinje*.yml /code/
 
 ADD README.rst README.rst
-ADD meta/python/CHANGES.rst /code/meta/python/CHANGES.rst
+ADD CHANGES.rst CHANGES.rst
 
 
 RUN pip install -e .
