@@ -12,7 +12,7 @@ itsdangerous==0.24
 Jinja2==2.8
 jsmin==2.2.1
 MarkupSafe==0.23
-https://github.com/bbiskup/purkinje-messages/archive/5ec2d2f1c2d687776f333840bc33ecfb255d523d.zip
+purkinje-messages>=0.1.4
 py>=1.4.29
 pyaml==15.8.2
 six==1.10.0

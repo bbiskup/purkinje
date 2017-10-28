@@ -23,7 +23,7 @@ def parse_dependency_links():
 
 
 setup(name='purkinje',
-      version='0.1.9',
+      version='0.1.10',
       description='Test runner for py.test with web GUI',
       long_description=readme + '\n\n' + changes,
       author='Bernhard Biskup',

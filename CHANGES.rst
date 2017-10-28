@@ -3,6 +3,14 @@ ChangeLog
 
 Some minor changes were omitted from this list. For details, see git log.
 
+Release 0.1.10
+--------------
+
+2017-10-28
+
+- Experimental support for Python 3.5
+- updated some dependendencies
+
 Release 0.1.9
 -------------
 
