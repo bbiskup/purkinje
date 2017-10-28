@@ -6,8 +6,8 @@
 from gevent.monkey import patch_all
 patch_all()
 
-from flask.ext.script import Manager
-from flask.ext.assets import ManageAssets
+from flask_script import Manager
+from flask_assets import ManageAssets
 from purkinje.app import get_app
 from purkinje.assets import register_assets
 

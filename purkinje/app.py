@@ -14,7 +14,8 @@ import gevent
 import json
 import logging
 import sys
-import httplib
+import six
+import six.moves.http_client as httplib
 import os
 import pwd
 import socket
@@ -26,10 +27,15 @@ import gevent.queue as gq
 from geventwebsocket import WebSocketError
 from flask import Flask, render_template, request, redirect, jsonify
 from flask.ext.compress import Compress
-from assets import register_assets
+
+if six.PY3:
+    from purkinje.assets import register_assets
+    from purkinje.config import Config
+else:
+    from assets import register_assets
+    from config import Config
 
 from purkinje_messages.message import MsgType, Event
-from config import Config
 
 
 # watchdog not compatible with gevent

@@ -7,7 +7,7 @@ gevent.monkey.patch_all()
 # from urlparse import urlparse
 import pytest
 # import websocket
-import httplib
+import six.moves.http_client as httplib
 from flask import url_for
 import purkinje.app as sut
 from mock import Mock

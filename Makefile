@@ -30,7 +30,7 @@ bash:
 	./dockercmd.sh bash
 
 
-test-py: test-pytest test-flake8 test-tox
+test-py: test-pytest test-flake8
 
 test-pytest:
 	./dockercmd.sh py.test

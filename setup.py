@@ -10,7 +10,16 @@ with open('CHANGES.rst') as f:
 
 def parse_requirements():
     with open('requirements.txt') as req:
-        return req.readlines()
+        return [x.strip() for x in req.readlines()
+                if not x.startswith('-e') and
+                not x.startswith('git+') and
+                not x.startswith('https://')]
+
+
+def parse_dependency_links():
+    with open('requirements.txt') as req:
+        return [x.strip() for x in req.readlines()
+                if x.startswith('https://')]
 
 
 setup(name='purkinje',
@@ -25,6 +34,7 @@ setup(name='purkinje',
       zip_safe=False,
       include_package_data=True,
       install_requires=parse_requirements(),
+      dependency_links=parse_dependency_links(),
       entry_points={
           'console_scripts': [
               'purkinje = purkinje.purkinje:main'

@@ -3,7 +3,8 @@
 
 """ Reading and validation of configuration file
 """
-from builtins import object, basestring
+import six
+from builtins import object
 import logging
 import copy
 
@@ -50,9 +51,10 @@ class Config(object):
 
         self._validation_schema = Schema({
             'global': {
-                v.Required('serverHost', default=DEFAULT_HOST): basestring,
+                v.Required('serverHost',
+                           default=DEFAULT_HOST): six.string_types[0],
                 v.Required('serverPort', default=DEFAULT_PORT): port_spec,
-                v.Optional('logLevel'): basestring,
+                v.Optional('logLevel'): six.string_types[0],
                 v.Required('debugMode', default=DEFAULT_DEBUG_MODE): bool,
                 v.Required('compressAssets',
                            default=DEFAULT_COMPRESS_ASSETS): bool

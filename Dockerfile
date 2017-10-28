@@ -73,6 +73,9 @@ RUN npm install
 # Set up Chrome webdriver for Protractor
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
+RUN npm install -g bower
+RUN bower --allow-root --quiet install -F
+
 ADD requirements.txt /code/requirements.txt
 ADD dev-requirements.txt /code/dev-requirements.txt
 
@@ -86,9 +89,6 @@ RUN pip uninstall -y watchdog
 
 RUN echo "Installed Python packages:"
 RUN pip freeze
-
-RUN npm install -g bower
-RUN bower --allow-root --quiet install -F
 
 ADD pytest.ini /code/pytest.ini
 ADD tox.ini /code/tox.ini
