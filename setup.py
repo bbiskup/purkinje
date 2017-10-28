@@ -7,7 +7,7 @@ changes = open('{0}/CHANGES.rst'.format(PY_METAPATH)).read()
 
 
 def parse_requirements():
-    with open('requirements.txt') as req:
+    with open('{0}/requirements/requirements.txt'.format(PY_METAPATH)) as req:
         return req.readlines()
 
 

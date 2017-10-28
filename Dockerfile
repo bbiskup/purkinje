@@ -61,11 +61,10 @@ RUN npm install
 # Set up Chrome webdriver for Protractor
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
-ADD meta/python/requirements/base.txt /code/requirements.txt
-ADD meta/python/requirements/dev-requirements.txt /code/dev-requirements.txt
+ADD meta/ /code/meta
 
 # Python
-RUN pip install -q --upgrade -r dev-requirements.txt --cache-dir $HOME/.pip-cache
+RUN pip install -q --upgrade -r meta/python/requirements/dev-requirements.txt --cache-dir $HOME/.pip-cache
 
 # Avoid Flask freezing
 # watchdog not compatible with gevent
