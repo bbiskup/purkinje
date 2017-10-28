@@ -11,24 +11,36 @@ ENV NODE_DIR=node-v6.2.0-linux-x64
 ENV NODE_ARCHIVE=$NODE_DIR.tar.xz
 ENV PATH=/opt/node/bin:$PATH
 
+RUN apt-get -q -y update && apt-get install -y wget
+
+# Install Google Chrome APT repository
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+
 RUN apt-get -q -y update && apt-get install -y \
+        dbus-x11 \
+        default-jre-headless \
         firefox \
         gcc \
+        git \
+        google-chrome-stable \
         libyaml-dev \
         make \
         python2.7 \
         python2.7-dev \
+        python3.5 \
+        python3.5-dev \
         software-properties-common \
         wget \
         xvfb \
         xz-utils \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Google Chrome
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-RUN apt-get update -q -yy && apt-get install -yy google-chrome-stable
-RUN google-chrome --version
+# To avoid chrome waiting for gnome keyring
+ENV DBUS_SESSION_BUS_ADDRESS /dev/null
+RUN dpkg -r libfolks-eds25 gnome-keyring seahorse gcr evolution-data-server oneconf python-ubuntuone-storageprotocol ubuntu-sso-client python-ubuntu-sso-client pinentry-gnome3
+
+# TODO remove git dependency when removing bower
 
 # Install node.js; use most recent version to have access to latest features
 WORKDIR /opt
@@ -75,8 +87,6 @@ RUN pip uninstall -y watchdog
 RUN echo "Installed Python packages:"
 RUN pip freeze
 
-# TODO remove git dependency when removing bower
-RUN apt-get update -q -yy && apt-get install -yy git
 RUN npm install -g bower
 RUN bower --allow-root --quiet install -F
 
@@ -99,13 +109,5 @@ ENV NODE_ARCHIVE ""
 ENV NODE_DIR ""
 
 ADD docker/purkinje.docker.yml purkinje.yml
-
-# For standalone selenium webdriver
-RUN apt-get install -y default-jre-headless
-
-# To avoid chrome waiting for gnome keyring
-RUN apt-get install -y dbus-x11
-ENV DBUS_SESSION_BUS_ADDRESS /dev/null
-RUN dpkg -r libfolks-eds25 gnome-keyring seahorse gcr evolution-data-server oneconf python-ubuntuone-storageprotocol ubuntu-sso-client python-ubuntu-sso-client pinentry-gnome3
 
 ENTRYPOINT ["purkinje", "-c", "purkinje.yml"]
