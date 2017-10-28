@@ -151,7 +151,7 @@ System Requirements
   - 2.7
   - 3.5
   - 3.6
-  - 3.7
+  - 3.7 (in development)
 - tested on Ubuntu 16.04
 - needs a modern browser that supports WebSockets
 - Python development packages (``python-dev`` on Ubuntu) are required to build the dependency ``gevent``.
