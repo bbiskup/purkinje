@@ -1,13 +1,15 @@
 from setuptools import setup
 
-PY_METAPATH = 'meta/python'
 
-readme = open('README.rst').read()
-changes = open('{0}/CHANGES.rst'.format(PY_METAPATH)).read()
+with open('README.rst') as f:
+    readme = f.read()
+
+with open('CHANGES.rst') as f:
+    changes = f.read()
 
 
 def parse_requirements():
-    with open('{0}/requirements/requirements.txt'.format(PY_METAPATH)) as req:
+    with open('requirements.txt') as req:
         return req.readlines()
 
 
