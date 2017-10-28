@@ -33,8 +33,6 @@ TODOs
 
 #) Code
 
-    - Python 3 support?
-
     - verify each JS file uses strict mode
 
     - set purkinje.__version__ and use it in setup.py
