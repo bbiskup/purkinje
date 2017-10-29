@@ -88,7 +88,7 @@ following contents:
 
 Launch it::
 
-    purkinje -f purkinje.yml
+    purkinje -c purkinje.yml
 
 or, without configuration file::
 
