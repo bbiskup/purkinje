@@ -15,7 +15,7 @@ TODOs
       - speech synthesis (Chrome only):
         - http://html5-examples.craic.com/google_chrome_text_to_speech.html
 
-    - drivers for other test frameworks (nose? golang? karma? ...)
+    - drivers for other test frameworks (unittest? nose? golang? karma? ...)
 
     - Configurable UI update frequency to avoid high load
 
@@ -28,8 +28,6 @@ TODOs
     - show badge with test coverage(of purkinje project) on github?
 
 #) Continuous integration
-
-    - Configure and activated coveralls
 
 #) Code
 
@@ -93,8 +91,6 @@ TODOs
 
 #) Deployment
 
-    - Docker container? (+ fig?)
-
     - Vagrant file?
 
 #) Publishing
@@ -122,14 +118,9 @@ TODOs
       - application config file: debug parameter to
         control minification
 
-    - Domain name?
-
     - nginx @ port 80; Demo under /purkinje_demo?
 
     - Minimal but sufficient documentation on how to configure py.test with purkinje
-
-    - Update requirements.txt flotsam purkinje*/pytest-purkinje dependencies to use
-      actual release versions
 
     - Should receive messages (test results) when not on dashboard page
 
@@ -137,18 +128,7 @@ TODOs
 Issues
 ======
 
-- Memory leak in Chrome:
-
-    becomes obvious when sending many
-    WebSocket messages to browser:
-
-    - only seems to go away when closing tab
-
-    - see Chrome dev tools(timeline and profiles / heap snapshot)
-
-    - still an issue?
 
 - Coverage reports for greenlets are incorrect(see https: // bitbucket.org / ned / coveragepy / issue / 149 / coverage -
   gevent - looks - broken)
 
-    - Option "concurrency = gevent" to coverage does no longer seem to exist
