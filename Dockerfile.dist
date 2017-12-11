@@ -7,7 +7,6 @@ FROM python:2.7-alpine
 MAINTAINER Bernhard Biskup <bbiskup@gmx.de>
 
 WORKDIR /code
-
 COPY ./dist /code/dist
 
 RUN apk add --update \
@@ -20,7 +19,7 @@ RUN apk add --update \
     && pip install dist/purkinje-*.tar.gz \
     && apk del build-base python-dev
 
-COPY purkinje.docker.yml /code/purkinje.yml
+COPY docker/purkinje.docker.yml /code/purkinje.yml
 
 EXPOSE 5000
 
