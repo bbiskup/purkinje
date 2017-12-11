@@ -19,7 +19,7 @@ RUN apk add --update \
     && pip install dist/purkinje-*.tar.gz \
     && apk del build-base python-dev
 
-COPY docker/purkinje.docker.yml /code/purkinje.yml
+COPY purkinje.docker.yml /code/purkinje.yml
 
 EXPOSE 5000
 
