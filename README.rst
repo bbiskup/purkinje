@@ -4,8 +4,6 @@ purkinje
 
 Test runner for py.test test framework with web GUI
 
-`Live Demo <http://lvps46-163-112-196.dedicated.hosteurope.de:5000/#/dashboard/>`_
-
 
 Build Status
 ============
