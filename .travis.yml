@@ -27,7 +27,7 @@ before_install:
     - docker pull bbiskup/purkinje_dev:latest || true
 
 install:
-    - make stack-up
+    - make stack-up 2>&1 > stack-up.log
 
 # before_script:
 
