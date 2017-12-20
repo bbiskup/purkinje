@@ -6,7 +6,7 @@ stack-up: build-docker
 	docker-compose up -d
 
 bower-install:
-	./dockercmd.sh bower --allow-root install -F
+	./dockercmd.sh bower --allow-root install -F > bower.log
 
 build-dist:
 	./dockercmd.sh docker build -f Dockerfile.dist -t purkinje_dist .
