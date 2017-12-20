@@ -74,7 +74,7 @@ RUN npm install
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
 RUN npm install -g bower
-RUN bower --allow-root --quiet install -F 2>&1 bower.log
+RUN bower --allow-root --quiet install -F 2>&1 > bower.log
 
 ADD requirements.txt /code/requirements.txt
 ADD dev-requirements.txt /code/dev-requirements.txt
