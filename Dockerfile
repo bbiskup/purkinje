@@ -71,6 +71,7 @@ ADD .bowerrc /code/.bowerrc
 RUN npm install
 
 # Set up Chrome webdriver for Protractor
+RUN echo 1 > cache_bust.txt  # force layer invalidation
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
 RUN npm install -g bower
