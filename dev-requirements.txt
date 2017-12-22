@@ -6,6 +6,7 @@ flake8==3.3.0
 mock==2.0.0
 pep8==1.7.0
 pylint==1.6.4
+pluggy==0.6
 pytest-cache==1.0
 pytest-capturelog==0.7
 pytest-cov==2.3.1
@@ -14,7 +15,7 @@ pytest-pep8==1.0.6
 restructuredtext-lint==0.17.0
 sphinx-autobuild==0.6.0
 sphinx-bootstrap-theme==0.4.12
-tox==2.3.1
+tox==2.9.1
 
 # Sphinx 1.4.5 cannot be used due to issue
 #   https://github.com/privacyidea/privacyidea/issues/467
