@@ -36,7 +36,7 @@ test-pytest:
 	./dockercmd.sh py.test
 
 test-flake8:
-	./dockercmd.sh  'flake8 --ignore=E402 --exclude=venv --exclude=node_modules --exclude=.tox --max-complexity=10 .'
+	./dockercmd.sh  'flake8 --ignore=E402 --exclude=venv,node_modules,.tox --max-complexity=10 .'
 
 test-tox:
 	./dockercmd.sh tox
