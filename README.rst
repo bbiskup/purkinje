@@ -150,7 +150,7 @@ System Requirements
   - 2.7
   - 3.5
   - 3.6
-  - 3.7 (in development)
+  - Note: Python 3.7 is currently unsupported because PyYAML is does not support 3.7.
 - tested on Ubuntu 16.04
 - needs a modern browser that supports WebSockets
 - Python development packages (``python-dev`` on Ubuntu) are required to build the dependency ``gevent``.
