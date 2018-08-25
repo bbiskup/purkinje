@@ -13,6 +13,8 @@ ENV PATH=/opt/node/bin:$PATH
 
 RUN apt-get -q -y update && apt-get install -y wget
 
+
+RUN echo 1 > cache_bust.txt
 # Install Google Chrome APT repository
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
@@ -72,7 +74,7 @@ RUN npm install
 
 # Set up Chrome webdriver for Protractor
 RUN echo 1 > cache_bust.txt  # force layer invalidation
-RUN ./node_modules/protractor/bin/webdriver-manager update
+RUN ./node_modules/protractor/bin/webdriver-manager update --standalone
 
 RUN npm install -g bower
 RUN bower --allow-root --quiet install -F 2>&1 > bower.log

@@ -15,7 +15,7 @@ test-js-karma:
 	./dockercmd.sh "Xvfb :0 -screen 0 1280x1024x16 & sleep 2 && DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma start --single-run --browsers=Firefox,Chrome_custom ; pkill Xvfb; pkill chrome || true"
 
 test-js-protractor:
-	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 && export DISPLAY=:0 ; ./node_modules/protractor/bin/webdriver-manager start  &> webdriver.log & sleep 15; npm test"
+	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 && export DISPLAY=:0 ; ./node_modules/protractor/bin/webdriver-manager start  --standalone &> webdriver.log & sleep 15; npm test"
 
 test-js-karma-continuous:
 	./dockercmd.sh "Xvfb :0 -extension RANDR -noreset -ac  -screen 0 1280x1024x16 & sleep 2 && DISPLAY=:0 LANG=en ./node_modules/karma/bin/karma --browsers=Chrome start"
