@@ -26,7 +26,7 @@ import copy
 import gevent.queue as gq
 from geventwebsocket import WebSocketError
 from flask import Flask, render_template, request, redirect, jsonify
-from flask.ext.compress import Compress
+from flask_compress import Compress
 
 if six.PY3:
     from purkinje.assets import register_assets
