@@ -46,7 +46,7 @@ try:
     print('WARNING: Package "watchdog" detected;'
           ' will cause Flask reloader to freeze')
     print('#' * 79)
-except ImportError as e:
+except ImportError:
     pass
 
 app = Flask(__name__)
